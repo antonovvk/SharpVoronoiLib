@@ -86,5 +86,13 @@ namespace VoronoiLib.Structures
             Slope = SlopeRise/SlopeRun;
             Intercept = start.Y - Slope*start.X;
         }
+
+
+#if DEBUG
+        public override string ToString()
+        {
+            return Start + "->" + End;
+        }
+#endif
     }
 }

@@ -10,5 +10,13 @@
             X = x;
             Y = y;
         }
+        
+        
+#if DEBUG
+        public override string ToString()
+        {
+            return "(" + X.ToString("F3") + "," + Y.ToString("F3") + ")";
+        }
+#endif
     }
 }

@@ -118,5 +118,13 @@ namespace VoronoiLib.Structures
             Cell.Add(value);
             _points = null;
         }
+        
+        
+#if DEBUG
+        public override string ToString()
+        {
+            return "(" + X.ToString("F3") + "," + Y.ToString("F3") + ")";
+        }
+#endif
     }
 }
