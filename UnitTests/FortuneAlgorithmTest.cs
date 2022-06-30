@@ -1,3 +1,5 @@
+//#define BRUTE_FORCE_TEST
+
 using NUnit.Framework;
 using System.Collections.Generic;
 using VoronoiLib;
@@ -682,6 +684,48 @@ namespace UnitTests
             Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
         }
 
+#if BRUTE_FORCE_TEST
+        /// <summary>
+        /// Ideally, we don't want to run this because it's random and not repeatable.
+        /// </summary>
+        [Test]
+        public void RandomPointBruteforce()
+        {
+            Random random = new Random();
+            
+            for (int i = 0; i < 1000; i++)
+            {
+                int count = 100 + random.Next(100);
+        
+                List<FortuneSite> points = new List<FortuneSite>(count);
+        
+                for (int j = 0; j < count; j++)
+                {
+                    points.Add(new FortuneSite(random.NextDouble() * 600, random.NextDouble() * 600));
+        
+                }
+        
+                List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+        
+                CollectionAssert.AllItemsAreNotNull(edges);
+                
+                foreach (FortuneSite point in points)
+                {
+                    Assert.NotNull(point.Cell);
+                    CollectionAssert.IsNotEmpty(point.Cell);
+                    CollectionAssert.AllItemsAreNotNull(point.Cell);
+                    foreach (VEdge edge in point.Cell)
+                    {
+                        CollectionAssert.Contains(edges, edge);
+                        Assert.NotNull(edge.Left);
+                        Assert.NotNull(edge.Right);
+                    }
+                }
+            }
+            
+            Assert.Pass();
+        }
+#endif
 
         private static bool AnyEdgeBetween(IEnumerable<VEdge> edges, double x1, double y1, double x2, double y2)
         {
