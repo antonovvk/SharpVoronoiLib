@@ -1,4 +1,6 @@
-﻿namespace VoronoiLib.Structures
+﻿using System.Collections.Generic;
+
+namespace VoronoiLib.Structures
 {
     public class VEdge
     {
@@ -16,6 +18,45 @@
                     _mid = new VPoint((Start.X + End.X) / 2, (Start.Y + End.Y) / 2);
                 
                 return _mid;
+            }
+        }
+        
+        private List<VEdge> _neighbours;
+        public List<VEdge> Neighbours
+        {
+            get
+            {
+                if (_neighbours == null)
+                {
+                    _neighbours = new List<VEdge>();
+
+                    if (Left != null)
+                    {
+                        List<VEdge> leftPointCell = Left.Cell;
+
+                        foreach (VEdge edge in leftPointCell)
+                            if (edge != this) // one of its edges is us by definition
+                                if (edge.Start == Start || edge.End == End || edge.Start == End || edge.End == Start)
+                                    _neighbours.Add(edge);
+                    }
+
+                    if (Right != null)
+                    {
+                        List<VEdge> rightPointCell = Right.Cell;
+
+                        foreach (VEdge edge in rightPointCell)
+                            if (edge != this) // one of its edges is us by definition
+                                if (edge.Start == Start || edge.End == End || edge.Start == End || edge.End == Start)
+                                    _neighbours.Add(edge);
+                    }
+                    
+                    // Note that this only works when assuming that edge end points can have 2 neighbours,
+                    // that is, 4+ equidistant points actually create an additional 0-length edge.
+                    // And this is indeed how the algorithm works at the moment.
+                    // This makes this neighbour lookup simpler (one doesn't need to recursively "walk around" the edge end point).
+                }
+
+                return _neighbours;
             }
         }
         
