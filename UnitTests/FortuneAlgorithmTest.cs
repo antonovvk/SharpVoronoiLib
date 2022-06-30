@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using VoronoiLib;
 using VoronoiLib.Structures;
 using System.Linq;
+using System;
 
 namespace UnitTests
 {
@@ -148,6 +149,71 @@ namespace UnitTests
             // And this is the 0-length edge
             Assert.AreEqual(edges[1], points[0].Cell[0]);
             Assert.AreEqual(edges[1], points[2].Cell[1]);
+        }
+
+        [Test]
+        public void FourSitesSurroundingASite()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(300, 300), // 1
+                new FortuneSite(200, 300), // 2
+                new FortuneSite(300, 400), // 3
+                new FortuneSite(300, 200), // 4
+                new FortuneSite(400, 300) // 5
+            };
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            //     
+            // 600 E                                   H
+            //     |\                                 /
+            // 500 |    \                         /
+            //     |        \                 /
+            // 400 |            \    3    /
+            //     |              A-----D
+            // 300 |           2  |  1  |  5
+            //     |              B-----C
+            // 200 |            /    4    \
+            //     |        /                 \
+            // 100 |    /                         \
+            //     |/                                 \
+            //   0 F-----------------------------------G
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(8, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 250, 250)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 350, 250)); // B-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 350, 350)); // C-D
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 250, 350)); // D-A
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-E
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
+
+            // The above fails; the actual output is:
+            // (600,600)->(600,600) ---- this is totally wrong, was expecting D-H
+            // (0,600)->(0,600) ---- this is totally wrong, was expecting A-E
+            // (350,350)->(250,350)
+            // (350,250)->(350,350)
+            // (250,250)->(250,350)
+            // (600,0)->(350,250)
+            // (350,250)->(250,250)
+            // (250,250)->(0,0)
+        }
+
+
+        private static bool AnyEdgeBetween(IEnumerable<VEdge> edges, double x1, double y1, double x2, double y2)
+        {
+            return edges.Any(
+                e => 
+                    e.Start.X == x1 && e.Start.Y == y1 && e.End.X == x2 && e.End.Y == y2 ||
+                    e.Start.X == x2 && e.Start.Y == y2 && e.End.X == x1 && e.End.Y == y1
+            );
         }
     }
 }

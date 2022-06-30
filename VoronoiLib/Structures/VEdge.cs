@@ -93,6 +93,11 @@ namespace VoronoiLib.Structures
         {
             return Start + "->" + End;
         }
+        
+        public string ToString(string format)
+        {
+            return Start.ToString(format) + "->" + End.ToString(format);
+        }
 #endif
     }
 }

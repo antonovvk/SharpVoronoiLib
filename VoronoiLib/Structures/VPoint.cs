@@ -17,6 +17,11 @@
         {
             return "(" + X.ToString("F3") + "," + Y.ToString("F3") + ")";
         }
+        
+        public string ToString(string format)
+        {
+            return "(" + X.ToString(format) + "," + Y.ToString(format) + ")";
+        }
 #endif
     }
 }
