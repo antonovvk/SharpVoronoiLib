@@ -41,10 +41,25 @@ namespace VoronoiLib.Structures
                         // Note that the order of .Start and .End is not guaranteed in VEdge,
                         // so we couldn't simply only add either .Start or .End, this would skip and duplicate points
                     }
-                    _points.Sort(new Comparison<VPoint>(SortCornersClockwise));
+                    _points.Sort(SortPointsClockwise);
                 }
 
                 return _points;
+            }
+        }
+        
+        private List<VEdge> _clockwiseCell;
+        public List<VEdge> ClockwiseCell
+        {
+            get
+            {
+                if (_clockwiseCell == null)
+                {
+                    _clockwiseCell = new List<VEdge>(Cell);
+                    _clockwiseCell.Sort(SortEdgesClockwise);
+                }
+
+                return _clockwiseCell;
             }
         }
 
@@ -68,7 +83,17 @@ namespace VoronoiLib.Structures
             return result;
         }
 
-        public int SortCornersClockwise(VPoint A, VPoint B)
+        private int SortEdgesClockwise(VEdge A, VEdge B)
+        {
+            return SortPointsClockwise(A.Mid, B.Mid);
+            
+            // Note that we use edge midpoint because the order of .Start and .End is not guaranteed.
+            // If we used Start or End, we would sometimes end up checking the same point/coordinate where the edges connect.
+            // A midpoint, however, guarantees each edge has a unique position for the comparison.
+            // (Technically, any point along the edge that isn't the start/end will do, but midpoint is just the simplest).
+        }
+
+        private int SortPointsClockwise(VPoint A, VPoint B)
         {
             // based on: https://social.msdn.microsoft.com/Forums/en-US/c4c0ce02-bbd0-46e7-aaa0-df85a3408c61/sorting-list-of-xy-coordinates-clockwise-sort-works-if-list-is-unsorted-but-fails-if-list-is?forum=csharplanguage
 

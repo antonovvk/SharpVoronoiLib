@@ -7,6 +7,18 @@
         public FortuneSite Left { get; }
         public FortuneSite Right { get; }
         
+        private VPoint _mid;
+        public VPoint Mid
+        {
+            get
+            {
+                if (_mid == null)
+                    _mid = new VPoint((Start.X + End.X) / 2, (Start.Y + End.Y) / 2);
+                
+                return _mid;
+            }
+        }
+        
         internal double SlopeRise { get; }
         internal double SlopeRun { get; }
         internal double? Slope { get; }
