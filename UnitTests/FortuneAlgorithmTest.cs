@@ -96,10 +96,13 @@ namespace UnitTests
             Assert.IsNull(edge.Next);
         }
 
+        /// <summary>
+        /// Special test that is more like an explanation of what to expect with this case.
+        /// </summary>
         [Test]
-        public void FortuneFourEquidistantPoints()
+        public void FourEquidistantPoints()
         {
-            var points = new List<FortuneSite>
+            List<FortuneSite> points = new List<FortuneSite>
             {
                 new FortuneSite(200, 200),
                 new FortuneSite(200, 400),
@@ -152,7 +155,522 @@ namespace UnitTests
         }
 
         [Test]
-        public void FourSitesSurroundingASite()
+        public void NoPoints()
+        {
+            List<FortuneSite> points = new List<FortuneSite>();
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            Assert.AreEqual(0, edges.Count);
+        }
+
+        [Test]
+        public void OnePoint()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(300, 300)
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            Assert.AreEqual(0, edges.Count);
+        }
+
+        [Test]
+        public void TwoPointsHorizontal()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(300, 200), // 1
+                new FortuneSite(300, 400) // 2
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 ^ 
+            //     | 
+            // 500 | 
+            //     | 
+            // 400 |                 2
+            //     | 
+            // 300 A-----------------------------------B
+            //     | 
+            // 200 |                 1
+            //     | 
+            // 100 | 
+            //     | 
+            //   0 +----------------------------------->
+            //     0    100   200   300   400   500   600
+
+            Assert.AreEqual(1, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
+        }
+
+        [Test]
+        public void TwoPointsVertical()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(200, 300), // 1
+                new FortuneSite(400, 300) // 2
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            // 600 ^                 B 
+            //     |                 | 
+            // 500 |                 | 
+            //     |                 | 
+            // 400 |                 |
+            //     |                 | 
+            // 300 |           1     |     2
+            //     |                 | 
+            // 200 |                 |
+            //     |                 | 
+            // 100 |                 | 
+            //     |                 | 
+            //   0 +-----------------A----------------->
+            //     0    100   200   300   400   500   600
+
+            Assert.AreEqual(1, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
+        }
+
+        [Test]
+        public void TwoPointsDiagonalForward()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(150, 150), // 1
+                new FortuneSite(450, 450) // 2
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 A                                    
+            //     |\                                  
+            // 500 |    \                          
+            //     |       \                  2
+            // 400 |          \          
+            //     |              \    
+            // 300 |                 \      
+            //     |                    \
+            // 200 |                        \
+            //     |        1                  \
+            // 100 |                              \
+            //     |                                  \
+            //   0 +-----------------------------------B
+            //     0    100   200   300   400   500   600
+
+            Assert.AreEqual(1, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
+        }
+
+        [Test]
+        public void TwoPointsDiagonalBackward()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(450, 150), // 1
+                new FortuneSite(150, 450) // 2
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 ^                                   B 
+            //     |                                 /    
+            // 500 |                              /   
+            //     |        1                  /
+            // 400 |                        /
+            //     |                    /
+            // 300 |                 /      
+            //     |              /      
+            // 200 |          /              
+            //     |       /                  2 
+            // 100 |    /                          
+            //     | /                                 
+            //   0 A----------------------------------->
+            //     0    100   200   300   400   500   600
+
+            Assert.AreEqual(1, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
+        }
+
+        [Test]
+        public void ThreePointsInAWedgeNE()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(300, 300), // 1
+                new FortuneSite(300, 400), // 2
+                new FortuneSite(400, 300) // 3
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 ^                                   B
+            //     |                                  /
+            // 500 |                              /
+            //     |                           /
+            // 400 |                 2     /
+            //     C--------------------A
+            // 300 |                 1  |  3
+            //     |                    |
+            // 200 |                    |
+            //     |                    |
+            // 100 |                    |
+            //     |                    |
+            //   0 +--------------------D-------------->
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(3, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 600, 600)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
+
+            // The above fails; the actual output is:
+            // (600,600)->(600,600) --- wrong
+            // (350,350)->(0,350)
+            // (350,0)->(350,350)
+        }
+
+        [Test]
+        public void ThreePointsInAWedgeNW()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(200, 300), // 1
+                new FortuneSite(300, 400), // 2
+                new FortuneSite(300, 300) // 3
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 B                       
+            //     |  \                     
+            // 500 |     \                      
+            //     |        \            
+            // 400 |           \     2
+            //     |              A--------------------C
+            // 300 |           1  |  3
+            //     |              |
+            // 200 |              |
+            //     |              |
+            // 100 |              |
+            //     |              |
+            //   0 +--------------D-------------------->
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(3, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
+
+            // The above fails; the actual output is:
+            // (0,600)->(0,600) -- wrong
+            // (600,350)->(250,350)
+            // (250,0)->(250,350)
+        }
+
+        [Test]
+        public void ThreePointsInAWedgeSW()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(200, 300), // 1
+                new FortuneSite(300, 300), // 2
+                new FortuneSite(300, 200) // 3
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 ^              D
+            //     |              |
+            // 500 |              |         
+            //     |              |         
+            // 400 |              |             
+            //     |              |      
+            // 300 |           1  |  2
+            //     |              A--------------------C
+            // 200 |           /     3
+            //     |        /     
+            // 100 |     /       
+            //     |  /         
+            //   0 B----------------------------------->
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(3, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 000, 000)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
+        }
+
+        [Test]
+        public void ThreePointsInAWedgeSE()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(300, 200), // 1
+                new FortuneSite(300, 300), // 2
+                new FortuneSite(400, 300) // 3
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 ^                    C
+            //     |                    |
+            // 500 |                    |
+            //     |                    |
+            // 400 |                    |
+            //     |                    |
+            // 300 |                 2  |  3
+            //     D--------------------A 
+            // 200 |                 1     \ 
+            //     |                          \
+            // 100 |                             \
+            //     |                                \
+            //   0 +-----------------------------------B
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(3, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D         
+        }
+
+        [Test]
+        public void ThreePointsInAWedgeS()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(200, 300), // 1
+                new FortuneSite(300, 400), // 2
+                new FortuneSite(400, 300) // 3
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 B                                   D
+            //     |\                                 /
+            // 500 |    \                         /
+            //     |        \                 /
+            // 400 |            \    2    /
+            //     |               \   /
+            // 300 |           1     A     3
+            //     |                 |  
+            // 200 |                 |     
+            //     |                 |         
+            // 100 |                 |             
+            //     |                 |                 
+            //   0 +-----------------C----------------->
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(3, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+
+            // The above fails; the actual output is:
+            // (600,600)->(600,600)
+            // (0,600)->(0,600) -- wrong
+            // (300,0)->(300,300)
+        }
+
+        [Test]
+        public void ThreePointsInAWedgeN()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(200, 300), // 1
+                new FortuneSite(300, 200), // 2
+                new FortuneSite(400, 300) // 3
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 ^                 B
+            //     |                 |
+            // 500 |                 |
+            //     |                 |
+            // 400 |                 |
+            //     |                 |
+            // 300 |           1     A     3
+            //     |               /   \
+            // 200 |            /    2    \
+            //     |        /                 \
+            // 100 |    /                         \
+            //     |/                                 \
+            //   0 C-----------------------------------D
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(3, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 300, 600)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
+        }
+
+        [Test]
+        public void ThreePointsInAWedgeE()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(200, 300), // 1
+                new FortuneSite(300, 400), // 2
+                new FortuneSite(300, 200) // 3
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 B                  
+            //     |\                 
+            // 500 |    \             
+            //     |        \         
+            // 400 |            \    2
+            //     |               \  
+            // 300 |           1     A-----------------D
+            //     |               /   
+            // 200 |            /    3 
+            //     |        /          
+            // 100 |    /              
+            //     |/                  
+            //   0 C----------------------------------->
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(3, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
+
+            // The above fails; the actual output is:
+            // (300,300)->(600,300)
+            // (0,600)->(0,600) -- wrong
+            // (300,300)->(0,0)
+        }
+
+        [Test]
+        public void ThreePointsInAWedgeW()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(300, 400), // 1
+                new FortuneSite(400, 300), // 2
+                new FortuneSite(300, 200) // 3
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 ^                                   D
+            //     |                                  /
+            // 500 |                              /
+            //     |                          /
+            // 400 |                 1    /
+            //     |                   /
+            // 300 B-----------------A     2
+            //     |                   \
+            // 200 |                 3    \
+            //     |                          \
+            // 100 |                              \
+            //     |                                  \
+            //   0 +-----------------------------------C
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(3, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 300)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+
+            // The above fails; the actual output is:
+            // (600,600)->(600,600) -- wrong
+            // (300,300)->(0,300)
+            // (600,0)->(300,300)
+        }
+
+        [Test]
+        public void FourPointsInASquare()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(200, 300), // 1
+                new FortuneSite(300, 400), // 2
+                new FortuneSite(300, 200), // 3
+                new FortuneSite(400, 300) // 4
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            // 600 B                                   E
+            //     |\                                 /
+            // 500 |    \                         /
+            //     |        \                 /
+            // 400 |            \    2    /
+            //     |               \   /
+            // 300 |           1     A     4
+            //     |               /   \
+            // 200 |            /    3    \
+            //     |        /                 \
+            // 100 |    /                         \
+            //     |/                                 \
+            //   0 C-----------------------------------D
+            //     0    100   200   300   400   500   600
+
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+
+            Assert.AreEqual(5, edges.Count);
+
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-E
+            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
+
+            // The above fails; the actual output is:
+            // (600,600)->(600,600) --- wrong
+            // (0,600)->(0,600) --- wrong
+            // (300,300)->(300,300)
+            // (600,0)->(300,300)
+            // (300,300)->(0,0)
+        }
+
+        [Test]
+        public void FourPointsSurroundingASite()
         {
             List<FortuneSite> points = new List<FortuneSite>
             {
@@ -162,9 +680,9 @@ namespace UnitTests
                 new FortuneSite(300, 200), // 4
                 new FortuneSite(400, 300) // 5
             };
+
             List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
 
-            //     
             // 600 E                                   H
             //     |\                                 /
             // 500 |    \                         /
@@ -196,8 +714,8 @@ namespace UnitTests
             Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
 
             // The above fails; the actual output is:
-            // (600,600)->(600,600) ---- this is totally wrong, was expecting D-H
-            // (0,600)->(0,600) ---- this is totally wrong, was expecting A-E
+            // (600,600)->(600,600) ---- wrong
+            // (0,600)->(0,600) ---- wrong
             // (350,350)->(250,350)
             // (350,250)->(350,350)
             // (250,250)->(250,350)
