@@ -234,21 +234,45 @@ namespace VoronoiLib
             //works for outside
             Debug.Assert(edge.Slope != null, "edge.Slope != null");
             Debug.Assert(edge.Intercept != null, "edge.Intercept != null");
+            
             var topX = new VPoint(CalcX(edge.Slope.Value, maxY, edge.Intercept.Value), maxY);
+            var rightY = new VPoint(maxX, CalcY(edge.Slope.Value, maxX, edge.Intercept.Value));
             var bottomX = new VPoint(CalcX(edge.Slope.Value, minY, edge.Intercept.Value), minY);
             var leftY = new VPoint(minX, CalcY(edge.Slope.Value, minX, edge.Intercept.Value));
-            var rightY = new VPoint(maxX, CalcY(edge.Slope.Value, maxX, edge.Intercept.Value));
 
+            // Note: these points may be duplicates if the ray goes through a border corner,
+            // so we have to check for repeats when building the candidate list below.
+            // We can optimize slightly since we are adding them one at a time and only "neighbouring" points can be the same,
+            // e.g. topX and rightY can but not topX and bottomX.
+            
             //reject intersections not within bounds
+            
             var candidates = new List<VPoint>();
-            if (Within(topX.X, minX, maxX))
+
+            bool withinTopX = Within(topX.X, minX, maxX);
+            bool withinRightY = Within(rightY.Y, minY, maxY);
+            bool withinBottomX = Within(bottomX.X, minX, maxX);
+            bool withinLeftY = Within(leftY.Y, minY, maxY);
+
+            if (withinTopX)
                 candidates.Add(topX);
-            if (Within(bottomX.X, minX, maxX))
-                candidates.Add(bottomX);
-            if (Within(leftY.Y, minY, maxY))
-                candidates.Add(leftY);
-            if (Within(rightY.Y, minY, maxY))
-                candidates.Add(rightY);
+
+            if (withinRightY)
+                if (!withinTopX || !rightY.ApproxEqual(topX))
+                    candidates.Add(rightY);
+
+            if (withinBottomX)
+                if (!withinRightY || !bottomX.ApproxEqual(rightY))
+                    candidates.Add(bottomX);
+
+            if (withinLeftY)
+                if (!withinTopX || !leftY.ApproxEqual(topX))
+                    if (!withinBottomX || !leftY.ApproxEqual(bottomX))
+                        candidates.Add(leftY);
+
+            // This also works as a condition above, but is slower and checks against redundant values
+            // if (candidates.All(c => !c.X.ApproxEqual(leftY.X) || !c.Y.ApproxEqual(leftY.Y)))
+            
 
             //reject candidates which don't align with the slope
             for (var i = candidates.Count - 1; i > -1; i--)
