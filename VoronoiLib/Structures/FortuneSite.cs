@@ -32,8 +32,14 @@ namespace VoronoiLib.Structures
 
                     foreach (var edge in Cell)
                     {
-                        _points.Add(edge.Start);
-                        _points.Add(edge.End);
+                        if (!_points.Contains(edge.Start))
+                            _points.Add(edge.Start);
+                        
+                        if (!_points.Contains(edge.End))
+                            _points.Add(edge.End);
+                        
+                        // Note that the order of .Start and .End is not guaranteed in VEdge,
+                        // so we couldn't simply only add either .Start or .End, this would skip and duplicate points
                     }
                     _points.Sort(new Comparison<VPoint>(SortCornersClockwise));
                 }
