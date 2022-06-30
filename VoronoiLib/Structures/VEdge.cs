@@ -6,13 +6,13 @@
         public VPoint End { get; internal set; }
         public FortuneSite Left { get; }
         public FortuneSite Right { get; }
+        
         internal double SlopeRise { get; }
         internal double SlopeRun { get; }
         internal double? Slope { get; }
         internal double? Intercept { get; }
-
-        public VEdge Neighbor { get; internal set; }
-
+        internal VEdge Neighbor { get; set; }
+        
         internal VEdge(VPoint start, FortuneSite left, FortuneSite right)
         {
             Start = start;
