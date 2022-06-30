@@ -91,12 +91,12 @@ namespace VoronoiLib.Structures
 #if DEBUG
         public override string ToString()
         {
-            return Start + "->" + End;
+            return (Start?.ToString() ?? "NONE") + "->" + (End?.ToString() ?? "NONE");
         }
         
         public string ToString(string format)
         {
-            return Start.ToString(format) + "->" + End.ToString(format);
+            return (Start?.ToString(format) ?? "NONE") + "->" + (End?.ToString(format) ?? "NONE");
         }
 #endif
     }
