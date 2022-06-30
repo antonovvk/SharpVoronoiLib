@@ -165,7 +165,7 @@ namespace UnitTests
         public void TestRemove()
         {
             var tree = new RBTree<int>();
-            for (var i = 0; i < 500; i++)
+            for (var i = 0; i < 50; i++)
             {
                 tree.InsertSuccessor(RBTree<int>.GetLast(tree.Root), i);
                 for (var j = 0; j <= i; j++)
