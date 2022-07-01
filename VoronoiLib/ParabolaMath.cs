@@ -28,7 +28,7 @@ namespace VoronoiLib
                    )
                   )/(focus1Y - focus2Y);
         }
-
+        
         public static bool ApproxEqual(this double value1, double value2)
         {
             return Math.Abs(value1 - value2) <= EPSILON;
@@ -36,12 +36,12 @@ namespace VoronoiLib
 
         public static bool ApproxGreaterThanOrEqualTo(this double value1, double value2)
         {
-            return value1 > value2 || value1.ApproxEqual(value2);
+            return value2 - value1 < EPSILON;
         }
 
         public static bool ApproxLessThanOrEqualTo(this double value1, double value2)
         {
-            return value1 < value2 || value1.ApproxEqual(value2);
+            return value1 - value2 < EPSILON;
         }
     }
 }
