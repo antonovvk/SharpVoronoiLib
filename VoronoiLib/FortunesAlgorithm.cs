@@ -420,43 +420,58 @@ namespace VoronoiLib
                 lastEdgeNode = febn;
 
             if (lastEdgeNode == null)
+            {
                 foreach (BorderNode node in nodes.Reverse())
+                {
                     if (node is EdgeBorderNode rebn)
+                    {
                         lastEdgeNode = rebn;
+                        break;
+                    }
+                }
+            }
 
-            BorderNode node2 = null;
+            Debug.Assert(lastEdgeNode != null, "Expecting edge to intersect (at least 2) borders");
+
+            BorderNode node2 = null; // i.e. last node
             
             foreach (BorderNode node in nodes)
             {
                 BorderNode node1 = node2;
                 node2 = node;
 
-                if (node1 == null)
-                    continue; // skip this node and move to next one, because we need 2 nodes to process
-                
-                edges.AddLast(
-                    new VEdge(
-                        node1.Point, 
-                        node2.Point, 
-                        lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left, 
-                        null // we are building these clockwise, so by definition the right side is out of bounds
-                    )
-                );
+                if (node1 == null) // i.e. node == nodes.Min
+                    continue; // we are looking at first node, we will start from Min and next one
 
+                FortuneSite site = lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left;
+
+                VEdge newEdge = new VEdge(
+                    node1.Point, 
+                    node2.Point, 
+                    null, // we are building these clockwise, so by definition the left side is out of bounds
+                    site
+                );
+                
+                edges.AddLast(newEdge);
+                
+                site.Cell.Add(newEdge);
+                
                 if (node is EdgeBorderNode cebn)
                     lastEdgeNode = cebn;
             }
-            
-            edges.AddLast(
-                new VEdge(
-                    nodes.Max.Point,
-                    nodes.Min.Point, 
-                    lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left, 
-                    null // we are building these clockwise, so by definition the right side is out of bounds
-                )
+
+            FortuneSite finalSite = lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left;
+
+            VEdge finalEdge = new VEdge(
+                nodes.Max.Point,
+                nodes.Min.Point, 
+                null, // we are building these clockwise, so by definition the left side is out of bounds
+                finalSite
             );
             
-            // TODO: ADD NEW EDGES TO SITE CELL
+            edges.AddLast(finalEdge);
+            
+            finalSite.Cell.Add(finalEdge);
         }
 
         private abstract class BorderNode
