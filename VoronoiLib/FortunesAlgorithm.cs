@@ -156,7 +156,7 @@ namespace VoronoiLib
             else if (x > maxX)
                 code |= 0x2;
 
-            if (y.ApproxEqual(minY) || x.ApproxEqual(maxY))
+            if (y.ApproxEqual(minY) || y.ApproxEqual(maxY))
             { }
             else if (y < minY)
                 code |= 0x4;
