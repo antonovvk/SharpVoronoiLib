@@ -900,13 +900,13 @@ namespace UnitTests
         }
 #endif
 
-        private static bool AnyEdgeBetween(IEnumerable<VEdge> edges, double x1, double y1, double x2, double y2)
+        internal static bool AnyEdgeBetween(IEnumerable<VEdge> edges, double x1, double y1, double x2, double y2)
         {
             return edges.Any(
                 e =>
                     e.Start != null && e.End != null &&
-                    e.Start.X == x1 && e.Start.Y == y1 && e.End.X == x2 && e.End.Y == y2 ||
-                    e.Start.X == x2 && e.Start.Y == y2 && e.End.X == x1 && e.End.Y == y1
+                    e.Start.X.ApproxEqual(x1) && e.Start.Y.ApproxEqual(y1) && e.End.X.ApproxEqual(x2) && e.End.Y.ApproxEqual(y2) ||
+                    e.Start.X.ApproxEqual(x2) && e.Start.Y.ApproxEqual(y2) && e.End.X.ApproxEqual(x1) && e.End.Y.ApproxEqual(y1)
             );
         }
     }

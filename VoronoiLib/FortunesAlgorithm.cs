@@ -115,12 +115,12 @@ namespace VoronoiLib
 
                     if (outcode == start)
                     {
-                        edge.Start = new VPoint(x, y);
+                        edge.Start = new VPoint(x, y, true);
                         start = ComputeOutCode(x, y, minX, minY, maxX, maxY);
                     }
                     else
                     {
-                        edge.End = new VPoint(x, y);
+                        edge.End = new VPoint(x, y, true);
                         end = ComputeOutCode(x, y, minX, minY, maxX, maxY);
                     }
                 }
@@ -191,21 +191,21 @@ namespace VoronoiLib
                 if (Within(start.X, minX, maxX))
                 {
                     if (edge.SlopeRun > 0)
-                        edge.End = new VPoint(maxX, start.Y);
+                        edge.End = new VPoint(maxX, start.Y, true);
                     else
-                        edge.End = new VPoint(minX, start.Y);
+                        edge.End = new VPoint(minX, start.Y, true);
                 }
                 else
                 {
                     if (edge.SlopeRun > 0)
                     {
-                        edge.Start = new VPoint(minX, start.Y);
-                        edge.End = new VPoint(maxX, start.Y);
+                        edge.Start = new VPoint(minX, start.Y, true);
+                        edge.End = new VPoint(maxX, start.Y, true);
                     }
                     else
                     {
-                        edge.Start = new VPoint(maxX, start.Y);
-                        edge.End = new VPoint(minX, start.Y);
+                        edge.Start = new VPoint(maxX, start.Y, true);
+                        edge.End = new VPoint(minX, start.Y, true);
                     }
                 }
                 return true;
@@ -222,21 +222,21 @@ namespace VoronoiLib
                 if (Within(start.Y, minY, maxY))
                 {
                     if (edge.SlopeRise > 0)
-                        edge.End = new VPoint(start.X, maxY);
+                        edge.End = new VPoint(start.X, maxY, true);
                     else
-                        edge.End = new VPoint(start.X, minY);
+                        edge.End = new VPoint(start.X, minY, true);
                 }
                 else
                 {
                     if (edge.SlopeRise > 0)
                     {
-                        edge.Start = new VPoint(start.X, minY);
-                        edge.End = new VPoint(start.X, maxY);
+                        edge.Start = new VPoint(start.X, minY, true);
+                        edge.End = new VPoint(start.X, maxY, true);
                     }
                     else
                     {
-                        edge.Start = new VPoint(start.X, maxY);
-                        edge.End = new VPoint(start.X, minY);
+                        edge.Start = new VPoint(start.X, maxY, true);
+                        edge.End = new VPoint(start.X, minY, true);
                     }
                 }
                 return true;
@@ -246,10 +246,10 @@ namespace VoronoiLib
             Debug.Assert(edge.Slope != null, "edge.Slope != null");
             Debug.Assert(edge.Intercept != null, "edge.Intercept != null");
             
-            var topX = new VPoint(CalcX(edge.Slope.Value, maxY, edge.Intercept.Value), maxY);
-            var rightY = new VPoint(maxX, CalcY(edge.Slope.Value, maxX, edge.Intercept.Value));
-            var bottomX = new VPoint(CalcX(edge.Slope.Value, minY, edge.Intercept.Value), minY);
-            var leftY = new VPoint(minX, CalcY(edge.Slope.Value, minX, edge.Intercept.Value));
+            var topX = new VPoint(CalcX(edge.Slope.Value, maxY, edge.Intercept.Value), maxY, true);
+            var rightY = new VPoint(maxX, CalcY(edge.Slope.Value, maxX, edge.Intercept.Value), true);
+            var bottomX = new VPoint(CalcX(edge.Slope.Value, minY, edge.Intercept.Value), minY, true);
+            var leftY = new VPoint(minX, CalcY(edge.Slope.Value, minX, edge.Intercept.Value), true);
 
             // Note: these points may be duplicates if the ray goes through a border corner,
             // so we have to check for repeats when building the candidate list below.
