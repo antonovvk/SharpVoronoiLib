@@ -1,6 +1,7 @@
 //#define BRUTE_FORCE_TEST
 
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
 using VoronoiLib;
 using VoronoiLib.Structures;
@@ -840,39 +841,60 @@ namespace UnitTests
         /// Ideally, we don't want to run this because it's random and not repeatable.
         /// </summary>
         [Test]
-        public void RandomPointBruteforce()
+        [Repeat(10000)]
+        public void RandomPointFractionalBruteforce()
         {
             Random random = new Random();
             
-            for (int i = 0; i < 1000; i++)
+            int count = 100 + random.Next(100);
+    
+            List<FortuneSite> points = new List<FortuneSite>(count);
+    
+            for (int j = 0; j < count; j++)
             {
-                int count = 100 + random.Next(100);
-        
-                List<FortuneSite> points = new List<FortuneSite>(count);
-        
-                for (int j = 0; j < count; j++)
-                {
-                    points.Add(new FortuneSite(random.NextDouble() * 600, random.NextDouble() * 600));
-        
-                }
-        
-                List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
-        
-                CollectionAssert.AllItemsAreNotNull(edges);
-                
-                foreach (FortuneSite point in points)
-                {
-                    Assert.NotNull(point.Cell);
-                    CollectionAssert.IsNotEmpty(point.Cell);
-                    CollectionAssert.AllItemsAreNotNull(point.Cell);
-                    foreach (VEdge edge in point.Cell)
-                    {
-                        CollectionAssert.Contains(edges, edge);
-                        Assert.NotNull(edge.Left);
-                        Assert.NotNull(edge.Right);
-                    }
-                }
+                points.Add(new FortuneSite(random.NextDouble() * 3000 - 1500, random.NextDouble() * 3000 - 1500));
             }
+    
+            FortunesAlgorithm.Run(points, 0, 0, 600, 600);
+            
+            // These are really slow and only work on in-bounds values:
+            // CollectionAssert.AllItemsAreNotNull(edges);
+            //     
+            // foreach (FortuneSite point in points)
+            // {
+            //     Assert.NotNull(point.Cell);
+            //     CollectionAssert.IsNotEmpty(point.Cell);
+            //     CollectionAssert.AllItemsAreNotNull(point.Cell);
+            //     foreach (VEdge edge in point.Cell)
+            //     {
+            //         CollectionAssert.Contains(edges, edge);
+            //         Assert.NotNull(edge.Left);
+            //         Assert.NotNull(edge.Right);
+            //     }
+            // }
+            
+            Assert.Pass();
+        }
+        
+        /// <summary>
+        /// Ideally, we don't want to run this because it's random and not repeatable.
+        /// </summary>
+        [Test]
+        [Repeat(10000)]
+        public void RandomPointWholeBruteforce()
+        {
+            Random random = new Random();
+            
+            int count = 10 + random.Next(10); // note that whole values can create a lot of duplicate points, so algorithm becomes really slow
+    
+            List<FortuneSite> points = new List<FortuneSite>(count);
+    
+            for (int j = 0; j < count; j++)
+            {
+                points.Add(new FortuneSite(random.Next(3000) - 1500, random.Next(3000) - 1500));
+            }
+    
+            FortunesAlgorithm.Run(points, 0, 0, 600, 600);
             
             Assert.Pass();
         }
