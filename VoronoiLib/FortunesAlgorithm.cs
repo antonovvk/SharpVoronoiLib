@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using VoronoiLib.Structures;
 
@@ -78,35 +79,35 @@ namespace VoronoiLib
 
                 while (true)
                 {
-                    if ((start | end) == 0)
+                    if ((start | end) == Outcode.None)
                     {
                         accept = true;
                         break;
                     }
-                    if ((start & end) != 0)
+                    if ((start & end) != Outcode.None)
                     {
                         break;
                     }
 
                     double x = -1, y = -1;
-                    var outcode = start != 0 ? start : end;
+                    var outcode = start != Outcode.None ? start : end;
 
-                    if ((outcode & 0x8) != 0) // top
+                    if (outcode.HasFlag(Outcode.Top))
                     {
                         x = edge.Start.X + (edge.End.X - edge.Start.X)*(maxY - edge.Start.Y)/(edge.End.Y - edge.Start.Y);
                         y = maxY;
                     }
-                    else if ((outcode & 0x4) != 0) // bottom
+                    else if (outcode.HasFlag(Outcode.Bottom))
                     {
                         x = edge.Start.X + (edge.End.X - edge.Start.X)*(minY - edge.Start.Y)/(edge.End.Y - edge.Start.Y);
                         y = minY;
                     }
-                    else if ((outcode & 0x2) != 0) //right
+                    else if (outcode.HasFlag(Outcode.Right))
                     {
                         y = edge.Start.Y + (edge.End.Y - edge.Start.Y)*(maxX - edge.Start.X)/(edge.End.X - edge.Start.X);
                         x = maxX;
                     }
-                    else if ((outcode & 0x1) != 0) //left
+                    else if (outcode.HasFlag(Outcode.Left))
                     {
                         y = edge.Start.Y + (edge.End.Y - edge.Start.Y)*(minX - edge.Start.X)/(edge.End.X - edge.Start.X);
                         x = minX;
@@ -146,23 +147,33 @@ namespace VoronoiLib
             return accept;
         }
         
-        private static int ComputeOutCode(double x, double y, double minX, double minY, double maxX, double maxY)
+        private static Outcode ComputeOutCode(double x, double y, double minX, double minY, double maxX, double maxY)
         {
-            int code = 0;
+            Outcode code = Outcode.None;
             if (x.ApproxEqual(minX) || x.ApproxEqual(maxX))
             { }
             else if (x < minX)
-                code |= 0x1;
+                code |= Outcode.Left;
             else if (x > maxX)
-                code |= 0x2;
+                code |= Outcode.Right;
 
             if (y.ApproxEqual(minY) || y.ApproxEqual(maxY))
             { }
             else if (y < minY)
-                code |= 0x4;
+                code |= Outcode.Bottom;
             else if (y > maxY)
-                code |= 0x8;
+                code |= Outcode.Top;
             return code;
+        }
+
+        [Flags]
+        private enum Outcode
+        {
+            None = 0x0,
+            Left = 0x1,
+            Right = 0x2,
+            Bottom = 0x4,
+            Top = 0x8
         }
 
         private static bool ClipRay(VEdge edge, double minX, double minY, double maxX, double maxY)
