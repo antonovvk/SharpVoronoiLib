@@ -179,6 +179,117 @@ namespace UnitTests
             Assert.AreEqual(0, edges.Count);
         }
 
+        [TestCase(-100, 300)]
+        [TestCase(300, -100)]
+        [TestCase(700, 300)]
+        [TestCase(300, 700)]
+        [TestCase(-100, -100)]
+        [TestCase(700, -100)]
+        [TestCase(700, 700)]
+        [TestCase(-100, 700)]
+        public void PointOutsideBoundsAlone(double x, double y)
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(x, y)
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, points[0].Cell.Count);
+        }
+
+        [TestCase(-100, 300)]
+        [TestCase(300, -100)]
+        [TestCase(700, 300)]
+        [TestCase(300, 700)]
+        [TestCase(-100, -100)]
+        [TestCase(700, -100)]
+        [TestCase(700, 700)]
+        [TestCase(-100, 700)]
+        public void PointOutsideBoundsAgainstInBoundsPoint(double x, double y)
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(x, y),
+                new FortuneSite(300, 300)
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, points[0].Cell.Count);
+            Assert.AreEqual(1, points[1].Cell.Count);
+        }
+
+        [TestCase(-1000, 300)]
+        [TestCase(300, -1000)]
+        [TestCase(7000, 300)]
+        [TestCase(300, 7000)]
+        [TestCase(-1000, -1000)]
+        [TestCase(7000, -1000)]
+        [TestCase(7000, 7000)]
+        [TestCase(-1000, 7000)]
+        public void PointFarOutsideBoundsAgainstInBoundsPoint(double x, double y)
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(x, y),
+                new FortuneSite(300, 300)
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, points[0].Cell.Count);
+            Assert.AreEqual(0, points[1].Cell.Count);
+        }
+
+        [TestCase(0, 300)]
+        [TestCase(300, 0)]
+        [TestCase(600, 300)]
+        [TestCase(300, 600)]
+        [TestCase(0, 0)]
+        [TestCase(600, 0)]
+        [TestCase(600, 600)]
+        [TestCase(0, 600)]
+        public void PointOnBoundsAlone(double x, double y)
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(x, y)
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, points[0].Cell.Count);
+        }
+
+        [TestCase(0, 300)]
+        [TestCase(300, 0)]
+        [TestCase(600, 300)]
+        [TestCase(300, 600)]
+        [TestCase(0, 0)]
+        [TestCase(600, 0)]
+        [TestCase(600, 600)]
+        [TestCase(0, 600)]
+        public void PointOnBoundsAgainstInBoundsPoint(double x, double y)
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(x, y),
+                new FortuneSite(300, 300)
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, points[0].Cell.Count);
+            Assert.AreEqual(1, points[1].Cell.Count);
+        }
+
         [Test]
         public void TwoPointsHorizontal()
         {
@@ -682,6 +793,46 @@ namespace UnitTests
             Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
             Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
             Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
+        }
+        
+        [Test]
+        public void FourPointsOutsideBounds()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(-100, 300),
+                new FortuneSite(300, -100),
+                new FortuneSite(800, 300),
+                new FortuneSite(300, 800)
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            foreach (VEdge edge in edges)
+                Console.WriteLine(edge.ToString("F0"));
+            
+            Assert.AreEqual(5, edges.Count);
+        }
+        
+        [TestCase(-100, -100, -200, -200)]
+        [TestCase(-100, 700, -200, 800)]
+        [TestCase(700, 700, 800, 800)]
+        [TestCase(700, -100, 800, -200)]
+        [TestCase(700, 300, 800, 300)]
+        [TestCase(300, 700, 300, 800)]
+        [TestCase(-100, 300, -200, 300)]
+        [TestCase(300, -100, 300, -200)]
+        public void TwoPointsOutsideBoundsTogether(double x1, double y1, double x2, double y2)
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(x1, y1),
+                new FortuneSite(x2, y2)
+            };
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            
+            Assert.AreEqual(0, edges.Count);
         }
 
 #if BRUTE_FORCE_TEST
