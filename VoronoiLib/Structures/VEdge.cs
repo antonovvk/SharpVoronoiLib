@@ -72,9 +72,10 @@ namespace VoronoiLib.Structures
             Left = left;
             Right = right;
             
-            //for bounding box edges
-            if (left == null || right == null)
-                return;
+            // Suspending this check because this never happens
+            // //for bounding box edges
+            // if (left == null || right == null)
+            //     return;
 
             //from negative reciprocal of slope of line from left to right
             //ala m = (left.y -right.y / left.x - right.x)
@@ -85,6 +86,16 @@ namespace VoronoiLib.Structures
             if (SlopeRise.ApproxEqual(0) || SlopeRun.ApproxEqual(0)) return;
             Slope = SlopeRise/SlopeRun;
             Intercept = start.Y - Slope*start.X;
+        }
+        
+        internal VEdge(VPoint start, VPoint end, FortuneSite left, FortuneSite right)
+        {
+            Start = start;
+            End = end;
+            Left = left;
+            Right = right;
+            
+            // Don't bother with slope stuff if we are given explicit coords
         }
 
 

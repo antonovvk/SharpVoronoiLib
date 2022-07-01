@@ -95,11 +95,16 @@ namespace VoronoiLib.Structures
 
         private int SortPointsClockwise(VPoint A, VPoint B)
         {
+            return SortPointsClockwise(A, B, X, Y);
+        }
+        
+        internal static int SortPointsClockwise(VPoint A, VPoint B, double x, double y)
+        {
             // based on: https://social.msdn.microsoft.com/Forums/en-US/c4c0ce02-bbd0-46e7-aaa0-df85a3408c61/sorting-list-of-xy-coordinates-clockwise-sort-works-if-list-is-unsorted-but-fails-if-list-is?forum=csharplanguage
 
             // comparer to sort the array based on the points relative position to the center
-            var atanA = Math.Atan2(A.Y - Y, A.X - X);
-            var atanB = Math.Atan2(B.Y - Y, B.X - X);
+            var atanA = Math.Atan2(A.Y - y, A.X - x);
+            var atanB = Math.Atan2(B.Y - y, B.X - x);
 
             if (atanA < atanB) return -1;
             else if (atanA > atanB) return 1;

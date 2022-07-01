@@ -7,7 +7,7 @@ namespace VoronoiLib
 {
     public static class FortunesAlgorithm
     {
-        public static LinkedList<VEdge> Run(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY)
+        public static LinkedList<VEdge> Run(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
         {
             var eventQueue = new MinHeap<FortuneEvent>(5*sites.Count);
             foreach (var s in sites)
@@ -58,6 +58,10 @@ namespace VoronoiLib
                 //advance
                 edgeNode = next;
             }
+
+            if (closeBorders)
+                CloseBorders(edges, minX, minY, maxX, maxY);
+
             return edges;
         }
 
@@ -359,6 +363,195 @@ namespace VoronoiLib
         private static double CalcX(double m, double y, double b)
         {
             return (y - b) / m;
+        }
+        
+        private static void CloseBorders(LinkedList<VEdge> edges, double minX, double minY, double maxX, double maxY)
+        {
+            BorderNodeComparer comparer = new BorderNodeComparer(
+                (minX + maxX) / 2f, 
+                (minY + maxY) / 2f
+            );
+
+            SortedSet<BorderNode> nodes = new SortedSet<BorderNode>(comparer);
+
+            bool hadBottomLeft = false;
+            bool hadBottomRight = false;
+            bool hadTopRight = false;
+            bool hadTopLeft = false;
+            
+            LinkedListNode<VEdge> edgeNode = edges.First;
+
+            while (edgeNode != null)
+            {
+                VEdge edge = edgeNode.Value;
+                
+                if (edge.Start.BorderLocation != PointBorderLocation.NotOnBorder)
+                {
+                    nodes.Add(new EdgeStartBorderNode(edge));
+
+                    if (edge.Start.BorderLocation == PointBorderLocation.BottomLeft) hadBottomLeft = true;
+                    else if (edge.Start.BorderLocation == PointBorderLocation.BottomRight) hadBottomRight = true;
+                    else if (edge.Start.BorderLocation == PointBorderLocation.TopRight) hadTopRight = true;
+                    else if (edge.Start.BorderLocation == PointBorderLocation.TopLeft) hadTopLeft = true;
+                }
+                
+                if (edge.End.BorderLocation != PointBorderLocation.NotOnBorder)
+                {
+                    nodes.Add(new EdgeEndBorderNode(edge));
+                    
+                    if (edge.End.BorderLocation == PointBorderLocation.BottomLeft) hadBottomLeft = true;
+                    else if (edge.End.BorderLocation == PointBorderLocation.BottomRight) hadBottomRight = true;
+                    else if (edge.End.BorderLocation == PointBorderLocation.TopRight) hadTopRight = true;
+                    else if (edge.End.BorderLocation == PointBorderLocation.TopLeft) hadTopLeft = true;
+                }
+                
+                edgeNode = edgeNode.Next;
+            }
+            
+            if (!hadBottomLeft) nodes.Add(new CornerBorderNode(new VPoint(minX, minY, PointBorderLocation.BottomLeft)));
+            if (!hadBottomRight) nodes.Add(new CornerBorderNode(new VPoint(maxX, minY, PointBorderLocation.BottomRight)));
+            if (!hadTopRight) nodes.Add(new CornerBorderNode(new VPoint(maxX, maxY, PointBorderLocation.TopRight)));
+            if (!hadTopLeft) nodes.Add(new CornerBorderNode(new VPoint(minX, maxY, PointBorderLocation.TopLeft)));
+
+
+            EdgeBorderNode lastEdgeNode = null;
+
+            if (nodes.Min is EdgeBorderNode febn)
+                lastEdgeNode = febn;
+
+            if (lastEdgeNode == null)
+                foreach (BorderNode node in nodes.Reverse())
+                    if (node is EdgeBorderNode rebn)
+                        lastEdgeNode = rebn;
+
+            BorderNode node2 = null;
+            
+            foreach (BorderNode node in nodes)
+            {
+                BorderNode node1 = node2;
+                node2 = node;
+
+                if (node1 == null)
+                    continue; // skip this node and move to next one, because we need 2 nodes to process
+                
+                edges.AddLast(
+                    new VEdge(
+                        node1.Point, 
+                        node2.Point, 
+                        lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left, 
+                        null // we are building these clockwise, so by definition the right side is out of bounds
+                    )
+                );
+
+                if (node is EdgeBorderNode cebn)
+                    lastEdgeNode = cebn;
+            }
+            
+            edges.AddLast(
+                new VEdge(
+                    nodes.Max.Point,
+                    nodes.Min.Point, 
+                    lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left, 
+                    null // we are building these clockwise, so by definition the right side is out of bounds
+                )
+            );
+            
+            // TODO: ADD NEW EDGES TO SITE CELL
+        }
+
+        private abstract class BorderNode
+        {
+            public abstract PointBorderLocation BorderLocation { get; }
+
+            public abstract VPoint Point { get; }
+
+
+#if DEBUG
+            public override string ToString()
+            {
+                return Point + " @ " + BorderLocation;
+            }
+            
+            public string ToString(string format)
+            {
+                return Point.ToString(format) + " @ " + BorderLocation;
+            }
+#endif
+        }
+
+        private abstract class EdgeBorderNode : BorderNode
+        {
+            public VEdge Edge { get; }
+
+
+            protected EdgeBorderNode(VEdge edge)
+            {
+                this.Edge = edge;
+            }
+        }
+
+        private class EdgeStartBorderNode : EdgeBorderNode
+        {
+            public override PointBorderLocation BorderLocation => Edge.Start.BorderLocation;
+
+            public override VPoint Point => Edge.Start;
+            
+            
+            public EdgeStartBorderNode(VEdge edge)
+                : base(edge)
+            {
+            }
+        }
+
+        private class EdgeEndBorderNode : EdgeBorderNode
+        {
+            public override PointBorderLocation BorderLocation => Edge.End.BorderLocation;
+
+            public override VPoint Point => Edge.End;
+            
+            
+            public EdgeEndBorderNode(VEdge edge)
+                : base(edge)
+            {
+            }
+        }
+
+        private class CornerBorderNode : BorderNode
+        {
+            public override PointBorderLocation BorderLocation { get; }
+
+            public override VPoint Point { get; }
+
+
+            public CornerBorderNode(VPoint point)
+            {
+                BorderLocation = point.BorderLocation;
+                Point = point;
+            }
+        }
+
+        private class BorderNodeComparer : IComparer<BorderNode>
+        {
+            private readonly double _originX;
+            private readonly double _originY;
+
+            
+            public BorderNodeComparer(double originX, double originY)
+            {
+                this._originX = originX;
+                this._originY = originY;
+            }
+            
+            
+            public int Compare(BorderNode n1, BorderNode n2)
+            {
+                int locationCompare = n1.BorderLocation.CompareTo(n2.BorderLocation);
+
+                if (locationCompare != 0)
+                    return locationCompare;
+
+                return FortuneSite.SortPointsClockwise(n1.Point, n2.Point, _originX, _originY);
+            }
         }
     }
 }

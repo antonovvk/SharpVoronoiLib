@@ -885,7 +885,7 @@ namespace UnitTests
         {
             Random random = new Random();
             
-            int count = 10 + random.Next(10); // note that whole values can create a lot of duplicate points, so algorithm becomes really slow
+            int count = 10 + random.Next(10);
     
             List<FortuneSite> points = new List<FortuneSite>(count);
     
