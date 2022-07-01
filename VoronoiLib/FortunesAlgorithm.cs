@@ -115,12 +115,12 @@ namespace VoronoiLib
 
                     if (outcode == start)
                     {
-                        edge.Start = new VPoint(x, y, true);
+                        edge.Start = new VPoint(x, y, GetBorderLocationForCoordinate(x, y, minX, minY, maxX, maxY));
                         start = ComputeOutCode(x, y, minX, minY, maxX, maxY);
                     }
                     else
                     {
-                        edge.End = new VPoint(x, y, true);
+                        edge.End = new VPoint(x, y, GetBorderLocationForCoordinate(x, y, minX, minY, maxX, maxY));
                         end = ComputeOutCode(x, y, minX, minY, maxX, maxY);
                     }
                 }
@@ -166,6 +166,21 @@ namespace VoronoiLib
             return code;
         }
 
+        private static PointBorderLocation GetBorderLocationForCoordinate(double x, double y, double minX, double minY, double maxX, double maxY)
+        {
+            if (x.ApproxEqual(minX) && y.ApproxEqual(minY)) return PointBorderLocation.BottomLeft;
+            if (x.ApproxEqual(minX) && y.ApproxEqual(maxY)) return PointBorderLocation.TopLeft;
+            if (x.ApproxEqual(maxX) && y.ApproxEqual(minY)) return PointBorderLocation.BottomRight;
+            if (x.ApproxEqual(maxX) && y.ApproxEqual(maxY)) return PointBorderLocation.TopRight;
+            
+            if (x.ApproxEqual(minX)) return PointBorderLocation.Left;
+            if (y.ApproxEqual(minY)) return PointBorderLocation.Bottom;
+            if (x.ApproxEqual(maxX)) return PointBorderLocation.Right;
+            if (y.ApproxEqual(maxY)) return PointBorderLocation.Top;
+            
+            return PointBorderLocation.NotOnBorder;
+        }
+
         [Flags]
         private enum Outcode
         {
@@ -191,21 +206,21 @@ namespace VoronoiLib
                 if (Within(start.X, minX, maxX))
                 {
                     if (edge.SlopeRun > 0)
-                        edge.End = new VPoint(maxX, start.Y, true);
+                        edge.End = new VPoint(maxX, start.Y, PointBorderLocation.Right);
                     else
-                        edge.End = new VPoint(minX, start.Y, true);
+                        edge.End = new VPoint(minX, start.Y, start.Y.ApproxEqual(minY) ? PointBorderLocation.BottomLeft : start.Y.ApproxEqual(maxY) ? PointBorderLocation.TopLeft : PointBorderLocation.Left);
                 }
                 else
                 {
                     if (edge.SlopeRun > 0)
                     {
-                        edge.Start = new VPoint(minX, start.Y, true);
-                        edge.End = new VPoint(maxX, start.Y, true);
+                        edge.Start = new VPoint(minX, start.Y, PointBorderLocation.Left);
+                        edge.End = new VPoint(maxX, start.Y, PointBorderLocation.Right);
                     }
                     else
                     {
-                        edge.Start = new VPoint(maxX, start.Y, true);
-                        edge.End = new VPoint(minX, start.Y, true);
+                        edge.Start = new VPoint(maxX, start.Y, PointBorderLocation.Right);
+                        edge.End = new VPoint(minX, start.Y, PointBorderLocation.Left);
                     }
                 }
                 return true;
@@ -222,21 +237,21 @@ namespace VoronoiLib
                 if (Within(start.Y, minY, maxY))
                 {
                     if (edge.SlopeRise > 0)
-                        edge.End = new VPoint(start.X, maxY, true);
+                        edge.End = new VPoint(start.X, maxY, start.X.ApproxEqual(minX) ? PointBorderLocation.TopLeft : start.X.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top);
                     else
-                        edge.End = new VPoint(start.X, minY, true);
+                        edge.End = new VPoint(start.X, minY, PointBorderLocation.Bottom);
                 }
                 else
                 {
                     if (edge.SlopeRise > 0)
                     {
-                        edge.Start = new VPoint(start.X, minY, true);
-                        edge.End = new VPoint(start.X, maxY, true);
+                        edge.Start = new VPoint(start.X, minY, PointBorderLocation.Bottom);
+                        edge.End = new VPoint(start.X, maxY, PointBorderLocation.Top);
                     }
                     else
                     {
-                        edge.Start = new VPoint(start.X, maxY, true);
-                        edge.End = new VPoint(start.X, minY, true);
+                        edge.Start = new VPoint(start.X, maxY, PointBorderLocation.Top);
+                        edge.End = new VPoint(start.X, minY, PointBorderLocation.Bottom);
                     }
                 }
                 return true;
@@ -245,11 +260,18 @@ namespace VoronoiLib
             //works for outside
             Debug.Assert(edge.Slope != null, "edge.Slope != null");
             Debug.Assert(edge.Intercept != null, "edge.Intercept != null");
-            
-            var topX = new VPoint(CalcX(edge.Slope.Value, maxY, edge.Intercept.Value), maxY, true);
-            var rightY = new VPoint(maxX, CalcY(edge.Slope.Value, maxX, edge.Intercept.Value), true);
-            var bottomX = new VPoint(CalcX(edge.Slope.Value, minY, edge.Intercept.Value), minY, true);
-            var leftY = new VPoint(minX, CalcY(edge.Slope.Value, minX, edge.Intercept.Value), true);
+
+            double topXValue = CalcX(edge.Slope.Value, maxY, edge.Intercept.Value);
+            VPoint topX = new VPoint(topXValue, maxY, topXValue.ApproxEqual(minX) ? PointBorderLocation.TopLeft : topXValue.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top);
+
+            double rightYValue = CalcY(edge.Slope.Value, maxX, edge.Intercept.Value);
+            VPoint rightY = new VPoint(maxX, rightYValue, rightYValue.ApproxEqual(minY) ? PointBorderLocation.BottomRight : rightYValue.ApproxEqual(maxY) ? PointBorderLocation.TopRight : PointBorderLocation.Right);
+
+            double bottomXValue = CalcX(edge.Slope.Value, minY, edge.Intercept.Value);
+            VPoint bottomX = new VPoint(bottomXValue, minY, bottomXValue.ApproxEqual(minX) ? PointBorderLocation.BottomLeft : bottomXValue.ApproxEqual(maxX) ? PointBorderLocation.BottomRight : PointBorderLocation.Bottom);
+
+            double leftYValue = CalcY(edge.Slope.Value, minX, edge.Intercept.Value);
+            VPoint leftY = new VPoint(minX, leftYValue, leftYValue.ApproxEqual(minY) ? PointBorderLocation.BottomLeft : leftYValue.ApproxEqual(maxY) ? PointBorderLocation.TopLeft : PointBorderLocation.Left);
 
             // Note: these points may be duplicates if the ray goes through a border corner,
             // so we have to check for repeats when building the candidate list below.

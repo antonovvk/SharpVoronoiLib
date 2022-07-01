@@ -6,26 +6,67 @@ namespace VoronoiLib.Structures
     {
         public double X { get; }
         public double Y { get; }
-        public bool OnBorder { get; }
+        public PointBorderLocation BorderLocation { get; }
 
-        public VPoint(double x, double y, bool onBorder = false)
+        public VPoint(double x, double y, PointBorderLocation borderLocation = PointBorderLocation.NotOnBorder)
         {
             X = x;
             Y = y;
-            OnBorder = onBorder;
+            BorderLocation = borderLocation;
         }
+
 
 #if DEBUG
         public override string ToString()
         {
-            return "(" + X.ToString("F3") + "," + Y.ToString("F3") + ")" + (OnBorder ? "B" : "");
+            return "(" + X.ToString("F3") + "," + Y.ToString("F3") + ")" + BorderLocationToString(BorderLocation);
         }
-        
+
         public string ToString(string format)
         {
-            return "(" + X.ToString(format) + "," + Y.ToString(format) + ")" + (OnBorder ? "B" : "");
+            return "(" + X.ToString(format) + "," + Y.ToString(format) + ")" + BorderLocationToString(BorderLocation);
+        }
+
+        private static string BorderLocationToString(PointBorderLocation location)
+        {
+            switch (location)
+            {
+                case PointBorderLocation.NotOnBorder:
+                    return "";
+                case PointBorderLocation.BottomLeft:
+                    return "BL";
+                case PointBorderLocation.Left:
+                    return "L";
+                case PointBorderLocation.TopLeft:
+                    return "TL";
+                case PointBorderLocation.Top:
+                    return "T";
+                case PointBorderLocation.TopRight:
+                    return "TR";
+                case PointBorderLocation.Right:
+                    return "R";
+                case PointBorderLocation.BottomRight:
+                    return "BR";
+                case PointBorderLocation.Bottom:
+                    return "B";
+                default:
+                    return "?";
+            }
         }
 #endif
+    }
+    
+    public enum PointBorderLocation
+    {
+        NotOnBorder,
+        BottomLeft,
+        Left,
+        TopLeft,
+        Top,
+        TopRight,
+        Right,
+        BottomRight,
+        Bottom
     }
 
     public static class VPointExtensions

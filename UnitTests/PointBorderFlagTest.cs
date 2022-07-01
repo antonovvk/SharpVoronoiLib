@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿#define BRUTE_FORCE_TEST
+
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +43,7 @@ namespace UnitTests
 
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
             
-            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0])); // A-B
+            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.Left, PointBorderLocation.Right)); // A-B
         }
 
         [Test]
@@ -74,7 +76,7 @@ namespace UnitTests
 
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
             
-            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0])); // A-B
+            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.Top, PointBorderLocation.Bottom)); // A-B
         }
 
         [Test]
@@ -107,7 +109,7 @@ namespace UnitTests
 
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
             
-            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0])); // A-B
+            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.TopLeft, PointBorderLocation.BottomRight)); // A-B
         }
 
         [Test]
@@ -140,7 +142,7 @@ namespace UnitTests
 
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
             
-            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0])); // A-B
+            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.BottomLeft, PointBorderLocation.TopRight)); // A-B
         }
 
         [Test]
@@ -179,9 +181,9 @@ namespace UnitTests
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[0]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[1]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[2]));
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 600, 600), PointBorderLocation.TopRight)); // A-B
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 000, 350), PointBorderLocation.Left)); // A-C
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 350, 000), PointBorderLocation.Bottom)); // A-D
         }
 
         [Test]
@@ -220,9 +222,9 @@ namespace UnitTests
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[0]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[1]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[2]));
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 000, 600), PointBorderLocation.TopLeft)); // A-B
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 600, 350), PointBorderLocation.Right)); // A-C
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 250, 000), PointBorderLocation.Bottom)); // A-D
         }
 
         [Test]
@@ -261,9 +263,9 @@ namespace UnitTests
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[0]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[1]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[2]));
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 000, 000), PointBorderLocation.BottomLeft)); // A-B
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 600, 250), PointBorderLocation.Right)); // A-C
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 250, 600), PointBorderLocation.Top)); // A-D
         }
 
         [Test]
@@ -300,11 +302,11 @@ namespace UnitTests
 
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D     
+            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D   
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[0]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[1]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[2]));   
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 600, 000), PointBorderLocation.BottomRight)); // A-B
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 350, 600), PointBorderLocation.Top)); // A-C
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 000, 250), PointBorderLocation.Left)); // A-D
         }
 
         [Test]
@@ -343,9 +345,9 @@ namespace UnitTests
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[0]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[1]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[2]));
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 600), PointBorderLocation.TopLeft)); // A-B
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 300, 000), PointBorderLocation.Bottom)); // A-C
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 600), PointBorderLocation.TopRight)); // A-D
         }
 
         [Test]
@@ -384,9 +386,9 @@ namespace UnitTests
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[0]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[1]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[2]));
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 300, 600), PointBorderLocation.Top)); // A-B
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 000), PointBorderLocation.BottomLeft)); // A-C
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 000), PointBorderLocation.BottomRight)); // A-D
         }
 
         [Test]
@@ -424,9 +426,9 @@ namespace UnitTests
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[0]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[1]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[2]));
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 600), PointBorderLocation.TopLeft)); // A-B
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 000), PointBorderLocation.BottomLeft)); // A-C
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 300), PointBorderLocation.Right)); // A-D
         }
 
         [Test]
@@ -465,9 +467,9 @@ namespace UnitTests
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
             Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[0]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[1]));
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(edges[2]));
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 300), PointBorderLocation.Left)); // A-B
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 000), PointBorderLocation.BottomRight)); // A-C
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 600), PointBorderLocation.TopRight)); // A-D
         }
         
         [Test]
@@ -519,13 +521,94 @@ namespace UnitTests
             Assert.IsTrue(EdgeDoesntStartsOrEndsOnBorder(FindEdge(edges, 350, 250, 350, 350))); // C-D
             Assert.IsTrue(EdgeDoesntStartsOrEndsOnBorder(FindEdge(edges, 350, 350, 250, 350))); // D-A
 
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 000, 600))); // A-E
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 000, 000))); // B-F
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 600, 000))); // C-G
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 600, 600))); // D-H
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 000, 600), PointBorderLocation.TopLeft)); // A-E
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 000, 000), PointBorderLocation.BottomLeft)); // B-F
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 600, 000), PointBorderLocation.BottomRight)); // C-G
+            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 600, 600), PointBorderLocation.TopRight)); // D-H
         }
 
+#if BRUTE_FORCE_TEST
+        /// <summary>
+        /// Ideally, we don't want to run this because it's random and not repeatable.
+        /// </summary>
+        [Test]
+        [Repeat(10000)]
+        public void RandomPointFractionalBruteforce()
+        {
+            Random random = new Random();
+            
+            int count = 100 + random.Next(100);
+    
+            List<FortuneSite> points = new List<FortuneSite>(count);
+    
+            for (int j = 0; j < count; j++)
+            {
+                points.Add(new FortuneSite(random.NextDouble() * 3000 - 1500, random.NextDouble() * 3000 - 1500));
+            }
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            foreach (VEdge edge in edges)
+            {
+                PointBorderLocation expectedBorderLocation = GetBorderLocationForCoordinate(edge.Start.X, edge.Start.Y, 0, 0, 600, 600);
+                Assert.AreEqual(expectedBorderLocation, edge.Start.BorderLocation);
+
+                expectedBorderLocation = GetBorderLocationForCoordinate(edge.End.X, edge.End.Y, 0, 0, 600, 600);
+                Assert.AreEqual(expectedBorderLocation, edge.End.BorderLocation);
+            }
+            
+            Assert.Pass();
+        }
         
+        /// <summary>
+        /// Ideally, we don't want to run this because it's random and not repeatable.
+        /// </summary>
+        [Test]
+        [Repeat(10000)]
+        public void RandomPointWholeBruteforce()
+        {
+            Random random = new Random();
+            
+            int count = 10 + random.Next(10); // note that whole values can create a lot of duplicate points, so algorithm becomes really slow
+    
+            List<FortuneSite> points = new List<FortuneSite>(count);
+    
+            for (int j = 0; j < count; j++)
+            {
+                points.Add(new FortuneSite(random.Next(3000) - 1500, random.Next(3000) - 1500));
+            }
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+
+            foreach (VEdge edge in edges)
+            {
+                PointBorderLocation expectedBorderLocation = GetBorderLocationForCoordinate(edge.Start.X, edge.Start.Y, 0, 0, 600, 600);
+                Assert.AreEqual(expectedBorderLocation, edge.Start.BorderLocation);
+
+                expectedBorderLocation = GetBorderLocationForCoordinate(edge.End.X, edge.End.Y, 0, 0, 600, 600);
+                Assert.AreEqual(expectedBorderLocation, edge.End.BorderLocation);
+            }
+            
+            Assert.Pass();
+        }
+        
+        private static PointBorderLocation GetBorderLocationForCoordinate(double x, double y, double minX, double minY, double maxX, double maxY)
+        {
+            if (x.ApproxEqual(minX) && y.ApproxEqual(minY)) return PointBorderLocation.BottomLeft;
+            if (x.ApproxEqual(minX) && y.ApproxEqual(maxY)) return PointBorderLocation.TopLeft;
+            if (x.ApproxEqual(maxX) && y.ApproxEqual(minY)) return PointBorderLocation.BottomRight;
+            if (x.ApproxEqual(maxX) && y.ApproxEqual(maxY)) return PointBorderLocation.TopRight;
+            
+            if (x.ApproxEqual(minX)) return PointBorderLocation.Left;
+            if (y.ApproxEqual(minY)) return PointBorderLocation.Bottom;
+            if (x.ApproxEqual(maxX)) return PointBorderLocation.Right;
+            if (y.ApproxEqual(maxY)) return PointBorderLocation.Top;
+            
+            return PointBorderLocation.NotOnBorder;
+        }
+#endif
+        
+
         private VEdge FindEdge(List<VEdge> edges, int x1, int y1, int x2, int y2)
         {
             return edges.First(
@@ -536,25 +619,31 @@ namespace UnitTests
             );
         }
 
-        private static bool EdgeStartsAndEndsOnBorder(VEdge edge)
+        private static bool EdgeStartsAndEndsOnBorder(VEdge edge, PointBorderLocation border1, PointBorderLocation border2)
         {
             return 
-                edge.Start.OnBorder || 
-                edge.End.OnBorder;
+                (edge.Start.BorderLocation == border1 && 
+                edge.End.BorderLocation == border2) 
+                ||
+                (edge.Start.BorderLocation == border2 && 
+                edge.End.BorderLocation == border1);
         }
 
-        private static bool EdgeStartsXorEndsOnBorder(VEdge edge)
+        private static bool EdgeStartsXorEndsOnBorder(VEdge edge, PointBorderLocation border)
         {
             return 
-                edge.Start.OnBorder ^
-                edge.End.OnBorder;
+                (edge.Start.BorderLocation == border &&
+                edge.End.BorderLocation == PointBorderLocation.NotOnBorder) 
+                ||
+                (edge.Start.BorderLocation == PointBorderLocation.NotOnBorder &&
+                 edge.End.BorderLocation == border);
         }
 
         private static bool EdgeDoesntStartsOrEndsOnBorder(VEdge edge)
         {
             return 
-                !edge.Start.OnBorder &&
-                !edge.End.OnBorder;
+                edge.Start.BorderLocation == PointBorderLocation.NotOnBorder &&
+                edge.End.BorderLocation == PointBorderLocation.NotOnBorder;
         }
     }
 }
