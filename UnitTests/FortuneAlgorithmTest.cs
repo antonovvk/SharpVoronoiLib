@@ -319,7 +319,7 @@ namespace UnitTests
 
             Assert.AreEqual(1, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
         }
 
         [Test]
@@ -350,7 +350,7 @@ namespace UnitTests
 
             Assert.AreEqual(1, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
         }
 
         [Test]
@@ -381,7 +381,7 @@ namespace UnitTests
 
             Assert.AreEqual(1, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
         }
 
         [Test]
@@ -412,7 +412,7 @@ namespace UnitTests
 
             Assert.AreEqual(1, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
         }
 
         [Test]
@@ -447,9 +447,9 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 600, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 600, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
         }
 
         [Test]
@@ -484,9 +484,9 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
         }
 
         [Test]
@@ -521,9 +521,9 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 000, 000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 000, 000)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
         }
 
         [Test]
@@ -558,9 +558,9 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D         
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D         
         }
 
         [Test]
@@ -595,9 +595,9 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
         }
 
         [Test]
@@ -632,9 +632,9 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 300, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
         }
 
         [Test]
@@ -669,9 +669,9 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
         }
 
         [Test]
@@ -706,9 +706,9 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 300)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 300)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
         }
 
         [Test]
@@ -744,11 +744,11 @@ namespace UnitTests
 
             Assert.AreEqual(5, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-E
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
         }
 
         [Test]
@@ -785,15 +785,15 @@ namespace UnitTests
 
             Assert.AreEqual(8, edges.Count);
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 250, 250)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 350, 250)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 350, 350)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 250, 350)); // D-A
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 250, 250)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 350, 250)); // B-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 350, 350)); // C-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 250, 350)); // D-A
 
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-E
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
         }
         
         [Test]
@@ -899,15 +899,5 @@ namespace UnitTests
             Assert.Pass();
         }
 #endif
-
-        internal static bool AnyEdgeBetween(IEnumerable<VoronoiEdge> edges, double x1, double y1, double x2, double y2)
-        {
-            return edges.Any(
-                e =>
-                    e.Start != null && e.End != null &&
-                    e.Start.X.ApproxEqual(x1) && e.Start.Y.ApproxEqual(y1) && e.End.X.ApproxEqual(x2) && e.End.Y.ApproxEqual(y2) ||
-                    e.Start.X.ApproxEqual(x2) && e.Start.Y.ApproxEqual(y2) && e.End.X.ApproxEqual(x1) && e.End.Y.ApproxEqual(y1)
-            );
-        }
     }
 }

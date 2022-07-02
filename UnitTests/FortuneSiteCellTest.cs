@@ -39,10 +39,10 @@ namespace UnitTests
 
             Assert.AreEqual(1, edges.Count);
             
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
             
-            Assert.IsTrue(SiteHasEdge(points[0], 000, 300, 600, 300)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 000, 300, 600, 300)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 000, 300, 600, 300)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 000, 300, 600, 300)); // 2 has A-B
         }
 
         [Test]
@@ -73,10 +73,10 @@ namespace UnitTests
 
             Assert.AreEqual(1, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
             
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 000, 300, 600)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 000, 300, 600)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 000, 300, 600)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 000, 300, 600)); // 2 has A-B
         }
 
         [Test]
@@ -107,10 +107,10 @@ namespace UnitTests
 
             Assert.AreEqual(1, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
             
-            Assert.IsTrue(SiteHasEdge(points[0], 000, 600, 600, 000)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 000, 600, 600, 000)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 000, 600, 600, 000)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 000, 600, 600, 000)); // 2 has A-B
         }
 
         [Test]
@@ -141,10 +141,10 @@ namespace UnitTests
 
             Assert.AreEqual(1, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
             
-            Assert.IsTrue(SiteHasEdge(points[0], 000, 000, 600, 600)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 000, 000, 600, 600)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 000, 000, 600, 600)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 000, 000, 600, 600)); // 2 has A-B
         }
 
         [Test]
@@ -179,16 +179,16 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 600, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 600, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
             
-            Assert.IsTrue(SiteHasEdge(points[0], 350, 350, 000, 350)); // 1 has A-C
-            Assert.IsTrue(SiteHasEdge(points[0], 350, 350, 000, 350)); // 1 has A-D
-            Assert.IsTrue(SiteHasEdge(points[1], 350, 350, 600, 600)); // 2 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 350, 350, 000, 350)); // 2 has A-C
-            Assert.IsTrue(SiteHasEdge(points[2], 350, 350, 600, 600)); // 3 has A-B
-            Assert.IsTrue(SiteHasEdge(points[2], 350, 350, 350, 000)); // 3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 350, 350, 000, 350)); // 1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 350, 350, 000, 350)); // 1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 350, 350, 600, 600)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 350, 350, 000, 350)); // 2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 350, 350, 600, 600)); // 3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 350, 350, 350, 000)); // 3 has A-D
         }
 
         [Test]
@@ -223,16 +223,16 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
             
-            Assert.IsTrue(SiteHasEdge(points[0], 250, 350, 000, 600)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[0], 250, 350, 250, 000)); // 1 has A-D
-            Assert.IsTrue(SiteHasEdge(points[1], 250, 350, 000, 600)); // 2 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 250, 350, 600, 350)); // 2 has A-C
-            Assert.IsTrue(SiteHasEdge(points[2], 250, 350, 600, 350)); // 3 has A-C
-            Assert.IsTrue(SiteHasEdge(points[2], 250, 350, 250, 000)); // 3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 250, 350, 000, 600)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 250, 350, 250, 000)); // 1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 250, 350, 000, 600)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 250, 350, 600, 350)); // 2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 250, 350, 600, 350)); // 3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 250, 350, 250, 000)); // 3 has A-D
         }
 
         [Test]
@@ -267,16 +267,16 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 000, 000)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 000, 000)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
             
-            Assert.IsTrue(SiteHasEdge(points[0], 250, 250, 000, 000)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[0], 250, 250, 250, 600)); // 1 has A-D
-            Assert.IsTrue(SiteHasEdge(points[1], 250, 250, 600, 250)); // 2 has A-C
-            Assert.IsTrue(SiteHasEdge(points[1], 250, 250, 250, 600)); // 2 has A-D
-            Assert.IsTrue(SiteHasEdge(points[2], 250, 250, 000, 000)); // 3 has A-B
-            Assert.IsTrue(SiteHasEdge(points[2], 250, 250, 600, 250)); // 3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 250, 250, 000, 000)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 250, 250, 250, 600)); // 1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 250, 250, 600, 250)); // 2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 250, 250, 250, 600)); // 2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 250, 250, 000, 000)); // 3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 250, 250, 600, 250)); // 3 has A-C
         }
 
         [Test]
@@ -311,16 +311,16 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D      
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D      
             
-            Assert.IsTrue(SiteHasEdge(points[0], 350, 250, 600, 000)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[0], 350, 250, 000, 250)); // 1 has A-D
-            Assert.IsTrue(SiteHasEdge(points[1], 350, 250, 350, 600)); // 2 has A-C
-            Assert.IsTrue(SiteHasEdge(points[1], 350, 250, 000, 250)); // 2 has A-D
-            Assert.IsTrue(SiteHasEdge(points[2], 350, 250, 600, 000)); // 3 has A-B
-            Assert.IsTrue(SiteHasEdge(points[2], 350, 250, 350, 600)); // 3 has A-C   
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 350, 250, 600, 000)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 350, 250, 000, 250)); // 1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 350, 250, 350, 600)); // 2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 350, 250, 000, 250)); // 2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 350, 250, 600, 000)); // 3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 350, 250, 350, 600)); // 3 has A-C   
         }
 
         [Test]
@@ -355,16 +355,16 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 000, 600)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 300, 000)); // 1 has A-C
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 000, 600)); // 2 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 600, 600)); // 2 has A-D
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 300, 000)); // 3 has A-C
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 600, 600)); // 3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 000, 600)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 300, 000)); // 1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 000, 600)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 600, 600)); // 2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 300, 000)); // 3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 600, 600)); // 3 has A-D
         }
 
         [Test]
@@ -399,16 +399,16 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 300, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
             
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 300, 600)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 000, 000)); // 1 has A-C
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 000, 000)); // 2 has A-C
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 600, 000)); // 2 has A-D
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 300, 600)); // 3 has A-B
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 600, 000)); // 3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 300, 600)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 000, 000)); // 1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 000, 000)); // 2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 600, 000)); // 2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 300, 600)); // 3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 600, 000)); // 3 has A-D
         }
 
         [Test]
@@ -443,16 +443,16 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
             
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 000, 600)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 000, 000)); // 1 has A-C
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 000, 600)); // 2 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 600, 300)); // 2 has A-D
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 000, 000)); // 3 has A-C
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 600, 300)); // 3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 000, 600)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 000, 000)); // 1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 000, 600)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 600, 300)); // 2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 000, 000)); // 3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 600, 300)); // 3 has A-D
         }
 
         [Test]
@@ -487,16 +487,16 @@ namespace UnitTests
 
             Assert.AreEqual(3, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 300)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 300)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 000, 300)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 600, 600)); // 1 has A-D
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 600, 000)); // 2 has A-C
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 600, 600)); // 2 has A-D
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 000, 300)); // 3 has A-B
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 600, 000)); // 3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 000, 300)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 600, 600)); // 1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 600, 000)); // 2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 600, 600)); // 2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 000, 300)); // 3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 600, 000)); // 3 has A-C
         }
 
         [Test]
@@ -532,20 +532,20 @@ namespace UnitTests
 
             Assert.AreEqual(5, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-E
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-E
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
             
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 000, 600)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[0], 300, 300, 000, 000)); // 1 has A-C
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 000, 600)); // 2 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 300, 300, 600, 600)); // 2 has A-E
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 000, 000)); // 3 has A-C
-            Assert.IsTrue(SiteHasEdge(points[2], 300, 300, 600, 000)); // 3 has A-D
-            Assert.IsTrue(SiteHasEdge(points[3], 300, 300, 600, 000)); // 4 has A-D
-            Assert.IsTrue(SiteHasEdge(points[3], 300, 300, 600, 600)); // 4 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 000, 600)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 300, 000, 000)); // 1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 000, 600)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 300, 600, 600)); // 2 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 000, 000)); // 3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 300, 600, 000)); // 3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 300, 300, 600, 000)); // 4 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 300, 300, 600, 600)); // 4 has A-E
         }
 
         [Test]
@@ -582,41 +582,32 @@ namespace UnitTests
 
             Assert.AreEqual(8, edges.Count);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 250, 250)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 350, 250)); // B-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 350, 350)); // C-D
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 250, 350)); // D-A
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 250, 250)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 350, 250)); // B-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 350, 350)); // C-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 250, 350)); // D-A
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-E
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-E
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
             
-            Assert.IsTrue(SiteHasEdge(points[0], 250, 350, 250, 250)); // 1 has A-B
-            Assert.IsTrue(SiteHasEdge(points[0], 250, 250, 350, 250)); // 1 has B-C
-            Assert.IsTrue(SiteHasEdge(points[0], 350, 250, 350, 350)); // 1 has C-D
-            Assert.IsTrue(SiteHasEdge(points[0], 350, 350, 250, 350)); // 1 has D-A
-            Assert.IsTrue(SiteHasEdge(points[1], 250, 350, 000, 600)); // 2 has A-E
-            Assert.IsTrue(SiteHasEdge(points[1], 250, 350, 250, 250)); // 2 has A-B
-            Assert.IsTrue(SiteHasEdge(points[1], 250, 250, 000, 000)); // 2 has B-F
-            Assert.IsTrue(SiteHasEdge(points[2], 250, 350, 000, 600)); // 3 has A-E
-            Assert.IsTrue(SiteHasEdge(points[2], 350, 350, 250, 350)); // 3 has D-A
-            Assert.IsTrue(SiteHasEdge(points[2], 350, 350, 600, 600)); // 3 has D-H
-            Assert.IsTrue(SiteHasEdge(points[3], 250, 250, 000, 000)); // 4 has B-F
-            Assert.IsTrue(SiteHasEdge(points[3], 250, 250, 350, 250)); // 4 has B-C
-            Assert.IsTrue(SiteHasEdge(points[3], 350, 250, 600, 000)); // 4 has C-G
-            Assert.IsTrue(SiteHasEdge(points[4], 350, 350, 600, 600)); // 5 has D-H
-            Assert.IsTrue(SiteHasEdge(points[4], 350, 250, 350, 350)); // 5 has C-D
-            Assert.IsTrue(SiteHasEdge(points[4], 350, 250, 600, 000)); // 5 has C-G
-        }
-        
-        
-        internal static bool SiteHasEdge(VoronoiSite site, int x1, int y1, int x2, int y2)
-        {
-            return site.Cell.Any(e =>
-                                     e.Start.X.ApproxEqual(x1) && e.Start.Y.ApproxEqual(y1) && e.End.X.ApproxEqual(x2) && e.End.Y.ApproxEqual(y2) ||
-                                     e.Start.X.ApproxEqual(x2) && e.Start.Y.ApproxEqual(y2) && e.End.X.ApproxEqual(x1) && e.End.Y.ApproxEqual(y1)
-            );
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 250, 350, 250, 250)); // 1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 250, 250, 350, 250)); // 1 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 350, 250, 350, 350)); // 1 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 350, 350, 250, 350)); // 1 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 250, 350, 000, 600)); // 2 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 250, 350, 250, 250)); // 2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 250, 250, 000, 000)); // 2 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 250, 350, 000, 600)); // 3 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 350, 350, 250, 350)); // 3 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 350, 350, 600, 600)); // 3 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 250, 250, 000, 000)); // 4 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 250, 250, 350, 250)); // 4 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 350, 250, 600, 000)); // 4 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 350, 350, 600, 600)); // 5 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 350, 250, 350, 350)); // 5 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 350, 250, 600, 000)); // 5 has C-G
         }
     }
 }

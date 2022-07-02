@@ -37,10 +37,10 @@ namespace UnitTests
             
             Assert.AreEqual(4, edges.Count);
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
         }
         
         [TestCase(-100, 300)]
@@ -77,10 +77,10 @@ namespace UnitTests
             
             Assert.AreEqual(4, edges.Count);
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
         }
 
         [Test]
@@ -110,10 +110,10 @@ namespace UnitTests
             
             Assert.AreEqual(4, edges.Count);
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
         }
         
         [Test]
@@ -144,14 +144,14 @@ namespace UnitTests
 
             Assert.AreEqual(7, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 300)); // W-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 300, 600, 600)); // B-Z
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 300)); // Y-A
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 300, 000, 000)); // A-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 300)); // W-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 300, 600, 600)); // B-Z
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 300)); // Y-A
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 300, 000, 000)); // A-X
         }
 
         [Test]
@@ -182,14 +182,14 @@ namespace UnitTests
 
             Assert.AreEqual(7, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 300, 000)); // Y-A
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 000, 600, 000)); // A-Z
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // Z-W
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 300, 600)); // W-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 600, 000, 600)); // B-X
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // X-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 300, 000)); // Y-A
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 000, 600, 000)); // A-Z
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // Z-W
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 300, 600)); // W-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 600, 000, 600)); // B-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // X-Y
         }
 
         [Test]
@@ -220,12 +220,12 @@ namespace UnitTests
 
             Assert.AreEqual(5, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // B-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Y-A
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // A-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // B-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Y-A
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // A-X
         }
 
         [Test]
@@ -256,12 +256,12 @@ namespace UnitTests
 
             Assert.AreEqual(5, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 600, 600)); // A-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 600, 000)); // Y-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 000, 000)); // B-X
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 000, 600)); // X-A
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 600, 600)); // A-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 600, 000)); // Y-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 000, 000)); // B-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 000, 600)); // X-A
         }
 
         [Test]
@@ -296,16 +296,16 @@ namespace UnitTests
 
             Assert.AreEqual(9, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 600, 600)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 600, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 350, 000)); // Y-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 000, 600, 000)); // D-Z
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // Z-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // B-X
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 350)); // X-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 350, 000, 000)); // C-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 350, 000)); // Y-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 000, 600, 000)); // D-Z
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // Z-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // B-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 350)); // X-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 350, 000, 000)); // C-Y
         }
 
         [Test]
@@ -340,16 +340,16 @@ namespace UnitTests
 
             Assert.AreEqual(9, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 250, 000)); // X-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 000, 600, 000)); // D-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 350)); // Y-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 350, 600, 600)); // C-Z
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // B-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 250, 000)); // X-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 000, 600, 000)); // D-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 350)); // Y-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 350, 600, 600)); // C-Z
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // B-X
         }
 
         [Test]
@@ -384,16 +384,16 @@ namespace UnitTests
 
             Assert.AreEqual(9, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 000, 000)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 000, 000)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // B-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 250)); // Y-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 600, 600, 600)); // C-Z
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 250, 600)); // Z-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 600, 000, 600)); // D-X
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // X-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // B-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 250)); // Y-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 600, 600, 600)); // C-Z
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 250, 600)); // Z-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 600, 000, 600)); // D-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // X-B
         }
 
         [Test]
@@ -428,16 +428,16 @@ namespace UnitTests
 
             Assert.AreEqual(9, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D      
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D      
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // Y-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // B-Z
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 350, 600)); // Z-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 600, 000, 600)); // C-X
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 250)); // X-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 250, 000, 000)); // D-Y  
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // Y-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // B-Z
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 350, 600)); // Z-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 600, 000, 600)); // C-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 250)); // X-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 250, 000, 000)); // D-Y  
         }
 
         [Test]
@@ -472,15 +472,15 @@ namespace UnitTests
 
             Assert.AreEqual(8, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 300, 000)); // X-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 000, 600, 000)); // C-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // Y-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // D-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // B-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 300, 000)); // X-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 000, 600, 000)); // C-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // Y-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // D-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // B-X
         }
 
         [Test]
@@ -515,15 +515,15 @@ namespace UnitTests
 
             Assert.AreEqual(8, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 300, 600)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // C-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // D-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 300, 600)); // Y-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 600, 000, 600)); // B-X
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // X-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // C-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // D-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 300, 600)); // Y-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 600, 000, 600)); // B-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // X-C
         }
 
         [Test]
@@ -558,15 +558,15 @@ namespace UnitTests
 
             Assert.AreEqual(8, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // C-X
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 300)); // X-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 300, 600, 600)); // D-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Y-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // B-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // C-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 300)); // X-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 300, 600, 600)); // D-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Y-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // B-C
         }
 
         [Test]
@@ -601,15 +601,15 @@ namespace UnitTests
 
             Assert.AreEqual(8, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 300)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 300)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // C-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // D-Y
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 300)); // Y-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 300, 000, 000)); // B-X
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // C-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // D-Y
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 300)); // Y-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 300, 000, 000)); // B-X
         }
 
         [Test]
@@ -645,16 +645,16 @@ namespace UnitTests
 
             Assert.AreEqual(9, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-E
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-E
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // C-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // D-E
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // E-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // B-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // C-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // D-E
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // E-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // B-C
         }
 
         [Test]
@@ -691,20 +691,20 @@ namespace UnitTests
 
             Assert.AreEqual(12, edges.Count);
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 250, 250)); // A-B
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 350, 250)); // B-C
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 350, 350)); // C-D
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 250, 350)); // D-A
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 250, 250)); // A-B
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 350, 250)); // B-C
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 350, 350)); // C-D
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 250, 350)); // D-A
 
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-E
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-E
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
             
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // F-G
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // G-H
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // H-E
-            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // E-F
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 000)); // F-G
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 000, 600, 600)); // G-H
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 600, 600, 000, 600)); // H-E
+            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 000, 000)); // E-F
         }
         
 #if BRUTE_FORCE_TEST

@@ -41,7 +41,7 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 1);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
             
             Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.Left, PointBorderLocation.Right)); // A-B
         }
@@ -74,7 +74,7 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 1);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
             
             Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.Top, PointBorderLocation.Bottom)); // A-B
         }
@@ -107,7 +107,7 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 1);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
             
             Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.TopLeft, PointBorderLocation.BottomRight)); // A-B
         }
@@ -140,7 +140,7 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 1);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
             
             Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.BottomLeft, PointBorderLocation.TopRight)); // A-B
         }
@@ -177,9 +177,9 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 3);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 600, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 600, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
             
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 600, 600), PointBorderLocation.TopRight)); // A-B
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 000, 350), PointBorderLocation.Left)); // A-C
@@ -218,9 +218,9 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 3);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
             
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 000, 600), PointBorderLocation.TopLeft)); // A-B
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 600, 350), PointBorderLocation.Right)); // A-C
@@ -259,9 +259,9 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 3);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 000, 000)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 000, 000)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
             
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 000, 000), PointBorderLocation.BottomLeft)); // A-B
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 600, 250), PointBorderLocation.Right)); // A-C
@@ -300,9 +300,9 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 3);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D   
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 600, 000)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D   
             
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 600, 000), PointBorderLocation.BottomRight)); // A-B
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 350, 600), PointBorderLocation.Top)); // A-C
@@ -341,9 +341,9 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 3);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 600), PointBorderLocation.TopLeft)); // A-B
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 300, 000), PointBorderLocation.Bottom)); // A-C
@@ -382,9 +382,9 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 3);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 300, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
             
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 300, 600), PointBorderLocation.Top)); // A-B
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 000), PointBorderLocation.BottomLeft)); // A-C
@@ -422,9 +422,9 @@ namespace UnitTests
                 Console.WriteLine(edge.ToString("F0"));
 
             Assume.That(edges.Count == 3);
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
             
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 600), PointBorderLocation.TopLeft)); // A-B
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 000), PointBorderLocation.BottomLeft)); // A-C
@@ -463,9 +463,9 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 3);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 000, 300)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 300)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 300), PointBorderLocation.Left)); // A-B
             Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 000), PointBorderLocation.BottomRight)); // A-C
@@ -506,15 +506,15 @@ namespace UnitTests
 
             Assume.That(() => edges.Count == 8);
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 250, 250)); // A-B
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 350, 250)); // B-C
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 350, 350)); // C-D
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 250, 350)); // D-A
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 250, 250)); // A-B
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 350, 250)); // B-C
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 350, 350)); // C-D
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 250, 350)); // D-A
 
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-E
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
-            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 000, 600)); // A-E
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 000, 000)); // B-F
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
+            Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
             
             Assert.IsTrue(EdgeDoesntStartsOrEndsOnBorder(FindEdge(edges, 250, 350, 250, 250))); // A-B
             Assert.IsTrue(EdgeDoesntStartsOrEndsOnBorder(FindEdge(edges, 250, 250, 350, 250))); // B-C
