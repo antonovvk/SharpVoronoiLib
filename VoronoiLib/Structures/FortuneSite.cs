@@ -10,7 +10,7 @@ namespace VoronoiLib.Structures
         public double Y { get; }
 
         [PublicAPI]
-        public List<VEdge> Cell { get; }
+        public IEnumerable<VEdge> Cell => cell;
 
         [PublicAPI]
         public List<FortuneSite> Neighbors { get; private set; }
@@ -25,7 +25,7 @@ namespace VoronoiLib.Structures
                     // it would probably be better to sort these as they are added to improve performance
                     _points = new List<VPoint>();
 
-                    foreach (VEdge edge in Cell)
+                    foreach (VEdge edge in cell)
                     {
                         if (!_points.Contains(edge.Start))
                             _points.Add(edge.Start);
@@ -51,7 +51,7 @@ namespace VoronoiLib.Structures
             {
                 if (_clockwiseCell == null)
                 {
-                    _clockwiseCell = new List<VEdge>(Cell);
+                    _clockwiseCell = new List<VEdge>(cell);
                     _clockwiseCell.Sort(SortEdgesClockwise);
                 }
 
@@ -60,16 +60,19 @@ namespace VoronoiLib.Structures
         }
 
         
+        internal readonly List<VEdge> cell;
+        
+        
         private List<VPoint>? _points;
         private List<VEdge>? _clockwiseCell;
-        
+
 
         [PublicAPI]
         public FortuneSite(double x, double y)
         {
             X = x;
             Y = y;
-            Cell = new List<VEdge>();
+            cell = new List<VEdge>();
             Neighbors = new List<FortuneSite>();
         }
 
@@ -124,7 +127,7 @@ namespace VoronoiLib.Structures
                 return;
             }
 
-            Cell.Add(value);
+            cell.Add(value);
             _points = null;
         }
 

@@ -36,7 +36,7 @@ namespace VoronoiLib.Structures
 
                     if (Left != null)
                     {
-                        List<VEdge> leftPointCell = Left.Cell;
+                        List<VEdge> leftPointCell = Left.cell;
 
                         foreach (VEdge edge in leftPointCell)
                             if (edge != this) // one of its edges is us by definition
@@ -46,7 +46,7 @@ namespace VoronoiLib.Structures
 
                     if (Right != null)
                     {
-                        List<VEdge> rightPointCell = Right.Cell;
+                        List<VEdge> rightPointCell = Right.cell;
 
                         foreach (VEdge edge in rightPointCell)
                             if (edge != this) // one of its edges is us by definition

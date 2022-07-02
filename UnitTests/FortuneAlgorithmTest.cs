@@ -146,15 +146,15 @@ namespace UnitTests
             Assert.AreEqual(edges[1].Start.Y, edges[1].End.Y);
 
             // Two of the sites have expected 2 edges
-            Assert.AreEqual(2, points[1].Cell.Count);
-            Assert.AreEqual(2, points[3].Cell.Count);
+            Assert.AreEqual(2, points[1].Cell.Count());
+            Assert.AreEqual(2, points[3].Cell.Count());
 
             // Two of the sites have an "extra" edge
-            Assert.AreEqual(3, points[0].Cell.Count);
-            Assert.AreEqual(3, points[2].Cell.Count);
+            Assert.AreEqual(3, points[0].Cell.Count());
+            Assert.AreEqual(3, points[2].Cell.Count());
             // And this is the 0-length edge
-            Assert.AreEqual(edges[1], points[0].Cell[0]);
-            Assert.AreEqual(edges[1], points[2].Cell[1]);
+            Assert.AreEqual(edges[1], points[0].Cell.ToList()[0]);
+            Assert.AreEqual(edges[1], points[2].Cell.ToList()[1]);
         }
 
         [Test]
@@ -198,7 +198,7 @@ namespace UnitTests
             List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(0, edges.Count);
-            Assert.AreEqual(0, points[0].Cell.Count);
+            Assert.AreEqual(0, points[0].Cell.Count());
         }
 
         [TestCase(-100, 300)]
@@ -220,8 +220,8 @@ namespace UnitTests
             List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(1, edges.Count);
-            Assert.AreEqual(1, points[0].Cell.Count);
-            Assert.AreEqual(1, points[1].Cell.Count);
+            Assert.AreEqual(1, points[0].Cell.Count());
+            Assert.AreEqual(1, points[1].Cell.Count());
         }
 
         [TestCase(-1000, 300)]
@@ -243,8 +243,8 @@ namespace UnitTests
             List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(0, edges.Count);
-            Assert.AreEqual(0, points[0].Cell.Count);
-            Assert.AreEqual(0, points[1].Cell.Count);
+            Assert.AreEqual(0, points[0].Cell.Count());
+            Assert.AreEqual(0, points[1].Cell.Count());
         }
 
         [TestCase(0, 300)]
@@ -265,7 +265,7 @@ namespace UnitTests
             List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(0, edges.Count);
-            Assert.AreEqual(0, points[0].Cell.Count);
+            Assert.AreEqual(0, points[0].Cell.Count());
         }
 
         [TestCase(0, 300)]
@@ -287,8 +287,8 @@ namespace UnitTests
             List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(1, edges.Count);
-            Assert.AreEqual(1, points[0].Cell.Count);
-            Assert.AreEqual(1, points[1].Cell.Count);
+            Assert.AreEqual(1, points[0].Cell.Count());
+            Assert.AreEqual(1, points[1].Cell.Count());
         }
 
         [Test]
@@ -862,10 +862,10 @@ namespace UnitTests
             //     
             // foreach (FortuneSite point in points)
             // {
-            //     Assert.NotNull(point.Cell);
-            //     CollectionAssert.IsNotEmpty(point.Cell);
-            //     CollectionAssert.AllItemsAreNotNull(point.Cell);
-            //     foreach (VEdge edge in point.Cell)
+            //     Assert.NotNull(point.cell);
+            //     CollectionAssert.IsNotEmpty(point.cell);
+            //     CollectionAssert.AllItemsAreNotNull(point.cell);
+            //     foreach (VEdge edge in point.cell)
             //     {
             //         CollectionAssert.Contains(edges, edge);
             //         Assert.NotNull(edge.Left);

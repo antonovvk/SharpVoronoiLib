@@ -481,7 +481,7 @@ namespace VoronoiLib
                 edges.AddLast(newEdge);
                 
                 if (site != null)
-                    site.Cell.Add(newEdge);
+                    site.cell.Add(newEdge);
                 
                 if (node is EdgeBorderNode cebn)
                     lastEdgeNode = cebn;
@@ -499,7 +499,7 @@ namespace VoronoiLib
             edges.AddLast(finalEdge);
 
             if (finalSite != null)
-                finalSite.Cell.Add(finalEdge);
+                finalSite.cell.Add(finalEdge);
         }
 
         private abstract class BorderNode

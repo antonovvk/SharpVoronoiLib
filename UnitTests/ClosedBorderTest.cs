@@ -733,10 +733,10 @@ namespace UnitTests
             //     
             // foreach (FortuneSite point in points)
             // {
-            //     Assert.NotNull(point.Cell);
-            //     CollectionAssert.IsNotEmpty(point.Cell);
-            //     CollectionAssert.AllItemsAreNotNull(point.Cell);
-            //     foreach (VEdge edge in point.Cell)
+            //     Assert.NotNull(point.cell);
+            //     CollectionAssert.IsNotEmpty(point.cell);
+            //     CollectionAssert.AllItemsAreNotNull(point.cell);
+            //     foreach (VEdge edge in point.cell)
             //     {
             //         CollectionAssert.Contains(edges, edge);
             //         Assert.NotNull(edge.Left);
