@@ -4,6 +4,10 @@
         <TargetFramework>net472</TargetFramework>
 
         <IsPackable>false</IsPackable>
+
+        <LangVersion>9</LangVersion>
+
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
