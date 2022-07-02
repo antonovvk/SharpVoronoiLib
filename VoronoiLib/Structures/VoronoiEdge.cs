@@ -8,8 +8,8 @@ namespace VoronoiLib.Structures
         public VoronoiPoint Start { get; internal set; }
         public VoronoiPoint? End { get; internal set; }
         
-        public FortuneSite? Left { get; }
-        public FortuneSite? Right { get; }
+        public VoronoiSite? Left { get; }
+        public VoronoiSite? Right { get; }
         
         
         [PublicAPI]
@@ -76,7 +76,7 @@ namespace VoronoiLib.Structures
         private List<VoronoiEdge>? _neighbours;
         
         
-        internal VoronoiEdge(VoronoiPoint start, FortuneSite left, FortuneSite right)
+        internal VoronoiEdge(VoronoiPoint start, VoronoiSite left, VoronoiSite right)
         {
             Start = start;
             Left = left;
@@ -98,7 +98,7 @@ namespace VoronoiLib.Structures
             Intercept = start.Y - Slope*start.X;
         }
         
-        internal VoronoiEdge(VoronoiPoint start, VoronoiPoint end, FortuneSite left, FortuneSite right)
+        internal VoronoiEdge(VoronoiPoint start, VoronoiPoint end, VoronoiSite left, VoronoiSite right)
         {
             Start = start;
             End = end;

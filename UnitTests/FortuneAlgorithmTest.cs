@@ -17,11 +17,11 @@ namespace UnitTests
         [Test]
         public void FortuneThreePoints()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(100, 100),
-                new FortuneSite(200, 200),
-                new FortuneSite(200, 150)
+                new VoronoiSite(100, 100),
+                new VoronoiSite(200, 200),
+                new VoronoiSite(200, 150)
             };
             LinkedList<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0 , 0, 600, 600);
 
@@ -52,11 +52,11 @@ namespace UnitTests
         [Test]
         public void FortuneColinearPoints()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(300, 100),
-                new FortuneSite(300, 300),
-                new FortuneSite(300, 500)
+                new VoronoiSite(300, 100),
+                new VoronoiSite(300, 300),
+                new VoronoiSite(300, 500)
             };
 
             LinkedList<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
@@ -78,11 +78,11 @@ namespace UnitTests
         [Test]
         public void FortunePointBreak()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(100, 100),
-                new FortuneSite(500, 100),
-                new FortuneSite(300, 200)
+                new VoronoiSite(100, 100),
+                new VoronoiSite(500, 100),
+                new VoronoiSite(300, 200)
             };
             LinkedList<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
             LinkedListNode<VoronoiEdge> edge = edges.First;
@@ -105,12 +105,12 @@ namespace UnitTests
         [Test]
         public void FourEquidistantPoints()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(200, 200),
-                new FortuneSite(200, 400),
-                new FortuneSite(400, 400),
-                new FortuneSite(400, 200)
+                new VoronoiSite(200, 200),
+                new VoronoiSite(200, 400),
+                new VoronoiSite(400, 400),
+                new VoronoiSite(400, 200)
             };
             
             // These points form a square, so, intuitively, there should be 4 edges making a "cross".
@@ -160,7 +160,7 @@ namespace UnitTests
         [Test]
         public void NoPoints()
         {
-            List<FortuneSite> points = new List<FortuneSite>();
+            List<VoronoiSite> points = new List<VoronoiSite>();
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
@@ -170,9 +170,9 @@ namespace UnitTests
         [Test]
         public void OnePoint()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(300, 300)
+                new VoronoiSite(300, 300)
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -190,9 +190,9 @@ namespace UnitTests
         [TestCase(-100, 700)]
         public void PointOutsideBoundsAlone(double x, double y)
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(x, y)
+                new VoronoiSite(x, y)
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -211,10 +211,10 @@ namespace UnitTests
         [TestCase(-100, 700)]
         public void PointOutsideBoundsAgainstInBoundsPoint(double x, double y)
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(x, y),
-                new FortuneSite(300, 300)
+                new VoronoiSite(x, y),
+                new VoronoiSite(300, 300)
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -234,10 +234,10 @@ namespace UnitTests
         [TestCase(-1000, 7000)]
         public void PointFarOutsideBoundsAgainstInBoundsPoint(double x, double y)
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(x, y),
-                new FortuneSite(300, 300)
+                new VoronoiSite(x, y),
+                new VoronoiSite(300, 300)
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -257,9 +257,9 @@ namespace UnitTests
         [TestCase(0, 600)]
         public void PointOnBoundsAlone(double x, double y)
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(x, y)
+                new VoronoiSite(x, y)
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -278,10 +278,10 @@ namespace UnitTests
         [TestCase(0, 600)]
         public void PointOnBoundsAgainstInBoundsPoint(double x, double y)
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(x, y),
-                new FortuneSite(300, 300)
+                new VoronoiSite(x, y),
+                new VoronoiSite(300, 300)
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -294,10 +294,10 @@ namespace UnitTests
         [Test]
         public void TwoPointsHorizontal()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(300, 200), // 1
-                new FortuneSite(300, 400) // 2
+                new VoronoiSite(300, 200), // 1
+                new VoronoiSite(300, 400) // 2
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -325,10 +325,10 @@ namespace UnitTests
         [Test]
         public void TwoPointsVertical()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(200, 300), // 1
-                new FortuneSite(400, 300) // 2
+                new VoronoiSite(200, 300), // 1
+                new VoronoiSite(400, 300) // 2
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -356,10 +356,10 @@ namespace UnitTests
         [Test]
         public void TwoPointsDiagonalForward()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(150, 150), // 1
-                new FortuneSite(450, 450) // 2
+                new VoronoiSite(150, 150), // 1
+                new VoronoiSite(450, 450) // 2
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -387,10 +387,10 @@ namespace UnitTests
         [Test]
         public void TwoPointsDiagonalBackward()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(450, 150), // 1
-                new FortuneSite(150, 450) // 2
+                new VoronoiSite(450, 150), // 1
+                new VoronoiSite(150, 450) // 2
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -418,11 +418,11 @@ namespace UnitTests
         [Test]
         public void ThreePointsInAWedgeNE()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(300, 300), // 1
-                new FortuneSite(300, 400), // 2
-                new FortuneSite(400, 300) // 3
+                new VoronoiSite(300, 300), // 1
+                new VoronoiSite(300, 400), // 2
+                new VoronoiSite(400, 300) // 3
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -455,11 +455,11 @@ namespace UnitTests
         [Test]
         public void ThreePointsInAWedgeNW()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(200, 300), // 1
-                new FortuneSite(300, 400), // 2
-                new FortuneSite(300, 300) // 3
+                new VoronoiSite(200, 300), // 1
+                new VoronoiSite(300, 400), // 2
+                new VoronoiSite(300, 300) // 3
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -492,11 +492,11 @@ namespace UnitTests
         [Test]
         public void ThreePointsInAWedgeSW()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(200, 300), // 1
-                new FortuneSite(300, 300), // 2
-                new FortuneSite(300, 200) // 3
+                new VoronoiSite(200, 300), // 1
+                new VoronoiSite(300, 300), // 2
+                new VoronoiSite(300, 200) // 3
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -529,11 +529,11 @@ namespace UnitTests
         [Test]
         public void ThreePointsInAWedgeSE()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(300, 200), // 1
-                new FortuneSite(300, 300), // 2
-                new FortuneSite(400, 300) // 3
+                new VoronoiSite(300, 200), // 1
+                new VoronoiSite(300, 300), // 2
+                new VoronoiSite(400, 300) // 3
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -566,11 +566,11 @@ namespace UnitTests
         [Test]
         public void ThreePointsInAWedgeS()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(200, 300), // 1
-                new FortuneSite(300, 400), // 2
-                new FortuneSite(400, 300) // 3
+                new VoronoiSite(200, 300), // 1
+                new VoronoiSite(300, 400), // 2
+                new VoronoiSite(400, 300) // 3
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -603,11 +603,11 @@ namespace UnitTests
         [Test]
         public void ThreePointsInAWedgeN()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(200, 300), // 1
-                new FortuneSite(300, 200), // 2
-                new FortuneSite(400, 300) // 3
+                new VoronoiSite(200, 300), // 1
+                new VoronoiSite(300, 200), // 2
+                new VoronoiSite(400, 300) // 3
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -640,11 +640,11 @@ namespace UnitTests
         [Test]
         public void ThreePointsInAWedgeE()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(200, 300), // 1
-                new FortuneSite(300, 400), // 2
-                new FortuneSite(300, 200) // 3
+                new VoronoiSite(200, 300), // 1
+                new VoronoiSite(300, 400), // 2
+                new VoronoiSite(300, 200) // 3
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -677,11 +677,11 @@ namespace UnitTests
         [Test]
         public void ThreePointsInAWedgeW()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(300, 400), // 1
-                new FortuneSite(400, 300), // 2
-                new FortuneSite(300, 200) // 3
+                new VoronoiSite(300, 400), // 1
+                new VoronoiSite(400, 300), // 2
+                new VoronoiSite(300, 200) // 3
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -714,12 +714,12 @@ namespace UnitTests
         [Test]
         public void FourPointsInASquare()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(200, 300), // 1
-                new FortuneSite(300, 400), // 2
-                new FortuneSite(300, 200), // 3
-                new FortuneSite(400, 300) // 4
+                new VoronoiSite(200, 300), // 1
+                new VoronoiSite(300, 400), // 2
+                new VoronoiSite(300, 200), // 3
+                new VoronoiSite(400, 300) // 4
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -754,13 +754,13 @@ namespace UnitTests
         [Test]
         public void FourPointsSurroundingASite()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(300, 300), // 1
-                new FortuneSite(200, 300), // 2
-                new FortuneSite(300, 400), // 3
-                new FortuneSite(300, 200), // 4
-                new FortuneSite(400, 300) // 5
+                new VoronoiSite(300, 300), // 1
+                new VoronoiSite(200, 300), // 2
+                new VoronoiSite(300, 400), // 3
+                new VoronoiSite(300, 200), // 4
+                new VoronoiSite(400, 300) // 5
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -799,12 +799,12 @@ namespace UnitTests
         [Test]
         public void FourPointsOutsideBounds()
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(-100, 300),
-                new FortuneSite(300, -100),
-                new FortuneSite(800, 300),
-                new FortuneSite(300, 800)
+                new VoronoiSite(-100, 300),
+                new VoronoiSite(300, -100),
+                new VoronoiSite(800, 300),
+                new VoronoiSite(300, 800)
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -825,10 +825,10 @@ namespace UnitTests
         [TestCase(300, -100, 300, -200)]
         public void TwoPointsOutsideBoundsTogether(double x1, double y1, double x2, double y2)
         {
-            List<FortuneSite> points = new List<FortuneSite>
+            List<VoronoiSite> points = new List<VoronoiSite>
             {
-                new FortuneSite(x1, y1),
-                new FortuneSite(x2, y2)
+                new VoronoiSite(x1, y1),
+                new VoronoiSite(x2, y2)
             };
 
             List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
@@ -848,11 +848,11 @@ namespace UnitTests
             
             int count = 100 + random.Next(100);
     
-            List<FortuneSite> points = new List<FortuneSite>(count);
+            List<VoronoiSite> points = new List<VoronoiSite>(count);
     
             for (int j = 0; j < count; j++)
             {
-                points.Add(new FortuneSite(random.NextDouble() * 3000 - 1500, random.NextDouble() * 3000 - 1500));
+                points.Add(new VoronoiSite(random.NextDouble() * 3000 - 1500, random.NextDouble() * 3000 - 1500));
             }
     
             FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
@@ -860,7 +860,7 @@ namespace UnitTests
             // These are really slow and only work on in-bounds values:
             // CollectionAssert.AllItemsAreNotNull(edges);
             //     
-            // foreach (FortuneSite point in points)
+            // foreach (VoronoiSite point in points)
             // {
             //     Assert.NotNull(point.cell);
             //     CollectionAssert.IsNotEmpty(point.cell);
@@ -887,11 +887,11 @@ namespace UnitTests
             
             int count = 10 + random.Next(10);
     
-            List<FortuneSite> points = new List<FortuneSite>(count);
+            List<VoronoiSite> points = new List<VoronoiSite>(count);
     
             for (int j = 0; j < count; j++)
             {
-                points.Add(new FortuneSite(random.Next(3000) - 1500, random.Next(3000) - 1500));
+                points.Add(new VoronoiSite(random.Next(3000) - 1500, random.Next(3000) - 1500));
             }
     
             FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);

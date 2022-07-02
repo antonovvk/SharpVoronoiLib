@@ -27,7 +27,7 @@ The library (VoronoiLib) is compiled for .NET standard 1.1. As such, projects sh
 Create points, run algorithm:
 
 ```
-List<FortuneSite> points = new List<FortuneSite>
+List<VoronoiSite> points = new List<VoronoiSite>
 {
     new FortuneSite(300, 300),
     new FortuneSite(300, 400),

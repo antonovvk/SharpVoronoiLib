@@ -36,7 +36,7 @@ namespace VoronoiLib
         
         
         [PublicAPI]
-        public static LinkedList<VoronoiEdge> RunOnce(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
+        public static LinkedList<VoronoiEdge> RunOnce(List<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
@@ -45,14 +45,14 @@ namespace VoronoiLib
         }
 
         [PublicAPI]
-        public LinkedList<VoronoiEdge> Run(List<FortuneSite> sites, bool closeBorders = false)
+        public LinkedList<VoronoiEdge> Run(List<VoronoiSite> sites, bool closeBorders = false)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
             
             MinHeap<FortuneEvent> eventQueue = new MinHeap<FortuneEvent>(5*sites.Count);
             
-            foreach (FortuneSite site in sites)
+            foreach (VoronoiSite site in sites)
             {
                 if (site == null) throw new ArgumentNullException(nameof(sites));
                 
@@ -411,7 +411,7 @@ namespace VoronoiLib
             return (y - b) / m;
         }
         
-        private static void CloseBorders(LinkedList<VoronoiEdge> edges, double minX, double minY, double maxX, double maxY, List<FortuneSite> sites)
+        private static void CloseBorders(LinkedList<VoronoiEdge> edges, double minX, double minY, double maxX, double maxY, List<VoronoiSite> sites)
         {
             BorderNodeComparer comparer = new BorderNodeComparer(
                 (minX + maxX) / 2f, 
@@ -477,7 +477,7 @@ namespace VoronoiLib
                 }
             }
 
-            FortuneSite defaultSite = null;
+            VoronoiSite defaultSite = null;
             if (lastEdgeNode == null)
             {
                 // We have no edges within bounds
@@ -506,7 +506,7 @@ namespace VoronoiLib
                 if (node1 == null) // i.e. node == nodes.Min
                     continue; // we are looking at first node, we will start from Min and next one
 
-                FortuneSite site = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
+                VoronoiSite site = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
 
                 VoronoiEdge newEdge = new VoronoiEdge(
                     node1.Point, 
@@ -524,7 +524,7 @@ namespace VoronoiLib
                     lastEdgeNode = cebn;
             }
 
-            FortuneSite finalSite = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
+            VoronoiSite finalSite = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
 
             VoronoiEdge finalEdge = new VoronoiEdge(
                 nodes.Max.Point,
@@ -630,7 +630,7 @@ namespace VoronoiLib
                 if (locationCompare != 0)
                     return locationCompare;
 
-                return FortuneSite.SortPointsClockwise(n1.Point, n2.Point, _originX, _originY);
+                return VoronoiSite.SortPointsClockwise(n1.Point, n2.Point, _originX, _originY);
             }
         }
     }

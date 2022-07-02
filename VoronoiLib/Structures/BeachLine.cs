@@ -5,12 +5,12 @@ namespace VoronoiLib.Structures
 {
     internal class BeachSection
     {
-        internal FortuneSite Site { get;}
+        internal VoronoiSite Site { get;}
         internal VoronoiEdge Edge { get; set; }
         //NOTE: this will change
         internal FortuneCircleEvent CircleEvent { get; set; }
 
-        internal BeachSection(FortuneSite site)
+        internal BeachSection(VoronoiSite site)
         {
             Site = site;
             CircleEvent = null;
@@ -28,7 +28,7 @@ namespace VoronoiLib.Structures
 
         internal void AddBeachSection(FortuneSiteEvent siteEvent, MinHeap<FortuneEvent> eventQueue, HashSet<FortuneCircleEvent> deleted, LinkedList<VoronoiEdge> edges)
         {
-            FortuneSite site = siteEvent.Site;
+            VoronoiSite site = siteEvent.Site;
             double x = site.X;
             double directrix = site.Y;
 
@@ -192,13 +192,13 @@ namespace VoronoiLib.Structures
                 //sites
 
                 //bring a to the origin
-                FortuneSite leftSite = leftSection.Data.Site;
+                VoronoiSite leftSite = leftSection.Data.Site;
                 double ax = leftSite.X;
                 double ay = leftSite.Y;
                 double bx = site.X - ax;
                 double by = site.Y - ay;
 
-                FortuneSite rightSite = rightSection.Data.Site;
+                VoronoiSite rightSite = rightSection.Data.Site;
                 double cx = rightSite.X - ax;
                 double cy = rightSite.Y - ay;
                 double d = bx*cy - by*cx;
@@ -317,8 +317,8 @@ namespace VoronoiLib.Structures
             //left node is degenerate
             if ((leftNode.Data.Site.Y - directrix).ApproxEqual(0))
                 return leftNode.Data.Site.X;
-            FortuneSite site = node.Data.Site;
-            FortuneSite leftSite = leftNode.Data.Site;
+            VoronoiSite site = node.Data.Site;
+            VoronoiSite leftSite = leftNode.Data.Site;
             return ParabolaMath.IntersectParabolaX(leftSite.X, leftSite.Y, site.X, site.Y, directrix);
         }
 
@@ -334,8 +334,8 @@ namespace VoronoiLib.Structures
             //left node is degenerate
             if ((rightNode.Data.Site.Y - directrix).ApproxEqual(0))
                 return rightNode.Data.Site.X;
-            FortuneSite site = node.Data.Site;
-            FortuneSite rightSite = rightNode.Data.Site;
+            VoronoiSite site = node.Data.Site;
+            VoronoiSite rightSite = rightNode.Data.Site;
             return ParabolaMath.IntersectParabolaX(site.X, site.Y, rightSite.X, rightSite.Y, directrix);
         }
 
@@ -348,9 +348,9 @@ namespace VoronoiLib.Structures
             if (left == null || right == null)
                 return;
 
-            FortuneSite leftSite = left.Data.Site;
-            FortuneSite centerSite = section.Data.Site;
-            FortuneSite rightSite = right.Data.Site;
+            VoronoiSite leftSite = left.Data.Site;
+            VoronoiSite centerSite = section.Data.Site;
+            VoronoiSite rightSite = right.Data.Site;
 
             //if the left arc and right arc are defined by the same
             //focus, the two arcs cannot converge

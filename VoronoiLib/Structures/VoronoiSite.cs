@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 
 namespace VoronoiLib.Structures
 {
-    public class FortuneSite
+    public class VoronoiSite
     {
         public double X { get; }
         public double Y { get; }
@@ -28,7 +28,7 @@ namespace VoronoiLib.Structures
         }
 
         [PublicAPI]
-        public IEnumerable<FortuneSite> Neighbors => neighbors;
+        public IEnumerable<VoronoiSite> Neighbors => neighbors;
 
         [PublicAPI]
         public IEnumerable<VoronoiPoint> Points
@@ -74,7 +74,7 @@ namespace VoronoiLib.Structures
 
 
         internal readonly List<VoronoiEdge> cell;
-        internal readonly List<FortuneSite> neighbors;
+        internal readonly List<VoronoiSite> neighbors;
         
         
         private List<VoronoiPoint>? _points;
@@ -83,12 +83,12 @@ namespace VoronoiLib.Structures
 
 
         [PublicAPI]
-        public FortuneSite(double x, double y)
+        public VoronoiSite(double x, double y)
         {
             X = x;
             Y = y;
             cell = new List<VoronoiEdge>();
-            neighbors = new List<FortuneSite>();
+            neighbors = new List<VoronoiSite>();
         }
 
         

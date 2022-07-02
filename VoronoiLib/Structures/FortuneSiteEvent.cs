@@ -4,9 +4,9 @@
     {
         public double X => Site.X;
         public double Y => Site.Y;
-        internal FortuneSite Site { get; }
+        internal VoronoiSite Site { get; }
 
-        internal FortuneSiteEvent(FortuneSite site)
+        internal FortuneSiteEvent(VoronoiSite site)
         {
             Site = site;
         }

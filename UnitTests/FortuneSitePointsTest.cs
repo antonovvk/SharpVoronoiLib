@@ -13,11 +13,11 @@ namespace UnitTests
         [Test]
         public void ThreeFortuneSites()
         {
-            List<FortuneSite> points = new List<FortuneSite> {new FortuneSite(100, 100), new FortuneSite(200, 200), new FortuneSite(200, 150)};
+            List<VoronoiSite> points = new List<VoronoiSite> {new VoronoiSite(100, 100), new VoronoiSite(200, 200), new VoronoiSite(200, 150)};
             FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
 
             // Site 1
-            FortuneSite site = points[0];
+            VoronoiSite site = points[0];
             List<VoronoiPoint> corners = site.ClockwisePoints.ToList();
             Assert.NotNull(corners);
             Assert.AreEqual(3, corners.Count);
