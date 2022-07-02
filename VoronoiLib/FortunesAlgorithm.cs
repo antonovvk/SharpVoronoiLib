@@ -10,13 +10,35 @@ namespace VoronoiLib
     public class FortunesAlgorithm
     {
         [PublicAPI]
+        public double MinX { get; }
+        
+        [PublicAPI]
+        public double MinY { get; }
+        
+        [PublicAPI]
+        public double MaxX { get; }
+        
+        [PublicAPI]
+        public double MaxY { get; }
+        
+
+        public FortunesAlgorithm(double minX, double minY, double maxX, double maxY)
+        {
+            MinX = minX;
+            MinY = minY;
+            MaxX = maxX;
+            MaxY = maxY;
+        }
+        
+        
+        [PublicAPI]
         public static LinkedList<VEdge> RunOnce(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
         {
-            return new FortunesAlgorithm().Run(sites, minX, minY, maxX, maxY, closeBorders);
+            return new FortunesAlgorithm(minX, minY, maxX, maxY).Run(sites, closeBorders);
         }
 
         [PublicAPI]
-        public LinkedList<VEdge> Run(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
+        public LinkedList<VEdge> Run(List<FortuneSite> sites, bool closeBorders = false)
         {
             MinHeap<FortuneEvent> eventQueue = new MinHeap<FortuneEvent>(5*sites.Count);
             foreach (FortuneSite s in sites)
@@ -55,7 +77,7 @@ namespace VoronoiLib
                 VEdge edge = edgeNode.Value;
                 LinkedListNode<VEdge> next = edgeNode.Next;
 
-                bool valid = ClipEdge(edge, minX, minY, maxX, maxY);
+                bool valid = ClipEdge(edge, MinX, MinY, MaxX, MaxY);
                 if (valid)
                 {
                     edgeNode.Value.Left.AddEdge(edgeNode.Value);
@@ -69,7 +91,7 @@ namespace VoronoiLib
             }
 
             if (closeBorders)
-                CloseBorders(edges, minX, minY, maxX, maxY, sites);
+                CloseBorders(edges, MinX, MinY, MaxX, MaxY, sites);
 
             return edges;
         }
