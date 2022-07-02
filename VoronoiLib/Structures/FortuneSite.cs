@@ -120,13 +120,6 @@ namespace VoronoiLib.Structures
 
         internal void AddEdge(VEdge value)
         {
-            if (value.Start == null || value.End == null
-                                    || double.IsNaN(value.Start.X) || double.IsNaN(value.Start.Y)
-                                    || double.IsNaN(value.End.X) || double.IsNaN(value.End.Y))
-            {
-                return;
-            }
-
             cell.Add(value);
             _points = null;
         }
