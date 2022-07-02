@@ -16,16 +16,6 @@ namespace VoronoiLib.Structures
         public List<FortuneSite> Neighbors { get; private set; }
 
         [PublicAPI]
-        public FortuneSite(double x, double y)
-        {
-            X = x;
-            Y = y;
-            Cell = new List<VEdge>();
-            Neighbors = new List<FortuneSite>();
-        }
-
-        private List<VPoint>? _points;
-        [PublicAPI]
         public IEnumerable<VPoint> Points
         {
             get
@@ -53,8 +43,7 @@ namespace VoronoiLib.Structures
                 return _points;
             }
         }
-        
-        private List<VEdge>? _clockwiseCell;
+
         [PublicAPI]
         public IEnumerable<VEdge> ClockwiseCell
         {
@@ -70,6 +59,21 @@ namespace VoronoiLib.Structures
             }
         }
 
+        
+        private List<VPoint>? _points;
+        private List<VEdge>? _clockwiseCell;
+        
+
+        [PublicAPI]
+        public FortuneSite(double x, double y)
+        {
+            X = x;
+            Y = y;
+            Cell = new List<VEdge>();
+            Neighbors = new List<FortuneSite>();
+        }
+
+        
         [PublicAPI]
         public bool Contains(VPoint testPoint)
         {
@@ -97,21 +101,7 @@ namespace VoronoiLib.Structures
             return result;
         }
 
-        private int SortEdgesClockwise(VEdge A, VEdge B)
-        {
-            return SortPointsClockwise(A.Mid, B.Mid);
-            
-            // Note that we use edge midpoint because the order of .Start and .End is not guaranteed.
-            // If we used Start or End, we would sometimes end up checking the same point/coordinate where the edges connect.
-            // A midpoint, however, guarantees each edge has a unique position for the comparison.
-            // (Technically, any point along the edge that isn't the start/end will do, but midpoint is just the simplest).
-        }
 
-        private int SortPointsClockwise(VPoint A, VPoint B)
-        {
-            return SortPointsClockwise(A, B, X, Y);
-        }
-        
         internal static int SortPointsClockwise(VPoint A, VPoint B, double x, double y)
         {
             // based on: https://social.msdn.microsoft.com/Forums/en-US/c4c0ce02-bbd0-46e7-aaa0-df85a3408c61/sorting-list-of-xy-coordinates-clockwise-sort-works-if-list-is-unsorted-but-fails-if-list-is?forum=csharplanguage
@@ -128,8 +118,8 @@ namespace VoronoiLib.Structures
         internal void AddEdge(VEdge value)
         {
             if (value.Start == null || value.End == null
-                || double.IsNaN(value.Start.X) || double.IsNaN(value.Start.Y)
-                || double.IsNaN(value.End.X) || double.IsNaN(value.End.Y))
+                                    || double.IsNaN(value.Start.X) || double.IsNaN(value.Start.Y)
+                                    || double.IsNaN(value.End.X) || double.IsNaN(value.End.Y))
             {
                 return;
             }
@@ -137,8 +127,24 @@ namespace VoronoiLib.Structures
             Cell.Add(value);
             _points = null;
         }
+
         
-        
+        private int SortEdgesClockwise(VEdge A, VEdge B)
+        {
+            return SortPointsClockwise(A.Mid, B.Mid);
+            
+            // Note that we use edge midpoint because the order of .Start and .End is not guaranteed.
+            // If we used Start or End, we would sometimes end up checking the same point/coordinate where the edges connect.
+            // A midpoint, however, guarantees each edge has a unique position for the comparison.
+            // (Technically, any point along the edge that isn't the start/end will do, but midpoint is just the simplest).
+        }
+
+        private int SortPointsClockwise(VPoint A, VPoint B)
+        {
+            return SortPointsClockwise(A, B, X, Y);
+        }
+
+
 #if DEBUG
         public override string ToString()
         {

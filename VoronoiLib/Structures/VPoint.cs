@@ -6,8 +6,10 @@ namespace VoronoiLib.Structures
     {
         public double X { get; }
         public double Y { get; }
+        
         public PointBorderLocation BorderLocation { get; }
 
+        
         internal VPoint(double x, double y, PointBorderLocation borderLocation = PointBorderLocation.NotOnBorder)
         {
             X = x;
@@ -56,6 +58,7 @@ namespace VoronoiLib.Structures
 #endif
     }
     
+    
     /// <remarks>
     /// Note that these are ordered clock-wise starting at bottom-left
     /// </remarks>
@@ -72,6 +75,7 @@ namespace VoronoiLib.Structures
         Bottom = 7
     }
 
+    
     public static class VPointExtensions
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

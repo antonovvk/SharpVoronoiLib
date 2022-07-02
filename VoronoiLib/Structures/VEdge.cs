@@ -7,10 +7,11 @@ namespace VoronoiLib.Structures
     {
         public VPoint Start { get; internal set; }
         public VPoint? End { get; internal set; }
+        
         public FortuneSite? Left { get; }
         public FortuneSite? Right { get; }
         
-        private VPoint? _mid;
+        
         [PublicAPI]
         public VPoint Mid
         {
@@ -24,7 +25,6 @@ namespace VoronoiLib.Structures
             }
         }
         
-        private List<VEdge>? _neighbours;
         [PublicAPI]
         public IEnumerable<VEdge> Neighbours
         {
@@ -64,11 +64,17 @@ namespace VoronoiLib.Structures
             }
         }
         
+        
         internal double SlopeRise { get; }
         internal double SlopeRun { get; }
         internal double? Slope { get; }
         internal double? Intercept { get; }
         internal VEdge? Neighbor { get; set; }
+        
+        
+        private VPoint? _mid;
+        private List<VEdge>? _neighbours;
+        
         
         internal VEdge(VPoint start, FortuneSite left, FortuneSite right)
         {
