@@ -22,7 +22,7 @@ namespace UnitTests
                 new VoronoiSite(300, 400) // 2
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 ^ 
             //     | 
@@ -55,7 +55,7 @@ namespace UnitTests
                 new VoronoiSite(400, 300) // 2
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             // 600 ^                 B 
             //     |                 | 
@@ -88,7 +88,7 @@ namespace UnitTests
                 new VoronoiSite(450, 450) // 2
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 A                                    
             //     |\                                  
@@ -121,7 +121,7 @@ namespace UnitTests
                 new VoronoiSite(150, 450) // 2
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 ^                                   B 
             //     |                                 /    
@@ -155,7 +155,7 @@ namespace UnitTests
                 new VoronoiSite(400, 300) // 3
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 ^                                   B
             //     |                                  /
@@ -196,7 +196,7 @@ namespace UnitTests
                 new VoronoiSite(300, 300) // 3
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 B                       
             //     |  \                     
@@ -237,7 +237,7 @@ namespace UnitTests
                 new VoronoiSite(300, 200) // 3
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 ^              D
             //     |              |
@@ -278,7 +278,7 @@ namespace UnitTests
                 new VoronoiSite(400, 300) // 3
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 ^                    C
             //     |                    |
@@ -319,7 +319,7 @@ namespace UnitTests
                 new VoronoiSite(400, 300) // 3
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 B                                   D
             //     |\                                 /
@@ -360,7 +360,7 @@ namespace UnitTests
                 new VoronoiSite(400, 300) // 3
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 ^                 B
             //     |                 |
@@ -401,7 +401,7 @@ namespace UnitTests
                 new VoronoiSite(300, 200) // 3
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 B                  
             //     |\                 
@@ -441,7 +441,7 @@ namespace UnitTests
                 new VoronoiSite(300, 200) // 3
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 ^                                   D
             //     |                                  /
@@ -484,7 +484,7 @@ namespace UnitTests
                 new VoronoiSite(400, 300) // 5
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 E                                   H
             //     |\                                 /
@@ -546,7 +546,7 @@ namespace UnitTests
                 points.Add(new VoronoiSite(random.NextDouble() * 3000 - 1500, random.NextDouble() * 3000 - 1500));
             }
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             foreach (VoronoiEdge edge in edges)
             {
@@ -578,7 +578,7 @@ namespace UnitTests
                 points.Add(new VoronoiSite(random.Next(3000) - 1500, random.Next(3000) - 1500));
             }
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             foreach (VoronoiEdge edge in edges)
             {

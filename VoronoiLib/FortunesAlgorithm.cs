@@ -33,19 +33,19 @@ namespace VoronoiLib
             MaxX = maxX;
             MaxY = maxY;
         }
-        
-        
+
+
         [PublicAPI]
-        public static LinkedList<VoronoiEdge> RunOnce(IEnumerable<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
+        public static LinkedList<VoronoiEdge> RunOnce(IEnumerable<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, BorderEdgeGeneration borderGeneration)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
 
-            return new FortunesAlgorithm(minX, minY, maxX, maxY).Run(sites, closeBorders);
+            return new FortunesAlgorithm(minX, minY, maxX, maxY).Run(sites, borderGeneration);
         }
 
         [PublicAPI]
-        public LinkedList<VoronoiEdge> Run(IEnumerable<VoronoiSite> sites, bool closeBorders = false)
+        public LinkedList<VoronoiEdge> Run(IEnumerable<VoronoiSite> sites, BorderEdgeGeneration borderGeneration)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
@@ -105,7 +105,7 @@ namespace VoronoiLib
                 edgeNode = next;
             }
 
-            if (closeBorders)
+            if (borderGeneration == BorderEdgeGeneration.MakeBorderEdges)
                 CloseBorders(edges, MinX, MinY, MaxX, MaxY, sites);
 
             return edges;
@@ -633,5 +633,12 @@ namespace VoronoiLib
                 return VoronoiSite.SortPointsClockwise(n1.Point, n2.Point, _originX, _originY);
             }
         }
+    }
+
+
+    public enum BorderEdgeGeneration
+    {
+        DoNotMakeBorderEdges = 0,
+        MakeBorderEdges = 1
     }
 }

@@ -38,18 +38,18 @@ LinkedList<VoronoiEdge> edges = VoronoiPlane.RunOnce(
     points, 
     0, 0, 
     600, 600,
-    true
+    BorderEdgeGeneration.MakeBorderEdges
 );
 ```
 
-If closing borders is not desired:
+If closing borders is not desired (leaving sites with unclosed cells/polygons):
 
 ```
 LinkedList<VoronoiEdge> edges = VoronoiPlane.RunOnce(
     points, 
     0, 0, 
     600, 600,
-    false
+    BorderEdgeGeneration.DoNotMakeBorderEdges
 );
 ```
 

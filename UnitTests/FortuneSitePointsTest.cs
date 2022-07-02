@@ -14,7 +14,7 @@ namespace UnitTests
         public void ThreeFortuneSites()
         {
             List<VoronoiSite> points = new List<VoronoiSite> {new VoronoiSite(100, 100), new VoronoiSite(200, 200), new VoronoiSite(200, 150)};
-            FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
+            FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Site 1
             VoronoiSite site = points[0];

@@ -18,7 +18,7 @@ namespace UnitTests
             {
                 new VoronoiSite(100, 100)
             };
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             Assume.That(edges.Count == 0);
 
@@ -33,7 +33,7 @@ namespace UnitTests
                 new VoronoiSite(100, 100), 
                 new VoronoiSite(200, 200)
             };
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             Assume.That(edges.Count == 1);
             
@@ -53,7 +53,7 @@ namespace UnitTests
                 new VoronoiSite(200, 200), 
                 new VoronoiSite(200, 150)
             };
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             Assume.That(edges.Count == 3);
             
@@ -91,7 +91,7 @@ namespace UnitTests
                 new VoronoiSite(300, 300),
                 new VoronoiSite(300, 500)
             };
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             Assume.That(edges.Count == 2);
             
