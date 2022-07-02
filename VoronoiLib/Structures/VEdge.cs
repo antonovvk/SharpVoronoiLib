@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace VoronoiLib.Structures
 {
@@ -10,6 +11,7 @@ namespace VoronoiLib.Structures
         public FortuneSite Right { get; }
         
         private VPoint _mid;
+        [PublicAPI]
         public VPoint Mid
         {
             get
@@ -22,6 +24,7 @@ namespace VoronoiLib.Structures
         }
         
         private List<VEdge> _neighbours;
+        [PublicAPI]
         public List<VEdge> Neighbours
         {
             get

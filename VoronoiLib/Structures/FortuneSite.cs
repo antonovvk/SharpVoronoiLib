@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace VoronoiLib.Structures
 {
@@ -8,10 +9,13 @@ namespace VoronoiLib.Structures
         public double X { get; }
         public double Y { get; }
 
+        [PublicAPI]
         public List<VEdge> Cell { get; }
 
+        [PublicAPI]
         public List<FortuneSite> Neighbors { get; private set; }
 
+        [PublicAPI]
         public FortuneSite(double x, double y)
         {
             X = x;
@@ -21,6 +25,7 @@ namespace VoronoiLib.Structures
         }
 
         private List<VPoint> _points;
+        [PublicAPI]
         public List<VPoint> Points
         {
             get
@@ -49,6 +54,7 @@ namespace VoronoiLib.Structures
         }
         
         private List<VEdge> _clockwiseCell;
+        [PublicAPI]
         public List<VEdge> ClockwiseCell
         {
             get
@@ -63,6 +69,7 @@ namespace VoronoiLib.Structures
             }
         }
 
+        [PublicAPI]
         public bool Contains(VPoint testPoint)
         {
             // helper method to determine if a point is inside the cell
