@@ -8,7 +8,7 @@ namespace VoronoiLib.Structures
         public double Y { get; }
         public PointBorderLocation BorderLocation { get; }
 
-        public VPoint(double x, double y, PointBorderLocation borderLocation = PointBorderLocation.NotOnBorder)
+        internal VPoint(double x, double y, PointBorderLocation borderLocation = PointBorderLocation.NotOnBorder)
         {
             X = x;
             Y = y;
