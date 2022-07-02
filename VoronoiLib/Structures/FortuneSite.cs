@@ -13,38 +13,6 @@ namespace VoronoiLib.Structures
         public IEnumerable<VEdge> Cell => cell;
 
         [PublicAPI]
-        public IEnumerable<FortuneSite> Neighbors => neighbors;
-
-        [PublicAPI]
-        public IEnumerable<VPoint> Points
-        {
-            get
-            {
-                if (_points == null)
-                {
-                    // it would probably be better to sort these as they are added to improve performance
-                    _points = new List<VPoint>();
-
-                    foreach (VEdge edge in cell)
-                    {
-                        if (!_points.Contains(edge.Start))
-                            _points.Add(edge.Start);
-                        
-                        if (!_points.Contains(edge.End!))
-                            _points.Add(edge.End);
-                        // Note that .End is guaranteed to be set since we don't expose edges extrenally that aren't clipped in bounds
-
-                        // Note that the order of .Start and .End is not guaranteed in VEdge,
-                        // so we couldn't simply only add either .Start or .End, this would skip and duplicate points
-                    }
-                    _points.Sort(SortPointsClockwise);
-                }
-
-                return _points;
-            }
-        }
-
-        [PublicAPI]
         public IEnumerable<VEdge> ClockwiseCell
         {
             get
@@ -59,12 +27,58 @@ namespace VoronoiLib.Structures
             }
         }
 
-        
+        [PublicAPI]
+        public IEnumerable<FortuneSite> Neighbors => neighbors;
+
+        [PublicAPI]
+        public IEnumerable<VPoint> Points
+        {
+            get
+            {
+                if (_points == null)
+                {
+                    _points = new List<VPoint>();
+
+                    foreach (VEdge edge in cell)
+                    {
+                        if (!_points.Contains(edge.Start))
+                            _points.Add(edge.Start);
+                        
+                        if (!_points.Contains(edge.End!))
+                            _points.Add(edge.End);
+                        // Note that .End is guaranteed to be set since we don't expose edges externally that aren't clipped in bounds
+
+                        // Note that the order of .Start and .End is not guaranteed in VEdge,
+                        // so we couldn't simply only add either .Start or .End, this would skip and duplicate points
+                    }
+                }
+
+                return _points;
+            }
+        }
+
+        [PublicAPI]
+        public IEnumerable<VPoint> ClockwisePoints
+        {
+            get
+            {
+                if (_clockwisePoints == null)
+                {
+                    _clockwisePoints = new List<VPoint>(Points);
+                    _clockwisePoints.Sort(SortPointsClockwise);
+                }
+
+                return _clockwisePoints;
+            }
+        }
+
+
         internal readonly List<VEdge> cell;
         internal readonly List<FortuneSite> neighbors;
         
         
         private List<VPoint>? _points;
+        private List<VPoint>? _clockwisePoints;
         private List<VEdge>? _clockwiseCell;
 
 
@@ -82,20 +96,20 @@ namespace VoronoiLib.Structures
         public bool Contains(VPoint testPoint)
         {
             // If we don't have points generated yet, do so now (by calling the property that does so when read)
-            if (_points == null)
+            if (_clockwisePoints == null)
             {
-                IEnumerable<VPoint> _ = Points;
+                IEnumerable<VPoint> _ = ClockwisePoints;
             }
 
             // helper method to determine if a point is inside the cell
             // based on meowNET's answer from: https://stackoverflow.com/questions/4243042/c-sharp-point-in-polygon
             bool result = false;
-            int j = _points!.Count - 1;
-            for (int i = 0; i < _points.Count; i++)
+            int j = _clockwisePoints!.Count - 1;
+            for (int i = 0; i < _clockwisePoints.Count; i++)
             {
-                if (_points[i].Y < testPoint.Y && _points[j].Y >= testPoint.Y || _points[j].Y < testPoint.Y && _points[i].Y >= testPoint.Y)
+                if (_clockwisePoints[i].Y < testPoint.Y && _clockwisePoints[j].Y >= testPoint.Y || _clockwisePoints[j].Y < testPoint.Y && _clockwisePoints[i].Y >= testPoint.Y)
                 {
-                    if (_points[i].X + ((testPoint.Y - _points[i].Y) / (_points[j].Y - _points[i].Y) * (_points[j].X - _points[i].X)) < testPoint.X)
+                    if (_clockwisePoints[i].X + ((testPoint.Y - _clockwisePoints[i].Y) / (_clockwisePoints[j].Y - _clockwisePoints[i].Y) * (_clockwisePoints[j].X - _clockwisePoints[i].X)) < testPoint.X)
                     {
                         result = !result;
                     }
@@ -122,7 +136,7 @@ namespace VoronoiLib.Structures
         internal void AddEdge(VEdge value)
         {
             cell.Add(value);
-            _points = null;
+            _clockwisePoints = null;
         }
 
         

@@ -18,7 +18,7 @@ namespace UnitTests
 
             // Site 1
             FortuneSite site = points[0];
-            List<VPoint> corners = site.Points.ToList();
+            List<VPoint> corners = site.ClockwisePoints.ToList();
             Assert.NotNull(corners);
             Assert.AreEqual(3, corners.Count);
             Assert.AreEqual(212.5, corners[0].X);
@@ -30,7 +30,7 @@ namespace UnitTests
 
             // Site 2
             site = points[1];
-            corners = site.Points.ToList();
+            corners = site.ClockwisePoints.ToList();
             Assert.NotNull(corners);
             Assert.AreEqual(3, corners.Count);
             Assert.AreEqual(125, corners[0].X);
@@ -42,7 +42,7 @@ namespace UnitTests
 
             // Site 3
             site = points[2];
-            corners = site.Points.ToList();
+            corners = site.ClockwisePoints.ToList();
             Assert.NotNull(corners);
             Assert.AreEqual(3, corners.Count);
             Assert.AreEqual(212.5, corners[0].X);
