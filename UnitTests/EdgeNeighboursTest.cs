@@ -18,7 +18,7 @@ namespace UnitTests
             {
                 new FortuneSite(100, 100)
             };
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             Assume.That(edges.Count == 0);
 
@@ -33,7 +33,7 @@ namespace UnitTests
                 new FortuneSite(100, 100), 
                 new FortuneSite(200, 200)
             };
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             Assume.That(edges.Count == 1);
             
@@ -53,7 +53,7 @@ namespace UnitTests
                 new FortuneSite(200, 200), 
                 new FortuneSite(200, 150)
             };
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             Assume.That(edges.Count == 3);
             
@@ -91,7 +91,7 @@ namespace UnitTests
                 new FortuneSite(300, 300),
                 new FortuneSite(300, 500)
             };
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             Assume.That(edges.Count == 2);
             

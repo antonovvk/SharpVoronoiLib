@@ -6,9 +6,14 @@ using VoronoiLib.Structures;
 
 namespace VoronoiLib
 {
-    public static class FortunesAlgorithm
+    public class FortunesAlgorithm
     {
-        public static LinkedList<VEdge> Run(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
+        public static LinkedList<VEdge> RunOnce(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
+        {
+            return new FortunesAlgorithm().Run(sites, minX, minY, maxX, maxY, closeBorders);
+        }
+
+        public LinkedList<VEdge> Run(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
         {
             MinHeap<FortuneEvent> eventQueue = new MinHeap<FortuneEvent>(5*sites.Count);
             foreach (FortuneSite s in sites)

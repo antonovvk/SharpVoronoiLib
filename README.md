@@ -34,7 +34,7 @@ List<FortuneSite> points = new List<FortuneSite>
     new FortuneSite(400, 300)
 };
 
-LinkedList<VEdge> edges = FortunesAlgorithm.Run(
+LinkedList<VEdge> edges = FortunesAlgorithm.RunOnce(
     points, 
     0, 0, 
     600, 600,
@@ -45,7 +45,7 @@ LinkedList<VEdge> edges = FortunesAlgorithm.Run(
 If closing borders is not desired:
 
 ```
-LinkedList<VEdge> edges = FortunesAlgorithm.Run(
+LinkedList<VEdge> edges = FortunesAlgorithm.RunOnce(
     points, 
     0, 0, 
     600, 600,

@@ -13,7 +13,7 @@ namespace UnitTests
         public void ThreeFortuneSites()
         {
             List<FortuneSite> points = new List<FortuneSite> {new FortuneSite(100, 100), new FortuneSite(200, 200), new FortuneSite(200, 150)};
-            FortunesAlgorithm.Run(points, 0, 0, 600, 600);
+            FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
 
             // Site 1
             FortuneSite site = points[0];

@@ -23,7 +23,7 @@ namespace UnitTests
                 new FortuneSite(200, 200),
                 new FortuneSite(200, 150)
             };
-            LinkedList<VEdge> edges = FortunesAlgorithm.Run(points, 0 , 0, 600, 600);
+            LinkedList<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0 , 0, 600, 600);
 
             LinkedListNode<VEdge> edge = edges.First;
 
@@ -59,7 +59,7 @@ namespace UnitTests
                 new FortuneSite(300, 500)
             };
 
-            LinkedList<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600);
+            LinkedList<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
             LinkedListNode<VEdge> edge = edges.First;
             Assert.AreEqual(600, edge.Value.Start.X);
             Assert.AreEqual(400, edge.Value.Start.Y);
@@ -84,7 +84,7 @@ namespace UnitTests
                 new FortuneSite(500, 100),
                 new FortuneSite(300, 200)
             };
-            LinkedList<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600);
+            LinkedList<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
             LinkedListNode<VEdge> edge = edges.First;
             Assert.AreEqual(325, edge.Value.Start.X);
             Assert.AreEqual(0, edge.Value.Start.Y);
@@ -136,7 +136,7 @@ namespace UnitTests
             // So each corner only ever has 3 edges and 3 closest points
             // But there's a 0-length edge
             
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             // There are 5 edges (not 4)
             Assert.AreEqual(5, edges.Count);
@@ -162,7 +162,7 @@ namespace UnitTests
         {
             List<FortuneSite> points = new List<FortuneSite>();
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(0, edges.Count);
         }
@@ -175,7 +175,7 @@ namespace UnitTests
                 new FortuneSite(300, 300)
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(0, edges.Count);
         }
@@ -195,7 +195,7 @@ namespace UnitTests
                 new FortuneSite(x, y)
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(0, edges.Count);
             Assert.AreEqual(0, points[0].Cell.Count);
@@ -217,7 +217,7 @@ namespace UnitTests
                 new FortuneSite(300, 300)
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(1, edges.Count);
             Assert.AreEqual(1, points[0].Cell.Count);
@@ -240,7 +240,7 @@ namespace UnitTests
                 new FortuneSite(300, 300)
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(0, edges.Count);
             Assert.AreEqual(0, points[0].Cell.Count);
@@ -262,7 +262,7 @@ namespace UnitTests
                 new FortuneSite(x, y)
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(0, edges.Count);
             Assert.AreEqual(0, points[0].Cell.Count);
@@ -284,7 +284,7 @@ namespace UnitTests
                 new FortuneSite(300, 300)
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(1, edges.Count);
             Assert.AreEqual(1, points[0].Cell.Count);
@@ -300,7 +300,7 @@ namespace UnitTests
                 new FortuneSite(300, 400) // 2
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 ^ 
             //     | 
@@ -331,7 +331,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 2
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             // 600 ^                 B 
             //     |                 | 
@@ -362,7 +362,7 @@ namespace UnitTests
                 new FortuneSite(450, 450) // 2
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 A                                    
             //     |\                                  
@@ -393,7 +393,7 @@ namespace UnitTests
                 new FortuneSite(150, 450) // 2
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 ^                                   B 
             //     |                                 /    
@@ -425,7 +425,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 ^                                   B
             //     |                                  /
@@ -462,7 +462,7 @@ namespace UnitTests
                 new FortuneSite(300, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 B                       
             //     |  \                     
@@ -499,7 +499,7 @@ namespace UnitTests
                 new FortuneSite(300, 200) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 ^              D
             //     |              |
@@ -536,7 +536,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 ^                    C
             //     |                    |
@@ -573,7 +573,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 B                                   D
             //     |\                                 /
@@ -610,7 +610,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 ^                 B
             //     |                 |
@@ -647,7 +647,7 @@ namespace UnitTests
                 new FortuneSite(300, 200) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 B                  
             //     |\                 
@@ -684,7 +684,7 @@ namespace UnitTests
                 new FortuneSite(300, 200) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 ^                                   D
             //     |                                  /
@@ -722,7 +722,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 4
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 B                                   E
             //     |\                                 /
@@ -763,7 +763,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 5
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             // 600 E                                   H
             //     |\                                 /
@@ -807,7 +807,7 @@ namespace UnitTests
                 new FortuneSite(300, 800)
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             foreach (VEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
@@ -831,7 +831,7 @@ namespace UnitTests
                 new FortuneSite(x2, y2)
             };
 
-            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600).ToList();
+            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
             
             Assert.AreEqual(0, edges.Count);
         }
@@ -855,7 +855,7 @@ namespace UnitTests
                 points.Add(new FortuneSite(random.NextDouble() * 3000 - 1500, random.NextDouble() * 3000 - 1500));
             }
     
-            FortunesAlgorithm.Run(points, 0, 0, 600, 600);
+            FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
             
             // These are really slow and only work on in-bounds values:
             // CollectionAssert.AllItemsAreNotNull(edges);
@@ -894,7 +894,7 @@ namespace UnitTests
                 points.Add(new FortuneSite(random.Next(3000) - 1500, random.Next(3000) - 1500));
             }
     
-            FortunesAlgorithm.Run(points, 0, 0, 600, 600);
+            FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600);
             
             Assert.Pass();
         }
