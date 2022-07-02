@@ -27,7 +27,7 @@ namespace VoronoiLib.Structures
 
         public RBTreeNode<T> InsertSuccessor(RBTreeNode<T> node, T successorData)
         {
-            var successor = new RBTreeNode<T> {Data = successorData};
+            RBTreeNode<T> successor = new RBTreeNode<T> {Data = successorData};
 
             RBTreeNode<T> parent;
 
@@ -144,10 +144,10 @@ namespace VoronoiLib.Structures
                 node.Previous.Next = node.Next;
 
             //replace the node
-            var original = node;
-            var parent = node.Parent;
-            var left = node.Left;
-            var right = node.Right;
+            RBTreeNode<T> original = node;
+            RBTreeNode<T> parent = node.Parent;
+            RBTreeNode<T> left = node.Left;
+            RBTreeNode<T> right = node.Right;
 
             RBTreeNode<T> next;
             //figure out what to replace this node with
@@ -314,9 +314,9 @@ namespace VoronoiLib.Structures
 
         private void RotateLeft(RBTreeNode<T> node)
         {
-            var p = node;
-            var q = node.Right;
-            var parent = p.Parent;
+            RBTreeNode<T> p = node;
+            RBTreeNode<T> q = node.Right;
+            RBTreeNode<T> parent = p.Parent;
 
             if (parent != null)
             {
@@ -337,9 +337,9 @@ namespace VoronoiLib.Structures
 
         private void RotateRight(RBTreeNode<T> node)
         {
-            var p = node;
-            var q = node.Left;
-            var parent = p.Parent;
+            RBTreeNode<T> p = node;
+            RBTreeNode<T> q = node.Left;
+            RBTreeNode<T> parent = p.Parent;
             if (parent != null)
             {
                 if (parent.Left == p)

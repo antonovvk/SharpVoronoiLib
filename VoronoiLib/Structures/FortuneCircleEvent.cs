@@ -15,7 +15,7 @@
 
         public int CompareTo(FortuneEvent other)
         {
-            var c = Y.CompareTo(other.Y);
+            int c = Y.CompareTo(other.Y);
             return c == 0 ? X.CompareTo(other.X) : c;
         }
 

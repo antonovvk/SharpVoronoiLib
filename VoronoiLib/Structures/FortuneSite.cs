@@ -30,7 +30,7 @@ namespace VoronoiLib.Structures
                     // it would probably be better to sort these as they are added to improve performance
                     _points = new List<VPoint>();
 
-                    foreach (var edge in Cell)
+                    foreach (VEdge edge in Cell)
                     {
                         if (!_points.Contains(edge.Start))
                             _points.Add(edge.Start);
@@ -103,8 +103,8 @@ namespace VoronoiLib.Structures
             // based on: https://social.msdn.microsoft.com/Forums/en-US/c4c0ce02-bbd0-46e7-aaa0-df85a3408c61/sorting-list-of-xy-coordinates-clockwise-sort-works-if-list-is-unsorted-but-fails-if-list-is?forum=csharplanguage
 
             // comparer to sort the array based on the points relative position to the center
-            var atanA = Math.Atan2(A.Y - y, A.X - x);
-            var atanB = Math.Atan2(B.Y - y, B.X - x);
+            double atanA = Math.Atan2(A.Y - y, A.X - x);
+            double atanB = Math.Atan2(B.Y - y, B.X - x);
 
             if (atanA < atanB) return -1;
             else if (atanA > atanB) return 1;

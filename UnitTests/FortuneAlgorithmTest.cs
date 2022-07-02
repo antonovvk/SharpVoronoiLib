@@ -17,15 +17,15 @@ namespace UnitTests
         [Test]
         public void FortuneThreePoints()
         {
-            var points = new List<FortuneSite>
+            List<FortuneSite> points = new List<FortuneSite>
             {
                 new FortuneSite(100, 100),
                 new FortuneSite(200, 200),
                 new FortuneSite(200, 150)
             };
-            var edges = FortunesAlgorithm.Run(points, 0 , 0, 600, 600);
+            LinkedList<VEdge> edges = FortunesAlgorithm.Run(points, 0 , 0, 600, 600);
 
-            var edge = edges.First;
+            LinkedListNode<VEdge> edge = edges.First;
 
             //edge 1
             Assert.AreEqual(125, edge.Value.Start.X);
@@ -52,15 +52,15 @@ namespace UnitTests
         [Test]
         public void FortuneColinearPoints()
         {
-            var points = new List<FortuneSite>
+            List<FortuneSite> points = new List<FortuneSite>
             {
                 new FortuneSite(300, 100),
                 new FortuneSite(300, 300),
                 new FortuneSite(300, 500)
             };
 
-            var edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600);
-            var edge = edges.First;
+            LinkedList<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600);
+            LinkedListNode<VEdge> edge = edges.First;
             Assert.AreEqual(600, edge.Value.Start.X);
             Assert.AreEqual(400, edge.Value.Start.Y);
             Assert.AreEqual(0, edge.Value.End.X);
@@ -78,14 +78,14 @@ namespace UnitTests
         [Test]
         public void FortunePointBreak()
         {
-            var points = new List<FortuneSite>
+            List<FortuneSite> points = new List<FortuneSite>
             {
                 new FortuneSite(100, 100),
                 new FortuneSite(500, 100),
                 new FortuneSite(300, 200)
             };
-            var edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600);
-            var edge = edges.First;
+            LinkedList<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600);
+            LinkedListNode<VEdge> edge = edges.First;
             Assert.AreEqual(325, edge.Value.Start.X);
             Assert.AreEqual(0, edge.Value.Start.Y);
             Assert.AreEqual(600, edge.Value.End.X);

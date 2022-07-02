@@ -12,7 +12,7 @@ namespace UnitTests
         [Test]
         public void Sort5Test()
         {
-            var heap = new MinHeap<int>(5);
+            MinHeap<int> heap = new MinHeap<int>(5);
             heap.Insert(5);
             heap.Insert(4);
             heap.Insert(3);
@@ -28,7 +28,7 @@ namespace UnitTests
         [Test]
         public void DeleteTest()
         {
-            var heap = new MinHeap<int>(5);
+            MinHeap<int> heap = new MinHeap<int>(5);
             for (int i = 1; i <= 5; i++)
             {
                 //insert 5 through 1
@@ -50,18 +50,18 @@ namespace UnitTests
         [Test]
         public void SortRandom()
         {
-            var numbers = new List<double>();
-            var random = new Random();
+            List<double> numbers = new List<double>();
+            Random random = new Random();
             const int size = 10000;
-            var heap = new MinHeap<double>(size);
+            MinHeap<double> heap = new MinHeap<double>(size);
             for (int i = 0; i < size; i++)
             {
-                var number = 100*random.NextDouble();
+                double number = 100*random.NextDouble();
                 numbers.Add(number);
                 heap.Insert(number);
             }
             numbers.Sort();
-            foreach (var number in numbers)
+            foreach (double number in numbers)
             {
                 Assert.AreEqual(heap.Pop(), number);
             }
@@ -70,14 +70,14 @@ namespace UnitTests
         [Test]
         public void PopEmpty()
         {
-            var heap = new MinHeap<int>(10);
+            MinHeap<int> heap = new MinHeap<int>(10);
             Assert.That(() => heap.Pop(), Throws.InvalidOperationException);
         }
 
         [Test]
         public void PeekEmpty()
         {
-            var heap = new MinHeap<int>(10);
+            MinHeap<int> heap = new MinHeap<int>(10);
             Assert.That(() => heap.Peek(), Throws.InvalidOperationException);
         }
     }

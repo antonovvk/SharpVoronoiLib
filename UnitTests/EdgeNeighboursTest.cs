@@ -85,7 +85,7 @@ namespace UnitTests
         [Test]
         public void ThreeColinearSites()
         {
-            var points = new List<FortuneSite>
+            List<FortuneSite> points = new List<FortuneSite>
             {
                 new FortuneSite(300, 100),
                 new FortuneSite(300, 300),

@@ -10,20 +10,20 @@ namespace VoronoiLib
     {
         public static LinkedList<VEdge> Run(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
         {
-            var eventQueue = new MinHeap<FortuneEvent>(5*sites.Count);
-            foreach (var s in sites)
+            MinHeap<FortuneEvent> eventQueue = new MinHeap<FortuneEvent>(5*sites.Count);
+            foreach (FortuneSite s in sites)
             {
                 eventQueue.Insert(new FortuneSiteEvent(s));
             }
             //init tree
-            var beachLine = new BeachLine();
-            var edges = new LinkedList<VEdge>();
-            var deleted = new HashSet<FortuneCircleEvent>();
+            BeachLine beachLine = new BeachLine();
+            LinkedList<VEdge> edges = new LinkedList<VEdge>();
+            HashSet<FortuneCircleEvent> deleted = new HashSet<FortuneCircleEvent>();
 
             //init edge list
             while (eventQueue.Count != 0)
             {
-                var fEvent = eventQueue.Pop();
+                FortuneEvent fEvent = eventQueue.Pop();
                 if (fEvent is FortuneSiteEvent)
                     beachLine.AddBeachSection((FortuneSiteEvent) fEvent, eventQueue, deleted, edges);
                 else
@@ -41,13 +41,13 @@ namespace VoronoiLib
             
 
             //clip edges
-            var edgeNode = edges.First;
+            LinkedListNode<VEdge> edgeNode = edges.First;
             while (edgeNode != null)
             {
-                var edge = edgeNode.Value;
-                var next = edgeNode.Next;
+                VEdge edge = edgeNode.Value;
+                LinkedListNode<VEdge> next = edgeNode.Next;
 
-                var valid = ClipEdge(edge, minX, minY, maxX, maxY);
+                bool valid = ClipEdge(edge, minX, minY, maxX, maxY);
                 if (valid)
                 {
                     edgeNode.Value.Left.AddEdge(edgeNode.Value);
@@ -69,7 +69,7 @@ namespace VoronoiLib
         //combination of personal ray clipping alg and cohen sutherland
         private static bool ClipEdge(VEdge edge, double minX, double minY, double maxX, double maxY)
         {
-            var accept = false;
+            bool accept = false;
 
             //if its a ray
             if (edge.End == null)
@@ -79,8 +79,8 @@ namespace VoronoiLib
             else
             {
                 //Cohen–Sutherland
-                var start = ComputeOutCode(edge.Start.X, edge.Start.Y, minX, minY, maxX, maxY);
-                var end = ComputeOutCode(edge.End.X, edge.End.Y, minX, minY, maxX, maxY);
+                Outcode start = ComputeOutCode(edge.Start.X, edge.Start.Y, minX, minY, maxX, maxY);
+                Outcode end = ComputeOutCode(edge.End.X, edge.End.Y, minX, minY, maxX, maxY);
 
                 while (true)
                 {
@@ -95,7 +95,7 @@ namespace VoronoiLib
                     }
 
                     double x = -1, y = -1;
-                    var outcode = start != Outcode.None ? start : end;
+                    Outcode outcode = start != Outcode.None ? start : end;
 
                     if (outcode.HasFlag(Outcode.Top))
                     {
@@ -134,7 +134,7 @@ namespace VoronoiLib
             if (edge.Neighbor != null)
             {
                 //check it
-                var valid = ClipEdge(edge.Neighbor, minX, minY, maxX, maxY);
+                bool valid = ClipEdge(edge.Neighbor, minX, minY, maxX, maxY);
                 //both are valid
                 if (accept && valid)
                 {
@@ -198,7 +198,7 @@ namespace VoronoiLib
 
         private static bool ClipRay(VEdge edge, double minX, double minY, double maxX, double maxY)
         {
-            var start = edge.Start;
+            VPoint start = edge.Start;
             //horizontal ray
             if (edge.SlopeRise.ApproxEqual(0))
             {
@@ -285,7 +285,7 @@ namespace VoronoiLib
             
             //reject intersections not within bounds
             
-            var candidates = new List<VPoint>();
+            List<VPoint> candidates = new List<VPoint>();
 
             bool withinTopX = Within(topX.X, minX, maxX);
             bool withinRightY = Within(rightY.Y, minY, maxY);
@@ -313,12 +313,12 @@ namespace VoronoiLib
             
 
             //reject candidates which don't align with the slope
-            for (var i = candidates.Count - 1; i > -1; i--)
+            for (int i = candidates.Count - 1; i > -1; i--)
             {
-                var candidate = candidates[i];
+                VPoint candidate = candidates[i];
                 //grab vector representing the edge
-                var ax = candidate.X - start.X;
-                var ay = candidate.Y - start.Y;
+                double ax = candidate.X - start.X;
+                double ay = candidate.Y - start.Y;
                 if (edge.SlopeRun*ax + edge.SlopeRise*ay < 0)
                     candidates.RemoveAt(i);
             }
@@ -327,10 +327,10 @@ namespace VoronoiLib
             //the further one is the end
             if (candidates.Count == 2)
             {
-                var ax = candidates[0].X - start.X;
-                var ay = candidates[0].Y - start.Y;
-                var bx = candidates[1].X - start.X;
-                var by = candidates[1].Y - start.Y;
+                double ax = candidates[0].X - start.X;
+                double ay = candidates[0].Y - start.Y;
+                double bx = candidates[1].X - start.X;
+                double by = candidates[1].Y - start.Y;
                 if (ax*ax + ay*ay > bx*bx + by*by)
                 {
                     edge.Start = candidates[1];

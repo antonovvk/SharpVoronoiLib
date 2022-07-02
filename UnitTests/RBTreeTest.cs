@@ -10,7 +10,7 @@ namespace UnitTests
         [Test]
         public void TestSuccessorOrder()
         {
-            var tree = new RBTree<int>();
+            RBTree<int> tree = new RBTree<int>();
             tree.InsertSuccessor(null, 1);
             tree.InsertSuccessor(tree.Root, 2);
             tree.InsertSuccessor(tree.Root.Right, 3);
@@ -26,8 +26,8 @@ namespace UnitTests
         [Test]
         public void TestInsertAtBack()
         {
-            var tree = new RBTree<char>();
-            var last = tree.InsertSuccessor(null, 'L');
+            RBTree<char> tree = new RBTree<char>();
+            RBTreeNode<char> last = tree.InsertSuccessor(null, 'L');
             last = tree.InsertSuccessor(last, 'o');
             last = tree.InsertSuccessor(last, 'g');
             last = tree.InsertSuccessor(last, 'a');
@@ -39,7 +39,7 @@ namespace UnitTests
             Assert.AreEqual('g', tree.Root.Right.Left.Data);
             Assert.AreEqual('n', tree.Root.Right.Right.Data);
             Assert.AreEqual('!', tree.Root.Right.Right.Right.Data);
-            var traverse = RBTree<char>.GetFirst(tree.Root);
+            RBTreeNode<char> traverse = RBTree<char>.GetFirst(tree.Root);
             Assert.AreEqual('L', traverse.Data);
             traverse = traverse.Next;
             Assert.AreEqual('o', traverse.Data);
@@ -58,7 +58,7 @@ namespace UnitTests
         [Test]
         public void TestInsertAtFront()
         {
-            var tree = new RBTree<int>();
+            RBTree<int> tree = new RBTree<int>();
             tree.InsertSuccessor(null, 4);
             tree.InsertSuccessor(null, 5);
             tree.InsertSuccessor(null, 3);
@@ -67,7 +67,7 @@ namespace UnitTests
             Assert.AreEqual(4, tree.Root.Right.Data);
             Assert.AreEqual(3, tree.Root.Left.Data);
             Assert.AreEqual(4, tree.Root.Left.Left.Data);
-            var traverse = RBTree<int>.GetFirst(tree.Root);
+            RBTreeNode<int> traverse = RBTree<int>.GetFirst(tree.Root);
             Assert.AreEqual(4, traverse.Data);
             traverse = traverse.Next;
             Assert.AreEqual(3, traverse.Data);
@@ -82,8 +82,8 @@ namespace UnitTests
         [Test]
         public void TestInsertInMiddle()
         {
-            var tree = new RBTree<int>();
-            var first = tree.InsertSuccessor(null, 1);
+            RBTree<int> tree = new RBTree<int>();
+            RBTreeNode<int> first = tree.InsertSuccessor(null, 1);
             tree.InsertSuccessor(first, -1);
             tree.InsertSuccessor(first, 2);
             Assert.AreEqual(2, tree.Root.Data);
@@ -102,14 +102,14 @@ namespace UnitTests
         [Test]
         public void TestRemoveAtBack()
         {
-            var tree = new RBTree<char>();
-            var last = tree.InsertSuccessor(null, 'L');
+            RBTree<char> tree = new RBTree<char>();
+            RBTreeNode<char> last = tree.InsertSuccessor(null, 'L');
             last = tree.InsertSuccessor(last, 'o');
             last = tree.InsertSuccessor(last, 'g');
             last = tree.InsertSuccessor(last, 'a');
             last = tree.InsertSuccessor(last, 'n');
             last = tree.InsertSuccessor(last, '!');
-            var prev = last.Previous;
+            RBTreeNode<char> prev = last.Previous;
             tree.RemoveNode(last);
             last = prev.Previous;
             tree.RemoveNode(prev);
@@ -122,9 +122,9 @@ namespace UnitTests
         [Test]
         public void TestRemoveAtFront()
         {
-            var tree = new RBTree<char>();
-            var last = tree.InsertSuccessor(null, 'L');
-            var first = last;
+            RBTree<char> tree = new RBTree<char>();
+            RBTreeNode<char> last = tree.InsertSuccessor(null, 'L');
+            RBTreeNode<char> first = last;
             last = tree.InsertSuccessor(last, 'o');
             last = tree.InsertSuccessor(last, 'g');
             last = tree.InsertSuccessor(last, 'a');
@@ -145,10 +145,10 @@ namespace UnitTests
         [Test]
         public void TestRemoveInMiddle()
         {
-            var tree = new RBTree<char>();
-            var last = tree.InsertSuccessor(null, 'L');
+            RBTree<char> tree = new RBTree<char>();
+            RBTreeNode<char> last = tree.InsertSuccessor(null, 'L');
             last = tree.InsertSuccessor(last, 'o');
-            var mid = last = tree.InsertSuccessor(last, 'g');
+            RBTreeNode<char> mid = last = tree.InsertSuccessor(last, 'g');
             last = tree.InsertSuccessor(last, 'a');
             last = tree.InsertSuccessor(last, 'n');
             last = tree.InsertSuccessor(last, '!');
@@ -164,26 +164,26 @@ namespace UnitTests
         [Test]
         public void TestRemove()
         {
-            var tree = new RBTree<int>();
-            for (var i = 0; i < 50; i++)
+            RBTree<int> tree = new RBTree<int>();
+            for (int i = 0; i < 50; i++)
             {
                 tree.InsertSuccessor(RBTree<int>.GetLast(tree.Root), i);
-                for (var j = 0; j <= i; j++)
+                for (int j = 0; j <= i; j++)
                 {
-                    var traverse = RBTree<int>.GetFirst(tree.Root);
-                    for (var k = 0; k < j; k++)
+                    RBTreeNode<int> traverse = RBTree<int>.GetFirst(tree.Root);
+                    for (int k = 0; k < j; k++)
                     {
                         traverse = traverse.Next;
                     }
                     //remove jth element
                     tree.RemoveNode(traverse);
-                    var check = RBTree<int>.GetFirst(tree.Root);
-                    for (var k = 0; k < j; k++)
+                    RBTreeNode<int> check = RBTree<int>.GetFirst(tree.Root);
+                    for (int k = 0; k < j; k++)
                     {
                         Assert.AreEqual(k, check.Data);
                         check = check.Next;
                     }
-                    for (var k = j; k < i; k++)
+                    for (int k = j; k < i; k++)
                     {
                         Assert.AreEqual(k + 1, check.Data);
                         check = check.Next;

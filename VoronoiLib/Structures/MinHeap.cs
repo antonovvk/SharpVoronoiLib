@@ -40,7 +40,7 @@ namespace VoronoiLib.Structures
                 return items[Count];
             }
 
-            var min = items[0];
+            T min = items[0];
             items[0] = items[Count - 1];
             Count--;
             PercolateDown(0);
@@ -59,7 +59,7 @@ namespace VoronoiLib.Structures
         public bool Remove(T item)
         {
             int index = -1;
-            for (var i = 0; i < Count; i++)
+            for (int i = 0; i < Count; i++)
             {
                 if (items[i].Equals(item))
                 {
@@ -84,9 +84,9 @@ namespace VoronoiLib.Structures
         {
             while (true)
             {
-                var left = 2*index + 1;
-                var right = 2*index + 2;
-                var largest = index;
+                int left = 2*index + 1;
+                int right = 2*index + 2;
+                int largest = index;
 
                 if (left < Count && LeftLessThanRight(left, largest))
                     largest = left;
@@ -105,7 +105,7 @@ namespace VoronoiLib.Structures
             {
                 if (index >= Count || index <= 0)
                     return;
-                var parent = (index - 1)/2;
+                int parent = (index - 1)/2;
 
                 if (LeftLessThanRight(parent, index))
                     return;
@@ -123,7 +123,7 @@ namespace VoronoiLib.Structures
 
         private void Swap(int left, int right)
         {
-            var temp = items[left];
+            T temp = items[left];
             items[left] = items[right];
             items[right] = temp;
         }
