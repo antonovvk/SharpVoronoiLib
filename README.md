@@ -1,44 +1,76 @@
 # VoronoiLib
 
-![build workflow](https://github.com/sesopenko/VoronoiLib/actions/workflows/pipeline.yml/badge.svg?branch=master)
+C# implementation of Fortune's Algorithm (for generating a Voronoi diagram from a set of points in a plane) with edge clipping and optional border closure. This implementation guarantees O(n×ln(n)) performance.
 
-C# implementation of Fortune's Algorithm, [originally written by Logan Lembke](https://github.com/Zalgo2462/VoronoiLib) and updated with nuget unit tests and package publishing to nuget.
-Unlike several implemenations of Fortune's Algorithm, this implementation guarantees O(n ln(n)) performance by way of a specialized Red Black Tree (Credit: Raymond Hill).
+The key differences from the [original repo](https://github.com/Zalgo2462/VoronoiLib)
+* Borders can be closed, that is, edges generated along the boundary
+* Edges can correctly go through boundary corners without generating invalid data
+* Edges and points/sites contain additional useful data
+* (Rare bug fixed that caused infinite loop or invalid data)[url]
+* Lots more unit testing
+
+Known issues:
+* More than 3 equidistant sites will create a 0-length edge instead of 3+ edges meeting at the same point. This is rare since even the tiniest difference will create a non-0-length edge. So this is only an annoying issue if working with an evenly-spaced smaller grid where equidistant points are common and wanting to traverse the edge graph.
+* The algorithm uses a lot of allocations, forcing garbage collection
+* There is no visual output/example since the original used MonoGame
+
+# Example
+
+TODO: image
 
 # Dependencies
-- The library (VoronoiLib) is compiled for .net standard 1.1.
 
-As such, projects should be able to be built on Linux or OS X.
+The library (VoronoiLib) is compiled for .NET standard 1.1. As such, projects should be able to be built on Linux or OS X.
+
 # Use
 
-Install with dotnet CLI:
+Create points, run algorithm:
 
 ```
-dotnet add package VoronoiLib
+List<FortuneSite> points = new List<FortuneSite>
+{
+    new FortuneSite(300, 300),
+    new FortuneSite(300, 400),
+    new FortuneSite(400, 300)
+};
+
+LinkedList<VEdge> edges = FortunesAlgorithm.Run(
+    points, 
+    0, 0, 
+    600, 600,
+    true
+);
 ```
 
-Create points, run algorithm.
+If closing borders is not desired:
 
 ```
-var points = new List<FortuneSite> {
-  new FortuneSite(100, 200),
-  new FortuneSite(500, 200),
-  new FortuneSite(300, 300)
-}
-//FortunesAlgorithm.Run(points, min x, min y, max x, max y)
-LinkedList<VEdge> = FortunesAlgorithm.Run(points, 0, 0, 800, 800);
-
-//VEdge.Start is a VPoint with location VEdge.Start.X and VEdge.End.Y
-//VEdge.End is the ending point for the edge
-//FortuneSite.Neighbors contains the site's neighbors in the Delaunay Triangulation
+LinkedList<VEdge> edges = FortunesAlgorithm.Run(
+    points, 
+    0, 0, 
+    600, 600,
+    false
+);
 ```
 
-## Issues and feature suggestions
-See the issue manager of the repo to see work in progress and to suggest new features.
+The returned collection contains the generated edges as `VEdge`s.
+`VEdge.Start` and `VEdge.End` are the start and end points of the edge.
+`VEdge.Right` and `VEdge.Left` are the sites the edge encloses. Border edges move clockwise and will only have the `.Right` site. And if no points are within the region, both will be `null`.
+Edge end `VPoint`s also contain a `.BorderLocation` specifying if it's on a border and which one.
+`VEdge.Neighbours` (on-demand) are edges directly "connecting" to this edge, basically creating a traversable edge graph.
+`FortuneSite.Cell` contains the edges that enclose the site.
+`FortuneSite.ClockwiseCell` (on-demand) contains these edges sorted clockwise.
+`FortuneSite.Neighbors` contains the site's neighbors (in the Delaunay Triangulation), that is, sites across its edges.
+`FortuneSite.Points` (on-demand) contains clockwide-sorted points of the cell, that is, edge end points
 
-## Implementation inspired by:
+# Credits
+
+- [Originally written by Logan Lembke](https://github.com/Zalgo2462/VoronoiLib)
+- [Updated with unit tests and nuget package by Sean Esopenko](https://github.com/sesopenko/VoronoiLib)
+- [Improvements by Jeffrey Jones](https://github.com/rurounijones/VoronoiLib)
+- Various code pieces atributed inline
+
+Original Implementation inspired by:
 - Ivan Kuckir's project (MIT) @ http://blog.ivank.net/fortunes-algorithm-and-implementation.html
-- Raymond Hill's project (MIT) @ https://github.com/gorhill/Javascript-Voronoi 
-
-Feel free to use the code under [MIT license](License.md). However, if you find the code useful, feel free to send mysel and/or [Logan Lembke](https://github.com/Zalgo2462/VoronoiLib) a message or make a link back to the repos.
-
+- Raymond Hill's project (MIT) @ https://github.com/gorhill/Javascript-Voronoi
+- Red Black Tree by Raymond Hill
