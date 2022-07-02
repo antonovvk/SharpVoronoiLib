@@ -25,7 +25,7 @@ namespace VoronoiLib.Structures
         
         private List<VEdge> _neighbours;
         [PublicAPI]
-        public List<VEdge> Neighbours
+        public IEnumerable<VEdge> Neighbours
         {
             get
             {

@@ -24,9 +24,9 @@ namespace VoronoiLib.Structures
             Neighbors = new List<FortuneSite>();
         }
 
-        private List<VPoint> _points;
+        private List<VPoint>? _points;
         [PublicAPI]
-        public List<VPoint> Points
+        public IEnumerable<VPoint> Points
         {
             get
             {
@@ -55,7 +55,7 @@ namespace VoronoiLib.Structures
         
         private List<VEdge> _clockwiseCell;
         [PublicAPI]
-        public List<VEdge> ClockwiseCell
+        public IEnumerable<VEdge> ClockwiseCell
         {
             get
             {
@@ -72,15 +72,21 @@ namespace VoronoiLib.Structures
         [PublicAPI]
         public bool Contains(VPoint testPoint)
         {
+            // If we don't have points generated yet, do so now (by calling the property that does so when read)
+            if (_points == null)
+            {
+                IEnumerable<VPoint> _ = Points;
+            }
+
             // helper method to determine if a point is inside the cell
             // based on meowNET's answer from: https://stackoverflow.com/questions/4243042/c-sharp-point-in-polygon
             bool result = false;
-            int j = Points.Count - 1;
-            for (int i = 0; i < Points.Count; i++)
+            int j = _points!.Count - 1;
+            for (int i = 0; i < _points.Count; i++)
             {
-                if (Points[i].Y < testPoint.Y && Points[j].Y >= testPoint.Y || Points[j].Y < testPoint.Y && Points[i].Y >= testPoint.Y)
+                if (_points[i].Y < testPoint.Y && _points[j].Y >= testPoint.Y || _points[j].Y < testPoint.Y && _points[i].Y >= testPoint.Y)
                 {
-                    if (Points[i].X + ((testPoint.Y - Points[i].Y) / (Points[j].Y - Points[i].Y) * (Points[j].X - Points[i].X)) < testPoint.X)
+                    if (_points[i].X + ((testPoint.Y - _points[i].Y) / (_points[j].Y - _points[i].Y) * (_points[j].X - _points[i].X)) < testPoint.X)
                     {
                         result = !result;
                     }

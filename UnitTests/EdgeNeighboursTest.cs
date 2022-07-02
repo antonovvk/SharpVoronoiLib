@@ -39,7 +39,7 @@ namespace UnitTests
             
             // Edge
             VEdge edge = edges[0];
-            List<VEdge> neighbours = edge.Neighbours;
+            List<VEdge> neighbours = edge.Neighbours.ToList();
             Assert.NotNull(neighbours);
             Assert.AreEqual(0, neighbours.Count);
         }
@@ -59,7 +59,7 @@ namespace UnitTests
             
             // Edge 1
             VEdge edge = edges[0];
-            List<VEdge> neighbours = edge.Neighbours;
+            List<VEdge> neighbours = edge.Neighbours.ToList();
             Assert.NotNull(neighbours);
             Assert.AreEqual(2, neighbours.Count);
             CollectionAssert.Contains(edges, neighbours[0]);
@@ -67,7 +67,7 @@ namespace UnitTests
 
             // Edge 2
             edge = edges[1];
-            neighbours = edge.Neighbours;
+            neighbours = edge.Neighbours.ToList();
             Assert.NotNull(neighbours);
             Assert.AreEqual(2, neighbours.Count);
             CollectionAssert.Contains(edges, neighbours[0]);
@@ -75,7 +75,7 @@ namespace UnitTests
 
             // Edge 3
             edge = edges[2];
-            neighbours = edge.Neighbours;
+            neighbours = edge.Neighbours.ToList();
             Assert.NotNull(neighbours);
             Assert.AreEqual(2, neighbours.Count);
             CollectionAssert.Contains(edges, neighbours[0]);
@@ -97,13 +97,13 @@ namespace UnitTests
             
             // Edge 1
             VEdge edge = edges[0];
-            List<VEdge> neighbours = edge.Neighbours;
+            List<VEdge> neighbours = edge.Neighbours.ToList();
             Assert.NotNull(neighbours);
             Assert.AreEqual(0, neighbours.Count);
 
             // Edge 2
             edge = edges[1];
-            neighbours = edge.Neighbours;
+            neighbours = edge.Neighbours.ToList();
             Assert.NotNull(neighbours);
             Assert.AreEqual(0, neighbours.Count);
         } 

@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using VoronoiLib;
 using VoronoiLib.Structures;
 
@@ -17,7 +18,7 @@ namespace UnitTests
 
             // Site 1
             FortuneSite site = points[0];
-            List<VPoint> corners = site.Points;
+            List<VPoint> corners = site.Points.ToList();
             Assert.NotNull(corners);
             Assert.AreEqual(3, corners.Count);
             Assert.AreEqual(212.5, corners[0].X);
@@ -29,7 +30,7 @@ namespace UnitTests
 
             // Site 2
             site = points[1];
-            corners = site.Points;
+            corners = site.Points.ToList();
             Assert.NotNull(corners);
             Assert.AreEqual(3, corners.Count);
             Assert.AreEqual(125, corners[0].X);
@@ -41,7 +42,7 @@ namespace UnitTests
 
             // Site 3
             site = points[2];
-            corners = site.Points;
+            corners = site.Points.ToList();
             Assert.NotNull(corners);
             Assert.AreEqual(3, corners.Count);
             Assert.AreEqual(212.5, corners[0].X);
