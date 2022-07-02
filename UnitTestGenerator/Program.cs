@@ -283,14 +283,14 @@ namespace UnitTestGenerator
                     {
                         case Repeat.Rotate90:
                             if (_width != _height) throw new InvalidOperationException();
-                            tests.Add(new Test(newTest, Repeat.Rotate90, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.Rotate90, _minX, _minY, _maxX, _maxY));
                             break;
                         
                         case Repeat.RotateAll:
                             if (_width != _height) throw new InvalidOperationException();
-                            tests.Add(new Test(newTest, Repeat.Rotate90, _minX, _minY, _maxX, _maxY));
-                            tests.Add(new Test(newTest, Repeat.Rotate180, _minX, _minY, _maxX, _maxY));
-                            tests.Add(new Test(newTest, Repeat.Rotate270, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.Rotate90, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.Rotate180, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.Rotate270, _minX, _minY, _maxX, _maxY));
                             break;
                         
                         default:
@@ -321,6 +321,13 @@ namespace UnitTestGenerator
                 
                 foreach (Test test in tests)
                 {
+                    if (test is RepeatedTest repeatedTest)
+                    {
+                        List<string> summary = BuildSummary(repeatedTest.Repeated, repeatedTest.OriginalName);
+                        foreach (string summaryLine in summary)
+                            stringBuilder.AppendPaddedLine(2, summaryLine);
+                    }
+
                     stringBuilder.AppendPaddedLine(2, @"[Test]");
                     stringBuilder.AppendPaddedLine(2, @"public void " + test.Name + @"()");
                     stringBuilder.AppendPaddedLine(2, @"{");
@@ -362,6 +369,35 @@ namespace UnitTestGenerator
                 stringBuilder.AppendLine(@"}");
                 
                 return stringBuilder.ToString();
+            }
+
+            
+            private List<string> BuildSummary(Repeat repeated, string originalName)
+            {
+                List<string> strings = new List<string>();
+
+                strings.Add(@"/// <summary>");
+                strings.Add(@"/// This test basically repeats <see cref=""" + originalName + @"""/> above,");
+                strings.Add(@"/// but all coordinates are " + RepeatToExplanation(repeated) + ".");
+                strings.Add(@"/// </summary>");
+
+                return strings;
+            }
+
+            private string RepeatToExplanation(Repeat repeat)
+            {
+                switch (repeat)
+                {
+                    case Repeat.Rotate90: return "rotated 90° around the center of the boundary";
+                    case Repeat.Rotate180: return "rotated 180° around the center of the boundary";
+                    case Repeat.Rotate270: return "rotated 270° around the center of the boundary";
+                    
+                    case Repeat.RotateAll:
+                        throw new InvalidOperationException();
+                    
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
+                }
             }
 
             private List<string> BuildSiteDefinitions(List<Site> sites)
@@ -622,10 +658,10 @@ namespace UnitTestGenerator
 
             private class Test
             {
-                public List<Site> Sites { get; }
-                public List<Point> Points { get; }
-                public List<Edge> Edges { get; }
-                public string Name { get; }
+                public List<Site> Sites { get; protected init; } = null!;
+                public List<Point> Points { get; protected init; } = null!;
+                public List<Edge> Edges { get; protected init; } = null!;
+                public string Name { get; protected init; } = null!;
 
 
                 public Test(string name, List<Site> sites, List<Point> points, List<Edge> edges)
@@ -636,8 +672,22 @@ namespace UnitTestGenerator
                     Name = name;
                 }
 
-                public Test(Test givenTest, Repeat repeat, int minX, int minY, int maxX, int maxY)
+                protected Test()
                 {
+                }
+            }
+
+            private class RepeatedTest : Test
+            {
+                public Repeat Repeated { get; }
+                public string OriginalName { get; }
+
+                
+                public RepeatedTest(Test givenTest, Repeat repeat, int minX, int minY, int maxX, int maxY)
+                {
+                    Repeated = repeat;
+                    OriginalName = givenTest.Name;
+
                     Sites = new List<Site>();
                     Points = new List<Point>();
                     Edges = new List<Edge>();
@@ -663,7 +713,7 @@ namespace UnitTestGenerator
                             sites.Add(Sites[givenTest.Sites.IndexOf(site)]);
                         Edges.Add(new Edge(fromPoint, toPoint, sites));
                     }
-                    
+
                     Name = TransformName(givenTest.Name, repeat);
                 }
 

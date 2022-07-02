@@ -93,6 +93,10 @@ namespace UnitTests
             Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 500, 1000, 500)); // #2 has A-B
         }
 
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsVerticalAroundMiddle"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
         [Test]
         public void TwoPointsHorizontalAroundMiddle()
         {
@@ -177,6 +181,10 @@ namespace UnitTests
             Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 700, 1000, 700)); // #2 has A-B
         }
 
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsVerticalOffsetFromMiddle"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
         [Test]
         public void TwoPointsHorizontalOffsetFromMiddle()
         {
@@ -265,6 +273,10 @@ namespace UnitTests
             Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 300, 1000, 300)); // #3 has C-D
         }
 
+        /// <summary>
+        /// This test basically repeats <see cref="ThreeConcentricPointsAroundMiddle"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
         [Test]
         public void ThreeConcentricPointsAroundMiddle_Rotated90()
         {
@@ -353,6 +365,10 @@ namespace UnitTests
             Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 0, 1000, 1000)); // #2 has A-B
         }
 
+        /// <summary>
+        /// This test basically repeats <see cref="TwoDiagonalPointsAroundMiddle"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
         [Test]
         public void TwoDiagonalPointsAroundMiddle_Rotated90()
         {
@@ -437,6 +453,10 @@ namespace UnitTests
             Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 200, 800, 1000)); // #2 has A-B
         }
 
+        /// <summary>
+        /// This test basically repeats <see cref="TwoDiagonalPointsOffsetFromMiddle"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
         [Test]
         public void TwoDiagonalPointsOffsetFromMiddle_Rotated90()
         {
@@ -479,6 +499,10 @@ namespace UnitTests
             Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 200, 1000, 1000, 200)); // #2 has A-B
         }
 
+        /// <summary>
+        /// This test basically repeats <see cref="TwoDiagonalPointsOffsetFromMiddle"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
         [Test]
         public void TwoDiagonalPointsOffsetFromMiddle_Rotated180()
         {
@@ -521,6 +545,10 @@ namespace UnitTests
             Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 1000, 800, 200, 0)); // #2 has A-B
         }
 
+        /// <summary>
+        /// This test basically repeats <see cref="TwoDiagonalPointsOffsetFromMiddle"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
         [Test]
         public void TwoDiagonalPointsOffsetFromMiddle_Rotated270()
         {
