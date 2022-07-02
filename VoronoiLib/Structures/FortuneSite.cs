@@ -13,7 +13,7 @@ namespace VoronoiLib.Structures
         public IEnumerable<VEdge> Cell => cell;
 
         [PublicAPI]
-        public List<FortuneSite> Neighbors { get; private set; }
+        public IEnumerable<FortuneSite> Neighbors => neighbors;
 
         [PublicAPI]
         public IEnumerable<VPoint> Points
@@ -61,6 +61,7 @@ namespace VoronoiLib.Structures
 
         
         internal readonly List<VEdge> cell;
+        internal readonly List<FortuneSite> neighbors;
         
         
         private List<VPoint>? _points;
@@ -73,7 +74,7 @@ namespace VoronoiLib.Structures
             X = x;
             Y = y;
             cell = new List<VEdge>();
-            Neighbors = new List<FortuneSite>();
+            neighbors = new List<FortuneSite>();
         }
 
         
