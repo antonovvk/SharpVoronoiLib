@@ -36,7 +36,7 @@ namespace VoronoiLib
         
         
         [PublicAPI]
-        public static LinkedList<VoronoiEdge> RunOnce(List<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
+        public static LinkedList<VoronoiEdge> RunOnce(IEnumerable<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
@@ -45,12 +45,12 @@ namespace VoronoiLib
         }
 
         [PublicAPI]
-        public LinkedList<VoronoiEdge> Run(List<VoronoiSite> sites, bool closeBorders = false)
+        public LinkedList<VoronoiEdge> Run(IEnumerable<VoronoiSite> sites, bool closeBorders = false)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
             
-            MinHeap<FortuneEvent> eventQueue = new MinHeap<FortuneEvent>(5*sites.Count);
+            MinHeap<FortuneEvent> eventQueue = new MinHeap<FortuneEvent>(5*sites.Count());
             
             foreach (VoronoiSite site in sites)
             {
@@ -411,7 +411,7 @@ namespace VoronoiLib
             return (y - b) / m;
         }
         
-        private static void CloseBorders(LinkedList<VoronoiEdge> edges, double minX, double minY, double maxX, double maxY, List<VoronoiSite> sites)
+        private static void CloseBorders(LinkedList<VoronoiEdge> edges, double minX, double minY, double maxX, double maxY, IEnumerable<VoronoiSite> sites)
         {
             BorderNodeComparer comparer = new BorderNodeComparer(
                 (minX + maxX) / 2f, 
@@ -482,7 +482,7 @@ namespace VoronoiLib
             {
                 // We have no edges within bounds
 
-                if (sites.Count > 0)
+                if (sites.Any())
                 {
                     // But we have site(s), so it's possible a site is in the bounds
                     // (two sites couldn't be or there would be an edge)

@@ -27,14 +27,14 @@ The library (VoronoiLib) is compiled for .NET standard 1.1. As such, projects sh
 Create points, run algorithm:
 
 ```
-List<VoronoiSite> points = new List<VoronoiSite>
+IEnumerable<VoronoiSite> points = new List<VoronoiSite>
 {
     new FortuneSite(300, 300),
     new FortuneSite(300, 400),
     new FortuneSite(400, 300)
 };
 
-LinkedList<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(
+LinkedList<VoronoiEdge> edges = VoronoiPlane.RunOnce(
     points, 
     0, 0, 
     600, 600,
@@ -45,7 +45,7 @@ LinkedList<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(
 If closing borders is not desired:
 
 ```
-LinkedList<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(
+LinkedList<VoronoiEdge> edges = VoronoiPlane.RunOnce(
     points, 
     0, 0, 
     600, 600,
