@@ -6,24 +6,25 @@ namespace VoronoiLib.Structures
     public class VEdge
     {
         public VPoint Start { get; internal set; }
-        public VPoint End { get; internal set; }
-        public FortuneSite Left { get; }
-        public FortuneSite Right { get; }
+        public VPoint? End { get; internal set; }
+        public FortuneSite? Left { get; }
+        public FortuneSite? Right { get; }
         
-        private VPoint _mid;
+        private VPoint? _mid;
         [PublicAPI]
         public VPoint Mid
         {
             get
             {
                 if (_mid == null)
-                    _mid = new VPoint((Start.X + End.X) / 2, (Start.Y + End.Y) / 2);
-                
+                    _mid = new VPoint((Start.X + End!.X) / 2, (Start.Y + End.Y) / 2);
+                // Note that .End is guaranteed to be set since we don't expose edges extrenally that aren't clipped in bounds
+
                 return _mid;
             }
         }
         
-        private List<VEdge> _neighbours;
+        private List<VEdge>? _neighbours;
         [PublicAPI]
         public IEnumerable<VEdge> Neighbours
         {
@@ -67,7 +68,7 @@ namespace VoronoiLib.Structures
         internal double SlopeRun { get; }
         internal double? Slope { get; }
         internal double? Intercept { get; }
-        internal VEdge Neighbor { get; set; }
+        internal VEdge? Neighbor { get; set; }
         
         internal VEdge(VPoint start, FortuneSite left, FortuneSite right)
         {

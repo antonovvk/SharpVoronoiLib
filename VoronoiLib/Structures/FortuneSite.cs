@@ -40,9 +40,10 @@ namespace VoronoiLib.Structures
                         if (!_points.Contains(edge.Start))
                             _points.Add(edge.Start);
                         
-                        if (!_points.Contains(edge.End))
+                        if (!_points.Contains(edge.End!))
                             _points.Add(edge.End);
-                        
+                        // Note that .End is guaranteed to be set since we don't expose edges extrenally that aren't clipped in bounds
+
                         // Note that the order of .Start and .End is not guaranteed in VEdge,
                         // so we couldn't simply only add either .Start or .End, this would skip and duplicate points
                     }
@@ -53,7 +54,7 @@ namespace VoronoiLib.Structures
             }
         }
         
-        private List<VEdge> _clockwiseCell;
+        private List<VEdge>? _clockwiseCell;
         [PublicAPI]
         public IEnumerable<VEdge> ClockwiseCell
         {
