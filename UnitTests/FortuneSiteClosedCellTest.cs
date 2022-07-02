@@ -14,6 +14,47 @@ namespace UnitTests
     public class FortuneSiteClosedCellTest
     {
         [Test]
+        public void OnePoint()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(300, 300)
+            };
+            
+            // 600 Y                                   Z
+            //     | 
+            // 500 | 
+            //     | 
+            // 400 |                  
+            //     | 
+            // 300 |                 1             
+            //     | 
+            // 200 |                  
+            //     | 
+            // 100 | 
+            //     | 
+            //   0 X-----------------------------------W
+            //     0    100   200   300   400   500   600
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600, true).ToList();
+            
+            Assert.AreEqual(4, edges.Count);
+            
+            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
+            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
+            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
+            Assume.That(() => FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
+
+            foreach (FortuneSite site in points)
+                Console.WriteLine(site + ": " + string.Join("; ", site.Cell.Select(c => c.ToString("F0"))));
+            
+            Assert.IsTrue(FortuneSiteCellTest.SiteHasEdge(points[0], 000, 000, 600, 000)); // 1 has X-W
+            Assert.IsTrue(FortuneSiteCellTest.SiteHasEdge(points[0], 600, 000, 600, 600)); // 1 has W-Z
+            Assert.IsTrue(FortuneSiteCellTest.SiteHasEdge(points[0], 600, 600, 000, 600)); // 1 has Z-Y
+            Assert.IsTrue(FortuneSiteCellTest.SiteHasEdge(points[0], 000, 600, 000, 000)); // 1 has Y-X
+        }
+        
+        [Test]
         public void TwoPointsHorizontal()
         {
             List<FortuneSite> points = new List<FortuneSite>

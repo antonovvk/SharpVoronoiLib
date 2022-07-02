@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using VoronoiLib.Structures;
 
 namespace VoronoiLib
@@ -60,7 +61,7 @@ namespace VoronoiLib
             }
 
             if (closeBorders)
-                CloseBorders(edges, minX, minY, maxX, maxY);
+                CloseBorders(edges, minX, minY, maxX, maxY, sites);
 
             return edges;
         }
@@ -365,7 +366,7 @@ namespace VoronoiLib
             return (y - b) / m;
         }
         
-        private static void CloseBorders(LinkedList<VEdge> edges, double minX, double minY, double maxX, double maxY)
+        private static void CloseBorders(LinkedList<VEdge> edges, double minX, double minY, double maxX, double maxY, List<FortuneSite> sites)
         {
             BorderNodeComparer comparer = new BorderNodeComparer(
                 (minX + maxX) / 2f, 
@@ -431,8 +432,25 @@ namespace VoronoiLib
                 }
             }
 
-            Debug.Assert(lastEdgeNode != null, "Expecting edge to intersect (at least 2) borders");
+            FortuneSite defaultSite = null;
+            if (lastEdgeNode == null)
+            {
+                // We have no edges within bounds
 
+                if (sites.Count > 0)
+                {
+                    // But we have site(s), so it's possible a site is in the bounds
+                    // (two sites couldn't be or there would be an edge)
+                    
+                    defaultSite = sites.FirstOrDefault(s =>
+                                                           s.X.ApproxGreaterThanOrEqualTo(minX) &&
+                                                           s.X.ApproxLessThanOrEqualTo(maxX) &&
+                                                           s.Y.ApproxGreaterThanOrEqualTo(minY) &&
+                                                           s.Y.ApproxLessThanOrEqualTo(maxY)
+                    );
+                }
+            }
+            
             BorderNode node2 = null; // i.e. last node
             
             foreach (BorderNode node in nodes)
@@ -443,7 +461,7 @@ namespace VoronoiLib
                 if (node1 == null) // i.e. node == nodes.Min
                     continue; // we are looking at first node, we will start from Min and next one
 
-                FortuneSite site = lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left;
+                FortuneSite site = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
 
                 VEdge newEdge = new VEdge(
                     node1.Point, 
@@ -454,13 +472,14 @@ namespace VoronoiLib
                 
                 edges.AddLast(newEdge);
                 
-                site.Cell.Add(newEdge);
+                if (site != null)
+                    site.Cell.Add(newEdge);
                 
                 if (node is EdgeBorderNode cebn)
                     lastEdgeNode = cebn;
             }
 
-            FortuneSite finalSite = lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left;
+            FortuneSite finalSite = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
 
             VEdge finalEdge = new VEdge(
                 nodes.Max.Point,
@@ -470,8 +489,9 @@ namespace VoronoiLib
             );
             
             edges.AddLast(finalEdge);
-            
-            finalSite.Cell.Add(finalEdge);
+
+            if (finalSite != null)
+                finalSite.Cell.Add(finalEdge);
         }
 
         private abstract class BorderNode

@@ -1,4 +1,4 @@
-//#define BRUTE_FORCE_TEST
+#define BRUTE_FORCE_TEST
 
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;

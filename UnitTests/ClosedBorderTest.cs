@@ -14,6 +14,109 @@ namespace UnitTests
     public class ClosedBorderTest
     {
         [Test]
+        public void NoPoints()
+        {
+            List<FortuneSite> points = new List<FortuneSite>();
+            
+            // 600 Y                                   Z
+            //     | 
+            // 500 | 
+            //     | 
+            // 400 |                  
+            //     | 
+            // 300 |                               
+            //     | 
+            // 200 |                  
+            //     | 
+            // 100 | 
+            //     | 
+            //   0 X-----------------------------------W
+            //     0    100   200   300   400   500   600
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600, true).ToList();
+            
+            Assert.AreEqual(4, edges.Count);
+            
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
+        }
+        
+        [TestCase(-100, 300)]
+        [TestCase(300, -100)]
+        [TestCase(700, 300)]
+        [TestCase(300, 700)]
+        [TestCase(-100, -100)]
+        [TestCase(700, -100)]
+        [TestCase(700, 700)]
+        [TestCase(-100, 700)]
+        public void PointOutsideBoundsAlone(double x, double y)
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(x, y)
+            };
+
+            // 600 Y                                   Z
+            //     | 
+            // 500 | 
+            //     | 
+            // 400 |                  
+            //     | 
+            // 300 |                               
+            //     | 
+            // 200 |                  
+            //     | 
+            // 100 | 
+            //     | 
+            //   0 X-----------------------------------W
+            //     0    100   200   300   400   500   600
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600, true).ToList();
+            
+            Assert.AreEqual(4, edges.Count);
+            
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
+        }
+
+        [Test]
+        public void OnePoint()
+        {
+            List<FortuneSite> points = new List<FortuneSite>
+            {
+                new FortuneSite(300, 300)
+            };
+            
+            // 600 Y                                   Z
+            //     | 
+            // 500 | 
+            //     | 
+            // 400 |                  
+            //     | 
+            // 300 |                 1             
+            //     | 
+            // 200 |                  
+            //     | 
+            // 100 | 
+            //     | 
+            //   0 X-----------------------------------W
+            //     0    100   200   300   400   500   600
+
+            List<VEdge> edges = FortunesAlgorithm.Run(points, 0, 0, 600, 600, true).ToList();
+            
+            Assert.AreEqual(4, edges.Count);
+            
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 000, 600, 000)); // X-W
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 000, 600, 600)); // W-Z
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 600, 600, 000, 600)); // Z-Y
+            Assert.IsTrue(FortuneAlgorithmTest.AnyEdgeBetween(edges, 000, 600, 000, 000)); // Y-X
+        }
+        
+        [Test]
         public void TwoPointsHorizontal()
         {
             List<FortuneSite> points = new List<FortuneSite>
