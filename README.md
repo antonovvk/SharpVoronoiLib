@@ -34,7 +34,7 @@ List<FortuneSite> points = new List<FortuneSite>
     new FortuneSite(400, 300)
 };
 
-LinkedList<VEdge> edges = FortunesAlgorithm.RunOnce(
+LinkedList<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(
     points, 
     0, 0, 
     600, 600,
@@ -45,7 +45,7 @@ LinkedList<VEdge> edges = FortunesAlgorithm.RunOnce(
 If closing borders is not desired:
 
 ```
-LinkedList<VEdge> edges = FortunesAlgorithm.RunOnce(
+LinkedList<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(
     points, 
     0, 0, 
     600, 600,
@@ -53,11 +53,11 @@ LinkedList<VEdge> edges = FortunesAlgorithm.RunOnce(
 );
 ```
 
-The returned collection contains the generated edges as `VEdge`s.
-`VEdge.Start` and `VEdge.End` are the start and end points of the edge.
-`VEdge.Right` and `VEdge.Left` are the sites the edge encloses. Border edges move clockwise and will only have the `.Right` site. And if no points are within the region, both will be `null`.
-Edge end `VPoint`s also contain a `.BorderLocation` specifying if it's on a border and which one.
-`VEdge.Neighbours` (on-demand) are edges directly "connecting" to this edge, basically creating a traversable edge graph.
+The returned collection contains the generated edges as `VoronoiEdge`s.
+`VoronoiEdge.Start` and `.End` are the start and end points of the edge.
+`VoronoiEdge.Right` and `.Left` are the sites the edge encloses. Border edges move clockwise and will only have the `.Right` site. And if no points are within the region, both will be `null`.
+Edge end `VoronoiPoint`s also contain a `.BorderLocation` specifying if it's on a border and which one.
+`VoronoiEdge.Neighbours` (on-demand) are edges directly "connecting" to this edge, basically creating a traversable edge graph.
 `FortuneSite.Cell` contains the edges that enclose the site (order is not guaranteed).
 `FortuneSite.ClockwiseCell` (on-demand) contains these edges sorted clockwise (first edge order is not guaranteed).
 `FortuneSite.Neighbors` contains the site's neighbors (in the Delaunay Triangulation), that is, sites across its edges.

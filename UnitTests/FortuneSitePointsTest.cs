@@ -18,7 +18,7 @@ namespace UnitTests
 
             // Site 1
             FortuneSite site = points[0];
-            List<VPoint> corners = site.ClockwisePoints.ToList();
+            List<VoronoiPoint> corners = site.ClockwisePoints.ToList();
             Assert.NotNull(corners);
             Assert.AreEqual(3, corners.Count);
             Assert.AreEqual(212.5, corners[0].X);

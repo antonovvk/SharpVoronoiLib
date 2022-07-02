@@ -6,7 +6,7 @@ namespace VoronoiLib.Structures
     internal class BeachSection
     {
         internal FortuneSite Site { get;}
-        internal VEdge Edge { get; set; }
+        internal VoronoiEdge Edge { get; set; }
         //NOTE: this will change
         internal FortuneCircleEvent CircleEvent { get; set; }
 
@@ -26,7 +26,7 @@ namespace VoronoiLib.Structures
             beachLine = new RBTree<BeachSection>();
         }
 
-        internal void AddBeachSection(FortuneSiteEvent siteEvent, MinHeap<FortuneEvent> eventQueue, HashSet<FortuneCircleEvent> deleted, LinkedList<VEdge> edges)
+        internal void AddBeachSection(FortuneSiteEvent siteEvent, MinHeap<FortuneEvent> eventQueue, HashSet<FortuneCircleEvent> deleted, LinkedList<VoronoiEdge> edges)
         {
             FortuneSite site = siteEvent.Site;
             double x = site.X;
@@ -125,11 +125,11 @@ namespace VoronoiLib.Structures
 
                 //grab the projection of this site onto the parabola
                 double y = ParabolaMath.EvalParabola(leftSection.Data.Site.X, leftSection.Data.Site.Y, directrix, x);
-                VPoint intersection = new VPoint(x, y);
+                VoronoiPoint intersection = new VoronoiPoint(x, y);
 
                 //create the two half edges corresponding to this intersection
-                VEdge leftEdge = new VEdge(intersection, site, leftSection.Data.Site);
-                VEdge rightEdge = new VEdge(intersection, leftSection.Data.Site, site);
+                VoronoiEdge leftEdge = new VoronoiEdge(intersection, site, leftSection.Data.Site);
+                VoronoiEdge rightEdge = new VoronoiEdge(intersection, leftSection.Data.Site, site);
                 leftEdge.Neighbor = rightEdge;
 
                 //put the edge in the list
@@ -153,9 +153,9 @@ namespace VoronoiLib.Structures
             //had the same y value
             else if (leftSection != null && rightSection == null)
             {
-                VPoint start = new VPoint((leftSection.Data.Site.X + site.X)/ 2, double.MinValue);
-                VEdge infEdge = new VEdge(start, leftSection.Data.Site, site);
-                VEdge newEdge = new VEdge(start, site, leftSection.Data.Site);
+                VoronoiPoint start = new VoronoiPoint((leftSection.Data.Site.X + site.X)/ 2, double.MinValue);
+                VoronoiEdge infEdge = new VoronoiEdge(start, leftSection.Data.Site, site);
+                VoronoiEdge newEdge = new VoronoiEdge(start, site, leftSection.Data.Site);
 
                 newEdge.Neighbor = infEdge;
                 edges.AddFirst(newEdge);
@@ -204,15 +204,15 @@ namespace VoronoiLib.Structures
                 double d = bx*cy - by*cx;
                 double magnitudeB = bx*bx + by*by;
                 double magnitudeC = cx*cx + cy*cy;
-                VPoint vertex = new VPoint(
+                VoronoiPoint vertex = new VoronoiPoint(
                     (cy*magnitudeB - by * magnitudeC)/(2*d) + ax,
                     (bx*magnitudeC - cx * magnitudeB)/(2*d) + ay);
 
                 rightSection.Data.Edge.End = vertex;
 
                 //next we create a two new edges
-                newSection.Data.Edge = new VEdge(vertex, site, leftSection.Data.Site);
-                rightSection.Data.Edge = new VEdge(vertex, rightSection.Data.Site, site);
+                newSection.Data.Edge = new VoronoiEdge(vertex, site, leftSection.Data.Site);
+                rightSection.Data.Edge = new VoronoiEdge(vertex, rightSection.Data.Site, site);
 
                 edges.AddFirst(newSection.Data.Edge);
                 edges.AddFirst(rightSection.Data.Edge);
@@ -229,12 +229,12 @@ namespace VoronoiLib.Structures
             }
         }
 
-        internal void RemoveBeachSection(FortuneCircleEvent circle, MinHeap<FortuneEvent> eventQueue, HashSet<FortuneCircleEvent> deleted, LinkedList<VEdge> edges)
+        internal void RemoveBeachSection(FortuneCircleEvent circle, MinHeap<FortuneEvent> eventQueue, HashSet<FortuneCircleEvent> deleted, LinkedList<VoronoiEdge> edges)
         {
             RBTreeNode<BeachSection> section = circle.ToDelete;
             double x = circle.X;
             double y = circle.YCenter;
-            VPoint vertex = new VPoint(x, y);
+            VoronoiPoint vertex = new VoronoiPoint(x, y);
 
             //multiple edges could end here
             List<RBTreeNode<BeachSection>> toBeRemoved = new List<RBTreeNode<BeachSection>>();
@@ -286,7 +286,7 @@ namespace VoronoiLib.Structures
 
 
             //create a new edge with start point at the vertex and assign it to next
-            VEdge newEdge = new VEdge(vertex, next.Data.Site, prev.Data.Site);
+            VoronoiEdge newEdge = new VoronoiEdge(vertex, next.Data.Site, prev.Data.Site);
             next.Data.Edge = newEdge;
             edges.AddFirst(newEdge);
 
@@ -385,7 +385,7 @@ namespace VoronoiLib.Structures
             double ycenter = y + by;
             //y center is off
             FortuneCircleEvent circleEvent = new FortuneCircleEvent(
-                new VPoint(x + bx, ycenter + Math.Sqrt(x * x + y * y)),
+                new VoronoiPoint(x + bx, ycenter + Math.Sqrt(x * x + y * y)),
                 ycenter, section
             );
             section.Data.CircleEvent = circleEvent;

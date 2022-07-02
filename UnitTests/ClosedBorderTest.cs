@@ -33,7 +33,7 @@ namespace UnitTests
             //   0 X-----------------------------------W
             //     0    100   200   300   400   500   600
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
             
             Assert.AreEqual(4, edges.Count);
             
@@ -73,7 +73,7 @@ namespace UnitTests
             //   0 X-----------------------------------W
             //     0    100   200   300   400   500   600
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
             
             Assert.AreEqual(4, edges.Count);
             
@@ -106,7 +106,7 @@ namespace UnitTests
             //   0 X-----------------------------------W
             //     0    100   200   300   400   500   600
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
             
             Assert.AreEqual(4, edges.Count);
             
@@ -125,7 +125,7 @@ namespace UnitTests
                 new FortuneSite(300, 400) // 2
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 Y                                   Z
             //     | 
@@ -163,7 +163,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 2
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
             
             // 600 X                 B                 W
             //     |                 | 
@@ -201,7 +201,7 @@ namespace UnitTests
                 new FortuneSite(450, 450) // 2
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 A                                   Y
             //     |\                                  
@@ -237,7 +237,7 @@ namespace UnitTests
                 new FortuneSite(150, 450) // 2
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 X                                   B 
             //     |                                 /    
@@ -274,7 +274,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 X                                   B
             //     |                                  /
@@ -291,7 +291,7 @@ namespace UnitTests
             //   0 Y--------------------D--------------Z
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(9, edges.Count);
@@ -318,7 +318,7 @@ namespace UnitTests
                 new FortuneSite(300, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 B                                   Z
             //     |  \                     
@@ -335,7 +335,7 @@ namespace UnitTests
             //   0 X--------------D--------------------Y
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(9, edges.Count);
@@ -362,7 +362,7 @@ namespace UnitTests
                 new FortuneSite(300, 200) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 X              D                    Z
             //     |              |
@@ -379,7 +379,7 @@ namespace UnitTests
             //   0 B-----------------------------------Y
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(9, edges.Count);
@@ -406,7 +406,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 X                    C              Z
             //     |                    |
@@ -423,7 +423,7 @@ namespace UnitTests
             //   0 Y-----------------------------------B
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(9, edges.Count);
@@ -450,7 +450,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 B                                   D
             //     |\                                 /
@@ -467,7 +467,7 @@ namespace UnitTests
             //   0 X-----------------C-----------------Y
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(8, edges.Count);
@@ -493,7 +493,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 X                 B                 Y
             //     |                 |
@@ -510,7 +510,7 @@ namespace UnitTests
             //   0 C-----------------------------------D
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(8, edges.Count);
@@ -536,7 +536,7 @@ namespace UnitTests
                 new FortuneSite(300, 200) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 B                                   Y
             //     |\                 
@@ -553,7 +553,7 @@ namespace UnitTests
             //   0 C-----------------------------------X
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(8, edges.Count);
@@ -579,7 +579,7 @@ namespace UnitTests
                 new FortuneSite(300, 200) // 3
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 Y                                   D
             //     |                                  /
@@ -596,7 +596,7 @@ namespace UnitTests
             //   0 X-----------------------------------C
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(8, edges.Count);
@@ -623,7 +623,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 4
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 B                                   E
             //     |\                                 /
@@ -640,7 +640,7 @@ namespace UnitTests
             //   0 C-----------------------------------D
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(9, edges.Count);
@@ -669,7 +669,7 @@ namespace UnitTests
                 new FortuneSite(400, 300) // 5
             };
 
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, true).ToList();
 
             // 600 E                                   H
             //     |\                                 /
@@ -686,7 +686,7 @@ namespace UnitTests
             //   0 F-----------------------------------G
             //     0    100   200   300   400   500   600
 
-            foreach (VEdge edge in edges)
+            foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
 
             Assert.AreEqual(12, edges.Count);
@@ -736,7 +736,7 @@ namespace UnitTests
             //     Assert.NotNull(point.cell);
             //     CollectionAssert.IsNotEmpty(point.cell);
             //     CollectionAssert.AllItemsAreNotNull(point.cell);
-            //     foreach (VEdge edge in point.cell)
+            //     foreach (VoronoiEdge edge in point.cell)
             //     {
             //         CollectionAssert.Contains(edges, edge);
             //         Assert.NotNull(edge.Left);

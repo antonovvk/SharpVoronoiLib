@@ -36,7 +36,7 @@ namespace VoronoiLib
         
         
         [PublicAPI]
-        public static LinkedList<VEdge> RunOnce(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
+        public static LinkedList<VoronoiEdge> RunOnce(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
@@ -45,7 +45,7 @@ namespace VoronoiLib
         }
 
         [PublicAPI]
-        public LinkedList<VEdge> Run(List<FortuneSite> sites, bool closeBorders = false)
+        public LinkedList<VoronoiEdge> Run(List<FortuneSite> sites, bool closeBorders = false)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
@@ -62,7 +62,7 @@ namespace VoronoiLib
             
             //init tree
             BeachLine beachLine = new BeachLine();
-            LinkedList<VEdge> edges = new LinkedList<VEdge>();
+            LinkedList<VoronoiEdge> edges = new LinkedList<VoronoiEdge>();
             HashSet<FortuneCircleEvent> deleted = new HashSet<FortuneCircleEvent>();
 
             //init edge list
@@ -86,11 +86,11 @@ namespace VoronoiLib
             
 
             //clip edges
-            LinkedListNode<VEdge> edgeNode = edges.First;
+            LinkedListNode<VoronoiEdge> edgeNode = edges.First;
             while (edgeNode != null)
             {
-                VEdge edge = edgeNode.Value;
-                LinkedListNode<VEdge> next = edgeNode.Next;
+                VoronoiEdge edge = edgeNode.Value;
+                LinkedListNode<VoronoiEdge> next = edgeNode.Next;
 
                 bool valid = ClipEdge(edge, MinX, MinY, MaxX, MaxY);
                 if (valid)
@@ -112,7 +112,7 @@ namespace VoronoiLib
         }
 
         //combination of personal ray clipping alg and cohen sutherland
-        private static bool ClipEdge(VEdge edge, double minX, double minY, double maxX, double maxY)
+        private static bool ClipEdge(VoronoiEdge edge, double minX, double minY, double maxX, double maxY)
         {
             bool accept = false;
 
@@ -165,12 +165,12 @@ namespace VoronoiLib
 
                     if (outcode == start)
                     {
-                        edge.Start = new VPoint(x, y, GetBorderLocationForCoordinate(x, y, minX, minY, maxX, maxY));
+                        edge.Start = new VoronoiPoint(x, y, GetBorderLocationForCoordinate(x, y, minX, minY, maxX, maxY));
                         start = ComputeOutCode(x, y, minX, minY, maxX, maxY);
                     }
                     else
                     {
-                        edge.End = new VPoint(x, y, GetBorderLocationForCoordinate(x, y, minX, minY, maxX, maxY));
+                        edge.End = new VoronoiPoint(x, y, GetBorderLocationForCoordinate(x, y, minX, minY, maxX, maxY));
                         end = ComputeOutCode(x, y, minX, minY, maxX, maxY);
                     }
                 }
@@ -241,9 +241,9 @@ namespace VoronoiLib
             Top = 0x8
         }
 
-        private static bool ClipRay(VEdge edge, double minX, double minY, double maxX, double maxY)
+        private static bool ClipRay(VoronoiEdge edge, double minX, double minY, double maxX, double maxY)
         {
-            VPoint start = edge.Start;
+            VoronoiPoint start = edge.Start;
             //horizontal ray
             if (edge.SlopeRise.ApproxEqual(0))
             {
@@ -256,21 +256,21 @@ namespace VoronoiLib
                 if (Within(start.X, minX, maxX))
                 {
                     if (edge.SlopeRun > 0)
-                        edge.End = new VPoint(maxX, start.Y, PointBorderLocation.Right);
+                        edge.End = new VoronoiPoint(maxX, start.Y, PointBorderLocation.Right);
                     else
-                        edge.End = new VPoint(minX, start.Y, start.Y.ApproxEqual(minY) ? PointBorderLocation.BottomLeft : start.Y.ApproxEqual(maxY) ? PointBorderLocation.TopLeft : PointBorderLocation.Left);
+                        edge.End = new VoronoiPoint(minX, start.Y, start.Y.ApproxEqual(minY) ? PointBorderLocation.BottomLeft : start.Y.ApproxEqual(maxY) ? PointBorderLocation.TopLeft : PointBorderLocation.Left);
                 }
                 else
                 {
                     if (edge.SlopeRun > 0)
                     {
-                        edge.Start = new VPoint(minX, start.Y, PointBorderLocation.Left);
-                        edge.End = new VPoint(maxX, start.Y, PointBorderLocation.Right);
+                        edge.Start = new VoronoiPoint(minX, start.Y, PointBorderLocation.Left);
+                        edge.End = new VoronoiPoint(maxX, start.Y, PointBorderLocation.Right);
                     }
                     else
                     {
-                        edge.Start = new VPoint(maxX, start.Y, PointBorderLocation.Right);
-                        edge.End = new VPoint(minX, start.Y, PointBorderLocation.Left);
+                        edge.Start = new VoronoiPoint(maxX, start.Y, PointBorderLocation.Right);
+                        edge.End = new VoronoiPoint(minX, start.Y, PointBorderLocation.Left);
                     }
                 }
                 return true;
@@ -287,21 +287,21 @@ namespace VoronoiLib
                 if (Within(start.Y, minY, maxY))
                 {
                     if (edge.SlopeRise > 0)
-                        edge.End = new VPoint(start.X, maxY, start.X.ApproxEqual(minX) ? PointBorderLocation.TopLeft : start.X.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top);
+                        edge.End = new VoronoiPoint(start.X, maxY, start.X.ApproxEqual(minX) ? PointBorderLocation.TopLeft : start.X.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top);
                     else
-                        edge.End = new VPoint(start.X, minY, PointBorderLocation.Bottom);
+                        edge.End = new VoronoiPoint(start.X, minY, PointBorderLocation.Bottom);
                 }
                 else
                 {
                     if (edge.SlopeRise > 0)
                     {
-                        edge.Start = new VPoint(start.X, minY, PointBorderLocation.Bottom);
-                        edge.End = new VPoint(start.X, maxY, PointBorderLocation.Top);
+                        edge.Start = new VoronoiPoint(start.X, minY, PointBorderLocation.Bottom);
+                        edge.End = new VoronoiPoint(start.X, maxY, PointBorderLocation.Top);
                     }
                     else
                     {
-                        edge.Start = new VPoint(start.X, maxY, PointBorderLocation.Top);
-                        edge.End = new VPoint(start.X, minY, PointBorderLocation.Bottom);
+                        edge.Start = new VoronoiPoint(start.X, maxY, PointBorderLocation.Top);
+                        edge.End = new VoronoiPoint(start.X, minY, PointBorderLocation.Bottom);
                     }
                 }
                 return true;
@@ -312,16 +312,16 @@ namespace VoronoiLib
             Debug.Assert(edge.Intercept != null, "edge.Intercept != null");
 
             double topXValue = CalcX(edge.Slope.Value, maxY, edge.Intercept.Value);
-            VPoint topX = new VPoint(topXValue, maxY, topXValue.ApproxEqual(minX) ? PointBorderLocation.TopLeft : topXValue.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top);
+            VoronoiPoint topX = new VoronoiPoint(topXValue, maxY, topXValue.ApproxEqual(minX) ? PointBorderLocation.TopLeft : topXValue.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top);
 
             double rightYValue = CalcY(edge.Slope.Value, maxX, edge.Intercept.Value);
-            VPoint rightY = new VPoint(maxX, rightYValue, rightYValue.ApproxEqual(minY) ? PointBorderLocation.BottomRight : rightYValue.ApproxEqual(maxY) ? PointBorderLocation.TopRight : PointBorderLocation.Right);
+            VoronoiPoint rightY = new VoronoiPoint(maxX, rightYValue, rightYValue.ApproxEqual(minY) ? PointBorderLocation.BottomRight : rightYValue.ApproxEqual(maxY) ? PointBorderLocation.TopRight : PointBorderLocation.Right);
 
             double bottomXValue = CalcX(edge.Slope.Value, minY, edge.Intercept.Value);
-            VPoint bottomX = new VPoint(bottomXValue, minY, bottomXValue.ApproxEqual(minX) ? PointBorderLocation.BottomLeft : bottomXValue.ApproxEqual(maxX) ? PointBorderLocation.BottomRight : PointBorderLocation.Bottom);
+            VoronoiPoint bottomX = new VoronoiPoint(bottomXValue, minY, bottomXValue.ApproxEqual(minX) ? PointBorderLocation.BottomLeft : bottomXValue.ApproxEqual(maxX) ? PointBorderLocation.BottomRight : PointBorderLocation.Bottom);
 
             double leftYValue = CalcY(edge.Slope.Value, minX, edge.Intercept.Value);
-            VPoint leftY = new VPoint(minX, leftYValue, leftYValue.ApproxEqual(minY) ? PointBorderLocation.BottomLeft : leftYValue.ApproxEqual(maxY) ? PointBorderLocation.TopLeft : PointBorderLocation.Left);
+            VoronoiPoint leftY = new VoronoiPoint(minX, leftYValue, leftYValue.ApproxEqual(minY) ? PointBorderLocation.BottomLeft : leftYValue.ApproxEqual(maxY) ? PointBorderLocation.TopLeft : PointBorderLocation.Left);
 
             // Note: these points may be duplicates if the ray goes through a border corner,
             // so we have to check for repeats when building the candidate list below.
@@ -330,7 +330,7 @@ namespace VoronoiLib
             
             //reject intersections not within bounds
             
-            List<VPoint> candidates = new List<VPoint>();
+            List<VoronoiPoint> candidates = new List<VoronoiPoint>();
 
             bool withinTopX = Within(topX.X, minX, maxX);
             bool withinRightY = Within(rightY.Y, minY, maxY);
@@ -360,7 +360,7 @@ namespace VoronoiLib
             //reject candidates which don't align with the slope
             for (int i = candidates.Count - 1; i > -1; i--)
             {
-                VPoint candidate = candidates[i];
+                VoronoiPoint candidate = candidates[i];
                 //grab vector representing the edge
                 double ax = candidate.X - start.X;
                 double ay = candidate.Y - start.Y;
@@ -411,7 +411,7 @@ namespace VoronoiLib
             return (y - b) / m;
         }
         
-        private static void CloseBorders(LinkedList<VEdge> edges, double minX, double minY, double maxX, double maxY, List<FortuneSite> sites)
+        private static void CloseBorders(LinkedList<VoronoiEdge> edges, double minX, double minY, double maxX, double maxY, List<FortuneSite> sites)
         {
             BorderNodeComparer comparer = new BorderNodeComparer(
                 (minX + maxX) / 2f, 
@@ -425,11 +425,11 @@ namespace VoronoiLib
             bool hadTopRight = false;
             bool hadTopLeft = false;
             
-            LinkedListNode<VEdge> edgeNode = edges.First;
+            LinkedListNode<VoronoiEdge> edgeNode = edges.First;
 
             while (edgeNode != null)
             {
-                VEdge edge = edgeNode.Value;
+                VoronoiEdge edge = edgeNode.Value;
                 
                 if (edge.Start.BorderLocation != PointBorderLocation.NotOnBorder)
                 {
@@ -454,10 +454,10 @@ namespace VoronoiLib
                 edgeNode = edgeNode.Next;
             }
             
-            if (!hadBottomLeft) nodes.Add(new CornerBorderNode(new VPoint(minX, minY, PointBorderLocation.BottomLeft)));
-            if (!hadBottomRight) nodes.Add(new CornerBorderNode(new VPoint(maxX, minY, PointBorderLocation.BottomRight)));
-            if (!hadTopRight) nodes.Add(new CornerBorderNode(new VPoint(maxX, maxY, PointBorderLocation.TopRight)));
-            if (!hadTopLeft) nodes.Add(new CornerBorderNode(new VPoint(minX, maxY, PointBorderLocation.TopLeft)));
+            if (!hadBottomLeft) nodes.Add(new CornerBorderNode(new VoronoiPoint(minX, minY, PointBorderLocation.BottomLeft)));
+            if (!hadBottomRight) nodes.Add(new CornerBorderNode(new VoronoiPoint(maxX, minY, PointBorderLocation.BottomRight)));
+            if (!hadTopRight) nodes.Add(new CornerBorderNode(new VoronoiPoint(maxX, maxY, PointBorderLocation.TopRight)));
+            if (!hadTopLeft) nodes.Add(new CornerBorderNode(new VoronoiPoint(minX, maxY, PointBorderLocation.TopLeft)));
 
 
             EdgeBorderNode lastEdgeNode = null;
@@ -508,7 +508,7 @@ namespace VoronoiLib
 
                 FortuneSite site = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
 
-                VEdge newEdge = new VEdge(
+                VoronoiEdge newEdge = new VoronoiEdge(
                     node1.Point, 
                     node2.Point, 
                     null, // we are building these clockwise, so by definition the left side is out of bounds
@@ -526,7 +526,7 @@ namespace VoronoiLib
 
             FortuneSite finalSite = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
 
-            VEdge finalEdge = new VEdge(
+            VoronoiEdge finalEdge = new VoronoiEdge(
                 nodes.Max.Point,
                 nodes.Min.Point, 
                 null, // we are building these clockwise, so by definition the left side is out of bounds
@@ -543,7 +543,7 @@ namespace VoronoiLib
         {
             public abstract PointBorderLocation BorderLocation { get; }
 
-            public abstract VPoint Point { get; }
+            public abstract VoronoiPoint Point { get; }
 
 
 #if DEBUG
@@ -561,10 +561,10 @@ namespace VoronoiLib
 
         private abstract class EdgeBorderNode : BorderNode
         {
-            public VEdge Edge { get; }
+            public VoronoiEdge Edge { get; }
 
 
-            protected EdgeBorderNode(VEdge edge)
+            protected EdgeBorderNode(VoronoiEdge edge)
             {
                 this.Edge = edge;
             }
@@ -574,10 +574,10 @@ namespace VoronoiLib
         {
             public override PointBorderLocation BorderLocation => Edge.Start.BorderLocation;
 
-            public override VPoint Point => Edge.Start;
+            public override VoronoiPoint Point => Edge.Start;
             
             
-            public EdgeStartBorderNode(VEdge edge)
+            public EdgeStartBorderNode(VoronoiEdge edge)
                 : base(edge)
             {
             }
@@ -587,10 +587,10 @@ namespace VoronoiLib
         {
             public override PointBorderLocation BorderLocation => Edge.End.BorderLocation;
 
-            public override VPoint Point => Edge.End;
+            public override VoronoiPoint Point => Edge.End;
             
             
-            public EdgeEndBorderNode(VEdge edge)
+            public EdgeEndBorderNode(VoronoiEdge edge)
                 : base(edge)
             {
             }
@@ -600,10 +600,10 @@ namespace VoronoiLib
         {
             public override PointBorderLocation BorderLocation { get; }
 
-            public override VPoint Point { get; }
+            public override VoronoiPoint Point { get; }
 
 
-            public CornerBorderNode(VPoint point)
+            public CornerBorderNode(VoronoiPoint point)
             {
                 BorderLocation = point.BorderLocation;
                 Point = point;

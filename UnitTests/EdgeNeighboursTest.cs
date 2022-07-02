@@ -18,7 +18,7 @@ namespace UnitTests
             {
                 new FortuneSite(100, 100)
             };
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             Assume.That(edges.Count == 0);
 
@@ -33,13 +33,13 @@ namespace UnitTests
                 new FortuneSite(100, 100), 
                 new FortuneSite(200, 200)
             };
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             Assume.That(edges.Count == 1);
             
             // Edge
-            VEdge edge = edges[0];
-            List<VEdge> neighbours = edge.Neighbours.ToList();
+            VoronoiEdge edge = edges[0];
+            List<VoronoiEdge> neighbours = edge.Neighbours.ToList();
             Assert.NotNull(neighbours);
             Assert.AreEqual(0, neighbours.Count);
         }
@@ -53,13 +53,13 @@ namespace UnitTests
                 new FortuneSite(200, 200), 
                 new FortuneSite(200, 150)
             };
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             Assume.That(edges.Count == 3);
             
             // Edge 1
-            VEdge edge = edges[0];
-            List<VEdge> neighbours = edge.Neighbours.ToList();
+            VoronoiEdge edge = edges[0];
+            List<VoronoiEdge> neighbours = edge.Neighbours.ToList();
             Assert.NotNull(neighbours);
             Assert.AreEqual(2, neighbours.Count);
             CollectionAssert.Contains(edges, neighbours[0]);
@@ -91,13 +91,13 @@ namespace UnitTests
                 new FortuneSite(300, 300),
                 new FortuneSite(300, 500)
             };
-            List<VEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600).ToList();
 
             Assume.That(edges.Count == 2);
             
             // Edge 1
-            VEdge edge = edges[0];
-            List<VEdge> neighbours = edge.Neighbours.ToList();
+            VoronoiEdge edge = edges[0];
+            List<VoronoiEdge> neighbours = edge.Neighbours.ToList();
             Assert.NotNull(neighbours);
             Assert.AreEqual(0, neighbours.Count);
 

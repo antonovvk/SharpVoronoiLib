@@ -3,22 +3,22 @@ using JetBrains.Annotations;
 
 namespace VoronoiLib.Structures
 {
-    public class VEdge
+    public class VoronoiEdge
     {
-        public VPoint Start { get; internal set; }
-        public VPoint? End { get; internal set; }
+        public VoronoiPoint Start { get; internal set; }
+        public VoronoiPoint? End { get; internal set; }
         
         public FortuneSite? Left { get; }
         public FortuneSite? Right { get; }
         
         
         [PublicAPI]
-        public VPoint Mid
+        public VoronoiPoint Mid
         {
             get
             {
                 if (_mid == null)
-                    _mid = new VPoint((Start.X + End!.X) / 2, (Start.Y + End.Y) / 2);
+                    _mid = new VoronoiPoint((Start.X + End!.X) / 2, (Start.Y + End.Y) / 2);
                 // Note that .End is guaranteed to be set since we don't expose edges extrenally that aren't clipped in bounds
 
                 return _mid;
@@ -26,19 +26,19 @@ namespace VoronoiLib.Structures
         }
         
         [PublicAPI]
-        public IEnumerable<VEdge> Neighbours
+        public IEnumerable<VoronoiEdge> Neighbours
         {
             get
             {
                 if (_neighbours == null)
                 {
-                    _neighbours = new List<VEdge>();
+                    _neighbours = new List<VoronoiEdge>();
 
                     if (Left != null)
                     {
-                        List<VEdge> leftPointCell = Left.cell;
+                        List<VoronoiEdge> leftPointCell = Left.cell;
 
-                        foreach (VEdge edge in leftPointCell)
+                        foreach (VoronoiEdge edge in leftPointCell)
                             if (edge != this) // one of its edges is us by definition
                                 if (edge.Start == Start || edge.End == End || edge.Start == End || edge.End == Start)
                                     _neighbours.Add(edge);
@@ -46,9 +46,9 @@ namespace VoronoiLib.Structures
 
                     if (Right != null)
                     {
-                        List<VEdge> rightPointCell = Right.cell;
+                        List<VoronoiEdge> rightPointCell = Right.cell;
 
-                        foreach (VEdge edge in rightPointCell)
+                        foreach (VoronoiEdge edge in rightPointCell)
                             if (edge != this) // one of its edges is us by definition
                                 if (edge.Start == Start || edge.End == End || edge.Start == End || edge.End == Start)
                                     _neighbours.Add(edge);
@@ -69,14 +69,14 @@ namespace VoronoiLib.Structures
         internal double SlopeRun { get; }
         internal double? Slope { get; }
         internal double? Intercept { get; }
-        internal VEdge? Neighbor { get; set; }
+        internal VoronoiEdge? Neighbor { get; set; }
         
         
-        private VPoint? _mid;
-        private List<VEdge>? _neighbours;
+        private VoronoiPoint? _mid;
+        private List<VoronoiEdge>? _neighbours;
         
         
-        internal VEdge(VPoint start, FortuneSite left, FortuneSite right)
+        internal VoronoiEdge(VoronoiPoint start, FortuneSite left, FortuneSite right)
         {
             Start = start;
             Left = left;
@@ -98,7 +98,7 @@ namespace VoronoiLib.Structures
             Intercept = start.Y - Slope*start.X;
         }
         
-        internal VEdge(VPoint start, VPoint end, FortuneSite left, FortuneSite right)
+        internal VoronoiEdge(VoronoiPoint start, VoronoiPoint end, FortuneSite left, FortuneSite right)
         {
             Start = start;
             End = end;

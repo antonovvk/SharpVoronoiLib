@@ -2,7 +2,7 @@
 
 namespace VoronoiLib.Structures
 {
-    public class VPoint
+    public class VoronoiPoint
     {
         public double X { get; }
         public double Y { get; }
@@ -10,7 +10,7 @@ namespace VoronoiLib.Structures
         public PointBorderLocation BorderLocation { get; }
 
         
-        internal VPoint(double x, double y, PointBorderLocation borderLocation = PointBorderLocation.NotOnBorder)
+        internal VoronoiPoint(double x, double y, PointBorderLocation borderLocation = PointBorderLocation.NotOnBorder)
         {
             X = x;
             Y = y;
@@ -79,7 +79,7 @@ namespace VoronoiLib.Structures
     public static class VPointExtensions
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool ApproxEqual(this VPoint value1, VPoint value2)
+        public static bool ApproxEqual(this VoronoiPoint value1, VoronoiPoint value2)
         {
             return
                 value1.X.ApproxEqual(value2.X) &&

@@ -10,16 +10,16 @@ namespace VoronoiLib.Structures
         public double Y { get; }
 
         [PublicAPI]
-        public IEnumerable<VEdge> Cell => cell;
+        public IEnumerable<VoronoiEdge> Cell => cell;
 
         [PublicAPI]
-        public IEnumerable<VEdge> ClockwiseCell
+        public IEnumerable<VoronoiEdge> ClockwiseCell
         {
             get
             {
                 if (_clockwiseCell == null)
                 {
-                    _clockwiseCell = new List<VEdge>(cell);
+                    _clockwiseCell = new List<VoronoiEdge>(cell);
                     _clockwiseCell.Sort(SortEdgesClockwise);
                 }
 
@@ -31,15 +31,15 @@ namespace VoronoiLib.Structures
         public IEnumerable<FortuneSite> Neighbors => neighbors;
 
         [PublicAPI]
-        public IEnumerable<VPoint> Points
+        public IEnumerable<VoronoiPoint> Points
         {
             get
             {
                 if (_points == null)
                 {
-                    _points = new List<VPoint>();
+                    _points = new List<VoronoiPoint>();
 
-                    foreach (VEdge edge in cell)
+                    foreach (VoronoiEdge edge in cell)
                     {
                         if (!_points.Contains(edge.Start))
                             _points.Add(edge.Start);
@@ -48,7 +48,7 @@ namespace VoronoiLib.Structures
                             _points.Add(edge.End);
                         // Note that .End is guaranteed to be set since we don't expose edges externally that aren't clipped in bounds
 
-                        // Note that the order of .Start and .End is not guaranteed in VEdge,
+                        // Note that the order of .Start and .End is not guaranteed in VoronoiEdge,
                         // so we couldn't simply only add either .Start or .End, this would skip and duplicate points
                     }
                 }
@@ -58,13 +58,13 @@ namespace VoronoiLib.Structures
         }
 
         [PublicAPI]
-        public IEnumerable<VPoint> ClockwisePoints
+        public IEnumerable<VoronoiPoint> ClockwisePoints
         {
             get
             {
                 if (_clockwisePoints == null)
                 {
-                    _clockwisePoints = new List<VPoint>(Points);
+                    _clockwisePoints = new List<VoronoiPoint>(Points);
                     _clockwisePoints.Sort(SortPointsClockwise);
                 }
 
@@ -73,13 +73,13 @@ namespace VoronoiLib.Structures
         }
 
 
-        internal readonly List<VEdge> cell;
+        internal readonly List<VoronoiEdge> cell;
         internal readonly List<FortuneSite> neighbors;
         
         
-        private List<VPoint>? _points;
-        private List<VPoint>? _clockwisePoints;
-        private List<VEdge>? _clockwiseCell;
+        private List<VoronoiPoint>? _points;
+        private List<VoronoiPoint>? _clockwisePoints;
+        private List<VoronoiEdge>? _clockwiseCell;
 
 
         [PublicAPI]
@@ -87,18 +87,18 @@ namespace VoronoiLib.Structures
         {
             X = x;
             Y = y;
-            cell = new List<VEdge>();
+            cell = new List<VoronoiEdge>();
             neighbors = new List<FortuneSite>();
         }
 
         
         [PublicAPI]
-        public bool Contains(VPoint testPoint)
+        public bool Contains(VoronoiPoint testPoint)
         {
             // If we don't have points generated yet, do so now (by calling the property that does so when read)
             if (_clockwisePoints == null)
             {
-                IEnumerable<VPoint> _ = ClockwisePoints;
+                IEnumerable<VoronoiPoint> _ = ClockwisePoints;
             }
 
             // helper method to determine if a point is inside the cell
@@ -120,7 +120,7 @@ namespace VoronoiLib.Structures
         }
 
 
-        internal static int SortPointsClockwise(VPoint A, VPoint B, double x, double y)
+        internal static int SortPointsClockwise(VoronoiPoint A, VoronoiPoint B, double x, double y)
         {
             // based on: https://social.msdn.microsoft.com/Forums/en-US/c4c0ce02-bbd0-46e7-aaa0-df85a3408c61/sorting-list-of-xy-coordinates-clockwise-sort-works-if-list-is-unsorted-but-fails-if-list-is?forum=csharplanguage
 
@@ -133,14 +133,14 @@ namespace VoronoiLib.Structures
             return 0;
         }
 
-        internal void AddEdge(VEdge value)
+        internal void AddEdge(VoronoiEdge value)
         {
             cell.Add(value);
             _clockwisePoints = null;
         }
 
         
-        private int SortEdgesClockwise(VEdge A, VEdge B)
+        private int SortEdgesClockwise(VoronoiEdge A, VoronoiEdge B)
         {
             return SortPointsClockwise(A.Mid, B.Mid);
             
@@ -150,7 +150,7 @@ namespace VoronoiLib.Structures
             // (Technically, any point along the edge that isn't the start/end will do, but midpoint is just the simplest).
         }
 
-        private int SortPointsClockwise(VPoint A, VPoint B)
+        private int SortPointsClockwise(VoronoiPoint A, VoronoiPoint B)
         {
             return SortPointsClockwise(A, B, X, Y);
         }
