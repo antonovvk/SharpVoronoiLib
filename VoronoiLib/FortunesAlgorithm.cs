@@ -24,6 +24,10 @@ namespace VoronoiLib
 
         public FortunesAlgorithm(double minX, double minY, double maxX, double maxY)
         {
+            if (minX >= maxX) throw new ArgumentException();
+            if (minY >= maxY) throw new ArgumentException();
+            
+
             MinX = minX;
             MinY = minY;
             MaxX = maxX;
@@ -34,17 +38,28 @@ namespace VoronoiLib
         [PublicAPI]
         public static LinkedList<VEdge> RunOnce(List<FortuneSite> sites, double minX, double minY, double maxX, double maxY, bool closeBorders = false)
         {
+            if (sites == null) throw new ArgumentNullException(nameof(sites));
+            
+
             return new FortunesAlgorithm(minX, minY, maxX, maxY).Run(sites, closeBorders);
         }
 
         [PublicAPI]
         public LinkedList<VEdge> Run(List<FortuneSite> sites, bool closeBorders = false)
         {
+            if (sites == null) throw new ArgumentNullException(nameof(sites));
+            
+            
             MinHeap<FortuneEvent> eventQueue = new MinHeap<FortuneEvent>(5*sites.Count);
-            foreach (FortuneSite s in sites)
+            
+            foreach (FortuneSite site in sites)
             {
-                eventQueue.Insert(new FortuneSiteEvent(s));
+                if (site == null) throw new ArgumentNullException(nameof(sites));
+                
+                eventQueue.Insert(new FortuneSiteEvent(site));
             }
+            
+            
             //init tree
             BeachLine beachLine = new BeachLine();
             LinkedList<VEdge> edges = new LinkedList<VEdge>();
