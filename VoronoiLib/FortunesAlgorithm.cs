@@ -413,10 +413,7 @@ namespace VoronoiLib
         
         private static void CloseBorders(LinkedList<VoronoiEdge> edges, double minX, double minY, double maxX, double maxY, IEnumerable<VoronoiSite> sites)
         {
-            BorderNodeComparer comparer = new BorderNodeComparer(
-                (minX + maxX) / 2f, 
-                (minY + maxY) / 2f
-            );
+            BorderNodeComparer comparer = new BorderNodeComparer();
 
             SortedSet<BorderNode> nodes = new SortedSet<BorderNode>(comparer);
 
@@ -566,7 +563,7 @@ namespace VoronoiLib
 
             protected EdgeBorderNode(VoronoiEdge edge)
             {
-                this.Edge = edge;
+                Edge = edge;
             }
         }
 
@@ -612,17 +609,6 @@ namespace VoronoiLib
 
         private class BorderNodeComparer : IComparer<BorderNode>
         {
-            private readonly double _originX;
-            private readonly double _originY;
-
-            
-            public BorderNodeComparer(double originX, double originY)
-            {
-                this._originX = originX;
-                this._originY = originY;
-            }
-            
-            
             public int Compare(BorderNode n1, BorderNode n2)
             {
                 int locationCompare = n1.BorderLocation.CompareTo(n2.BorderLocation);
@@ -630,7 +616,30 @@ namespace VoronoiLib
                 if (locationCompare != 0)
                     return locationCompare;
 
-                return VoronoiSite.SortPointsClockwise(n1.Point, n2.Point, _originX, _originY);
+                switch (n1.BorderLocation)
+                {
+                    case PointBorderLocation.Left: // going up
+                        return n1.Point.Y.CompareTo(n2.Point.Y);
+                    
+                    case PointBorderLocation.Top: // going right
+                        return n1.Point.X.CompareTo(n2.Point.X);
+                    
+                    case PointBorderLocation.Right: // going down
+                        return n2.Point.Y.CompareTo(n1.Point.Y);
+                    
+                    case PointBorderLocation.Bottom: // going left
+                        return n2.Point.X.CompareTo(n1.Point.X);
+                    
+                    case PointBorderLocation.BottomLeft:
+                    case PointBorderLocation.TopLeft:
+                    case PointBorderLocation.TopRight:
+                    case PointBorderLocation.BottomRight:
+                    case PointBorderLocation.NotOnBorder:
+                        throw new InvalidOperationException();
+                        
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
     }
