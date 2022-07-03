@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using VoronoiLib;
 using VoronoiLib.Structures;
+using static UnitTests.CommonTestUtilities;
 
 namespace UnitTests
 {
@@ -58,10 +59,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Z
         }
 
         [Test]
@@ -104,12 +105,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 500).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 500).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 500).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 500).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Z
         }
 
         /// <summary>
@@ -156,12 +157,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 500, 1000).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 500, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 500, 1000).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 500, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Z
         }
 
         [Test]
@@ -204,12 +205,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 700).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 700).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 700).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 700).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Z
         }
 
         /// <summary>
@@ -256,12 +257,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 700, 1000).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 700, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 700, 1000).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 700, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Z
         }
 
         [Test]
@@ -305,14 +306,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 700).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 700).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 300).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 300).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 700).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 700).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 300).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 300).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Z
         }
 
         /// <summary>
@@ -360,14 +361,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 700, 1000).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 700, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 300, 1000).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 300, 0).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 700, 1000).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 700, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 300, 1000).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 300, 0).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Z
         }
 
         [Test]
@@ -412,16 +413,16 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 700).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 700).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 500).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 500).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 300).BorderLocation); // E
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 300).BorderLocation); // F
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 700).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 700).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 500).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 500).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 300).BorderLocation); // E
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 300).BorderLocation); // F
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Z
         }
 
         /// <summary>
@@ -470,16 +471,16 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 700, 1000).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 700, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 500, 1000).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 500, 0).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 300, 1000).BorderLocation); // E
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 300, 0).BorderLocation); // F
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 700, 1000).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 700, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 500, 1000).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 500, 0).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 300, 1000).BorderLocation); // E
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 300, 0).BorderLocation); // F
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Z
         }
 
         [Test]
@@ -522,10 +523,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Y
         }
 
         /// <summary>
@@ -572,10 +573,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
         }
 
         [Test]
@@ -618,12 +619,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 200).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 800, 1000).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 200).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 800, 1000).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Z
         }
 
         /// <summary>
@@ -670,12 +671,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 200, 1000).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 200).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 200, 1000).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 200).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Z
         }
 
         /// <summary>
@@ -722,12 +723,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 800).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 200, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 800).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 200, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Z
         }
 
         /// <summary>
@@ -774,12 +775,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 800, 0).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 800).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 800, 0).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 800).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Z
         }
 
         [Test]
@@ -823,14 +824,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 300).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 300, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 700).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 700, 1000).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 300).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 300, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 700).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 700, 1000).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Z
         }
 
         /// <summary>
@@ -878,14 +879,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 300, 1000).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 700).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 700, 0).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 300).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 300, 1000).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 700).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 700, 0).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 300).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Z
         }
 
         [Test]
@@ -929,12 +930,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 400).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 600, 1000).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 400).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 600, 1000).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Y
         }
 
         /// <summary>
@@ -982,12 +983,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 400, 1000).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 400).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 400, 1000).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 400).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
         }
 
         /// <summary>
@@ -1035,12 +1036,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 600).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 400, 0).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 600).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 400, 0).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
         }
 
         /// <summary>
@@ -1088,12 +1089,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 600, 0).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 600).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 600, 0).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 600).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Y
         }
 
         [Test]
@@ -1138,14 +1139,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 400).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 400, 0).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 600).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // E
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 600, 1000).BorderLocation); // F
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 400).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 400, 0).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 600).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // E
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 600, 1000).BorderLocation); // F
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Y
         }
 
         /// <summary>
@@ -1194,14 +1195,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 400, 1000).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 600).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 600, 0).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // E
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 400).BorderLocation); // F
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 400, 1000).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 600).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 600, 0).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // E
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 400).BorderLocation); // F
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
         }
 
         [Test]
@@ -1245,13 +1246,13 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 400).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 400).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 400, 0).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 400).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 400).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 400, 0).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
         }
 
         /// <summary>
@@ -1299,13 +1300,13 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 600).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 400, 1000).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 600).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 600).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 400, 1000).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 600).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
         }
 
         /// <summary>
@@ -1353,13 +1354,13 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 600).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 600).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 600, 1000).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 600).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 600).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 600, 1000).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Y
         }
 
         /// <summary>
@@ -1407,13 +1408,13 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 400).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 600, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 400).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 400).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 600, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 400).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Y
         }
 
         [Test]
@@ -1457,12 +1458,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 500, 500).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 500, 1000).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 500, 500).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 500, 1000).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Y
         }
 
         /// <summary>
@@ -1510,12 +1511,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 500, 500).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 500).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 500, 500).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 500).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Y
         }
 
         /// <summary>
@@ -1563,12 +1564,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 500, 500).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 500, 0).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 500, 500).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 500, 0).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
         }
 
         /// <summary>
@@ -1616,12 +1617,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 500, 500).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 500).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 500, 500).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 500).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
         }
 
         [Test]
@@ -1665,14 +1666,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 500, 300).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 200, 0).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 800, 0).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 500, 1000).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 500, 300).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 200, 0).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 800, 0).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 500, 1000).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Z
         }
 
         /// <summary>
@@ -1720,14 +1721,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 300, 500).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 800).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 200).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 500).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 300, 500).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 800).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 200).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 500).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Z
         }
 
         /// <summary>
@@ -1775,14 +1776,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 500, 700).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 800, 1000).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 200, 1000).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 500, 0).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 500, 700).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 800, 1000).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 200, 1000).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 500, 0).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Z
         }
 
         /// <summary>
@@ -1830,14 +1831,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 700, 500).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 200).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 800).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 500).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 700, 500).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 200).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 800).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 500).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Z
         }
 
         [Test]
@@ -1883,14 +1884,14 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 600).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 400).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 400).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 600).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // E
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // F
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // G
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // H
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 600).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 400).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 400).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 600).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // E
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // F
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // G
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // H
         }
 
         [Test]
@@ -1936,18 +1937,18 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 400).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 200).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 200).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 400).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 800).BorderLocation); // E
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 200, 0).BorderLocation); // F
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 800, 0).BorderLocation); // G
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 800).BorderLocation); // H
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 400).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 200).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 200).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 400).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 800).BorderLocation); // E
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 200, 0).BorderLocation); // F
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 800, 0).BorderLocation); // G
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 800).BorderLocation); // H
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Z
         }
 
         /// <summary>
@@ -1997,18 +1998,18 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 600).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 200, 600).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 200, 400).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 400).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 800, 1000).BorderLocation); // E
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 800).BorderLocation); // F
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 200).BorderLocation); // G
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 800, 0).BorderLocation); // H
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 600).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 200, 600).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 200, 400).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 400).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 800, 1000).BorderLocation); // E
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 800).BorderLocation); // F
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 200).BorderLocation); // G
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 800, 0).BorderLocation); // H
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Z
         }
 
         /// <summary>
@@ -2058,18 +2059,18 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 600).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 800).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 800).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 400, 600).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 200).BorderLocation); // E
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 800, 1000).BorderLocation); // F
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 200, 1000).BorderLocation); // G
-            Assert.AreEqual(PointBorderLocation.Left, CommonTestUtilities.FindPoint(edges, 0, 200).BorderLocation); // H
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 600).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 800).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 800).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 400, 600).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 200).BorderLocation); // E
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 800, 1000).BorderLocation); // F
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 200, 1000).BorderLocation); // G
+            Assert.AreEqual(PointBorderLocation.Left, FindPoint(edges, 0, 200).BorderLocation); // H
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // Z
         }
 
         /// <summary>
@@ -2119,18 +2120,18 @@ namespace UnitTests
 
             // Assert
 
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 400).BorderLocation); // A
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 800, 400).BorderLocation); // B
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 800, 600).BorderLocation); // C
-            Assert.AreEqual(PointBorderLocation.NotOnBorder, CommonTestUtilities.FindPoint(edges, 600, 600).BorderLocation); // D
-            Assert.AreEqual(PointBorderLocation.Bottom, CommonTestUtilities.FindPoint(edges, 200, 0).BorderLocation); // E
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 200).BorderLocation); // F
-            Assert.AreEqual(PointBorderLocation.Right, CommonTestUtilities.FindPoint(edges, 1000, 800).BorderLocation); // G
-            Assert.AreEqual(PointBorderLocation.Top, CommonTestUtilities.FindPoint(edges, 200, 1000).BorderLocation); // H
-            Assert.AreEqual(PointBorderLocation.TopRight, CommonTestUtilities.FindPoint(edges, 1000, 1000).BorderLocation); // W
-            Assert.AreEqual(PointBorderLocation.BottomLeft, CommonTestUtilities.FindPoint(edges, 0, 0).BorderLocation); // X
-            Assert.AreEqual(PointBorderLocation.BottomRight, CommonTestUtilities.FindPoint(edges, 1000, 0).BorderLocation); // Y
-            Assert.AreEqual(PointBorderLocation.TopLeft, CommonTestUtilities.FindPoint(edges, 0, 1000).BorderLocation); // Z
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 400).BorderLocation); // A
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 800, 400).BorderLocation); // B
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 800, 600).BorderLocation); // C
+            Assert.AreEqual(PointBorderLocation.NotOnBorder, FindPoint(edges, 600, 600).BorderLocation); // D
+            Assert.AreEqual(PointBorderLocation.Bottom, FindPoint(edges, 200, 0).BorderLocation); // E
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 200).BorderLocation); // F
+            Assert.AreEqual(PointBorderLocation.Right, FindPoint(edges, 1000, 800).BorderLocation); // G
+            Assert.AreEqual(PointBorderLocation.Top, FindPoint(edges, 200, 1000).BorderLocation); // H
+            Assert.AreEqual(PointBorderLocation.TopRight, FindPoint(edges, 1000, 1000).BorderLocation); // W
+            Assert.AreEqual(PointBorderLocation.BottomLeft, FindPoint(edges, 0, 0).BorderLocation); // X
+            Assert.AreEqual(PointBorderLocation.BottomRight, FindPoint(edges, 1000, 0).BorderLocation); // Y
+            Assert.AreEqual(PointBorderLocation.TopLeft, FindPoint(edges, 0, 1000).BorderLocation); // Z
         }
 
     }

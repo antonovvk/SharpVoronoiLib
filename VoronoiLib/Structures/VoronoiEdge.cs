@@ -32,6 +32,11 @@ namespace VoronoiLib.Structures
             {
                 if (_neighbours == null)
                 {
+                    // TODO: THIS IS WRONG WHEN CLOSING EDGES
+                    // TODO: BORDER EDGES DON'T HAVE A SECOND NEIGHBOUR
+                    // TODO: AND NO SECOND NEIGHBOUR MEANS NO SECOND CELL
+                    // TODO: ANY EDGES THAT NEIGHBOUR BY CONTINUING THE BORDER AREN'T PART OF THE CELL
+
                     _neighbours = new List<VoronoiEdge>();
 
                     if (Left != null)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using VoronoiLib;
 using VoronoiLib.Structures;
+using static UnitTests.CommonTestUtilities;
 
 namespace UnitTests
 {
@@ -100,8 +101,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 500, 1000, 500), 500, 700)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 500, 1000, 500), 500, 300)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 500, 1000, 500), 500, 700)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 500, 1000, 500), 500, 300)); // A-B has #2
         }
 
         /// <summary>
@@ -148,8 +149,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 1000, 500, 0), 700, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 1000, 500, 0), 300, 500)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 1000, 500, 0), 700, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 1000, 500, 0), 300, 500)); // A-B has #2
         }
 
         [Test]
@@ -192,8 +193,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 700, 1000, 700), 500, 900)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 700, 1000, 700), 500, 500)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 700, 1000, 700), 500, 900)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 700, 1000, 700), 500, 500)); // A-B has #2
         }
 
         /// <summary>
@@ -240,8 +241,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 1000, 700, 0), 900, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 1000, 700, 0), 500, 500)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 1000, 700, 0), 900, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 1000, 700, 0), 500, 500)); // A-B has #2
         }
 
         [Test]
@@ -285,10 +286,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 700, 1000, 700), 500, 900)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 700, 1000, 700), 500, 500)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 300, 1000, 300), 500, 500)); // C-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 300, 1000, 300), 500, 100)); // C-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 700, 1000, 700), 500, 900)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 700, 1000, 700), 500, 500)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 300, 1000, 300), 500, 500)); // C-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 300, 1000, 300), 500, 100)); // C-D has #3
         }
 
         /// <summary>
@@ -336,10 +337,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 1000, 700, 0), 900, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 1000, 700, 0), 500, 500)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 1000, 300, 0), 500, 500)); // C-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 1000, 300, 0), 100, 500)); // C-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 1000, 700, 0), 900, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 1000, 700, 0), 500, 500)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 1000, 300, 0), 500, 500)); // C-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 1000, 300, 0), 100, 500)); // C-D has #3
         }
 
         [Test]
@@ -384,12 +385,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 700, 1000, 700), 500, 800)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 700, 1000, 700), 500, 600)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 500, 1000, 500), 500, 600)); // C-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 500, 1000, 500), 500, 400)); // C-D has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 300, 1000, 300), 500, 400)); // E-F has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 300, 1000, 300), 500, 200)); // E-F has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 700, 1000, 700), 500, 800)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 700, 1000, 700), 500, 600)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 500, 1000, 500), 500, 600)); // C-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 500, 1000, 500), 500, 400)); // C-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 300, 1000, 300), 500, 400)); // E-F has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 300, 1000, 300), 500, 200)); // E-F has #4
         }
 
         /// <summary>
@@ -438,12 +439,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 1000, 700, 0), 800, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 1000, 700, 0), 600, 500)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 1000, 500, 0), 600, 500)); // C-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 1000, 500, 0), 400, 500)); // C-D has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 1000, 300, 0), 400, 500)); // E-F has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 1000, 300, 0), 200, 500)); // E-F has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 1000, 700, 0), 800, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 1000, 700, 0), 600, 500)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 1000, 500, 0), 600, 500)); // C-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 1000, 500, 0), 400, 500)); // C-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 1000, 300, 0), 400, 500)); // E-F has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 1000, 300, 0), 200, 500)); // E-F has #4
         }
 
         [Test]
@@ -486,8 +487,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 0, 1000, 1000), 300, 700)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 0, 1000, 1000), 700, 300)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 0, 1000, 1000), 300, 700)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 0, 1000, 1000), 700, 300)); // A-B has #2
         }
 
         /// <summary>
@@ -534,8 +535,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 1000, 1000, 0), 700, 700)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 1000, 1000, 0), 300, 300)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 1000, 1000, 0), 700, 700)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 1000, 1000, 0), 300, 300)); // A-B has #2
         }
 
         [Test]
@@ -578,8 +579,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 200, 800, 1000), 200, 800)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 200, 800, 1000), 600, 400)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 200, 800, 1000), 200, 800)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 200, 800, 1000), 600, 400)); // A-B has #2
         }
 
         /// <summary>
@@ -626,8 +627,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 1000, 1000, 200), 800, 800)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 1000, 1000, 200), 400, 400)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 1000, 1000, 200), 800, 800)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 1000, 1000, 200), 400, 400)); // A-B has #2
         }
 
         /// <summary>
@@ -674,8 +675,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 1000, 800, 200, 0), 800, 200)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 1000, 800, 200, 0), 400, 600)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 1000, 800, 200, 0), 800, 200)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 1000, 800, 200, 0), 400, 600)); // A-B has #2
         }
 
         /// <summary>
@@ -722,8 +723,8 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 0, 0, 800), 200, 200)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 0, 0, 800), 600, 600)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 0, 0, 800), 200, 200)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 0, 0, 800), 600, 600)); // A-B has #2
         }
 
         [Test]
@@ -767,10 +768,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 300, 700, 1000), 200, 800)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 300, 700, 1000), 500, 500)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 0, 1000, 700), 500, 500)); // B-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 0, 1000, 700), 800, 200)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 300, 700, 1000), 200, 800)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 300, 700, 1000), 500, 500)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 0, 1000, 700), 500, 500)); // B-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 0, 1000, 700), 800, 200)); // B-C has #3
         }
 
         /// <summary>
@@ -818,10 +819,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 1000, 1000, 300), 800, 800)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 1000, 1000, 300), 500, 500)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 700, 700, 0), 500, 500)); // B-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 700, 700, 0), 200, 200)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 1000, 1000, 300), 800, 800)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 1000, 1000, 300), 500, 500)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 700, 700, 0), 500, 500)); // B-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 700, 700, 0), 200, 200)); // B-C has #3
         }
 
         [Test]
@@ -865,10 +866,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 400, 600, 1000), 200, 800)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 400, 600, 1000), 400, 600)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 0, 1000, 1000), 400, 600)); // B-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 0, 1000, 1000), 600, 400)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 400, 600, 1000), 200, 800)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 400, 600, 1000), 400, 600)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 0, 1000, 1000), 400, 600)); // B-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 0, 1000, 1000), 600, 400)); // B-C has #3
         }
 
         /// <summary>
@@ -916,10 +917,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 1000, 1000, 400), 800, 800)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 1000, 1000, 400), 600, 600)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 1000, 1000, 0), 600, 600)); // B-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 1000, 1000, 0), 400, 400)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 1000, 1000, 400), 800, 800)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 1000, 1000, 400), 600, 600)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 1000, 1000, 0), 600, 600)); // B-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 1000, 1000, 0), 400, 400)); // B-C has #3
         }
 
         /// <summary>
@@ -967,10 +968,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 1000, 600, 400, 0), 800, 200)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 1000, 600, 400, 0), 600, 400)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 1000, 1000, 0, 0), 600, 400)); // B-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 1000, 1000, 0, 0), 400, 600)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 1000, 600, 400, 0), 800, 200)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 1000, 600, 400, 0), 600, 400)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 1000, 1000, 0, 0), 600, 400)); // B-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 1000, 1000, 0, 0), 400, 600)); // B-C has #3
         }
 
         /// <summary>
@@ -1018,10 +1019,10 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 0, 0, 600), 200, 200)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 0, 0, 600), 400, 400)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 1000, 0, 0, 1000), 400, 400)); // B-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 1000, 0, 0, 1000), 600, 600)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 0, 0, 600), 200, 200)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 0, 0, 600), 400, 400)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 1000, 0, 0, 1000), 400, 400)); // B-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 1000, 0, 0, 1000), 600, 600)); // B-C has #3
         }
 
         [Test]
@@ -1066,12 +1067,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 400, 600, 1000), 200, 800)); // A-F has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 400, 600, 1000), 400, 600)); // A-F has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 0, 1000, 1000), 400, 600)); // B-E has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 0, 1000, 1000), 600, 400)); // B-E has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 0, 1000, 600), 600, 400)); // C-D has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 0, 1000, 600), 800, 200)); // C-D has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 400, 600, 1000), 200, 800)); // A-F has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 400, 600, 1000), 400, 600)); // A-F has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 0, 1000, 1000), 400, 600)); // B-E has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 0, 1000, 1000), 600, 400)); // B-E has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 0, 1000, 600), 600, 400)); // C-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 0, 1000, 600), 800, 200)); // C-D has #4
         }
 
         /// <summary>
@@ -1120,12 +1121,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 1000, 1000, 400), 800, 800)); // A-F has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 1000, 1000, 400), 600, 600)); // A-F has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 1000, 1000, 0), 600, 600)); // B-E has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 1000, 1000, 0), 400, 400)); // B-E has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 600, 600, 0), 400, 400)); // C-D has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 0, 600, 600, 0), 200, 200)); // C-D has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 1000, 1000, 400), 800, 800)); // A-F has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 1000, 1000, 400), 600, 600)); // A-F has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 1000, 1000, 0), 600, 600)); // B-E has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 1000, 1000, 0), 400, 400)); // B-E has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 600, 600, 0), 400, 400)); // C-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 0, 600, 600, 0), 200, 200)); // C-D has #4
         }
 
         [Test]
@@ -1169,12 +1170,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 0, 400), 300, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 0, 400), 300, 300)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 400, 0), 300, 300)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 400, 0), 500, 300)); // A-C has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 1000, 1000), 300, 500)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 1000, 1000), 500, 300)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 0, 400), 300, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 0, 400), 300, 300)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 400, 0), 300, 300)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 400, 0), 500, 300)); // A-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 1000, 1000), 300, 500)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 1000, 1000), 500, 300)); // A-D has #3
         }
 
         /// <summary>
@@ -1222,12 +1223,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 400, 1000), 500, 700)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 400, 1000), 300, 700)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 0, 600), 300, 700)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 0, 600), 300, 500)); // A-C has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 1000, 0), 500, 700)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 1000, 0), 300, 500)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 400, 1000), 500, 700)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 400, 1000), 300, 700)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 0, 600), 300, 700)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 0, 600), 300, 500)); // A-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 1000, 0), 500, 700)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 1000, 0), 300, 500)); // A-D has #3
         }
 
         /// <summary>
@@ -1275,12 +1276,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 1000, 600), 700, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 1000, 600), 700, 700)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 600, 1000), 700, 700)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 600, 1000), 500, 700)); // A-C has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 0, 0), 700, 500)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 0, 0), 500, 700)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 1000, 600), 700, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 1000, 600), 700, 700)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 600, 1000), 700, 700)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 600, 1000), 500, 700)); // A-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 0, 0), 700, 500)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 0, 0), 500, 700)); // A-D has #3
         }
 
         /// <summary>
@@ -1328,12 +1329,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 600, 0), 500, 300)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 600, 0), 700, 300)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 1000, 400), 700, 300)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 1000, 400), 700, 500)); // A-C has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 0, 1000), 500, 300)); // A-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 0, 1000), 700, 500)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 600, 0), 500, 300)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 600, 0), 700, 300)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 1000, 400), 700, 300)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 1000, 400), 700, 500)); // A-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 0, 1000), 500, 300)); // A-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 0, 1000), 700, 500)); // A-D has #3
         }
 
         [Test]
@@ -1377,12 +1378,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 0), 500, 300)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 0), 300, 500)); // A-B has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 0), 500, 300)); // A-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 0), 700, 500)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 500, 1000), 700, 500)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 500, 1000), 300, 500)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 0), 500, 300)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 0), 300, 500)); // A-B has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 0), 500, 300)); // A-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 0), 700, 500)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 500, 1000), 700, 500)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 500, 1000), 300, 500)); // A-D has #3
         }
 
         /// <summary>
@@ -1430,12 +1431,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 1000), 300, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 1000), 500, 700)); // A-B has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 0), 300, 500)); // A-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 0), 500, 300)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 500), 500, 300)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 500), 500, 700)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 1000), 300, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 1000), 500, 700)); // A-B has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 0), 300, 500)); // A-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 0), 500, 300)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 500), 500, 300)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 500), 500, 700)); // A-D has #3
         }
 
         /// <summary>
@@ -1483,12 +1484,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 1000), 500, 700)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 1000), 700, 500)); // A-B has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 1000), 500, 700)); // A-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 1000), 300, 500)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 500, 0), 300, 500)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 500, 0), 700, 500)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 1000), 500, 700)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 1000), 700, 500)); // A-B has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 1000), 500, 700)); // A-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 1000), 300, 500)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 500, 0), 300, 500)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 500, 0), 700, 500)); // A-D has #3
         }
 
         /// <summary>
@@ -1536,12 +1537,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 0), 700, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 0), 500, 300)); // A-B has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 1000), 700, 500)); // A-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 1000, 1000), 500, 700)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 500), 500, 700)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 500, 0, 500), 500, 300)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 0), 700, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 0), 500, 300)); // A-B has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 1000), 700, 500)); // A-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 1000, 1000), 500, 700)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 500), 500, 700)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 500, 0, 500), 500, 300)); // A-D has #3
         }
 
         [Test]
@@ -1585,12 +1586,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 300, 200, 0), 500, 100)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 300, 200, 0), 300, 300)); // A-B has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 300, 800, 0), 500, 100)); // A-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 300, 800, 0), 700, 300)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 300, 500, 1000), 700, 300)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 300, 500, 1000), 300, 300)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 300, 200, 0), 500, 100)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 300, 200, 0), 300, 300)); // A-B has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 300, 800, 0), 500, 100)); // A-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 300, 800, 0), 700, 300)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 300, 500, 1000), 700, 300)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 300, 500, 1000), 300, 300)); // A-D has #3
         }
 
         /// <summary>
@@ -1638,12 +1639,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 500, 0, 800), 100, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 500, 0, 800), 300, 700)); // A-B has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 500, 0, 200), 100, 500)); // A-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 500, 0, 200), 300, 300)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 500, 1000, 500), 300, 300)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 300, 500, 1000, 500), 300, 700)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 500, 0, 800), 100, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 500, 0, 800), 300, 700)); // A-B has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 500, 0, 200), 100, 500)); // A-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 500, 0, 200), 300, 300)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 500, 1000, 500), 300, 300)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 300, 500, 1000, 500), 300, 700)); // A-D has #3
         }
 
         /// <summary>
@@ -1691,12 +1692,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 700, 800, 1000), 500, 900)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 700, 800, 1000), 700, 700)); // A-B has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 700, 200, 1000), 500, 900)); // A-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 700, 200, 1000), 300, 700)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 700, 500, 0), 300, 700)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 500, 700, 500, 0), 700, 700)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 700, 800, 1000), 500, 900)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 700, 800, 1000), 700, 700)); // A-B has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 700, 200, 1000), 500, 900)); // A-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 700, 200, 1000), 300, 700)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 700, 500, 0), 300, 700)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 500, 700, 500, 0), 700, 700)); // A-D has #3
         }
 
         /// <summary>
@@ -1744,12 +1745,12 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 500, 1000, 200), 900, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 500, 1000, 200), 700, 300)); // A-B has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 500, 1000, 800), 900, 500)); // A-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 500, 1000, 800), 700, 700)); // A-C has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 500, 0, 500), 700, 700)); // A-D has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 700, 500, 0, 500), 700, 300)); // A-D has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 500, 1000, 200), 900, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 500, 1000, 200), 700, 300)); // A-B has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 500, 1000, 800), 900, 500)); // A-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 500, 1000, 800), 700, 700)); // A-C has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 500, 0, 500), 700, 700)); // A-D has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 700, 500, 0, 500), 700, 300)); // A-D has #3
         }
 
         [Test]
@@ -1795,22 +1796,22 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 400, 400), 500, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 400, 400), 300, 500)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 600, 400), 500, 500)); // B-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 600, 400), 500, 300)); // B-C has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 600, 600), 500, 500)); // C-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 600, 600), 700, 500)); // C-D has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 400, 600), 500, 500)); // D-A has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 400, 600), 500, 700)); // D-A has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 0, 1000), 300, 500)); // A-E has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 0, 1000), 500, 700)); // A-E has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 0, 0), 300, 500)); // B-F has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 0, 0), 500, 300)); // B-F has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 1000, 0), 500, 300)); // C-G has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 1000, 0), 700, 500)); // C-G has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 1000, 1000), 700, 500)); // D-H has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 1000, 1000), 500, 700)); // D-H has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 400, 400), 500, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 400, 400), 300, 500)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 600, 400), 500, 500)); // B-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 600, 400), 500, 300)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 600, 600), 500, 500)); // C-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 600, 600), 700, 500)); // C-D has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 400, 600), 500, 500)); // D-A has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 400, 600), 500, 700)); // D-A has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 0, 1000), 300, 500)); // A-E has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 0, 1000), 500, 700)); // A-E has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 0, 0), 300, 500)); // B-F has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 0, 0), 500, 300)); // B-F has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 1000, 0), 500, 300)); // C-G has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 1000, 0), 700, 500)); // C-G has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 1000, 1000), 700, 500)); // D-H has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 1000, 1000), 500, 700)); // D-H has #5
         }
 
         [Test]
@@ -1856,22 +1857,22 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 400, 200), 500, 300)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 400, 200), 300, 300)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 200, 600, 200), 500, 300)); // B-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 200, 600, 200), 500, 100)); // B-C has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 200, 600, 400), 500, 300)); // C-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 200, 600, 400), 700, 300)); // C-D has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 400, 400), 500, 300)); // D-A has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 400, 400), 500, 500)); // D-A has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 0, 800), 300, 300)); // A-E has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 0, 800), 500, 500)); // A-E has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 200, 200, 0), 300, 300)); // B-F has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 200, 200, 0), 500, 100)); // B-F has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 200, 800, 0), 500, 100)); // C-G has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 200, 800, 0), 700, 300)); // C-G has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 1000, 800), 700, 300)); // D-H has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 1000, 800), 500, 500)); // D-H has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 400, 200), 500, 300)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 400, 200), 300, 300)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 200, 600, 200), 500, 300)); // B-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 200, 600, 200), 500, 100)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 200, 600, 400), 500, 300)); // C-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 200, 600, 400), 700, 300)); // C-D has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 400, 400), 500, 300)); // D-A has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 400, 400), 500, 500)); // D-A has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 0, 800), 300, 300)); // A-E has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 0, 800), 500, 500)); // A-E has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 200, 200, 0), 300, 300)); // B-F has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 200, 200, 0), 500, 100)); // B-F has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 200, 800, 0), 500, 100)); // C-G has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 200, 800, 0), 700, 300)); // C-G has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 1000, 800), 700, 300)); // D-H has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 1000, 800), 500, 500)); // D-H has #5
         }
 
         /// <summary>
@@ -1921,22 +1922,22 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 200, 600), 300, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 200, 600), 300, 700)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 600, 200, 400), 300, 500)); // B-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 600, 200, 400), 100, 500)); // B-C has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 400, 400, 400), 300, 500)); // C-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 400, 400, 400), 300, 300)); // C-D has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 400, 600), 300, 500)); // D-A has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 400, 600), 500, 500)); // D-A has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 800, 1000), 300, 700)); // A-E has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 800, 1000), 500, 500)); // A-E has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 600, 0, 800), 300, 700)); // B-F has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 600, 0, 800), 100, 500)); // B-F has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 400, 0, 200), 100, 500)); // C-G has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 200, 400, 0, 200), 300, 300)); // C-G has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 800, 0), 300, 300)); // D-H has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 400, 800, 0), 500, 500)); // D-H has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 200, 600), 300, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 200, 600), 300, 700)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 600, 200, 400), 300, 500)); // B-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 600, 200, 400), 100, 500)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 400, 400, 400), 300, 500)); // C-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 400, 400, 400), 300, 300)); // C-D has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 400, 600), 300, 500)); // D-A has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 400, 600), 500, 500)); // D-A has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 800, 1000), 300, 700)); // A-E has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 800, 1000), 500, 500)); // A-E has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 600, 0, 800), 300, 700)); // B-F has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 600, 0, 800), 100, 500)); // B-F has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 400, 0, 200), 100, 500)); // C-G has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 200, 400, 0, 200), 300, 300)); // C-G has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 800, 0), 300, 300)); // D-H has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 400, 800, 0), 500, 500)); // D-H has #5
         }
 
         /// <summary>
@@ -1986,22 +1987,22 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 600, 800), 500, 700)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 600, 800), 700, 700)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 800, 400, 800), 500, 700)); // B-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 800, 400, 800), 500, 900)); // B-C has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 800, 400, 600), 500, 700)); // C-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 800, 400, 600), 300, 700)); // C-D has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 600, 600), 500, 700)); // D-A has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 600, 600), 500, 500)); // D-A has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 1000, 200), 700, 700)); // A-E has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 1000, 200), 500, 500)); // A-E has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 800, 800, 1000), 700, 700)); // B-F has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 800, 800, 1000), 500, 900)); // B-F has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 800, 200, 1000), 500, 900)); // C-G has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 800, 200, 1000), 300, 700)); // C-G has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 0, 200), 300, 700)); // D-H has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 400, 600, 0, 200), 500, 500)); // D-H has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 600, 800), 500, 700)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 600, 800), 700, 700)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 800, 400, 800), 500, 700)); // B-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 800, 400, 800), 500, 900)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 800, 400, 600), 500, 700)); // C-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 800, 400, 600), 300, 700)); // C-D has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 600, 600), 500, 700)); // D-A has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 600, 600), 500, 500)); // D-A has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 1000, 200), 700, 700)); // A-E has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 1000, 200), 500, 500)); // A-E has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 800, 800, 1000), 700, 700)); // B-F has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 800, 800, 1000), 500, 900)); // B-F has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 800, 200, 1000), 500, 900)); // C-G has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 800, 200, 1000), 300, 700)); // C-G has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 0, 200), 300, 700)); // D-H has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 400, 600, 0, 200), 500, 500)); // D-H has #5
         }
 
         /// <summary>
@@ -2051,22 +2052,22 @@ namespace UnitTests
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 800, 400), 700, 500)); // A-B has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 800, 400), 700, 300)); // A-B has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 400, 800, 600), 700, 500)); // B-C has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 400, 800, 600), 900, 500)); // B-C has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 600, 600, 600), 700, 500)); // C-D has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 600, 600, 600), 700, 700)); // C-D has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 600, 400), 700, 500)); // D-A has #1
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 600, 400), 500, 500)); // D-A has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 200, 0), 700, 300)); // A-E has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 400, 200, 0), 500, 500)); // A-E has #5
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 400, 1000, 200), 700, 300)); // B-F has #2
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 400, 1000, 200), 900, 500)); // B-F has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 600, 1000, 800), 900, 500)); // C-G has #3
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 800, 600, 1000, 800), 700, 700)); // C-G has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 200, 1000), 700, 700)); // D-H has #4
-            Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, 600, 600, 200, 1000), 500, 500)); // D-H has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 800, 400), 700, 500)); // A-B has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 800, 400), 700, 300)); // A-B has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 400, 800, 600), 700, 500)); // B-C has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 400, 800, 600), 900, 500)); // B-C has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 600, 600, 600), 700, 500)); // C-D has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 600, 600, 600), 700, 700)); // C-D has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 600, 400), 700, 500)); // D-A has #1
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 600, 400), 500, 500)); // D-A has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 200, 0), 700, 300)); // A-E has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 400, 200, 0), 500, 500)); // A-E has #5
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 400, 1000, 200), 700, 300)); // B-F has #2
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 400, 1000, 200), 900, 500)); // B-F has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 600, 1000, 800), 900, 500)); // C-G has #3
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 800, 600, 1000, 800), 700, 700)); // C-G has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 200, 1000), 700, 700)); // D-H has #4
+            Assert.IsTrue(EdgeHasSite(FindEdge(edges, 600, 600, 200, 1000), 500, 500)); // D-H has #5
         }
 
     }
