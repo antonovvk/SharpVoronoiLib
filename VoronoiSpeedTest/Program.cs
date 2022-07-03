@@ -33,7 +33,7 @@ namespace VoronoiSpeedTest
                     watch.Reset();
                     var points = GenPoints(numPoints, r);
                     watch.Start();
-                    FortunesAlgorithm.Run(points, 0, 0, WIDTH, HEIGHT);
+                    FortunesAlgorithm.RunOnce(points, 0, 0, WIDTH, HEIGHT, BorderEdgeGeneration.MakeBorderEdges);
                     watch.Stop();
                     times[point - 1, sample - 1] = watch.ElapsedMilliseconds;
                 }
@@ -65,12 +65,12 @@ namespace VoronoiSpeedTest
 
 
         //o(n) avg gen points
-        private static List<FortuneSite> GenPoints(int n, Random r)
+        private static List<VoronoiSite> GenPoints(int n, Random r)
         {
-            var points = new List<FortuneSite>();
+            var points = new List<VoronoiSite>();
             for (var i = 0; i < n; i++)
             {
-                points.Add(new FortuneSite(r.NextDouble() * WIDTH, r.NextDouble()* HEIGHT));
+                points.Add(new VoronoiSite(r.NextDouble() * WIDTH, r.NextDouble()* HEIGHT));
             }
 
             //uniq the points
@@ -86,7 +86,7 @@ namespace VoronoiSpeedTest
         }
 
         //o(n) uniq
-        private static List<FortuneSite> UniquePoints(List<FortuneSite> points)
+        private static List<VoronoiSite> UniquePoints(List<VoronoiSite> points)
         {
             points.Sort((p1, p2) =>
             {
@@ -103,7 +103,7 @@ namespace VoronoiSpeedTest
                 return 1;
             });
 
-            var unique = new List<FortuneSite>(points.Count / 2);
+            var unique = new List<VoronoiSite>(points.Count / 2);
             var last = points.First();
             unique.Add(last);
             for (var index = 1; index < points.Count; index++)
