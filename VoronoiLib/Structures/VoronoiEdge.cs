@@ -32,11 +32,6 @@ namespace VoronoiLib.Structures
             {
                 if (_neighbours == null)
                 {
-                    // TODO: THIS IS WRONG WHEN CLOSING EDGES
-                    // TODO: BORDER EDGES DON'T HAVE A SECOND NEIGHBOUR
-                    // TODO: AND NO SECOND NEIGHBOUR MEANS NO SECOND CELL
-                    // TODO: ANY EDGES THAT NEIGHBOUR BY CONTINUING THE BORDER AREN'T PART OF THE CELL
-
                     _neighbours = new List<VoronoiEdge>();
 
                     if (Left != null)
@@ -58,25 +53,39 @@ namespace VoronoiLib.Structures
                                 if (edge.Start == Start || edge.End == End || edge.Start == End || edge.End == Start)
                                     _neighbours.Add(edge);
                     }
-                    
+
                     // Note that this only works when assuming that edge end points can have 2 neighbours,
                     // that is, 4+ equidistant points actually create an additional 0-length edge.
                     // And this is indeed how the algorithm works at the moment.
                     // This makes this neighbour lookup simpler (one doesn't need to recursively "walk around" the edge end point).
+                    
+                    // There is a special case though, the border edges that have non-tesselated "void" as their neighbour.
+                    // These only have one site, so the above logic can't handle connections on the border (which is any clipped edge).
+                    // One neighbour will be part of the site, but the other neighbour will be part of some other cell that we don't know about.
+                    // Thankfully, we can solve this without much additional work just by explicitly keeping those two neighbours recorded when closing the border.
+                    
+                    if (ClockwiseNeighbourBorder != null)
+                        if (!_neighbours.Contains(ClockwiseNeighbourBorder)) 
+                            _neighbours.Add(ClockwiseNeighbourBorder);        
+                    
+                    if (CounterclockwiseNeighbourBorder != null)
+                        if (!_neighbours.Contains(CounterclockwiseNeighbourBorder))
+                            _neighbours.Add(CounterclockwiseNeighbourBorder);
                 }
 
                 return _neighbours;
             }
         }
         
-        
+        internal VoronoiEdge? CounterclockwiseNeighbourBorder { get; set; }
+        internal VoronoiEdge? ClockwiseNeighbourBorder { get; set; }
+
         internal double SlopeRise { get; }
         internal double SlopeRun { get; }
         internal double? Slope { get; }
         internal double? Intercept { get; }
-        internal VoronoiEdge? Neighbor { get; set; }
-        
-        
+        internal VoronoiEdge? LastBeachLineNeighbor { get; set; } // I am not entirely sure this is the right name for this, but I just want to make it clear it's not something usable publicly
+
         private VoronoiPoint? _mid;
         private List<VoronoiEdge>? _neighbours;
         
@@ -103,7 +112,7 @@ namespace VoronoiLib.Structures
             Intercept = start.Y - Slope*start.X;
         }
         
-        internal VoronoiEdge(VoronoiPoint start, VoronoiPoint end, VoronoiSite left, VoronoiSite right)
+        internal VoronoiEdge(VoronoiPoint start, VoronoiPoint end, VoronoiSite? left, VoronoiSite? right)
         {
             Start = start;
             End = end;

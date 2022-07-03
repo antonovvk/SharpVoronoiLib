@@ -130,7 +130,7 @@ namespace VoronoiLib.Structures
                 //create the two half edges corresponding to this intersection
                 VoronoiEdge leftEdge = new VoronoiEdge(intersection, site, leftSection.Data.Site);
                 VoronoiEdge rightEdge = new VoronoiEdge(intersection, leftSection.Data.Site, site);
-                leftEdge.Neighbor = rightEdge;
+                leftEdge.LastBeachLineNeighbor = rightEdge;
 
                 //put the edge in the list
                 edges.AddFirst(leftEdge);
@@ -157,7 +157,7 @@ namespace VoronoiLib.Structures
                 VoronoiEdge infEdge = new VoronoiEdge(start, leftSection.Data.Site, site);
                 VoronoiEdge newEdge = new VoronoiEdge(start, site, leftSection.Data.Site);
 
-                newEdge.Neighbor = infEdge;
+                newEdge.LastBeachLineNeighbor = infEdge;
                 edges.AddFirst(newEdge);
 
                 leftSection.Data.Site.neighbors.Add(newSection.Data.Site);

@@ -176,21 +176,21 @@ namespace VoronoiLib
                 }
             }
             //if we have a neighbor
-            if (edge.Neighbor != null)
+            if (edge.LastBeachLineNeighbor != null)
             {
                 //check it
-                bool valid = ClipEdge(edge.Neighbor, minX, minY, maxX, maxY);
+                bool valid = ClipEdge(edge.LastBeachLineNeighbor, minX, minY, maxX, maxY);
                 //both are valid
                 if (accept && valid)
                 {
-                    edge.Start = edge.Neighbor.End;
+                    edge.Start = edge.LastBeachLineNeighbor.End;
                 }
                 //this edge isn't valid, but the neighbor is
                 //flip and set
                 if (!accept && valid)
                 {
-                    edge.Start = edge.Neighbor.End;
-                    edge.End = edge.Neighbor.Start;
+                    edge.Start = edge.LastBeachLineNeighbor.End;
+                    edge.End = edge.LastBeachLineNeighbor.Start;
                     accept = true;
                 }
             }
@@ -422,7 +422,7 @@ namespace VoronoiLib
             bool hadTopRight = false;
             bool hadTopLeft = false;
             
-            LinkedListNode<VoronoiEdge> edgeNode = edges.First;
+            LinkedListNode<VoronoiEdge>? edgeNode = edges.First;
 
             while (edgeNode != null)
             {
@@ -438,7 +438,7 @@ namespace VoronoiLib
                     else if (edge.Start.BorderLocation == PointBorderLocation.TopLeft) hadTopLeft = true;
                 }
                 
-                if (edge.End.BorderLocation != PointBorderLocation.NotOnBorder)
+                if (edge.End!.BorderLocation != PointBorderLocation.NotOnBorder)
                 {
                     nodes.Add(new EdgeEndBorderNode(edge));
                     
@@ -457,25 +457,25 @@ namespace VoronoiLib
             if (!hadTopLeft) nodes.Add(new CornerBorderNode(new VoronoiPoint(minX, maxY, PointBorderLocation.TopLeft)));
 
 
-            EdgeBorderNode lastEdgeNode = null;
+            EdgeBorderNode? previousEdgeNode = null;
 
             if (nodes.Min is EdgeBorderNode febn)
-                lastEdgeNode = febn;
+                previousEdgeNode = febn;
 
-            if (lastEdgeNode == null)
+            if (previousEdgeNode == null)
             {
                 foreach (BorderNode node in nodes.Reverse())
                 {
                     if (node is EdgeBorderNode rebn)
                     {
-                        lastEdgeNode = rebn;
+                        previousEdgeNode = rebn;
                         break;
                     }
                 }
             }
 
-            VoronoiSite defaultSite = null;
-            if (lastEdgeNode == null)
+            VoronoiSite? defaultSite = null;
+            if (previousEdgeNode == null)
             {
                 // We have no edges within bounds
 
@@ -492,18 +492,22 @@ namespace VoronoiLib
                     );
                 }
             }
+
+            // Edge tracking for neighbour recording
+            VoronoiEdge firstEdge = null!; // to "loop" last edge back to first
+            VoronoiEdge? previousEdge = null; // to connect each new edge to previous edge
             
-            BorderNode node2 = null; // i.e. last node
+            BorderNode? node2 = null; // i.e. last node
             
             foreach (BorderNode node in nodes)
             {
-                BorderNode node1 = node2;
+                BorderNode? node1 = node2;
                 node2 = node;
 
                 if (node1 == null) // i.e. node == nodes.Min
                     continue; // we are looking at first node, we will start from Min and next one
 
-                VoronoiSite site = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
+                VoronoiSite? site = previousEdgeNode != null ? previousEdgeNode is EdgeStartBorderNode ? previousEdgeNode.Edge.Right : previousEdgeNode.Edge.Left : defaultSite;
 
                 VoronoiEdge newEdge = new VoronoiEdge(
                     node1.Point, 
@@ -511,17 +515,32 @@ namespace VoronoiLib
                     null, // we are building these clockwise, so by definition the left side is out of bounds
                     site
                 );
-                
+
+                // Record edge neighbours
+                if (previousEdge != null)
+                {
+                    // Add the neighbours for the edge
+                    newEdge.CounterclockwiseNeighbourBorder = previousEdge; // counter-clockwise = previous
+                    previousEdge.ClockwiseNeighbourBorder = newEdge; // clockwise = next
+                }
+                else
+                {
+                    // Record the first created edge for the last edge to "loop" around
+                    firstEdge = newEdge;
+                }
+
                 edges.AddLast(newEdge);
                 
                 if (site != null)
                     site.cell.Add(newEdge);
                 
                 if (node is EdgeBorderNode cebn)
-                    lastEdgeNode = cebn;
+                    previousEdgeNode = cebn;
+
+                previousEdge = newEdge;
             }
 
-            VoronoiSite finalSite = lastEdgeNode != null ? lastEdgeNode is EdgeStartBorderNode ? lastEdgeNode.Edge.Right : lastEdgeNode.Edge.Left : defaultSite;
+            VoronoiSite? finalSite = previousEdgeNode != null ? previousEdgeNode is EdgeStartBorderNode ? previousEdgeNode.Edge.Right : previousEdgeNode.Edge.Left : defaultSite;
 
             VoronoiEdge finalEdge = new VoronoiEdge(
                 nodes.Max.Point,
@@ -530,7 +549,15 @@ namespace VoronoiLib
                 finalSite
             );
             
+            // Add the neighbours for the final edge
+            finalEdge.CounterclockwiseNeighbourBorder = previousEdge; // counter-clockwise = previous
+            previousEdge!.ClockwiseNeighbourBorder = finalEdge; // clockwise = next
+            
             edges.AddLast(finalEdge);
+            
+            // And finish the neighbour edges by "looping" back to the first edge
+            firstEdge.CounterclockwiseNeighbourBorder = finalEdge; // counter-clockwise = previous
+            finalEdge.ClockwiseNeighbourBorder = firstEdge; // clockwise = next
 
             if (finalSite != null)
                 finalSite.cell.Add(finalEdge);
