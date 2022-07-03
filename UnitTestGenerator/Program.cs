@@ -17,101 +17,271 @@ namespace UnitTestGenerator
             );
 
             testGenerator.AddTest("OnePointInMiddle", @"
-                ····················· 10
-                ····················· 9
-                ····················· 8
-                ····················· 7
-                ····················· 6
-                ··········1·········· 5
-                ····················· 4
-                ····················· 3
-                ····················· 2
-                ····················· 1
-                ····················· 0
+                · · · · · · · · · · · 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · · · 1 · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                · · · · · · · · · · · 0
                 0 1 2 3 4 5 6 7 8 9 10
             ");
             
             testGenerator.AddTest("TwoPointsVerticalAroundMiddle", @"
-                ····················· 10
-                ····················· 9
-                ····················· 8
-                ··········1·········· 7
-                ····················· 6
-                A···················B 5
-                ····················· 4
-                ··········2·········· 3
-                ····················· 2
-                ····················· 1
-                ····················· 0
+                · · · · · · · · · · · 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · 1 · · · · · 7
+                · · · · · · · · · · · 6
+                A · · · · · · · · · B 5
+                · · · · · · · · · · · 4
+                · · · · · 2 · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                · · · · · · · · · · · 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
             ", Repeat.Rotate90);
             
             testGenerator.AddTest("TwoPointsVerticalOffsetFromMiddle", @"
-                ····················· 10
-                ··········1·········· 9
-                ····················· 8
-                A···················B 7
-                ····················· 6
-                ··········2·········· 5
-                ····················· 4
-                ····················· 3
-                ····················· 2
-                ····················· 1
-                ····················· 0
+                · · · · · · · · · · · 10
+                · · · · · 1 · · · · · 9
+                · · · · · · · · · · · 8
+                A · · · · · · · · · B 7
+                · · · · · · · · · · · 6
+                · · · · · 2 · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                · · · · · · · · · · · 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
             ", Repeat.Rotate90);
             
-            testGenerator.AddTest("ThreeConcentricPointsAroundMiddle", @"
-                ····················· 10
-                ··········1·········· 9
-                ····················· 8
-                A···················B 7
-                ····················· 6
-                ··········2·········· 5
-                ····················· 4
-                C···················D 3
-                ····················· 2
-                ··········3·········· 1
-                ····················· 0
+            testGenerator.AddTest("ThreeConcentricPointsVerticalAroundMiddle", @"
+                · · · · · · · · · · · 10
+                · · · · · 1 · · · · · 9
+                · · · · · · · · · · · 8
+                A · · · · · · · · · B 7
+                · · · · · · · · · · · 6
+                · · · · · 2 · · · · · 5
+                · · · · · · · · · · · 4
+                C · · · · · · · · · D 3
+                · · · · · · · · · · · 2
+                · · · · · 3 · · · · · 1
+                · · · · · · · · · · · 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
                 C-D: 2,3
             ", Repeat.Rotate90);
             
+            testGenerator.AddTest("FourConcentricPointsVerticalAroundMiddle", @"
+                · · · · · · · · · · · 10
+                · · · · · · · · · · · 9
+                · · · · · 1 · · · · · 8
+                A · · · · · · · · · B 7
+                · · · · · 2 · · · · · 6
+                C · · · · · · · · · D 5
+                · · · · · 3 · · · · · 4
+                E · · · · · · · · · F 3
+                · · · · · 4 · · · · · 2
+                · · · · · · · · · · · 1
+                · · · · · · · · · · · 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,2
+                C-D: 2,3
+                E-F: 3,4
+            ", Repeat.Rotate90);
+            
             testGenerator.AddTest("TwoDiagonalPointsAroundMiddle", @"
-                ····················B 10
-                ····················· 9
-                ····················· 8
-                ······1·············· 7
-                ····················· 6
-                ····················· 5
-                ····················· 4
-                ··············2······ 3
-                ····················· 2
-                ····················· 1
-                A···················· 0
+                · · · · · · · · · · B 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · 1 · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · · · · · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · 2 · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                A · · · · · · · · · · 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
             ", Repeat.Rotate90);
             
             testGenerator.AddTest("TwoDiagonalPointsOffsetFromMiddle", @"
-                ················B···· 10
-                ····················· 9
-                ····1················ 8
-                ····················· 7
-                ····················· 6
-                ····················· 5
-                ············2········ 4
-                ····················· 3
-                A···················· 2
-                ····················· 1
-                ····················· 0
+                · · · · · · · · B · · 10
+                · · · · · · · · · · · 9
+                · · 1 · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · · · · · · · · · 5
+                · · · · · · 2 · · · · 4
+                · · · · · · · · · · · 3
+                A · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                · · · · · · · · · · · 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
             ", Repeat.RotateAll);
+            
+            testGenerator.AddTest("ThreeConcentricPointsDiagonalAroundMiddle", @"
+                · · · · · · · D · · · 10
+                · · · · · · · · · · · 9
+                · · 1 · · · · · · · · 8
+                · · · · · · · · · · C 7
+                · · · · · · · · · · · 6
+                · · · · · 2 · · · · · 5
+                · · · · · · · · · · · 4
+                A · · · · · · · · · · 3
+                · · · · · · · · 3 · · 2
+                · · · · · · · · · · · 1
+                · · · B · · · · · · · 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-D: 1,2
+                B-C: 2,3
+            ", Repeat.Rotate90);
+            
+            testGenerator.AddTest("ThreeConcentricPointsDiagonalOffsetFromMiddle", @"
+                · · · · · · D · · · C 10
+                · · · · · · · · · · · 9
+                · · 1 · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · 2 · · · · · · 6
+                · · · · · · · · · · · 5
+                A · · · · · 3 · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                B · · · · · · · · · · 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-D: 1,2
+                B-C: 2,3
+            ", Repeat.RotateAll);
+            
+            testGenerator.AddTest("FourConcentricPointsDiagonalAroundMiddle", @"
+                · · · · · · F · · · E 10
+                · · · · · · · · · · · 9
+                · · 1 · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · 2 · · · · · D 6
+                · · · · · · · · · · · 5
+                A · · · · · 3 · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · 4 · · 2
+                · · · · · · · · · · · 1
+                B · · · C · · · · · · 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-F: 1,2
+                B-E: 2,3
+                C-D: 3,4
+            ", Repeat.Rotate90);
 
+            testGenerator.AddTest("ThreePointsInAWedgeTowardsCorner", @"
+                · · · · · · · · · · D 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · 1 · · · · · · · 5
+                B · · · A · · · · · · 4
+                · · · 2 · 3 · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                · · · · C · · · · · · 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,2
+                A-C: 2,3
+                A-D: 1,3
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("ThreePointsInAWedgeAroundMiddleTowardsSide", @"
+                · · · · · D · · · · · 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · 3 · A · 2 · · · 5
+                · · · · · · · · · · · 4
+                · · · · · 1 · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                B · · · · · · · · · C 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,3
+                A-C: 1,2
+                A-D: 2,3
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("ThreePointsInAWedgeOffsetFromMiddleTowardsSide", @"
+                · · · · · D · · · · · 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · · · · · · · · · 5
+                · · · · · · · · · · · 4
+                · · · 3 · A · 2 · · · 3
+                · · · · · · · · · · · 2
+                · · · · · 1 · · · · · 1
+                · · B · · · · · C · · 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,3
+                A-C: 1,2
+                A-D: 2,3
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("FourPointsSurroundingAPointInMiddle", @"
+                E · · · · · · · · · H 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · 5 · · · · · 7
+                · · · · A · D · · · · 6
+                · · · 2 · 1 · 4 · · · 5
+                · · · · B · C · · · · 4
+                · · · · · 3 · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                F · · · · · · · · · G 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,2
+                B-C: 1,3
+                C-D: 1,4
+                D-A: 1,5
+                A-E: 2,5
+                B-F: 2,3
+                C-G: 3,4
+                D-H: 4,5
+            ");
+
+            testGenerator.AddTest("FourPointsSurroundingAPointOffsetFromMiddle", @"
+                · · · · · · · · · · · 10
+                · · · · · · · · · · · 9
+                E · · · · · · · · · H 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · · · 5 · · · · · 5
+                · · · · A · D · · · · 4
+                · · · 2 · 1 · 4 · · · 3
+                · · · · B · C · · · · 2
+                · · · · · 3 · · · · · 1
+                · · F · · · · · G · · 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,2
+                B-C: 1,3
+                C-D: 1,4
+                D-A: 1,5
+                A-E: 2,5
+                B-F: 2,3
+                C-G: 3,4
+                D-H: 4,5
+            ", Repeat.RotateAll);
+            
             string output = testGenerator.GenerateCode("GeneratedTest");
             
             //Console.OutputEncoding = Encoding.UTF8;
@@ -187,7 +357,7 @@ namespace UnitTestGenerator
 
                         switch (symbol)
                         {
-                            case '·':
+                            case '·' or ' ':
                                 // Filler
                                 break;
                             
@@ -204,6 +374,8 @@ namespace UnitTestGenerator
                         }
                     }
                 }
+                
+                sites.Sort((s1, s2) => s1.Id.CompareTo(s2.Id));
 
                 List<Edge> edges = new List<Edge>();
 
@@ -331,7 +503,9 @@ namespace UnitTestGenerator
                     stringBuilder.AppendPaddedLine(2, @"[Test]");
                     stringBuilder.AppendPaddedLine(2, @"public void " + test.Name + @"()");
                     stringBuilder.AppendPaddedLine(2, @"{");
-                    
+                    stringBuilder.AppendPaddedLine(3, @"// Arrange");
+                    stringBuilder.AppendLine();
+
                     stringBuilder.AppendPaddedLine(3, @"List<VoronoiSite> points = new List<VoronoiSite>");
                     stringBuilder.AppendPaddedLine(3, @"{");
                     List<string> siteDefinitions = BuildSiteDefinitions(test.Sites);
@@ -339,15 +513,19 @@ namespace UnitTestGenerator
                         stringBuilder.AppendPaddedLine(4, siteDefinition);
                     stringBuilder.AppendPaddedLine(3, @"};");
                     stringBuilder.AppendLine();
-
-                    stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();");
-                    stringBuilder.AppendLine();
                     
                     List<string> visualLayout = BuildVisualLayout(test);
                     foreach (string visualLayoutString in visualLayout)
                         stringBuilder.AppendPaddedLine(3, visualLayoutString);
                     stringBuilder.AppendLine();
 
+                    stringBuilder.AppendPaddedLine(3, @"// Act");
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();");
+                    stringBuilder.AppendLine();
+                    
+                    stringBuilder.AppendPaddedLine(3, @"// Assert");
+                    stringBuilder.AppendLine();
 
                     stringBuilder.AppendPaddedLine(3, @"Assert.AreEqual(" + test.Edges.Count + @", edges.Count);");
                     stringBuilder.AppendLine();
