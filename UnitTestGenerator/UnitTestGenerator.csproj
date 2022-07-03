@@ -8,4 +8,8 @@
         <LangVersion>9</LangVersion>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\VoronoiLib\VoronoiLib.csproj" />
+    </ItemGroup>
+
 </Project>
