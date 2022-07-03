@@ -8,30 +8,30 @@ using VoronoiLib;
 
 namespace VoronoiSpeedTest
 {
-    public class Program
+    public static class Program
     {
         private const int WIDTH = 10000;
         private const int HEIGHT = 10000;
-        private const int MAX_N = 500000;
+        private const int MAX_N = 100000;
         private const int SAMPLES = 10;
         private const int INC = 20000;
 
-        public static void Main(string[] args)
+        
+        public static void Main()
         {
-            var r = new Random();
-            var watch = new Stopwatch();
-            var times = new long[MAX_N, SAMPLES];
+            Random r = new Random();
+            Stopwatch watch = new Stopwatch();
+            long[,] times = new long[MAX_N, SAMPLES];
 
-    
-            for (var point = 1; point * INC <= MAX_N; point++)
+            for (int point = 1; point * INC <= MAX_N; point++)
             {
-                var numPoints = point * INC;
+                int numPoints = point * INC;
                 Console.WriteLine($"Running for n = {numPoints}");
-                for (var sample = 1; sample <= SAMPLES; sample++)
+                for (int sample = 1; sample <= SAMPLES; sample++)
                 {
                     Console.WriteLine($"\tRunning sample {sample}");
                     watch.Reset();
-                    var points = GenPoints(numPoints, r);
+                    List<VoronoiSite> points = GenPoints(numPoints, r);
                     watch.Start();
                     FortunesAlgorithm.RunOnce(points, 0, 0, WIDTH, HEIGHT, BorderEdgeGeneration.MakeBorderEdges);
                     watch.Stop();
@@ -39,43 +39,43 @@ namespace VoronoiSpeedTest
                 }
             }
 
-            var outFile = File.CreateText("timings.csv");
-            var excelFile = File.CreateText("excelTimings.csv");
+            StreamWriter outFile = File.CreateText("timings.csv");
+            StreamWriter excelFile = File.CreateText("excelTimings.csv");
             outFile.Write("N, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10" + Environment.NewLine);
             excelFile.Write("N, T (ms)" + Environment.NewLine);
-            for (var i = 1; i * INC <= MAX_N; i++)
+            for (int i = 1; i * INC <= MAX_N; i++)
             {
-                var s = i * INC + ", ";
-                for (var j = 0; j < SAMPLES - 1; j++)
+                string s = i * INC + ", ";
+                for (int j = 0; j < SAMPLES - 1; j++)
                 {
                     s += times[i - 1, j] + ", ";
                 }
+
                 s += times[i - 1, SAMPLES - 1] + Environment.NewLine;
                 outFile.Write(s);
 
-                for (var j = 1; j <= SAMPLES; j++)
+                for (int j = 1; j <= SAMPLES; j++)
                 {
-                    excelFile.Write(i*INC + ", " + times[i - 1, j - 1] + Environment.NewLine);
+                    excelFile.Write(i * INC + ", " + times[i - 1, j - 1] + Environment.NewLine);
                 }
             }
+
             outFile.Dispose();
             excelFile.Dispose();
-
         }
-
 
         //o(n) avg gen points
         private static List<VoronoiSite> GenPoints(int n, Random r)
         {
-            var points = new List<VoronoiSite>();
-            for (var i = 0; i < n; i++)
+            List<VoronoiSite> points = new List<VoronoiSite>();
+            for (int i = 0; i < n; i++)
             {
-                points.Add(new VoronoiSite(r.NextDouble() * WIDTH, r.NextDouble()* HEIGHT));
+                points.Add(new VoronoiSite(r.NextDouble() * WIDTH, r.NextDouble() * HEIGHT));
             }
 
             //uniq the points
             points = UniquePoints(points);
-            var moreNeeded = points.Count - n;
+            int moreNeeded = points.Count - n;
             if (moreNeeded > 0)
             {
                 points.AddRange(GenPoints(moreNeeded, r));
@@ -98,24 +98,25 @@ namespace VoronoiSpeedTest
                         return -1;
                     return 1;
                 }
+
                 if (p1.X < p2.X)
                     return -1;
                 return 1;
             });
 
-            var unique = new List<VoronoiSite>(points.Count / 2);
-            var last = points.First();
+            List<VoronoiSite> unique = new List<VoronoiSite>(points.Count / 2);
+            VoronoiSite? last = points.First();
             unique.Add(last);
-            for (var index = 1; index < points.Count; index++)
+            for (int index = 1; index < points.Count; index++)
             {
-                var point = points[index];
-                if (!last.X.ApproxEqual(point.X) ||
-                    !last.Y.ApproxEqual(point.Y))
+                VoronoiSite? point = points[index];
+                if (!last.X.ApproxEqual(point.X) || !last.Y.ApproxEqual(point.Y))
                 {
                     unique.Add(point);
                     last = point;
                 }
             }
+
             return unique;
         }
     }
