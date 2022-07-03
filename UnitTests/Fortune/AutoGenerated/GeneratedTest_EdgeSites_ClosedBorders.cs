@@ -7,10 +7,14 @@ using VoronoiLib.Structures;
 namespace UnitTests
 {
     /// <summary>
-    /// This is an AUTO-GENERATED test class from UnitTestGenerator.
-    /// These tests assert that <see cref="VoronoiEdge"/>`s have expected <see cref="VoronoiSite"/>`s
+    /// These tests assert that <see cref="VoronoiEdge"/>`s have expected <see cref="VoronoiSite"/>`s.
     /// Specifically, that the <see cref="VoronoiEdge.Left"/> and <see cref="VoronoiEdge.Right"/> are the expected sites.
     /// </summary>
+    /// <remarks>
+    /// This is an AUTO-GENERATED test fixture class from UnitTestGenerator.
+    /// This is one of the several auto-generated fixture classes each checking a different part of the algorithm's result.
+    /// It contains a bunch of known Voronoi site layouts, including many edge cases.
+    /// </remarks>
     [Parallelizable(ParallelScope.All)]
     [TestFixture]
     public class GeneratedTest_EdgeSites_ClosedBorders

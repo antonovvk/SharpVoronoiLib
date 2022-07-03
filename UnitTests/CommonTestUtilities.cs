@@ -54,6 +54,16 @@ namespace UnitTests
             );
         }
 
+        internal static VoronoiPoint FindPoint(IEnumerable<VoronoiEdge> edges, int x, int y)
+        {
+            VoronoiEdge? edge = edges.FirstOrDefault(e => e.Start != null && e.Start.X.ApproxEqual(x) && e.Start.Y.ApproxEqual(y));
+            if (edge != null)
+                return edge.Start;
+
+            return edges.First(e => e.End != null && e.End.X.ApproxEqual(x) && e.End.Y.ApproxEqual(y))
+                        .End;
+        }
+
         internal static bool EdgeStartsAndEndsOnBorder(VoronoiEdge edge, PointBorderLocation border1, PointBorderLocation border2)
         {
             return

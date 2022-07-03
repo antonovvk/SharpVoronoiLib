@@ -385,7 +385,8 @@ namespace UnitTestGenerator
                 ("GeneratedTest_Edges", TestPurpose.AssertEdges),
                 ("GeneratedTest_SiteEdges", TestPurpose.AssertSiteEdges),
                 ("GeneratedTest_EdgeSites", TestPurpose.AssertEdgeSites),
-                ("GeneratedTest_SitePoints", TestPurpose.AssertSitePoints)
+                ("GeneratedTest_SitePoints", TestPurpose.AssertSitePoints),
+                ("GeneratedTest_PointBorderLocation", TestPurpose.AssertPointBorderLocation)
             };
 
             for (int i = 0; i < 2; i++)
@@ -681,6 +682,13 @@ namespace UnitTestGenerator
                                 stringBuilder.AppendPaddedLine(3, sitePointAssertion);
                             break;
 
+                        case TestPurpose.AssertPointBorderLocation:
+                            stringBuilder.AppendLine();
+                            List<string> pointBorderLocationAssertions = BuildPointBorderLocationAssertions(test.Edges, test.Sites, borderLogic);
+                            foreach (string pointBorderLocationAssertion in pointBorderLocationAssertions)
+                                stringBuilder.AppendPaddedLine(3, pointBorderLocationAssertion);
+                            break;
+
                         default:
                             throw new ArgumentOutOfRangeException(nameof(purpose), purpose, null);
                     }
@@ -751,6 +759,7 @@ namespace UnitTestGenerator
                 {
                     case TestPurpose.AssertEdges:
                     case TestPurpose.AssertEdgeSites:
+                    case TestPurpose.AssertPointBorderLocation:
                         return true;
 
                     case TestPurpose.AssertSiteEdges:
@@ -767,7 +776,6 @@ namespace UnitTestGenerator
                 List<string> strings = new List<string>();
 
                 strings.Add(@"/// <summary>");
-                strings.Add(@"/// This is an AUTO-GENERATED test class from UnitTestGenerator.");
 
                 switch (purpose)
                 {
@@ -777,18 +785,23 @@ namespace UnitTestGenerator
                         break;
 
                     case TestPurpose.AssertSiteEdges:
-                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected <see cref=""" + nameof(VoronoiEdge) + @"""/>`s");
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected <see cref=""" + nameof(VoronoiEdge) + @"""/>`s.");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Cell) + @"""/> contains the expected edges.");
                         break;
 
                     case TestPurpose.AssertEdgeSites:
-                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiEdge) + @"""/>`s have expected <see cref=""" + nameof(VoronoiSite) + @"""/>`s");
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiEdge) + @"""/>`s have expected <see cref=""" + nameof(VoronoiSite) + @"""/>`s.");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiEdge) + @"." + nameof(VoronoiEdge.Left) + @"""/> and <see cref=""" + nameof(VoronoiEdge) + @"." + nameof(VoronoiEdge.Right) + @"""/> are the expected sites.");
                         break;
 
                     case TestPurpose.AssertSitePoints:
-                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected <see cref=""" + nameof(VoronoiPoint) + @"""/>`s");
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected <see cref=""" + nameof(VoronoiPoint) + @"""/>`s.");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Points) + @"""/> contains the expected points.");
+                        break;
+
+                    case TestPurpose.AssertPointBorderLocation:
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiPoint) + @"""/>`s have the expected <see cref=""" + nameof(PointBorderLocation) + @"""/>.");
+                        strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiPoint) + @"." + nameof(VoronoiPoint.BorderLocation) + @"""/> has the expected value.");
                         break;
 
                     default:
@@ -796,6 +809,12 @@ namespace UnitTestGenerator
                 }
 
                 strings.Add(@"/// </summary>");
+
+                strings.Add(@"/// <remarks>");
+                strings.Add(@"/// This is an AUTO-GENERATED test fixture class from UnitTestGenerator.");
+                strings.Add(@"/// This is one of the several auto-generated fixture classes each checking a different part of the algorithm's result.");
+                strings.Add(@"/// It contains a bunch of known Voronoi site layouts, including many edge cases.");
+                strings.Add(@"/// </remarks>");
 
                 return strings;
             }
@@ -888,6 +907,55 @@ namespace UnitTestGenerator
                 }
 
                 return strings;
+            }
+
+            private List<string> BuildPointBorderLocationAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic)
+            {
+                List<string> strings = new List<string>();
+
+                IEnumerable<Point> points = edges
+                                            .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                            .SelectMany(e => e.Points())
+                                            .Distinct() // edges connect at points, so there's repeats
+                                            .OrderBy(p => p.Id + (p.Corner ? 10 : 0)); // corner after regular
+                
+                foreach (Point point in points)
+                {
+                    strings.Add(@"Assert.AreEqual(" + nameof(PointBorderLocation) + @"." + PointLocationToExpectedBorderLocation(point) + @", CommonTestUtilities.FindPoint(edges, " + point.X + @", " + point.Y + @")." + nameof(VoronoiPoint.BorderLocation) + @"); // " + (char)point.Id);
+                }
+
+                return strings;
+            }
+
+            private PointBorderLocation PointLocationToExpectedBorderLocation(Point point)
+            {
+                if (point.X == _minX)
+                {
+                    if (point.Y == _minY)
+                        return PointBorderLocation.BottomLeft;
+                    else if (point.Y == _maxY)
+                        return PointBorderLocation.TopLeft;
+                    else
+                        return PointBorderLocation.Left;
+                }
+                else if (point.X == _maxX)
+                {
+                    if (point.Y == _minY)
+                        return PointBorderLocation.BottomRight;
+                    else if (point.Y == _maxY)
+                        return PointBorderLocation.TopRight;
+                    else
+                        return PointBorderLocation.Right;
+                }
+                else
+                {
+                    if (point.Y == _minY)
+                        return PointBorderLocation.Bottom;
+                    if (point.Y == _maxY)
+                        return PointBorderLocation.Top;
+                    else
+                        return PointBorderLocation.NotOnBorder;
+                }
             }
 
             private List<string> BuildEdgeSiteAssertions(List<Edge> edges, List<Site> allSites, TestBorderLogic borderLogic)
@@ -1319,7 +1387,8 @@ namespace UnitTestGenerator
             AssertEdges,
             AssertSiteEdges,
             AssertEdgeSites,
-            AssertSitePoints
+            AssertSitePoints,
+            AssertPointBorderLocation
         }
 
         private enum TestBorderLogic
