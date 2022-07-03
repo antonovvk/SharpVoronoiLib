@@ -8,7 +8,8 @@ namespace UnitTests
 {
     /// <summary>
     /// This is an AUTO-GENERATED test class from UnitTestGenerator.
-    /// These tests assert that <see cref="VoronoiSite"/>`s have expected <see cref="VoronoiEdge"/>`s.
+    /// These tests assert that <see cref="VoronoiSite"/>`s have expected <see cref="VoronoiEdge"/>`s
+    /// Specifically, that the <see cref="VoronoiSite.Cell"/> contains the expected edges.
     /// </summary>
     [Parallelizable(ParallelScope.All)]
     [TestFixture]

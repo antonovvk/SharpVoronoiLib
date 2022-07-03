@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using VoronoiLib;
 using VoronoiLib.Structures;
 
 namespace UnitTestGenerator
@@ -286,7 +287,8 @@ namespace UnitTestGenerator
             List<(string, TestPurpose)> variants = new List<(string, TestPurpose)>()
             {
                 ("GeneratedTest_Edges", TestPurpose.AssertEdges),
-                ("GeneratedTest_SiteEdges", TestPurpose.AssertSiteEdges)
+                ("GeneratedTest_SiteEdges", TestPurpose.AssertSiteEdges),
+                ("GeneratedTest_EdgeSites", TestPurpose.AssertEdgeSites)
             };
 
             foreach ((string testName, TestPurpose testPurpose) in variants)
@@ -552,9 +554,16 @@ namespace UnitTestGenerator
                         
                         case TestPurpose.AssertSiteEdges:
                             stringBuilder.AppendLine();
-                            List<string> siteCellAssertions = BuildSiteCellAssertions(test.Edges, test.Sites);
-                            foreach (string siteCellAssertion in siteCellAssertions)
-                                stringBuilder.AppendPaddedLine(3, siteCellAssertion);
+                            List<string> siteEdgeAssertions = BuildEdgeSiteAssertions(test.Edges, test.Sites);
+                            foreach (string siteEdgeAssertion in siteEdgeAssertions)
+                                stringBuilder.AppendPaddedLine(3, siteEdgeAssertion);
+                            break;
+                        
+                        case TestPurpose.AssertEdgeSites:
+                            stringBuilder.AppendLine();
+                            List<string> edgeSiteAssertions = BuildSiteEdgeAssertions(test.Edges, test.Sites);
+                            foreach (string edgeSiteAssertion in edgeSiteAssertions)
+                                stringBuilder.AppendPaddedLine(3, edgeSiteAssertion);
                             break;
                         
                         default:
@@ -576,6 +585,7 @@ namespace UnitTestGenerator
                 switch (purpose)
                 {
                     case TestPurpose.AssertEdges:
+                    case TestPurpose.AssertEdgeSites:
                         return true;
                     
                     case TestPurpose.AssertSiteEdges:
@@ -592,25 +602,31 @@ namespace UnitTestGenerator
 
                 strings.Add(@"/// <summary>");
                 strings.Add(@"/// This is an AUTO-GENERATED test class from UnitTestGenerator.");
-                strings.Add(@"/// These tests assert that " + PurposeSummaryExplanation(purpose) + @".");
-                strings.Add(@"/// </summary>");
-
-                return strings;
-            }
-
-            private string PurposeSummaryExplanation(TestPurpose purpose)
-            {
+                
                 switch (purpose)
                 {
                     case TestPurpose.AssertEdges:
-                        return @"<see cref=""" + nameof(VoronoiEdge) + @"""/>`s are returned as expected";
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiEdge) + @"""/>`s are returned as expected");
+                        strings.Add(@"/// Specifically, that the result of <see cref=""" + nameof(FortunesAlgorithm) + @"." + nameof(FortunesAlgorithm.Run) + @"""/>() contains the expected edges.");
+                        break;
                     
                     case TestPurpose.AssertSiteEdges:
-                        return @"<see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected <see cref=""" + nameof(VoronoiEdge) + @"""/>`s";
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected <see cref=""" + nameof(VoronoiEdge) + @"""/>`s");
+                        strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Cell) + @"""/> contains the expected edges.");
+                        break;
+                    
+                    case TestPurpose.AssertEdgeSites:
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiEdge) + @"""/>`s have expected <see cref=""" + nameof(VoronoiSite) + @"""/>`s");
+                        strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiEdge) + @"." + nameof(VoronoiEdge.Left) + @"""/> and <see cref=""" + nameof(VoronoiEdge) + @"." + nameof(VoronoiEdge.Right) + @"""/> are the expected sites.");
+                        break;
                     
                     default:
                         throw new ArgumentOutOfRangeException(nameof(purpose), purpose, null);
                 }
+                
+                strings.Add(@"/// </summary>");
+
+                return strings;
             }
 
             private List<string> BuildSummary(Repeat repeated, string originalName)
@@ -665,7 +681,23 @@ namespace UnitTestGenerator
                 return strings;
             }
 
-            private List<string> BuildSiteCellAssertions(List<Edge> edges, List<Site> allSites)
+            private List<string> BuildSiteEdgeAssertions(List<Edge> edges, List<Site> allSites)
+            {
+                List<string> strings = new List<string>();
+
+                foreach (Edge edge in edges)
+                {
+                    foreach (Site site in edge.EdgeSites)
+                    {
+                        
+                        strings.Add(@"Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"), " + site.X + @", " + site.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " has #" + site.Id + @"");
+                    }
+                }
+
+                return strings;
+            }
+
+            private List<string> BuildEdgeSiteAssertions(List<Edge> edges, List<Site> allSites)
             {
                 List<string> strings = new List<string>();
 
@@ -677,6 +709,7 @@ namespace UnitTestGenerator
 
                     foreach (Edge siteEdge in siteEdges)
                     {
+                        
                         strings.Add(@"Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[" + allSites.IndexOf(site) + @"], " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
                     }
                 }
@@ -1079,7 +1112,8 @@ namespace UnitTestGenerator
         public enum TestPurpose
         {
             AssertEdges,
-            AssertSiteEdges
+            AssertSiteEdges,
+            AssertEdgeSites
         }
     }
 

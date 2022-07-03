@@ -43,7 +43,7 @@ namespace UnitTests
 
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 000, 300, 600, 300)); // A-B
             
-            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.Left, PointBorderLocation.Right)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.Left, PointBorderLocation.Right)); // A-B
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace UnitTests
 
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 000, 300, 600)); // A-B
             
-            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.Top, PointBorderLocation.Bottom)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.Top, PointBorderLocation.Bottom)); // A-B
         }
 
         [Test]
@@ -109,7 +109,7 @@ namespace UnitTests
 
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 000, 600, 600, 000)); // A-B
             
-            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.TopLeft, PointBorderLocation.BottomRight)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.TopLeft, PointBorderLocation.BottomRight)); // A-B
         }
 
         [Test]
@@ -142,7 +142,7 @@ namespace UnitTests
 
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 000, 000, 600, 600)); // A-B
             
-            Assert.IsTrue(EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.BottomLeft, PointBorderLocation.TopRight)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsAndEndsOnBorder(edges[0], PointBorderLocation.BottomLeft, PointBorderLocation.TopRight)); // A-B
         }
 
         [Test]
@@ -181,9 +181,9 @@ namespace UnitTests
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 000, 350)); // A-C
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 350, 000)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 600, 600), PointBorderLocation.TopRight)); // A-B
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 000, 350), PointBorderLocation.Left)); // A-C
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 350, 000), PointBorderLocation.Bottom)); // A-D
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 350, 600, 600), PointBorderLocation.TopRight)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 350, 000, 350), PointBorderLocation.Left)); // A-C
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 350, 350, 000), PointBorderLocation.Bottom)); // A-D
         }
 
         [Test]
@@ -222,9 +222,9 @@ namespace UnitTests
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 600, 350)); // A-C
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 350, 250, 000)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 000, 600), PointBorderLocation.TopLeft)); // A-B
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 600, 350), PointBorderLocation.Right)); // A-C
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 250, 000), PointBorderLocation.Bottom)); // A-D
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 350, 000, 600), PointBorderLocation.TopLeft)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 350, 600, 350), PointBorderLocation.Right)); // A-C
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 350, 250, 000), PointBorderLocation.Bottom)); // A-D
         }
 
         [Test]
@@ -263,9 +263,9 @@ namespace UnitTests
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 600, 250)); // A-C
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 250, 250, 250, 600)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 000, 000), PointBorderLocation.BottomLeft)); // A-B
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 600, 250), PointBorderLocation.Right)); // A-C
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 250, 600), PointBorderLocation.Top)); // A-D
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 250, 000, 000), PointBorderLocation.BottomLeft)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 250, 600, 250), PointBorderLocation.Right)); // A-C
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 250, 250, 600), PointBorderLocation.Top)); // A-D
         }
 
         [Test]
@@ -304,9 +304,9 @@ namespace UnitTests
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 350, 600)); // A-C
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 000, 250)); // A-D   
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 600, 000), PointBorderLocation.BottomRight)); // A-B
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 350, 600), PointBorderLocation.Top)); // A-C
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 000, 250), PointBorderLocation.Left)); // A-D
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 250, 600, 000), PointBorderLocation.BottomRight)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 250, 350, 600), PointBorderLocation.Top)); // A-C
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 250, 000, 250), PointBorderLocation.Left)); // A-D
         }
 
         [Test]
@@ -345,9 +345,9 @@ namespace UnitTests
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 000)); // A-C
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 600), PointBorderLocation.TopLeft)); // A-B
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 300, 000), PointBorderLocation.Bottom)); // A-C
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 600), PointBorderLocation.TopRight)); // A-D
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 000, 600), PointBorderLocation.TopLeft)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 300, 000), PointBorderLocation.Bottom)); // A-C
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 600, 600), PointBorderLocation.TopRight)); // A-D
         }
 
         [Test]
@@ -386,9 +386,9 @@ namespace UnitTests
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 300, 600), PointBorderLocation.Top)); // A-B
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 000), PointBorderLocation.BottomLeft)); // A-C
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 000), PointBorderLocation.BottomRight)); // A-D
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 300, 600), PointBorderLocation.Top)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 000, 000), PointBorderLocation.BottomLeft)); // A-C
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 600, 000), PointBorderLocation.BottomRight)); // A-D
         }
 
         [Test]
@@ -426,9 +426,9 @@ namespace UnitTests
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 300)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 600), PointBorderLocation.TopLeft)); // A-B
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 000), PointBorderLocation.BottomLeft)); // A-C
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 300), PointBorderLocation.Right)); // A-D
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 000, 600), PointBorderLocation.TopLeft)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 000, 000), PointBorderLocation.BottomLeft)); // A-C
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 600, 300), PointBorderLocation.Right)); // A-D
         }
 
         [Test]
@@ -467,9 +467,9 @@ namespace UnitTests
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-C
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-D
             
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 000, 300), PointBorderLocation.Left)); // A-B
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 000), PointBorderLocation.BottomRight)); // A-C
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 300, 300, 600, 600), PointBorderLocation.TopRight)); // A-D
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 000, 300), PointBorderLocation.Left)); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 600, 000), PointBorderLocation.BottomRight)); // A-C
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 300, 300, 600, 600), PointBorderLocation.TopRight)); // A-D
         }
         
         [Test]
@@ -516,15 +516,15 @@ namespace UnitTests
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 250, 600, 000)); // C-G
             Assume.That(() => CommonTestUtilities.AnyEdgeBetween(edges, 350, 350, 600, 600)); // D-H
             
-            Assert.IsTrue(EdgeDoesntStartsOrEndsOnBorder(FindEdge(edges, 250, 350, 250, 250))); // A-B
-            Assert.IsTrue(EdgeDoesntStartsOrEndsOnBorder(FindEdge(edges, 250, 250, 350, 250))); // B-C
-            Assert.IsTrue(EdgeDoesntStartsOrEndsOnBorder(FindEdge(edges, 350, 250, 350, 350))); // C-D
-            Assert.IsTrue(EdgeDoesntStartsOrEndsOnBorder(FindEdge(edges, 350, 350, 250, 350))); // D-A
+            Assert.IsTrue(CommonTestUtilities.EdgeDoesntStartsOrEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 350, 250, 250))); // A-B
+            Assert.IsTrue(CommonTestUtilities.EdgeDoesntStartsOrEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 250, 350, 250))); // B-C
+            Assert.IsTrue(CommonTestUtilities.EdgeDoesntStartsOrEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 250, 350, 350))); // C-D
+            Assert.IsTrue(CommonTestUtilities.EdgeDoesntStartsOrEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 350, 250, 350))); // D-A
 
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 350, 000, 600), PointBorderLocation.TopLeft)); // A-E
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 250, 250, 000, 000), PointBorderLocation.BottomLeft)); // B-F
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 250, 600, 000), PointBorderLocation.BottomRight)); // C-G
-            Assert.IsTrue(EdgeStartsXorEndsOnBorder(FindEdge(edges, 350, 350, 600, 600), PointBorderLocation.TopRight)); // D-H
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 350, 000, 600), PointBorderLocation.TopLeft)); // A-E
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 250, 250, 000, 000), PointBorderLocation.BottomLeft)); // B-F
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 250, 600, 000), PointBorderLocation.BottomRight)); // C-G
+            Assert.IsTrue(CommonTestUtilities.EdgeStartsXorEndsOnBorder(CommonTestUtilities.FindEdge(edges, 350, 350, 600, 600), PointBorderLocation.TopRight)); // D-H
         }
 
 #if BRUTE_FORCE_TEST
@@ -607,43 +607,5 @@ namespace UnitTests
             return PointBorderLocation.NotOnBorder;
         }
 #endif
-        
-
-        private VoronoiEdge FindEdge(List<VoronoiEdge> edges, int x1, int y1, int x2, int y2)
-        {
-            return edges.First(
-                e =>
-                    e.Start != null && e.End != null &&
-                    e.Start.X.ApproxEqual(x1) && e.Start.Y.ApproxEqual(y1) && e.End.X.ApproxEqual(x2) && e.End.Y.ApproxEqual(y2) ||
-                    e.Start.X.ApproxEqual(x2) && e.Start.Y.ApproxEqual(y2) && e.End.X.ApproxEqual(x1) && e.End.Y.ApproxEqual(y1)
-            );
-        }
-
-        private static bool EdgeStartsAndEndsOnBorder(VoronoiEdge edge, PointBorderLocation border1, PointBorderLocation border2)
-        {
-            return 
-                (edge.Start.BorderLocation == border1 && 
-                edge.End.BorderLocation == border2) 
-                ||
-                (edge.Start.BorderLocation == border2 && 
-                edge.End.BorderLocation == border1);
-        }
-
-        private static bool EdgeStartsXorEndsOnBorder(VoronoiEdge edge, PointBorderLocation border)
-        {
-            return 
-                (edge.Start.BorderLocation == border &&
-                edge.End.BorderLocation == PointBorderLocation.NotOnBorder) 
-                ||
-                (edge.Start.BorderLocation == PointBorderLocation.NotOnBorder &&
-                 edge.End.BorderLocation == border);
-        }
-
-        private static bool EdgeDoesntStartsOrEndsOnBorder(VoronoiEdge edge)
-        {
-            return 
-                edge.Start.BorderLocation == PointBorderLocation.NotOnBorder &&
-                edge.End.BorderLocation == PointBorderLocation.NotOnBorder;
-        }
     }
 }
