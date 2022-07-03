@@ -20,7 +20,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 500), // #1
             };
@@ -50,7 +50,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -65,7 +65,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 700), // #1
                 new VoronoiSite(500, 300), // #2
@@ -96,7 +96,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -119,7 +119,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 500), // #1
                 new VoronoiSite(300, 500), // #2
@@ -150,7 +150,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -169,7 +169,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 900), // #1
                 new VoronoiSite(500, 500), // #2
@@ -200,7 +200,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -223,7 +223,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(900, 500), // #1
                 new VoronoiSite(500, 500), // #2
@@ -254,7 +254,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -273,7 +273,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 900), // #1
                 new VoronoiSite(500, 500), // #2
@@ -305,7 +305,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -332,7 +332,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(900, 500), // #1
                 new VoronoiSite(500, 500), // #2
@@ -364,7 +364,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -387,7 +387,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 800), // #1
                 new VoronoiSite(500, 600), // #2
@@ -420,7 +420,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -451,7 +451,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 500), // #1
                 new VoronoiSite(600, 500), // #2
@@ -484,7 +484,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -511,7 +511,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(300, 700), // #1
                 new VoronoiSite(700, 300), // #2
@@ -542,7 +542,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -563,7 +563,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 700), // #1
                 new VoronoiSite(300, 300), // #2
@@ -594,7 +594,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -611,7 +611,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 800), // #1
                 new VoronoiSite(600, 400), // #2
@@ -642,7 +642,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -665,7 +665,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 800), // #1
                 new VoronoiSite(400, 400), // #2
@@ -696,7 +696,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -719,7 +719,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 200), // #1
                 new VoronoiSite(400, 600), // #2
@@ -750,7 +750,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -773,7 +773,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 200), // #1
                 new VoronoiSite(600, 600), // #2
@@ -804,7 +804,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -823,7 +823,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 800), // #1
                 new VoronoiSite(500, 500), // #2
@@ -855,7 +855,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -882,7 +882,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 800), // #1
                 new VoronoiSite(500, 500), // #2
@@ -914,7 +914,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -937,7 +937,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 800), // #1
                 new VoronoiSite(400, 600), // #2
@@ -969,7 +969,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -994,7 +994,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 800), // #1
                 new VoronoiSite(600, 600), // #2
@@ -1026,7 +1026,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1051,7 +1051,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 200), // #1
                 new VoronoiSite(600, 400), // #2
@@ -1083,7 +1083,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1108,7 +1108,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 200), // #1
                 new VoronoiSite(400, 400), // #2
@@ -1140,7 +1140,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1161,7 +1161,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 800), // #1
                 new VoronoiSite(400, 600), // #2
@@ -1194,7 +1194,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1223,7 +1223,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 800), // #1
                 new VoronoiSite(600, 600), // #2
@@ -1256,7 +1256,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1281,7 +1281,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(300, 500), // #1
                 new VoronoiSite(300, 300), // #2
@@ -1313,7 +1313,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1340,7 +1340,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 700), // #1
                 new VoronoiSite(300, 700), // #2
@@ -1372,7 +1372,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1399,7 +1399,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 500), // #1
                 new VoronoiSite(700, 700), // #2
@@ -1431,7 +1431,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1458,7 +1458,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 300), // #1
                 new VoronoiSite(700, 300), // #2
@@ -1490,7 +1490,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1513,7 +1513,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 300), // #1
                 new VoronoiSite(700, 500), // #2
@@ -1545,7 +1545,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1571,7 +1571,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(300, 500), // #1
                 new VoronoiSite(500, 300), // #2
@@ -1603,7 +1603,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1629,7 +1629,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 700), // #1
                 new VoronoiSite(300, 500), // #2
@@ -1661,7 +1661,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1687,7 +1687,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 500), // #1
                 new VoronoiSite(500, 700), // #2
@@ -1719,7 +1719,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1741,7 +1741,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 100), // #1
                 new VoronoiSite(700, 300), // #2
@@ -1773,7 +1773,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1801,7 +1801,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(100, 500), // #1
                 new VoronoiSite(300, 300), // #2
@@ -1833,7 +1833,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1861,7 +1861,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 900), // #1
                 new VoronoiSite(300, 700), // #2
@@ -1893,7 +1893,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1921,7 +1921,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(900, 500), // #1
                 new VoronoiSite(700, 700), // #2
@@ -1953,7 +1953,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -1977,7 +1977,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 500), // #1
                 new VoronoiSite(300, 500), // #2
@@ -2011,7 +2011,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -2042,7 +2042,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 300), // #1
                 new VoronoiSite(300, 300), // #2
@@ -2076,7 +2076,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -2115,7 +2115,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(300, 500), // #1
                 new VoronoiSite(300, 700), // #2
@@ -2149,7 +2149,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -2188,7 +2188,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 700), // #1
                 new VoronoiSite(700, 700), // #2
@@ -2222,7 +2222,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 
@@ -2261,7 +2261,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 500), // #1
                 new VoronoiSite(700, 300), // #2
@@ -2295,7 +2295,7 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
 
             // Assert
 

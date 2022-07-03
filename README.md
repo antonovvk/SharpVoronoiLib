@@ -24,10 +24,10 @@ The library (VoronoiLib) is compiled for .NET standard 1.1. As such, projects sh
 
 # Use
 
-Create points, run algorithm:
+Create sites, run algorithm:
 
 ```
-IEnumerable<VoronoiSite> points = new List<VoronoiSite>
+IEnumerable<VoronoiSite> sites = new List<VoronoiSite>
 {
     new FortuneSite(300, 300),
     new FortuneSite(300, 400),
@@ -35,7 +35,7 @@ IEnumerable<VoronoiSite> points = new List<VoronoiSite>
 };
 
 LinkedList<VoronoiEdge> edges = VoronoiPlane.RunOnce(
-    points, 
+    sites, 
     0, 0, 
     600, 600,
     BorderEdgeGeneration.MakeBorderEdges
@@ -46,7 +46,7 @@ If closing borders is not desired (leaving sites with unclosed cells/polygons):
 
 ```
 LinkedList<VoronoiEdge> edges = VoronoiPlane.RunOnce(
-    points, 
+    sites, 
     0, 0, 
     600, 600,
     BorderEdgeGeneration.DoNotMakeBorderEdges
@@ -61,7 +61,7 @@ Edge end `VoronoiPoint`s also contain a `.BorderLocation` specifying if it's on 
 `FortuneSite.Cell` contains the edges that enclose the site (order is not guaranteed).
 `FortuneSite.ClockwiseCell` (on-demand) contains these edges sorted clockwise (first edge order is not guaranteed).
 `FortuneSite.Neighbors` contains the site's neighbors (in the Delaunay Triangulation), that is, sites across its edges.
-`FortuneSite.Points` (on-demand) contains points of the cell, that is, edge end points.
+`FortuneSite.Points` (on-demand) contains points of the cell, that is, edge end points / edge nodes.
 `FortuneSite.ClockwisePoints` (on-demand) contains these points sorted clockwise.
 
 # Credits

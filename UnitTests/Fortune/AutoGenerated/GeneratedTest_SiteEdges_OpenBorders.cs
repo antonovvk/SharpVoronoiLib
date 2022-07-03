@@ -20,7 +20,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 500), // #1
             };
@@ -50,7 +50,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
@@ -61,7 +61,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 700), // #1
                 new VoronoiSite(500, 300), // #2
@@ -92,12 +92,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 500, 1000, 500)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 500, 1000, 500)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 500, 1000, 500)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 500, 1000, 500)); // #2 has A-B
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 500), // #1
                 new VoronoiSite(300, 500), // #2
@@ -140,12 +140,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 1000, 500, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 1000, 500, 0)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 1000, 500, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 1000, 500, 0)); // #2 has A-B
         }
 
         [Test]
@@ -153,7 +153,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 900), // #1
                 new VoronoiSite(500, 500), // #2
@@ -184,12 +184,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 700, 1000, 700)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 700, 1000, 700)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 700, 1000, 700)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 700, 1000, 700)); // #2 has A-B
         }
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(900, 500), // #1
                 new VoronoiSite(500, 500), // #2
@@ -232,12 +232,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 700, 1000, 700, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 700, 1000, 700, 0)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 700, 1000, 700, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 700, 1000, 700, 0)); // #2 has A-B
         }
 
         [Test]
@@ -245,7 +245,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 900), // #1
                 new VoronoiSite(500, 500), // #2
@@ -277,14 +277,14 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 700, 1000, 700)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 700, 1000, 700)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 300, 1000, 300)); // #2 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 0, 300, 1000, 300)); // #3 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 700, 1000, 700)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 700, 1000, 700)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 300, 1000, 300)); // #2 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 0, 300, 1000, 300)); // #3 has C-D
         }
 
         /// <summary>
@@ -296,7 +296,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(900, 500), // #1
                 new VoronoiSite(500, 500), // #2
@@ -328,14 +328,14 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 700, 1000, 700, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 700, 1000, 700, 0)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 1000, 300, 0)); // #2 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 1000, 300, 0)); // #3 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 700, 1000, 700, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 700, 1000, 700, 0)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 300, 1000, 300, 0)); // #2 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 300, 1000, 300, 0)); // #3 has C-D
         }
 
         [Test]
@@ -343,7 +343,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 800), // #1
                 new VoronoiSite(500, 600), // #2
@@ -376,16 +376,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 700, 1000, 700)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 700, 1000, 700)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 500, 1000, 500)); // #2 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 0, 500, 1000, 500)); // #3 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 0, 300, 1000, 300)); // #3 has E-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 0, 300, 1000, 300)); // #4 has E-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 700, 1000, 700)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 700, 1000, 700)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 500, 1000, 500)); // #2 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 0, 500, 1000, 500)); // #3 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 0, 300, 1000, 300)); // #3 has E-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 0, 300, 1000, 300)); // #4 has E-F
         }
 
         /// <summary>
@@ -397,7 +397,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 500), // #1
                 new VoronoiSite(600, 500), // #2
@@ -430,16 +430,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 700, 1000, 700, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 700, 1000, 700, 0)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 1000, 500, 0)); // #2 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 1000, 500, 0)); // #3 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 1000, 300, 0)); // #3 has E-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 300, 1000, 300, 0)); // #4 has E-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 700, 1000, 700, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 700, 1000, 700, 0)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 1000, 500, 0)); // #2 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 1000, 500, 0)); // #3 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 300, 1000, 300, 0)); // #3 has E-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 300, 1000, 300, 0)); // #4 has E-F
         }
 
         [Test]
@@ -447,7 +447,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(300, 700), // #1
                 new VoronoiSite(700, 300), // #2
@@ -478,12 +478,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 0, 1000, 1000)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 0, 1000, 1000)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 0, 1000, 1000)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 0, 1000, 1000)); // #2 has A-B
         }
 
         /// <summary>
@@ -495,7 +495,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 700), // #1
                 new VoronoiSite(300, 300), // #2
@@ -526,12 +526,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 1000, 1000, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 1000, 1000, 0)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 1000, 1000, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 1000, 1000, 0)); // #2 has A-B
         }
 
         [Test]
@@ -539,7 +539,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 800), // #1
                 new VoronoiSite(600, 400), // #2
@@ -570,12 +570,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 200, 800, 1000)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 200, 800, 1000)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 200, 800, 1000)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 200, 800, 1000)); // #2 has A-B
         }
 
         /// <summary>
@@ -587,7 +587,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 800), // #1
                 new VoronoiSite(400, 400), // #2
@@ -618,12 +618,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 200, 1000, 1000, 200)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 200, 1000, 1000, 200)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 200, 1000, 1000, 200)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 200, 1000, 1000, 200)); // #2 has A-B
         }
 
         /// <summary>
@@ -635,7 +635,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 200), // #1
                 new VoronoiSite(400, 600), // #2
@@ -666,12 +666,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 1000, 800, 200, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 1000, 800, 200, 0)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 1000, 800, 200, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 1000, 800, 200, 0)); // #2 has A-B
         }
 
         /// <summary>
@@ -683,7 +683,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 200), // #1
                 new VoronoiSite(600, 600), // #2
@@ -714,12 +714,12 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 800, 0, 0, 800)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 800, 0, 0, 800)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 800, 0, 0, 800)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 800, 0, 0, 800)); // #2 has A-B
         }
 
         [Test]
@@ -727,7 +727,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 800), // #1
                 new VoronoiSite(500, 500), // #2
@@ -759,14 +759,14 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 300, 700, 1000)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 300, 700, 1000)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 0, 1000, 700)); // #2 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 0, 1000, 700)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 300, 700, 1000)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 300, 700, 1000)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 300, 0, 1000, 700)); // #2 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 300, 0, 1000, 700)); // #3 has B-C
         }
 
         /// <summary>
@@ -778,7 +778,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 800), // #1
                 new VoronoiSite(500, 500), // #2
@@ -810,14 +810,14 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 1000, 1000, 300)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 1000, 1000, 300)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 700, 700, 0)); // #2 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 0, 700, 700, 0)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 300, 1000, 1000, 300)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 300, 1000, 1000, 300)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 700, 700, 0)); // #2 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 0, 700, 700, 0)); // #3 has B-C
         }
 
         [Test]
@@ -825,7 +825,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 800), // #1
                 new VoronoiSite(400, 600), // #2
@@ -857,14 +857,14 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 400, 600, 1000)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 400, 600, 1000)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 0, 1000, 1000)); // #2 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 0, 0, 1000, 1000)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 400, 600, 1000)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 400, 600, 1000)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 0, 1000, 1000)); // #2 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 0, 0, 1000, 1000)); // #3 has B-C
         }
 
         /// <summary>
@@ -876,7 +876,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 800), // #1
                 new VoronoiSite(600, 600), // #2
@@ -908,14 +908,14 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 1000, 1000, 400)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 1000, 1000, 400)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 1000, 1000, 0)); // #2 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 0, 1000, 1000, 0)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 1000, 1000, 400)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 1000, 1000, 400)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 1000, 1000, 0)); // #2 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 0, 1000, 1000, 0)); // #3 has B-C
         }
 
         /// <summary>
@@ -927,7 +927,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 200), // #1
                 new VoronoiSite(600, 400), // #2
@@ -959,14 +959,14 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 1000, 600, 400, 0)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 1000, 600, 400, 0)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 1000, 1000, 0, 0)); // #2 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 1000, 1000, 0, 0)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 1000, 600, 400, 0)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 1000, 600, 400, 0)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 1000, 1000, 0, 0)); // #2 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 1000, 1000, 0, 0)); // #3 has B-C
         }
 
         /// <summary>
@@ -978,7 +978,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 200), // #1
                 new VoronoiSite(400, 400), // #2
@@ -1010,14 +1010,14 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 0, 0, 600)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 0, 0, 600)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 1000, 0, 0, 1000)); // #2 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 1000, 0, 0, 1000)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 0, 0, 600)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 0, 0, 600)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 1000, 0, 0, 1000)); // #2 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 1000, 0, 0, 1000)); // #3 has B-C
         }
 
         [Test]
@@ -1025,7 +1025,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(200, 800), // #1
                 new VoronoiSite(400, 600), // #2
@@ -1058,16 +1058,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 0, 400, 600, 1000)); // #1 has A-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 400, 600, 1000)); // #2 has A-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 0, 1000, 1000)); // #2 has B-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 0, 0, 1000, 1000)); // #3 has B-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 0, 1000, 600)); // #3 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 400, 0, 1000, 600)); // #4 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 0, 400, 600, 1000)); // #1 has A-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 400, 600, 1000)); // #2 has A-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 0, 1000, 1000)); // #2 has B-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 0, 0, 1000, 1000)); // #3 has B-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 0, 1000, 600)); // #3 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 400, 0, 1000, 600)); // #4 has C-D
         }
 
         /// <summary>
@@ -1079,7 +1079,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(800, 800), // #1
                 new VoronoiSite(600, 600), // #2
@@ -1112,16 +1112,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 1000, 1000, 400)); // #1 has A-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 1000, 1000, 400)); // #2 has A-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 0, 1000, 1000, 0)); // #2 has B-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 0, 1000, 1000, 0)); // #3 has B-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 0, 600, 600, 0)); // #3 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 0, 600, 600, 0)); // #4 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 1000, 1000, 400)); // #1 has A-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 1000, 1000, 400)); // #2 has A-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 0, 1000, 1000, 0)); // #2 has B-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 0, 1000, 1000, 0)); // #3 has B-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 0, 600, 600, 0)); // #3 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 0, 600, 600, 0)); // #4 has C-D
         }
 
         [Test]
@@ -1129,7 +1129,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(300, 500), // #1
                 new VoronoiSite(300, 300), // #2
@@ -1161,16 +1161,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 400, 0, 400)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 400, 1000, 1000)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 400, 0, 400)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 400, 400, 0)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 400, 400, 0)); // #3 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 400, 1000, 1000)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 400, 0, 400)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 400, 1000, 1000)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 400, 0, 400)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 400, 400, 0)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 400, 400, 0)); // #3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 400, 1000, 1000)); // #3 has A-D
         }
 
         /// <summary>
@@ -1182,7 +1182,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 700), // #1
                 new VoronoiSite(300, 700), // #2
@@ -1214,16 +1214,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 600, 400, 1000)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 600, 1000, 0)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 600, 400, 1000)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 600, 0, 600)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 600, 0, 600)); // #3 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 600, 1000, 0)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 600, 400, 1000)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 600, 1000, 0)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 600, 400, 1000)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 600, 0, 600)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 600, 0, 600)); // #3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 600, 1000, 0)); // #3 has A-D
         }
 
         /// <summary>
@@ -1235,7 +1235,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 500), // #1
                 new VoronoiSite(700, 700), // #2
@@ -1267,16 +1267,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 600, 1000, 600)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 600, 0, 0)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 600, 1000, 600)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 600, 600, 1000)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 600, 600, 600, 1000)); // #3 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 600, 600, 0, 0)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 600, 1000, 600)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 600, 0, 0)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 600, 1000, 600)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 600, 600, 1000)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 600, 600, 600, 1000)); // #3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 600, 600, 0, 0)); // #3 has A-D
         }
 
         /// <summary>
@@ -1288,7 +1288,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 300), // #1
                 new VoronoiSite(700, 300), // #2
@@ -1320,16 +1320,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 400, 600, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 400, 0, 1000)); // #1 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 400, 600, 0)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 400, 1000, 400)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 600, 400, 1000, 400)); // #3 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 600, 400, 0, 1000)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 400, 600, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 400, 0, 1000)); // #1 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 400, 600, 0)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 400, 1000, 400)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 600, 400, 1000, 400)); // #3 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 600, 400, 0, 1000)); // #3 has A-D
         }
 
         [Test]
@@ -1337,7 +1337,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 300), // #1
                 new VoronoiSite(700, 500), // #2
@@ -1369,16 +1369,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 500, 0, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 500, 1000, 0)); // #1 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 500, 1000, 0)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 500, 500, 1000)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 500, 0, 0)); // #3 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 500, 500, 1000)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 500, 0, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 500, 1000, 0)); // #1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 500, 1000, 0)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 500, 500, 1000)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 500, 0, 0)); // #3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 500, 500, 1000)); // #3 has A-D
         }
 
         /// <summary>
@@ -1390,7 +1390,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(300, 500), // #1
                 new VoronoiSite(500, 300), // #2
@@ -1422,16 +1422,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 500, 0, 1000)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 500, 0, 0)); // #1 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 500, 0, 0)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 500, 1000, 500)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 500, 0, 1000)); // #3 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 500, 1000, 500)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 500, 0, 1000)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 500, 0, 0)); // #1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 500, 0, 0)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 500, 1000, 500)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 500, 0, 1000)); // #3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 500, 1000, 500)); // #3 has A-D
         }
 
         /// <summary>
@@ -1443,7 +1443,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 700), // #1
                 new VoronoiSite(300, 500), // #2
@@ -1475,16 +1475,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 500, 1000, 1000)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 500, 0, 1000)); // #1 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 500, 0, 1000)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 500, 500, 0)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 500, 1000, 1000)); // #3 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 500, 500, 0)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 500, 1000, 1000)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 500, 0, 1000)); // #1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 500, 0, 1000)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 500, 500, 0)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 500, 1000, 1000)); // #3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 500, 500, 0)); // #3 has A-D
         }
 
         /// <summary>
@@ -1496,7 +1496,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 500), // #1
                 new VoronoiSite(500, 700), // #2
@@ -1528,16 +1528,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 500, 1000, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 500, 1000, 1000)); // #1 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 500, 1000, 1000)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 500, 0, 500)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 500, 1000, 0)); // #3 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 500, 0, 500)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 500, 1000, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 500, 1000, 1000)); // #1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 500, 1000, 1000)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 500, 0, 500)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 500, 1000, 0)); // #3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 500, 0, 500)); // #3 has A-D
         }
 
         [Test]
@@ -1545,7 +1545,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 100), // #1
                 new VoronoiSite(700, 300), // #2
@@ -1577,16 +1577,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 300, 200, 0)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 300, 800, 0)); // #1 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 300, 800, 0)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 300, 500, 1000)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 300, 200, 0)); // #3 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 300, 500, 1000)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 300, 200, 0)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 300, 800, 0)); // #1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 300, 800, 0)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 300, 500, 1000)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 300, 200, 0)); // #3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 300, 500, 1000)); // #3 has A-D
         }
 
         /// <summary>
@@ -1598,7 +1598,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(100, 500), // #1
                 new VoronoiSite(300, 300), // #2
@@ -1630,16 +1630,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 500, 0, 800)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 300, 500, 0, 200)); // #1 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 500, 0, 200)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 300, 500, 1000, 500)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 500, 0, 800)); // #3 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 300, 500, 1000, 500)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 300, 500, 0, 800)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 300, 500, 0, 200)); // #1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 300, 500, 0, 200)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 300, 500, 1000, 500)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 300, 500, 0, 800)); // #3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 300, 500, 1000, 500)); // #3 has A-D
         }
 
         /// <summary>
@@ -1651,7 +1651,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 900), // #1
                 new VoronoiSite(300, 700), // #2
@@ -1683,16 +1683,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 700, 800, 1000)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 500, 700, 200, 1000)); // #1 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 700, 200, 1000)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 500, 700, 500, 0)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 700, 800, 1000)); // #3 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 500, 700, 500, 0)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 700, 800, 1000)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 500, 700, 200, 1000)); // #1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 700, 200, 1000)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 500, 700, 500, 0)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 700, 800, 1000)); // #3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 500, 700, 500, 0)); // #3 has A-D
         }
 
         /// <summary>
@@ -1704,7 +1704,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(900, 500), // #1
                 new VoronoiSite(700, 700), // #2
@@ -1736,16 +1736,16 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 700, 500, 1000, 200)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 700, 500, 1000, 800)); // #1 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 700, 500, 1000, 800)); // #2 has A-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 700, 500, 0, 500)); // #2 has A-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 700, 500, 1000, 200)); // #3 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 700, 500, 0, 500)); // #3 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 700, 500, 1000, 200)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 700, 500, 1000, 800)); // #1 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 700, 500, 1000, 800)); // #2 has A-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 700, 500, 0, 500)); // #2 has A-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 700, 500, 1000, 200)); // #3 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 700, 500, 0, 500)); // #3 has A-D
         }
 
         [Test]
@@ -1753,7 +1753,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 500), // #1
                 new VoronoiSite(300, 500), // #2
@@ -1787,26 +1787,26 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 600, 400, 400)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 400, 600, 400)); // #1 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 400, 600, 600)); // #1 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 600, 400, 600)); // #1 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 600, 400, 400)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 600, 0, 1000)); // #2 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 400, 0, 0)); // #2 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 400, 600, 400)); // #3 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 400, 0, 0)); // #3 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 600, 400, 1000, 0)); // #3 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 600, 400, 600, 600)); // #4 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 600, 400, 1000, 0)); // #4 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 600, 600, 1000, 1000)); // #4 has D-H
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 600, 600, 400, 600)); // #5 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 400, 600, 0, 1000)); // #5 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 600, 600, 1000, 1000)); // #5 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 600, 400, 400)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 400, 600, 400)); // #1 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 400, 600, 600)); // #1 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 600, 400, 600)); // #1 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 600, 400, 400)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 600, 0, 1000)); // #2 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 400, 0, 0)); // #2 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 400, 600, 400)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 400, 0, 0)); // #3 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 600, 400, 1000, 0)); // #3 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 600, 400, 600, 600)); // #4 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 600, 400, 1000, 0)); // #4 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 600, 600, 1000, 1000)); // #4 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 600, 600, 400, 600)); // #5 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 400, 600, 0, 1000)); // #5 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 600, 600, 1000, 1000)); // #5 has D-H
         }
 
         [Test]
@@ -1814,7 +1814,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 300), // #1
                 new VoronoiSite(300, 300), // #2
@@ -1848,26 +1848,26 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 400, 400, 200)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 200, 600, 200)); // #1 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 200, 600, 400)); // #1 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 400, 400, 400)); // #1 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 400, 400, 200)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 400, 0, 800)); // #2 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 200, 200, 0)); // #2 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 200, 600, 200)); // #3 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 200, 200, 0)); // #3 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 600, 200, 800, 0)); // #3 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 600, 200, 600, 400)); // #4 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 600, 200, 800, 0)); // #4 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 600, 400, 1000, 800)); // #4 has D-H
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 600, 400, 400, 400)); // #5 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 400, 400, 0, 800)); // #5 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 600, 400, 1000, 800)); // #5 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 400, 400, 200)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 200, 600, 200)); // #1 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 200, 600, 400)); // #1 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 400, 400, 400)); // #1 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 400, 400, 200)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 400, 0, 800)); // #2 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 200, 200, 0)); // #2 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 200, 600, 200)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 200, 200, 0)); // #3 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 600, 200, 800, 0)); // #3 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 600, 200, 600, 400)); // #4 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 600, 200, 800, 0)); // #4 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 600, 400, 1000, 800)); // #4 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 600, 400, 400, 400)); // #5 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 400, 400, 0, 800)); // #5 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 600, 400, 1000, 800)); // #5 has D-H
         }
 
         /// <summary>
@@ -1879,7 +1879,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(300, 500), // #1
                 new VoronoiSite(300, 700), // #2
@@ -1913,26 +1913,26 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 600, 200, 600)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 200, 600, 200, 400)); // #1 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 200, 400, 400, 400)); // #1 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 400, 400, 600)); // #1 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 600, 200, 600)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 400, 600, 800, 1000)); // #2 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 200, 600, 0, 800)); // #2 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 200, 600, 200, 400)); // #3 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 200, 600, 0, 800)); // #3 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 200, 400, 0, 200)); // #3 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 200, 400, 400, 400)); // #4 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 200, 400, 0, 200)); // #4 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 400, 400, 800, 0)); // #4 has D-H
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 400, 400, 400, 600)); // #5 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 400, 600, 800, 1000)); // #5 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 400, 400, 800, 0)); // #5 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 600, 200, 600)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 200, 600, 200, 400)); // #1 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 200, 400, 400, 400)); // #1 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 400, 400, 600)); // #1 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 600, 200, 600)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 400, 600, 800, 1000)); // #2 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 200, 600, 0, 800)); // #2 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 200, 600, 200, 400)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 200, 600, 0, 800)); // #3 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 200, 400, 0, 200)); // #3 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 200, 400, 400, 400)); // #4 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 200, 400, 0, 200)); // #4 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 400, 400, 800, 0)); // #4 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 400, 400, 400, 600)); // #5 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 400, 600, 800, 1000)); // #5 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 400, 400, 800, 0)); // #5 has D-H
         }
 
         /// <summary>
@@ -1944,7 +1944,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(500, 700), // #1
                 new VoronoiSite(700, 700), // #2
@@ -1978,26 +1978,26 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 600, 600, 800)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 800, 400, 800)); // #1 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 800, 400, 600)); // #1 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 400, 600, 600, 600)); // #1 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 600, 600, 800)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 600, 1000, 200)); // #2 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 800, 800, 1000)); // #2 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 600, 800, 400, 800)); // #3 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 600, 800, 800, 1000)); // #3 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 400, 800, 200, 1000)); // #3 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 400, 800, 400, 600)); // #4 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 400, 800, 200, 1000)); // #4 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 400, 600, 0, 200)); // #4 has D-H
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 400, 600, 600, 600)); // #5 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 600, 600, 1000, 200)); // #5 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 400, 600, 0, 200)); // #5 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 600, 600, 800)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 800, 400, 800)); // #1 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 800, 400, 600)); // #1 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 400, 600, 600, 600)); // #1 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 600, 600, 800)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 600, 1000, 200)); // #2 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 800, 800, 1000)); // #2 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 600, 800, 400, 800)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 600, 800, 800, 1000)); // #3 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 400, 800, 200, 1000)); // #3 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 400, 800, 400, 600)); // #4 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 400, 800, 200, 1000)); // #4 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 400, 600, 0, 200)); // #4 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 400, 600, 600, 600)); // #5 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 600, 600, 1000, 200)); // #5 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 400, 600, 0, 200)); // #5 has D-H
         }
 
         /// <summary>
@@ -2009,7 +2009,7 @@ namespace UnitTests
         {
             // Arrange
 
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> sites = new List<VoronoiSite>
             {
                 new VoronoiSite(700, 500), // #1
                 new VoronoiSite(700, 300), // #2
@@ -2043,26 +2043,26 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(points, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 400, 800, 400)); // #1 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 800, 400, 800, 600)); // #1 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 800, 600, 600, 600)); // #1 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[0], 600, 600, 600, 400)); // #1 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 400, 800, 400)); // #2 has A-B
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 600, 400, 200, 0)); // #2 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[1], 800, 400, 1000, 200)); // #2 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 800, 400, 800, 600)); // #3 has B-C
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 800, 400, 1000, 200)); // #3 has B-F
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[2], 800, 600, 1000, 800)); // #3 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 800, 600, 600, 600)); // #4 has C-D
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 800, 600, 1000, 800)); // #4 has C-G
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[3], 600, 600, 200, 1000)); // #4 has D-H
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 600, 600, 600, 400)); // #5 has D-A
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 600, 400, 200, 0)); // #5 has A-E
-            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[4], 600, 600, 200, 1000)); // #5 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 400, 800, 400)); // #1 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 800, 400, 800, 600)); // #1 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 800, 600, 600, 600)); // #1 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[0], 600, 600, 600, 400)); // #1 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 400, 800, 400)); // #2 has A-B
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 600, 400, 200, 0)); // #2 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[1], 800, 400, 1000, 200)); // #2 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 800, 400, 800, 600)); // #3 has B-C
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 800, 400, 1000, 200)); // #3 has B-F
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[2], 800, 600, 1000, 800)); // #3 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 800, 600, 600, 600)); // #4 has C-D
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 800, 600, 1000, 800)); // #4 has C-G
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[3], 600, 600, 200, 1000)); // #4 has D-H
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 600, 600, 600, 400)); // #5 has D-A
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 600, 400, 200, 0)); // #5 has A-E
+            Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[4], 600, 600, 200, 1000)); // #5 has D-H
         }
 
     }

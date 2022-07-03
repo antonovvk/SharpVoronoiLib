@@ -26,6 +26,12 @@ namespace UnitTests
                    );
         }
 
+        internal static bool SiteHasPoint(VoronoiSite site, int x, int y)
+        {
+            return site.Points != null &&
+                   site.Points.Any(p => p.X.ApproxEqual(x) && p.Y.ApproxEqual(y));
+        }
+
         internal static bool EdgeHasSite(VoronoiEdge edge, int x, int y)
         {
             return

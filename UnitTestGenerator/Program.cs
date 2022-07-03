@@ -384,7 +384,8 @@ namespace UnitTestGenerator
             {
                 ("GeneratedTest_Edges", TestPurpose.AssertEdges),
                 ("GeneratedTest_SiteEdges", TestPurpose.AssertSiteEdges),
-                ("GeneratedTest_EdgeSites", TestPurpose.AssertEdgeSites)
+                ("GeneratedTest_EdgeSites", TestPurpose.AssertEdgeSites),
+                ("GeneratedTest_SitePoints", TestPurpose.AssertSitePoints)
             };
 
             for (int i = 0; i < 2; i++)
@@ -625,7 +626,7 @@ namespace UnitTestGenerator
                     stringBuilder.AppendPaddedLine(3, @"// Arrange");
                     stringBuilder.AppendLine();
 
-                    stringBuilder.AppendPaddedLine(3, @"List<VoronoiSite> points = new List<VoronoiSite>");
+                    stringBuilder.AppendPaddedLine(3, @"List<VoronoiSite> sites = new List<VoronoiSite>");
                     stringBuilder.AppendPaddedLine(3, @"{");
                     List<string> siteDefinitions = BuildSiteDefinitions(test.Sites);
                     foreach (string siteDefinition in siteDefinitions)
@@ -641,9 +642,9 @@ namespace UnitTestGenerator
                     stringBuilder.AppendPaddedLine(3, @"// Act");
                     stringBuilder.AppendLine();
                     if (NeedEdgesFor(purpose))
-                        stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @").ToList();");
+                        stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @").ToList();");
                     else
-                        stringBuilder.AppendPaddedLine(3, @"FortunesAlgorithm.RunOnce(points, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @");");
+                        stringBuilder.AppendPaddedLine(3, @"FortunesAlgorithm.RunOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @");");
                     stringBuilder.AppendLine();
 
                     stringBuilder.AppendPaddedLine(3, @"// Assert");
@@ -671,6 +672,13 @@ namespace UnitTestGenerator
                             List<string> edgeSiteAssertions = BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic);
                             foreach (string edgeSiteAssertion in edgeSiteAssertions)
                                 stringBuilder.AppendPaddedLine(3, edgeSiteAssertion);
+                            break;
+
+                        case TestPurpose.AssertSitePoints:
+                            stringBuilder.AppendLine();
+                            List<string> sitePointsAssertions = BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic);
+                            foreach (string sitePointAssertion in sitePointsAssertions)
+                                stringBuilder.AppendPaddedLine(3, sitePointAssertion);
                             break;
 
                         default:
@@ -746,6 +754,7 @@ namespace UnitTestGenerator
                         return true;
 
                     case TestPurpose.AssertSiteEdges:
+                    case TestPurpose.AssertSitePoints:
                         return false;
 
                     default:
@@ -775,6 +784,11 @@ namespace UnitTestGenerator
                     case TestPurpose.AssertEdgeSites:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiEdge) + @"""/>`s have expected <see cref=""" + nameof(VoronoiSite) + @"""/>`s");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiEdge) + @"." + nameof(VoronoiEdge.Left) + @"""/> and <see cref=""" + nameof(VoronoiEdge) + @"." + nameof(VoronoiEdge.Right) + @"""/> are the expected sites.");
+                        break;
+
+                    case TestPurpose.AssertSitePoints:
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected <see cref=""" + nameof(VoronoiPoint) + @"""/>`s");
+                        strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Points) + @"""/> contains the expected points.");
                         break;
 
                     default:
@@ -853,6 +867,29 @@ namespace UnitTestGenerator
                 return strings;
             }
 
+            private List<string> BuildSitePointsAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic)
+            {
+                List<string> strings = new List<string>();
+
+                foreach (Site site in sites.OrderBy(s => s.Id))
+                {
+                    IEnumerable<Point> points = edges
+                                                .Where(e =>
+                                                           EdgeMatchesBorderLogic(e, borderLogic) &&
+                                                           e.EdgeSites.Contains(site))
+                                                .SelectMany(e => e.Points())
+                                                .Distinct() // edges connect at points, so there's repeats
+                                                .OrderBy(p => p.Id);
+
+                    foreach (Point point in points)
+                    {
+                        strings.Add(@"Assert.IsTrue(CommonTestUtilities.SiteHasPoint(sites[" + sites.IndexOf(site) + @"], " + point.X + @", " + point.Y + @")); // #" + site.Id + " has " + (char)point.Id + @"");
+                    }
+                }
+
+                return strings;
+            }
+
             private List<string> BuildEdgeSiteAssertions(List<Edge> edges, List<Site> allSites, TestBorderLogic borderLogic)
             {
                 List<string> strings = new List<string>();
@@ -867,7 +904,7 @@ namespace UnitTestGenerator
 
                     foreach (Edge siteEdge in siteEdges)
                     {
-                        strings.Add(@"Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[" + allSites.IndexOf(site) + @"], " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
+                        strings.Add(@"Assert.IsTrue(CommonTestUtilities.SiteHasEdge(sites[" + allSites.IndexOf(site) + @"], " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
                     }
                 }
 
@@ -1259,6 +1296,13 @@ namespace UnitTestGenerator
                     EdgeSites = edgeSites;
                     Border = border;
                 }
+
+                
+                public IEnumerable<Point> Points()
+                {
+                    yield return FromPoint;
+                    yield return ToPoint;
+                }
             }
         }
 
@@ -1274,7 +1318,8 @@ namespace UnitTestGenerator
         {
             AssertEdges,
             AssertSiteEdges,
-            AssertEdgeSites
+            AssertEdgeSites,
+            AssertSitePoints
         }
 
         private enum TestBorderLogic
