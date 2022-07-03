@@ -13,13 +13,13 @@ namespace UnitTestGenerator
         public static void Main()
         {
             TestGenerator testGenerator = new TestGenerator(
-                0, 0, 1000, 1000, 
+                0, 0, 1000, 1000,
                 50, 100,
                 20, 50
             );
 
             testGenerator.AddTest("OnePointInMiddle", @"
-                · · · · · · · · · · · 10
+                X · · · · · · · · · Z 10
                 · · · · · · · · · · · 9
                 · · · · · · · · · · · 8
                 · · · · · · · · · · · 7
@@ -29,12 +29,16 @@ namespace UnitTestGenerator
                 · · · · · · · · · · · 3
                 · · · · · · · · · · · 2
                 · · · · · · · · · · · 1
-                · · · · · · · · · · · 0
+                Y · · · · · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
+                X-Y: 1
+                Y-W: 1
+                W-Z: 1
+                Z-X: 1
             ");
-            
+
             testGenerator.AddTest("TwoPointsVerticalAroundMiddle", @"
-                · · · · · · · · · · · 10
+                X · · · · · · · · · Z 10
                 · · · · · · · · · · · 9
                 · · · · · · · · · · · 8
                 · · · · · 1 · · · · · 7
@@ -44,13 +48,19 @@ namespace UnitTestGenerator
                 · · · · · 2 · · · · · 3
                 · · · · · · · · · · · 2
                 · · · · · · · · · · · 1
-                · · · · · · · · · · · 0
+                Y · · · · · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
+                X-A: 1
+                A-Y: 2
+                Y-W: 2
+                W-B: 2
+                B-Z: 1
+                Z-X: 1
             ", Repeat.Rotate90);
-            
+
             testGenerator.AddTest("TwoPointsVerticalOffsetFromMiddle", @"
-                · · · · · · · · · · · 10
+                X · · · · · · · · · Z 10
                 · · · · · 1 · · · · · 9
                 · · · · · · · · · · · 8
                 A · · · · · · · · · B 7
@@ -60,13 +70,19 @@ namespace UnitTestGenerator
                 · · · · · · · · · · · 3
                 · · · · · · · · · · · 2
                 · · · · · · · · · · · 1
-                · · · · · · · · · · · 0
+                Y · · · · · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
+                X-A: 1
+                A-Y: 2
+                Y-W: 2
+                W-B: 2
+                B-Z: 1
+                Z-X: 1
             ", Repeat.Rotate90);
-            
+
             testGenerator.AddTest("ThreeConcentricPointsVerticalAroundMiddle", @"
-                · · · · · · · · · · · 10
+                X · · · · · · · · · Z 10
                 · · · · · 1 · · · · · 9
                 · · · · · · · · · · · 8
                 A · · · · · · · · · B 7
@@ -76,14 +92,22 @@ namespace UnitTestGenerator
                 C · · · · · · · · · D 3
                 · · · · · · · · · · · 2
                 · · · · · 3 · · · · · 1
-                · · · · · · · · · · · 0
+                Y · · · · · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
                 C-D: 2,3
+                X-A: 1
+                A-C: 2
+                C-Y: 3
+                Y-W: 3
+                W-D: 3
+                D-B: 2
+                B-Z: 1
+                Z-X: 1
             ", Repeat.Rotate90);
-            
+
             testGenerator.AddTest("FourConcentricPointsVerticalAroundMiddle", @"
-                · · · · · · · · · · · 10
+                X · · · · · · · · · Z 10
                 · · · · · · · · · · · 9
                 · · · · · 1 · · · · · 8
                 A · · · · · · · · · B 7
@@ -93,15 +117,25 @@ namespace UnitTestGenerator
                 E · · · · · · · · · F 3
                 · · · · · 4 · · · · · 2
                 · · · · · · · · · · · 1
-                · · · · · · · · · · · 0
+                Y · · · · · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
                 C-D: 2,3
                 E-F: 3,4
+                X-A: 1
+                A-C: 2
+                C-E: 3
+                E-Y: 4
+                Y-W: 4
+                W-F: 4
+                F-D: 3
+                D-B: 2
+                B-Z: 1
+                Z-X: 1
             ", Repeat.Rotate90);
-            
+
             testGenerator.AddTest("TwoDiagonalPointsAroundMiddle", @"
-                · · · · · · · · · · B 10
+                X · · · · · · · · · B 10
                 · · · · · · · · · · · 9
                 · · · · · · · · · · · 8
                 · · · 1 · · · · · · · 7
@@ -111,13 +145,17 @@ namespace UnitTestGenerator
                 · · · · · · · 2 · · · 3
                 · · · · · · · · · · · 2
                 · · · · · · · · · · · 1
-                A · · · · · · · · · · 0
+                A · · · · · · · · · Y 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
+                X-A: 1
+                A-Y: 2
+                Y-B: 2
+                B-X: 1
             ", Repeat.Rotate90);
-            
+
             testGenerator.AddTest("TwoDiagonalPointsOffsetFromMiddle", @"
-                · · · · · · · · B · · 10
+                X · · · · · · · B · Z 10
                 · · · · · · · · · · · 9
                 · · 1 · · · · · · · · 8
                 · · · · · · · · · · · 7
@@ -127,13 +165,19 @@ namespace UnitTestGenerator
                 · · · · · · · · · · · 3
                 A · · · · · · · · · · 2
                 · · · · · · · · · · · 1
-                · · · · · · · · · · · 0
+                Y · · · · · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
+                X-A: 1
+                A-Y: 2
+                Y-W: 2
+                W-Z: 2
+                Z-B: 2
+                B-X: 1
             ", Repeat.RotateAll);
-            
+
             testGenerator.AddTest("ThreeConcentricPointsDiagonalAroundMiddle", @"
-                · · · · · · · D · · · 10
+                X · · · · · · D · · Z 10
                 · · · · · · · · · · · 9
                 · · 1 · · · · · · · · 8
                 · · · · · · · · · · C 7
@@ -143,14 +187,22 @@ namespace UnitTestGenerator
                 A · · · · · · · · · · 3
                 · · · · · · · · 3 · · 2
                 · · · · · · · · · · · 1
-                · · · B · · · · · · · 0
+                Y · · B · · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-D: 1,2
                 B-C: 2,3
+                X-A: 1
+                A-Y: 2
+                Y-B: 2
+                B-W: 3
+                W-C: 3
+                C-Z: 2
+                Z-D: 2
+                D-X: 1
             ", Repeat.Rotate90);
-            
+
             testGenerator.AddTest("ThreeConcentricPointsDiagonalOffsetFromMiddle", @"
-                · · · · · · D · · · C 10
+                X · · · · · D · · · C 10
                 · · · · · · · · · · · 9
                 · · 1 · · · · · · · · 8
                 · · · · · · · · · · · 7
@@ -160,14 +212,20 @@ namespace UnitTestGenerator
                 · · · · · · · · · · · 3
                 · · · · · · · · · · · 2
                 · · · · · · · · · · · 1
-                B · · · · · · · · · · 0
+                B · · · · · · · · · Y 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-D: 1,2
                 B-C: 2,3
+                X-A: 1
+                A-B: 2
+                B-Y: 3
+                Y-C: 3
+                C-D: 2
+                D-X: 1
             ", Repeat.RotateAll);
-            
+
             testGenerator.AddTest("FourConcentricPointsDiagonalAroundMiddle", @"
-                · · · · · · F · · · E 10
+                X · · · · · F · · · E 10
                 · · · · · · · · · · · 9
                 · · 1 · · · · · · · · 8
                 · · · · · · · · · · · 7
@@ -177,15 +235,23 @@ namespace UnitTestGenerator
                 · · · · · · · · · · · 3
                 · · · · · · · · 4 · · 2
                 · · · · · · · · · · · 1
-                B · · · C · · · · · · 0
+                B · · · C · · · · · Y 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-F: 1,2
                 B-E: 2,3
                 C-D: 3,4
+                X-A: 1
+                A-B: 2
+                B-C: 3
+                C-Y: 4
+                Y-D: 4
+                D-E: 3
+                E-F: 2
+                F-X: 1
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsCorner", @"
-                · · · · · · · · · · D 10
+                X · · · · · · · · · D 10
                 · · · · · · · · · · · 9
                 · · · · · · · · · · · 8
                 · · · · · · · · · · · 7
@@ -195,15 +261,21 @@ namespace UnitTestGenerator
                 · · · 2 · 3 · · · · · 3
                 · · · · · · · · · · · 2
                 · · · · · · · · · · · 1
-                · · · · C · · · · · · 0
+                Y · · · C · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
                 A-C: 2,3
                 A-D: 1,3
+                X-B: 1
+                B-Y: 2
+                Y-C: 2
+                C-W: 3
+                W-D: 3
+                D-X: 1
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("ThreePointsInAWedgeAroundMiddleTowardsSide", @"
-                · · · · · D · · · · · 10
+                X · · · · D · · · · Y 10
                 · · · · · · · · · · · 9
                 · · · · · · · · · · · 8
                 · · · · · · · · · · · 7
@@ -218,10 +290,15 @@ namespace UnitTestGenerator
                 A-B: 1,3
                 A-C: 1,2
                 A-D: 2,3
+                X-B: 3 
+                B-C: 1 
+                C-Y: 2 
+                Y-D: 2 
+                D-X: 3 
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("ThreePointsInAWedgeOffsetFromMiddleTowardsSide", @"
-                · · · · · D · · · · · 10
+                X · · · · D · · · · Z 10
                 · · · · · · · · · · · 9
                 · · · · · · · · · · · 8
                 · · · · · · · · · · · 7
@@ -231,11 +308,18 @@ namespace UnitTestGenerator
                 · · · 3 · A · 2 · · · 3
                 · · · · · · · · · · · 2
                 · · · · · 1 · · · · · 1
-                · · B · · · · · C · · 0
+                Y · B · · · · · C · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,3
                 A-C: 1,2
                 A-D: 2,3
+                X-Y: 3 
+                Y-B: 3 
+                B-C: 1 
+                C-W: 2 
+                W-Z: 2 
+                Z-D: 2 
+                D-X: 3 
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("FourPointsSurroundingAPointInMiddle", @"
@@ -259,10 +343,14 @@ namespace UnitTestGenerator
                 B-F: 2,3
                 C-G: 3,4
                 D-H: 4,5
+                E-F: 2
+                F-G: 3
+                G-H: 4
+                H-E: 5
             ");
 
             testGenerator.AddTest("FourPointsSurroundingAPointOffsetFromMiddle", @"
-                · · · · · · · · · · · 10
+                X · · · · · · · · · Z 10
                 · · · · · · · · · · · 9
                 E · · · · · · · · · H 8
                 · · · · · · · · · · · 7
@@ -272,7 +360,7 @@ namespace UnitTestGenerator
                 · · · 2 · 1 · 4 · · · 3
                 · · · · B · C · · · · 2
                 · · · · · 3 · · · · · 1
-                · · F · · · · · G · · 0
+                Y · F · · · · · G · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
                 B-C: 1,3
@@ -282,6 +370,14 @@ namespace UnitTestGenerator
                 B-F: 2,3
                 C-G: 3,4
                 D-H: 4,5
+                X-E: 5
+                E-Y: 2
+                Y-F: 2
+                F-G: 3
+                G-W: 4
+                W-H: 4
+                H-Z: 5
+                Z-X: 5
             ", Repeat.RotateAll);
 
             List<(string, TestPurpose)> variants = new List<(string, TestPurpose)>()
@@ -291,14 +387,21 @@ namespace UnitTestGenerator
                 ("GeneratedTest_EdgeSites", TestPurpose.AssertEdgeSites)
             };
 
-            foreach ((string testName, TestPurpose testPurpose) in variants)
+            for (int i = 0; i < 2; i++)
             {
-                string output = testGenerator.GenerateCode(testName, testPurpose);
+                TestBorderLogic borderLogic = i == 0 ? TestBorderLogic.UnclosedBorders : TestBorderLogic.ClosedBorders;
+                    
+                foreach ((string testName, TestPurpose testPurpose) in variants)
+                {
+                    string fullTestName = testName + "_" + (borderLogic == TestBorderLogic.UnclosedBorders ? "OpenBorders" : "ClosedBorders");
+                    
+                    string output = testGenerator.GenerateCode(fullTestName, testPurpose, borderLogic);
 
-                File.WriteAllText("../../../../UnitTests/Fortune/AutoGenerated/" + testName + ".cs", output);
-                
-                //Console.OutputEncoding = Encoding.UTF8;
-                //Console.WriteLine(output);
+                    File.WriteAllText("../../../../UnitTests/Fortune/AutoGenerated/" + fullTestName + ".cs", output);
+
+                    //Console.OutputEncoding = Encoding.UTF8;
+                    //Console.WriteLine(output);
+                }
             }
         }
 
@@ -321,8 +424,8 @@ namespace UnitTestGenerator
             private int _horPreviewSteps;
             private int _verPreviewSteps;
 
-            
-            private List<Test> tests = new List<Test>();
+
+            private readonly List<Test> tests = new List<Test>();
 
 
             public TestGenerator(int minX, int minY, int maxX, int maxY, int horStepSize, int verStepSize, int horPreviewStepSize, int verPreviewStepSize)
@@ -336,31 +439,31 @@ namespace UnitTestGenerator
                 _horPreviewStepSize = horPreviewStepSize;
                 _verPreviewStepSize = verPreviewStepSize;
 
-                _width = _maxX - _minX; 
+                _width = _maxX - _minX;
                 _height = _maxY - _minY;
                 _horSteps = _width / _horStepSize + 1;
                 _verSteps = _height / _verStepSize + 1;
             }
 
-        
+
             public void AddTest(string name, string layout, params Repeat[] repeats)
             {
                 if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException();
                 if (string.IsNullOrWhiteSpace(layout)) throw new ArgumentException();
                 if (tests.Any(t => t.Name == name)) throw new ArgumentException();
 
-                
+
                 string[] lines = layout.Split(Environment.NewLine, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
 
                 if (lines.Length < _verSteps) throw new ArgumentException();
 
                 List<Site> sites = new List<Site>();
                 List<Point> points = new List<Point>();
-                
+
                 for (int y = 0; y < _verSteps; y++)
                 {
                     string line = lines[_verSteps - y - 1].Trim();
-                    
+
                     if (line.Length < _horSteps) throw new ArgumentException();
 
                     for (int x = 0; x < _horSteps; x++)
@@ -372,21 +475,21 @@ namespace UnitTestGenerator
                             case '·' or ' ':
                                 // Filler
                                 break;
-                            
+
                             case >= '0' and <= '9':
                                 sites.Add(new Site(x * _horStepSize, y * _verStepSize, int.Parse(symbol.ToString())));
                                 break;
-                            
+
                             case >= 'A' and <= 'Z':
-                                points.Add(new Point(x * _horStepSize, y * _verStepSize, symbol));
+                                points.Add(new Point(x * _horStepSize, y * _verStepSize, symbol, symbol >= 'W'));
                                 break;
-                            
+
                             default:
                                 throw new ArgumentException();
                         }
                     }
                 }
-                
+
                 sites.Sort((s1, s2) => s1.Id.CompareTo(s2.Id));
 
                 List<Edge> edges = new List<Edge>();
@@ -401,29 +504,29 @@ namespace UnitTestGenerator
                     // "A-B: 1,2"
 
                     if (line.Length < 3) throw new ArgumentException();
-                    
+
                     char fromIdSymbol = line[0];
                     if (fromIdSymbol < 'A' || fromIdSymbol > 'Z') throw new ArgumentException();
 
                     int fromId = fromIdSymbol;
                     Point? fromPoint = points.FirstOrDefault(p => p.Id == fromId);
-                    
+
                     if (fromPoint == null) throw new ArgumentException();
-                    
+
                     char toIdSymbol = line[2];
                     if (toIdSymbol < 'A' || toIdSymbol > 'Z') throw new ArgumentException();
 
                     int toId = toIdSymbol;
                     Point? toPoint = points.FirstOrDefault(p => p.Id == toId);
-                    
+
                     if (toPoint == null) throw new ArgumentException();
-                    
+
                     if (line[1] != '-') throw new ArgumentException();
 
                     if (fromPoint == toPoint) throw new ArgumentException();
 
                     List<Site> edgeSites = new List<Site>();
-                    
+
                     if (line.Length > 3)
                     {
                         if (line.Length < 6) throw new ArgumentException();
@@ -434,31 +537,35 @@ namespace UnitTestGenerator
                         string siteString = line.Substring(5);
 
                         string[] siteSymbolStrings = siteString.Split(",");
+                        
+                        if (siteSymbolStrings.Length > 2) throw new ArgumentException();
 
                         foreach (string siteSymbolString in siteSymbolStrings)
                         {
                             if (siteSymbolString.Length != 1) throw new ArgumentException();
 
                             char siteSymbol = siteSymbolString[0];
-                            
+
                             if (siteSymbol < '0' || siteSymbol > '9') throw new ArgumentException();
 
                             int siteId = int.Parse(siteSymbol.ToString());
                             Site? site = sites.FirstOrDefault(p => p.Id == siteId);
-                    
+
                             if (site == null) throw new ArgumentException();
-                            
+
                             if (edgeSites.Contains(site)) throw new ArgumentException();
-                            
+
                             edgeSites.Add(site);
                         }
                     }
+
+                    bool border = edgeSites.Count == 1; // any other edge has 2 sites by definition
                     
-                    edges.Add(new Edge(fromPoint, toPoint, edgeSites));
+                    edges.Add(new Edge(fromPoint, toPoint, edgeSites, border));
                 }
 
                 Test newTest = new Test(name, sites, points, edges);
-                
+
                 tests.Add(newTest);
 
                 foreach (Repeat repeat in repeats)
@@ -469,21 +576,21 @@ namespace UnitTestGenerator
                             if (_width != _height) throw new InvalidOperationException();
                             tests.Add(new RepeatedTest(newTest, Repeat.Rotate90, _minX, _minY, _maxX, _maxY));
                             break;
-                        
+
                         case Repeat.RotateAll:
                             if (_width != _height) throw new InvalidOperationException();
                             tests.Add(new RepeatedTest(newTest, Repeat.Rotate90, _minX, _minY, _maxX, _maxY));
                             tests.Add(new RepeatedTest(newTest, Repeat.Rotate180, _minX, _minY, _maxX, _maxY));
                             tests.Add(new RepeatedTest(newTest, Repeat.Rotate270, _minX, _minY, _maxX, _maxY));
                             break;
-                        
+
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
                 }
             }
 
-            public string GenerateCode(string className, TestPurpose purpose)
+            public string GenerateCode(string className, TestPurpose purpose, TestBorderLogic borderLogic)
             {
                 StringBuilder stringBuilder = new StringBuilder();
 
@@ -502,7 +609,7 @@ namespace UnitTestGenerator
                 stringBuilder.AppendPaddedLine(1, @"[TestFixture]");
                 stringBuilder.AppendPaddedLine(1, @"public class " + className);
                 stringBuilder.AppendPaddedLine(1, @"{");
-                
+
                 foreach (Test test in tests)
                 {
                     if (test is RepeatedTest repeatedTest)
@@ -525,8 +632,8 @@ namespace UnitTestGenerator
                         stringBuilder.AppendPaddedLine(4, siteDefinition);
                     stringBuilder.AppendPaddedLine(3, @"};");
                     stringBuilder.AppendLine();
-                    
-                    List<string> visualLayout = BuildVisualLayout(test);
+
+                    List<string> visualLayout = BuildVisualLayout(test, borderLogic);
                     foreach (string visualLayoutString in visualLayout)
                         stringBuilder.AppendPaddedLine(3, visualLayoutString);
                     stringBuilder.AppendLine();
@@ -534,50 +641,100 @@ namespace UnitTestGenerator
                     stringBuilder.AppendPaddedLine(3, @"// Act");
                     stringBuilder.AppendLine();
                     if (NeedEdgesFor(purpose))
-                        stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();");
+                        stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @").ToList();");
                     else
-                        stringBuilder.AppendPaddedLine(3, @"FortunesAlgorithm.RunOnce(points, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", BorderEdgeGeneration.DoNotMakeBorderEdges);");
+                        stringBuilder.AppendPaddedLine(3, @"FortunesAlgorithm.RunOnce(points, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @");");
                     stringBuilder.AppendLine();
-                    
+
                     stringBuilder.AppendPaddedLine(3, @"// Assert");
 
                     switch (purpose)
                     {
                         case TestPurpose.AssertEdges:
                             stringBuilder.AppendLine();
-                            stringBuilder.AppendPaddedLine(3, @"Assert.AreEqual(" + test.Edges.Count + @", edges.Count);");
-                    
-                            List<string> edgeAssertions = BuildEdgeAssertions(test.Edges);
+                            stringBuilder.AppendPaddedLine(3, @"Assert.AreEqual(" + CountExpectedRelevantEdges(test.Edges, borderLogic) + @", edges.Count);");
+
+                            List<string> edgeAssertions = BuildEdgeAssertions(test.Edges, borderLogic);
                             foreach (string edgeAssertion in edgeAssertions)
                                 stringBuilder.AppendPaddedLine(3, edgeAssertion);
                             break;
-                        
+
                         case TestPurpose.AssertSiteEdges:
                             stringBuilder.AppendLine();
-                            List<string> siteEdgeAssertions = BuildEdgeSiteAssertions(test.Edges, test.Sites);
+                            List<string> siteEdgeAssertions = BuildEdgeSiteAssertions(test.Edges, test.Sites, borderLogic);
                             foreach (string siteEdgeAssertion in siteEdgeAssertions)
                                 stringBuilder.AppendPaddedLine(3, siteEdgeAssertion);
                             break;
-                        
+
                         case TestPurpose.AssertEdgeSites:
                             stringBuilder.AppendLine();
-                            List<string> edgeSiteAssertions = BuildSiteEdgeAssertions(test.Edges, test.Sites);
+                            List<string> edgeSiteAssertions = BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic);
                             foreach (string edgeSiteAssertion in edgeSiteAssertions)
                                 stringBuilder.AppendPaddedLine(3, edgeSiteAssertion);
                             break;
-                        
+
                         default:
                             throw new ArgumentOutOfRangeException(nameof(purpose), purpose, null);
                     }
-                    
+
                     stringBuilder.AppendPaddedLine(2, @"}");
                     stringBuilder.AppendLine();
                 }
 
                 stringBuilder.AppendPaddedLine(1, @"}");
                 stringBuilder.AppendLine(@"}");
-                
+
                 return stringBuilder.ToString();
+            }
+
+            private bool EdgeMatchesBorderLogic(Edge edge, TestBorderLogic borderLogic)
+            {
+                switch (borderLogic)
+                {
+                    case TestBorderLogic.UnclosedBorders:
+                        return !edge.Border;
+                    
+                    case TestBorderLogic.ClosedBorders:
+                        return true;
+                    
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);
+                }
+            }
+
+            private bool PointMatchesBorderLogic(Point point, TestBorderLogic borderLogic)
+            {
+                switch (borderLogic)
+                {
+                    case TestBorderLogic.UnclosedBorders:
+                        return !point.Corner;
+                    
+                    case TestBorderLogic.ClosedBorders:
+                        return true;
+                    
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);
+                }
+            }
+
+            private int CountExpectedRelevantEdges(List<Edge> edges, TestBorderLogic borderLogic)
+            {
+                return edges.Count(e => EdgeMatchesBorderLogic(e, borderLogic));
+            }
+
+            private string BorderLogicToRealEnum(TestBorderLogic borderLogic)
+            {
+                switch (borderLogic)
+                {
+                    case TestBorderLogic.UnclosedBorders:
+                        return nameof(BorderEdgeGeneration) + "." + nameof(BorderEdgeGeneration.DoNotMakeBorderEdges);
+                    
+                    case TestBorderLogic.ClosedBorders:
+                        return nameof(BorderEdgeGeneration) + "." + nameof(BorderEdgeGeneration.MakeBorderEdges);
+                    
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);
+                }
             }
 
             private bool NeedEdgesFor(TestPurpose purpose)
@@ -587,10 +744,10 @@ namespace UnitTestGenerator
                     case TestPurpose.AssertEdges:
                     case TestPurpose.AssertEdgeSites:
                         return true;
-                    
+
                     case TestPurpose.AssertSiteEdges:
                         return false;
-                    
+
                     default:
                         throw new ArgumentOutOfRangeException(nameof(purpose), purpose, null);
                 }
@@ -602,28 +759,28 @@ namespace UnitTestGenerator
 
                 strings.Add(@"/// <summary>");
                 strings.Add(@"/// This is an AUTO-GENERATED test class from UnitTestGenerator.");
-                
+
                 switch (purpose)
                 {
                     case TestPurpose.AssertEdges:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiEdge) + @"""/>`s are returned as expected");
                         strings.Add(@"/// Specifically, that the result of <see cref=""" + nameof(FortunesAlgorithm) + @"." + nameof(FortunesAlgorithm.Run) + @"""/>() contains the expected edges.");
                         break;
-                    
+
                     case TestPurpose.AssertSiteEdges:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected <see cref=""" + nameof(VoronoiEdge) + @"""/>`s");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Cell) + @"""/> contains the expected edges.");
                         break;
-                    
+
                     case TestPurpose.AssertEdgeSites:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiEdge) + @"""/>`s have expected <see cref=""" + nameof(VoronoiSite) + @"""/>`s");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiEdge) + @"." + nameof(VoronoiEdge.Left) + @"""/> and <see cref=""" + nameof(VoronoiEdge) + @"." + nameof(VoronoiEdge.Right) + @"""/> are the expected sites.");
                         break;
-                    
+
                     default:
                         throw new ArgumentOutOfRangeException(nameof(purpose), purpose, null);
                 }
-                
+
                 strings.Add(@"/// </summary>");
 
                 return strings;
@@ -645,13 +802,13 @@ namespace UnitTestGenerator
             {
                 switch (repeat)
                 {
-                    case Repeat.Rotate90: return "rotated 90° around the center of the boundary";
+                    case Repeat.Rotate90:  return "rotated 90° around the center of the boundary";
                     case Repeat.Rotate180: return "rotated 180° around the center of the boundary";
                     case Repeat.Rotate270: return "rotated 270° around the center of the boundary";
-                    
+
                     case Repeat.RotateAll:
                         throw new InvalidOperationException();
-                    
+
                     default:
                         throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                 }
@@ -660,7 +817,7 @@ namespace UnitTestGenerator
             private List<string> BuildSiteDefinitions(List<Site> sites)
             {
                 List<string> strings = new List<string>();
-                
+
                 foreach (Site site in sites)
                 {
                     strings.Add(@"new VoronoiSite(" + site.X + @", " + site.Y + @"), // #" + site.Id);
@@ -669,27 +826,26 @@ namespace UnitTestGenerator
                 return strings;
             }
 
-            private List<string> BuildEdgeAssertions(List<Edge> edges)
+            private List<string> BuildEdgeAssertions(List<Edge> edges, TestBorderLogic borderLogic)
             {
                 List<string> strings = new List<string>();
-                
-                foreach (Edge edge in edges)
+
+                foreach (Edge edge in edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)))
                 {
-                    strings.Add(@"Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // "+(char)edge.FromPoint.Id+@"-"+(char)edge.ToPoint.Id);
+                    strings.Add(@"Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
                 }
 
                 return strings;
             }
 
-            private List<string> BuildSiteEdgeAssertions(List<Edge> edges, List<Site> allSites)
+            private List<string> BuildSiteEdgeAssertions(List<Edge> edges, List<Site> allSites, TestBorderLogic borderLogic)
             {
                 List<string> strings = new List<string>();
 
-                foreach (Edge edge in edges)
+                foreach (Edge edge in edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)))
                 {
                     foreach (Site site in edge.EdgeSites)
                     {
-                        
                         strings.Add(@"Assert.IsTrue(CommonTestUtilities.EdgeHasSite(CommonTestUtilities.FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"), " + site.X + @", " + site.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " has #" + site.Id + @"");
                     }
                 }
@@ -697,19 +853,20 @@ namespace UnitTestGenerator
                 return strings;
             }
 
-            private List<string> BuildEdgeSiteAssertions(List<Edge> edges, List<Site> allSites)
+            private List<string> BuildEdgeSiteAssertions(List<Edge> edges, List<Site> allSites, TestBorderLogic borderLogic)
             {
                 List<string> strings = new List<string>();
 
                 IEnumerable<Site> sites = edges.SelectMany(e => e.EdgeSites).Distinct().OrderBy(s => s.Id);
-                
+
                 foreach (Site site in sites)
                 {
-                    IEnumerable<Edge> siteEdges = edges.Where(e => e.EdgeSites.Contains(site));
+                    IEnumerable<Edge> siteEdges = edges
+                                                  .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                                  .Where(e => e.EdgeSites.Contains(site));
 
                     foreach (Edge siteEdge in siteEdges)
                     {
-                        
                         strings.Add(@"Assert.IsTrue(CommonTestUtilities.SiteHasEdge(points[" + allSites.IndexOf(site) + @"], " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
                     }
                 }
@@ -717,18 +874,18 @@ namespace UnitTestGenerator
                 return strings;
             }
 
-            private List<string> BuildVisualLayout(Test test)
+            private List<string> BuildVisualLayout(Test test, TestBorderLogic borderLogic)
             {
                 _horPreviewSteps = _width / _horPreviewStepSize + 1;
                 _verPreviewSteps = _height / _verPreviewStepSize + 1;
 
                 List<Edge>?[,] edgeLines = new List<Edge>[_horPreviewSteps, _verPreviewSteps];
 
-                foreach (Edge edge in test.Edges)
-                    PlaceEdgeOnGrid(ref edgeLines, edge); 
-                
-                List<string> lines = new List<string>(); 
-                
+                foreach (Edge edge in test.Edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)))
+                    PlaceEdgeOnGrid(ref edgeLines, edge);
+
+                List<string> lines = new List<string>();
+
                 for (int y = _verPreviewSteps - 1; y >= 0; y--)
                 {
                     string s = "// ";
@@ -739,9 +896,9 @@ namespace UnitTestGenerator
                         s += $"{verValue,4}";
                     else
                         s += @"    ";
-                        
+
                     s += @" ";
-                    
+
                     for (int x = 0; x < _horPreviewSteps; x++)
                     {
                         int horValue = x * _horPreviewStepSize;
@@ -754,7 +911,7 @@ namespace UnitTestGenerator
                         }
                         else
                         {
-                            Point? point = test.Points.FirstOrDefault(p => p.X == horValue && p.Y == verValue);
+                            Point? point = test.Points.Where(e => PointMatchesBorderLogic(e, borderLogic)).FirstOrDefault(p => p.X == horValue && p.Y == verValue);
 
                             if (point != null)
                             {
@@ -763,8 +920,8 @@ namespace UnitTestGenerator
                             else
                             {
                                 List<Edge>? edges = edgeLines[x, y];
-                                    
-                                if (edges != null && 
+
+                                if (edges != null &&
                                     edges.Count > 0)
                                 {
                                     if (edges.Count > 1)
@@ -798,20 +955,20 @@ namespace UnitTestGenerator
                             }
                         }
                     }
-                    
+
                     lines.Add(s);
                 }
-                
+
                 string fs = "//    ";
 
                 for (int x = 0; x < _horPreviewSteps; x++)
                 {
                     int horValue = x * _horPreviewStepSize;
-                    
+
                     if (horValue % 100 == 0)
                         fs += $"{horValue,4} ";
                 }
-                
+
                 lines.Add(fs);
 
                 return lines;
@@ -821,18 +978,18 @@ namespace UnitTestGenerator
             {
                 if (edge.ToPoint.X == edge.FromPoint.X)
                     return '|';
-                
+
                 if (edge.ToPoint.Y == edge.FromPoint.Y)
                     return '-';
-                
-                // How many cells does this line/edge pass through?
-                
+
+                // How many cells does this line/site pass through?
+
                 int xSteps = Math.Abs((edge.ToPoint.X - edge.FromPoint.X) / _horPreviewStepSize);
                 int ySteps = Math.Abs((edge.ToPoint.Y - edge.FromPoint.Y) / _verPreviewStepSize);
                 int totalSteps = Math.Max(xSteps, ySteps);
 
                 // Find the closest point to the given cell's center
-                
+
                 double closestDistToValue = -1;
                 double closestXToValue = -1;
                 double closestYToValue = -1;
@@ -840,7 +997,7 @@ namespace UnitTestGenerator
                 for (int i = 0; i <= totalSteps; i++)
                 {
                     double frac = (double)i / totalSteps;
-                    
+
                     double actualX = edge.FromPoint.X + (edge.ToPoint.X - edge.FromPoint.X) * frac;
                     double actualY = edge.FromPoint.Y + (edge.ToPoint.Y - edge.FromPoint.Y) * frac;
 
@@ -858,12 +1015,12 @@ namespace UnitTestGenerator
                 }
 
                 // Calculate the difference between cell center and where the line passes through the cell
-                
+
                 double diffX = (valueX - closestXToValue) / _horPreviewStepSize;
                 double diffY = (valueY - closestYToValue) / _verPreviewStepSize;
 
                 // Choose a symbol that best "describes" this position
-                
+
                 char symbol = diffY switch
                 {
                     < -0.1 => '\'',
@@ -875,7 +1032,7 @@ namespace UnitTestGenerator
 
                 return symbol;
             }
-            
+
             private void PlaceEdgeOnGrid(ref List<Edge>?[,] edgeLines, Edge edge)
             {
                 int x = edge.FromPoint.X / _horPreviewStepSize;
@@ -885,7 +1042,7 @@ namespace UnitTestGenerator
 
                 // This is Bresenham's Line Algorithm verbatim from:
                 // https://stackoverflow.com/a/11683720/8047867
-                
+
                 int w = x2 - x;
                 int h = y2 - y;
                 int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
@@ -956,7 +1113,7 @@ namespace UnitTestGenerator
                 public Repeat Repeated { get; }
                 public string OriginalName { get; }
 
-                
+
                 public RepeatedTest(Test givenTest, Repeat repeat, int minX, int minY, int maxX, int maxY)
                 {
                     Repeated = repeat;
@@ -975,7 +1132,7 @@ namespace UnitTestGenerator
                     foreach (Point point in givenTest.Points)
                     {
                         (int x, int y) = TransformX(point.X, point.Y, repeat, minX, minY, maxX, maxY);
-                        Points.Add(new Point(x, y, point.Id));
+                        Points.Add(new Point(x, y, point.Id, point.Corner));
                     }
 
                     foreach (Edge edge in givenTest.Edges)
@@ -985,7 +1142,7 @@ namespace UnitTestGenerator
                         List<Site> sites = new List<Site>();
                         foreach (Site site in edge.EdgeSites)
                             sites.Add(Sites[givenTest.Sites.IndexOf(site)]);
-                        Edges.Add(new Edge(fromPoint, toPoint, sites));
+                        Edges.Add(new Edge(fromPoint, toPoint, sites, edge.Border));
                     }
 
                     Name = TransformName(givenTest.Name, repeat);
@@ -1000,21 +1157,21 @@ namespace UnitTestGenerator
                     int y1 = maxY;
                     int xc = siteX;
                     int yc = siteY;
-                    
+
                     switch (repeat)
                     {
                         case Repeat.Rotate90:
                             return (x0 + yc, y1 - xc);
-                        
+
                         case Repeat.Rotate180:
                             return (x1 - xc, y1 - yc);
-                        
+
                         case Repeat.Rotate270:
                             return (x1 - yc, y0 + xc);
-                        
+
                         case Repeat.RotateAll:
                             throw new InvalidOperationException();
-                        
+
                         default:
                             throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                     }
@@ -1025,11 +1182,11 @@ namespace UnitTestGenerator
                     if (repeat == Repeat.Rotate90)
                         if (givenName.Contains("Horizontal"))
                             return givenName.Replace("Horizontal", "Vertical");
-                    
+
                     if (repeat == Repeat.Rotate90)
                         if (givenName.Contains("Vertical"))
                             return givenName.Replace("Vertical", "Horizontal");
-                    
+
                     return givenName + "_" + RepeatToNameSuffix(repeat);
                 }
 
@@ -1039,16 +1196,16 @@ namespace UnitTestGenerator
                     {
                         case Repeat.Rotate90:
                             return "Rotated90";
-                        
+
                         case Repeat.Rotate180:
                             return "Rotated180";
-                        
+
                         case Repeat.Rotate270:
                             return "Rotated270";
-                        
+
                         case Repeat.RotateAll:
                             throw new InvalidOperationException();
-                        
+
                         default:
                             throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                     }
@@ -1061,7 +1218,7 @@ namespace UnitTestGenerator
                 public int Y { get; }
                 public int Id { get; }
 
-                
+
                 public Site(int x, int y, int id)
                 {
                     X = x;
@@ -1075,13 +1232,15 @@ namespace UnitTestGenerator
                 public int X { get; }
                 public int Y { get; }
                 public int Id { get; }
+                public bool Corner { get; }
 
-                
-                public Point(int x, int y, int id)
+
+                public Point(int x, int y, int id, bool corner)
                 {
                     X = x;
                     Y = y;
                     Id = id;
+                    Corner = corner;
                 }
             }
 
@@ -1090,13 +1249,15 @@ namespace UnitTestGenerator
                 public Point FromPoint { get; }
                 public Point ToPoint { get; }
                 public List<Site> EdgeSites { get; }
+                public bool Border { get; }
 
 
-                public Edge(Point fromPoint, Point toPoint, List<Site> edgeSites)
+                public Edge(Point fromPoint, Point toPoint, List<Site> edgeSites, bool border)
                 {
                     FromPoint = fromPoint;
                     ToPoint = toPoint;
                     EdgeSites = edgeSites;
+                    Border = border;
                 }
             }
         }
@@ -1109,11 +1270,17 @@ namespace UnitTestGenerator
             RotateAll
         }
 
-        public enum TestPurpose
+        private enum TestPurpose
         {
             AssertEdges,
             AssertSiteEdges,
             AssertEdgeSites
+        }
+
+        private enum TestBorderLogic
+        {
+            UnclosedBorders,
+            ClosedBorders
         }
     }
 

@@ -13,7 +13,7 @@ namespace UnitTests
     /// </summary>
     [Parallelizable(ParallelScope.All)]
     [TestFixture]
-    public class GeneratedTest_SiteEdges
+    public class GeneratedTest_SiteEdges_OpenBorders
     {
         [Test]
         public void OnePointInMiddle()
