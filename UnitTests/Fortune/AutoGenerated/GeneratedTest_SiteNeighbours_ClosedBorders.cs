@@ -8,8 +8,8 @@ using static UnitTests.CommonTestUtilities;
 namespace UnitTests
 {
     /// <summary>
-    /// These tests assert that <see cref="VoronoiEdge"/>`s are returned as expected
-    /// Specifically, that the result of <see cref="FortunesAlgorithm.Run"/>() contains the expected edges.
+    /// These tests assert that <see cref="VoronoiSite"/>`s have expected neighbouring sites.
+    /// Specifically, that the <see cref="VoronoiSite.Neighbours"/> contains the expected <see cref="VoronoiSite"/>`s.
     /// </summary>
     /// <remarks>
     /// This is an AUTO-GENERATED test fixture class from UnitTestGenerator.
@@ -18,7 +18,7 @@ namespace UnitTests
     /// </remarks>
     [Parallelizable(ParallelScope.All)]
     [TestFixture]
-    public class GeneratedTest_Edges_ClosedBorders
+    public class GeneratedTest_SiteNeighbours_ClosedBorders
     {
         [Test]
         public void OnePointInMiddle()
@@ -55,15 +55,10 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         [Test]
@@ -102,18 +97,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 500, 1000, 500)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 500)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 500, 0, 0)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // W-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // B-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         /// <summary>
@@ -156,18 +145,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 1000, 500, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 500, 0)); // W-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 0, 1000, 0)); // B-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         [Test]
@@ -206,18 +189,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 700)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 0, 0)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 700)); // W-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 700, 1000, 1000)); // B-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         /// <summary>
@@ -260,18 +237,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 0, 1000)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 700, 0)); // W-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 0, 1000, 0)); // B-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         [Test]
@@ -311,21 +282,14 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(10, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 300, 1000, 300)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 700)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 0, 300)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 300, 0, 0)); // C-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // W-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 300, 1000, 700)); // D-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 700, 1000, 1000)); // B-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -369,21 +333,14 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(10, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 1000, 300, 0)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 300, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 1000, 0, 1000)); // C-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 300, 0)); // W-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 0, 700, 0)); // D-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 0, 1000, 0)); // B-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         [Test]
@@ -424,24 +381,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(13, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 500, 1000, 500)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 300, 1000, 300)); // E-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 700)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 0, 500)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 500, 0, 300)); // C-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 300, 0, 0)); // E-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // W-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 300, 1000, 500)); // F-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 500, 1000, 700)); // D-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 700, 1000, 1000)); // B-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
 
         /// <summary>
@@ -486,24 +435,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(13, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 1000, 500, 0)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 1000, 300, 0)); // E-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 500, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 1000, 300, 1000)); // C-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 1000, 0, 1000)); // E-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 300, 0)); // W-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 0, 500, 0)); // F-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 0, 700, 0)); // D-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 0, 1000, 0)); // B-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
 
         [Test]
@@ -542,16 +483,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(5, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // B-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         /// <summary>
@@ -594,16 +531,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(5, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // B-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         [Test]
@@ -642,18 +575,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 200, 800, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 200)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 200, 0, 0)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // Z-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 1000, 0, 1000)); // B-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         /// <summary>
@@ -696,18 +623,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 1000, 1000, 200)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 200, 1000)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // Z-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 200, 1000, 1000)); // B-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         /// <summary>
@@ -750,18 +671,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 800, 200, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 800)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 200, 0)); // Z-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 0, 1000, 0)); // B-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         /// <summary>
@@ -804,18 +719,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 0, 0, 800)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 800, 0)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 0, 1000, 0)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 800)); // Z-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 800, 0, 0)); // B-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
         [Test]
@@ -855,21 +764,14 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(10, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 300, 700, 1000)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 0, 1000, 700)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 300)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 300, 0, 0)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 300, 0)); // Y-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 0, 1000, 0)); // B-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 700)); // W-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 700, 1000, 1000)); // C-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // Z-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 0, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -913,21 +815,14 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(10, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 1000, 1000, 300)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 700, 0)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 300, 1000)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 1000, 0, 1000)); // A-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 700)); // Y-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 0, 0)); // B-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 700, 0)); // W-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 0, 1000, 0)); // C-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // Z-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 300, 1000, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         [Test]
@@ -967,19 +862,14 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 400, 600, 1000)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 400)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 400, 0, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // B-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 600, 1000)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 1000, 0, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1023,19 +913,14 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 1000, 1000, 400)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 400, 1000)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 1000, 0, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // B-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 400)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 400, 1000, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1079,19 +964,14 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 600, 400, 0)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 0)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 600)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 600, 1000, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // B-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 400, 0)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 0, 1000, 0)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1135,19 +1015,14 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 0, 0, 600)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 0, 1000)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 600, 0)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 0, 1000, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // B-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 600)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 600, 0, 0)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         [Test]
@@ -1188,22 +1063,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(11, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 400, 600, 1000)); // A-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // B-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 0, 1000, 600)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 400)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 400, 0, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 400, 0)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 0, 1000, 0)); // C-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 600)); // Y-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 600, 1000, 1000)); // D-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 600, 1000)); // E-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 1000, 0, 1000)); // F-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
 
         /// <summary>
@@ -1248,22 +1117,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(11, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 1000, 1000, 400)); // A-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // B-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 600, 600, 0)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 400, 1000)); // X-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 1000, 0, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 600)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 600, 0, 0)); // C-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 600, 0)); // Y-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 0, 1000, 0)); // D-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 400)); // E-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 400, 1000, 1000)); // F-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
 
         [Test]
@@ -1303,20 +1166,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(9, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 0, 400)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 400, 0)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 1000, 1000)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 400)); // X-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 400, 0, 0)); // B-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 400, 0)); // Y-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 0, 1000, 0)); // C-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1360,20 +1219,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(9, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 400, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 0, 600)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 1000, 0)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 400, 1000)); // X-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 1000, 0, 1000)); // B-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 600)); // Y-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 600, 0, 0)); // C-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1417,20 +1272,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(9, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 1000, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 600, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 0, 0)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 600)); // X-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 600, 1000, 1000)); // B-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 600, 1000)); // Y-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 1000, 0, 1000)); // C-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1474,20 +1325,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(9, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 600, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 1000, 400)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 0, 1000)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 600, 0)); // X-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 0, 1000, 0)); // B-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 400)); // Y-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 400, 1000, 1000)); // C-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         [Test]
@@ -1527,19 +1374,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 0)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // C-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Y-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1583,19 +1427,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 0)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // C-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // Y-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1639,19 +1480,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // C-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 500, 0)); // Y-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 0, 1000, 0)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1695,19 +1533,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // C-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 500)); // Y-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 500, 0, 0)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         [Test]
@@ -1747,21 +1582,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(10, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 300, 200, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 300, 800, 0)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 300, 500, 1000)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 200, 0)); // Y-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 0, 800, 0)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 0, 1000, 0)); // C-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Z-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1805,21 +1635,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(10, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 500, 0, 800)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 500, 0, 200)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 500, 1000, 500)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 800)); // Y-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 800, 0, 200)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 200, 0, 0)); // C-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // Z-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1863,21 +1688,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(10, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 700, 800, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 700, 200, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 700, 500, 0)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // Y-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 1000, 200, 1000)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // C-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 500, 0)); // Z-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 0, 1000, 0)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         /// <summary>
@@ -1921,21 +1741,16 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(10, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 500, 1000, 200)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 500, 1000, 800)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 500, 0, 500)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // Y-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 200, 1000, 800)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // C-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 500)); // Z-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 500, 0, 0)); // D-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
         [Test]
@@ -1977,23 +1792,26 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(12, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 400, 400)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 600, 400)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 600, 600)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 400, 600)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 0, 1000)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 0, 0)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 1000, 0)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 1000, 1000)); // D-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // E-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // F-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // G-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // H-E
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
+            Assert.True(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
+            Assert.True(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.True(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
+            Assert.True(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
+            Assert.True(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
         }
 
         [Test]
@@ -2035,27 +1853,26 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(16, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 400, 200)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 200, 600, 200)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 200, 600, 400)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 400, 400)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 0, 800)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 200, 200, 0)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 200, 800, 0)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 1000, 800)); // D-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 800)); // X-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 800, 0, 0)); // E-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 200, 0)); // Y-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 0, 800, 0)); // F-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 0, 1000, 0)); // G-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 800)); // W-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // H-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
+            Assert.True(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
+            Assert.True(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.True(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
+            Assert.True(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
+            Assert.True(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
         }
 
         /// <summary>
@@ -2101,27 +1918,26 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(16, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 200, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 600, 200, 400)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 400, 400, 400)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 400, 600)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 800, 1000)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 600, 0, 800)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 400, 0, 200)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 800, 0)); // D-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // X-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 1000, 0, 1000)); // E-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 800)); // Y-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 800, 0, 200)); // F-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 200, 0, 0)); // G-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 800, 0)); // W-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 0, 1000, 0)); // H-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
+            Assert.True(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
+            Assert.True(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.True(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
+            Assert.True(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
+            Assert.True(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
         }
 
         /// <summary>
@@ -2167,27 +1983,26 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(16, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 600, 800)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 800, 400, 800)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 800, 400, 600)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 600, 600)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 1000, 200)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 800, 800, 1000)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 800, 200, 1000)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 0, 200)); // D-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // X-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 200, 1000, 1000)); // E-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // Y-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 1000, 200, 1000)); // F-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // G-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 200)); // W-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 200, 0, 0)); // H-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
+            Assert.True(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
+            Assert.True(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.True(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
+            Assert.True(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
+            Assert.True(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
         }
 
         /// <summary>
@@ -2233,27 +2048,26 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(16, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 800, 400)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 400, 800, 600)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 600, 600, 600)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 600, 400)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 200, 0)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 400, 1000, 200)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 600, 1000, 800)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 200, 1000)); // D-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 200, 0)); // X-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 0, 1000, 0)); // E-Y
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // Y-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 200, 1000, 800)); // F-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // G-W
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 200, 1000)); // W-H
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // H-Z
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Z-X
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.True(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
+            Assert.True(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.True(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
+            Assert.True(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.True(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
+            Assert.True(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
+            Assert.True(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
         }
 
     }

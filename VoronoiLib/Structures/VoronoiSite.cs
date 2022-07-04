@@ -28,7 +28,7 @@ namespace VoronoiLib.Structures
         }
 
         [PublicAPI]
-        public IEnumerable<VoronoiSite> Neighbors => neighbors;
+        public IEnumerable<VoronoiSite> Neighbours => neighbours;
 
         [PublicAPI]
         public IEnumerable<VoronoiPoint> Points
@@ -74,7 +74,7 @@ namespace VoronoiLib.Structures
 
 
         internal readonly List<VoronoiEdge> cell;
-        internal readonly List<VoronoiSite> neighbors;
+        internal readonly List<VoronoiSite> neighbours;
         
         
         private List<VoronoiPoint>? _points;
@@ -88,7 +88,7 @@ namespace VoronoiLib.Structures
             X = x;
             Y = y;
             cell = new List<VoronoiEdge>();
-            neighbors = new List<VoronoiSite>();
+            neighbours = new List<VoronoiSite>();
         }
 
         

@@ -140,8 +140,8 @@ namespace VoronoiLib.Structures
                 rightSection.Data.Edge = rightEdge;
                 
                 //store neighbors for delaunay
-                leftSection.Data.Site.neighbors.Add(newSection.Data.Site);
-                newSection.Data.Site.neighbors.Add(leftSection.Data.Site);
+                leftSection.Data.Site.neighbours.Add(newSection.Data.Site);
+                newSection.Data.Site.neighbours.Add(leftSection.Data.Site);
 
                 //create circle events
                 CheckCircle(leftSection, eventQueue);
@@ -160,8 +160,8 @@ namespace VoronoiLib.Structures
                 newEdge.LastBeachLineNeighbor = infEdge;
                 edges.AddFirst(newEdge);
 
-                leftSection.Data.Site.neighbors.Add(newSection.Data.Site);
-                newSection.Data.Site.neighbors.Add(leftSection.Data.Site);
+                leftSection.Data.Site.neighbours.Add(newSection.Data.Site);
+                newSection.Data.Site.neighbours.Add(leftSection.Data.Site);
 
                 newSection.Data.Edge = newEdge;
                 
@@ -218,11 +218,11 @@ namespace VoronoiLib.Structures
                 edges.AddFirst(rightSection.Data.Edge);
 
                 //add neighbors for delaunay
-                newSection.Data.Site.neighbors.Add(leftSection.Data.Site);
-                leftSection.Data.Site.neighbors.Add(newSection.Data.Site);
+                newSection.Data.Site.neighbours.Add(leftSection.Data.Site);
+                leftSection.Data.Site.neighbours.Add(newSection.Data.Site);
 
-                newSection.Data.Site.neighbors.Add(rightSection.Data.Site);
-                rightSection.Data.Site.neighbors.Add(newSection.Data.Site);
+                newSection.Data.Site.neighbours.Add(rightSection.Data.Site);
+                rightSection.Data.Site.neighbours.Add(newSection.Data.Site);
 
                 CheckCircle(leftSection, eventQueue);
                 CheckCircle(rightSection, eventQueue);
@@ -291,8 +291,8 @@ namespace VoronoiLib.Structures
             edges.AddFirst(newEdge);
 
             //add neighbors for delaunay
-            prev.Data.Site.neighbors.Add(next.Data.Site);
-            next.Data.Site.neighbors.Add(prev.Data.Site);
+            prev.Data.Site.neighbours.Add(next.Data.Site);
+            next.Data.Site.neighbours.Add(prev.Data.Site);
             
             //remove the sectionfrom the tree
             beachLine.RemoveNode(section);

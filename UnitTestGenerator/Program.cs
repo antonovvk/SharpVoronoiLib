@@ -386,10 +386,9 @@ namespace UnitTestGenerator
                 ("GeneratedTest_SiteEdges", TestPurpose.AssertSiteEdges),
                 ("GeneratedTest_EdgeSites", TestPurpose.AssertEdgeSites),
                 ("GeneratedTest_EdgeNeighbours", TestPurpose.AssertEdgeNeighbours),
+                ("GeneratedTest_SiteNeighbours", TestPurpose.AssertSiteNeighbours),
                 ("GeneratedTest_SitePoints", TestPurpose.AssertSitePoints),
                 ("GeneratedTest_PointBorderLocation", TestPurpose.AssertPointBorderLocation)
-                // TODO: Edge Neighbours
-                // TODO: Site Neighbors
                 // TODO: Site ClockwiseCell
                 // TODO: Site ClockwisePoints
             };
@@ -688,6 +687,13 @@ namespace UnitTestGenerator
                                 stringBuilder.AppendPaddedLine(3, edgeNeighbourAssertion);
                             break;
 
+                        case TestPurpose.AssertSiteNeighbours:
+                            stringBuilder.AppendLine();
+                            List<string> siteNeighboursAssertions = BuildSiteNeighboursAssertions(test.Sites, test.Edges, borderLogic);
+                            foreach (string siteNeighbourAssertion in siteNeighboursAssertions)
+                                stringBuilder.AppendPaddedLine(3, siteNeighbourAssertion);
+                            break;
+
                         case TestPurpose.AssertSitePoints:
                             stringBuilder.AppendLine();
                             List<string> sitePointsAssertions = BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic);
@@ -778,6 +784,7 @@ namespace UnitTestGenerator
 
                     case TestPurpose.AssertSiteEdges:
                     case TestPurpose.AssertSitePoints:
+                    case TestPurpose.AssertSiteNeighbours:
                         return false;
 
                     default:
@@ -811,6 +818,11 @@ namespace UnitTestGenerator
                     case TestPurpose.AssertEdgeNeighbours:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiEdge) + @"""/>`s have expected neighbouring edges.");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiEdge) + @"." + nameof(VoronoiEdge.Neighbours) + @"""/> contains the expected <see cref=""" + nameof(VoronoiEdge) + @"""/>`s.");
+                        break;
+
+                    case TestPurpose.AssertSiteNeighbours:
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected neighbouring sites.");
+                        strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Neighbours) + @"""/> contains the expected <see cref=""" + nameof(VoronoiSite) + @"""/>`s.");
                         break;
 
                     case TestPurpose.AssertSitePoints:
@@ -942,6 +954,41 @@ namespace UnitTestGenerator
                     }
                 }
                 
+                return strings;
+            }
+
+            private List<string> BuildSiteNeighboursAssertions(List<Site> sites, List<Edge> edges, TestBorderLogic borderLogic)
+            {
+                List<string> strings = new List<string>();
+
+                bool first = true;
+                
+                foreach (Site site in sites.OrderBy(s => s.Id))
+                {
+                    // Find other sites that have an edge that we have
+
+                    IEnumerable<Edge> siteEdges = edges
+                                                  .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                                  .Where(e => e.EdgeSites.Contains(site));
+                    
+                    List<Site> neighbours = sites
+                                            .Where(s =>
+                                                       s != site &&
+                                                       siteEdges.Intersect(
+                                                           // We need to get edges for the site
+                                                           edges
+                                                               .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                                               .Where(e => e.EdgeSites.Contains(s))
+                                                       ).Any())
+                                            .OrderBy(s => s.Id)
+                                            .ToList();
+                    
+                    foreach (Site neighbour in neighbours)
+                    {
+                        strings.Add(@"Assert.True(sites[" + sites.IndexOf(site) + @"]." + nameof(VoronoiSite.Neighbours) + @".Contains(sites[" + sites.IndexOf(neighbour) + @"])); // " + site.Id + @" neighbours " + neighbour.Id);
+                    }
+                }
+
                 return strings;
             }
 
@@ -1089,7 +1136,7 @@ namespace UnitTestGenerator
                                     edges.Count > 0)
                                 {
                                     if (edges.Count > 1)
-                                        s += "⁕";
+                                        s += "#";
                                     else
                                         s += MakeEdgeLineSymbol(edges[0], horValue, verValue);
                                 }
@@ -1448,7 +1495,8 @@ namespace UnitTestGenerator
             AssertEdgeSites,
             AssertSitePoints,
             AssertPointBorderLocation,
-            AssertEdgeNeighbours
+            AssertEdgeNeighbours,
+            AssertSiteNeighbours
         }
 
         private enum TestBorderLogic
