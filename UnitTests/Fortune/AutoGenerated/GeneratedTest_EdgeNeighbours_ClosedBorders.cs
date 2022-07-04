@@ -10,6 +10,7 @@ namespace UnitTests
     /// <summary>
     /// These tests assert that <see cref="VoronoiEdge"/>`s have expected neighbouring edges.
     /// Specifically, that the <see cref="VoronoiEdge.Neighbours"/> contains the expected <see cref="VoronoiEdge"/>`s.
+    /// These tests are run with generating the border edges, i.e. <see cref="BorderEdgeGeneration.MakeBorderEdges"/>.
     /// </summary>
     /// <remarks>
     /// This is an AUTO-GENERATED test fixture class from UnitTestGenerator.

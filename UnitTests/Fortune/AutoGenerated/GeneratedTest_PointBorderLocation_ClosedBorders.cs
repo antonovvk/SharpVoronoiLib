@@ -10,6 +10,7 @@ namespace UnitTests
     /// <summary>
     /// These tests assert that <see cref="VoronoiPoint"/>`s have the expected <see cref="PointBorderLocation"/>.
     /// Specifically, that the <see cref="VoronoiPoint.BorderLocation"/> has the expected value.
+    /// These tests are run with generating the border edges, i.e. <see cref="BorderEdgeGeneration.MakeBorderEdges"/>.
     /// </summary>
     /// <remarks>
     /// This is an AUTO-GENERATED test fixture class from UnitTestGenerator.

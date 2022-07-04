@@ -384,13 +384,13 @@ namespace UnitTestGenerator
             {
                 ("GeneratedTest_Edges", TestPurpose.AssertEdges),
                 ("GeneratedTest_SiteEdges", TestPurpose.AssertSiteEdges),
+                ("GeneratedTest_SiteEdgesClockwise", TestPurpose.AssertSiteEdgesClockwise),
                 ("GeneratedTest_EdgeSites", TestPurpose.AssertEdgeSites),
                 ("GeneratedTest_EdgeNeighbours", TestPurpose.AssertEdgeNeighbours),
                 ("GeneratedTest_SiteNeighbours", TestPurpose.AssertSiteNeighbours),
                 ("GeneratedTest_SitePoints", TestPurpose.AssertSitePoints),
+                ("GeneratedTest_SitePointsClockwise", TestPurpose.AssertSitePointsClockwise),
                 ("GeneratedTest_PointBorderLocation", TestPurpose.AssertPointBorderLocation)
-                // TODO: Site ClockwiseCell
-                // TODO: Site ClockwisePoints
             };
 
             for (int i = 0; i < 2; i++)
@@ -609,7 +609,7 @@ namespace UnitTestGenerator
                 stringBuilder.AppendLine();
                 stringBuilder.AppendLine(@"namespace UnitTests");
                 stringBuilder.AppendLine(@"{");
-                List<string> classSummary = BuildClassSummary(purpose);
+                List<string> classSummary = BuildClassSummary(purpose, borderLogic);
                 foreach (string summaryLine in classSummary)
                     stringBuilder.AppendPaddedLine(1, summaryLine);
                 stringBuilder.AppendPaddedLine(1, @"[Parallelizable(ParallelScope.All)]");
@@ -668,8 +668,15 @@ namespace UnitTestGenerator
 
                         case TestPurpose.AssertSiteEdges:
                             stringBuilder.AppendLine();
-                            List<string> siteEdgeAssertions = BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic);
+                            List<string> siteEdgeAssertions = BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic, false);
                             foreach (string siteEdgeAssertion in siteEdgeAssertions)
+                                stringBuilder.AppendPaddedLine(3, siteEdgeAssertion);
+                            break;
+
+                        case TestPurpose.AssertSiteEdgesClockwise:
+                            stringBuilder.AppendLine();
+                            List<string> siteEdgeClockwiseAssertions = BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic, true);
+                            foreach (string siteEdgeAssertion in siteEdgeClockwiseAssertions)
                                 stringBuilder.AppendPaddedLine(3, siteEdgeAssertion);
                             break;
 
@@ -696,8 +703,15 @@ namespace UnitTestGenerator
 
                         case TestPurpose.AssertSitePoints:
                             stringBuilder.AppendLine();
-                            List<string> sitePointsAssertions = BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic);
+                            List<string> sitePointsAssertions = BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false);
                             foreach (string sitePointAssertion in sitePointsAssertions)
+                                stringBuilder.AppendPaddedLine(3, sitePointAssertion);
+                            break;
+
+                        case TestPurpose.AssertSitePointsClockwise:
+                            stringBuilder.AppendLine();
+                            List<string> sitePointsClockwiseAssertions = BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, true);
+                            foreach (string sitePointAssertion in sitePointsClockwiseAssertions)
                                 stringBuilder.AppendPaddedLine(3, sitePointAssertion);
                             break;
 
@@ -783,7 +797,9 @@ namespace UnitTestGenerator
                         return true;
 
                     case TestPurpose.AssertSiteEdges:
+                    case TestPurpose.AssertSiteEdgesClockwise:
                     case TestPurpose.AssertSitePoints:
+                    case TestPurpose.AssertSitePointsClockwise:
                     case TestPurpose.AssertSiteNeighbours:
                         return false;
 
@@ -792,7 +808,7 @@ namespace UnitTestGenerator
                 }
             }
 
-            private List<string> BuildClassSummary(TestPurpose purpose)
+            private List<string> BuildClassSummary(TestPurpose purpose, TestBorderLogic borderLogic)
             {
                 List<string> strings = new List<string>();
 
@@ -808,6 +824,11 @@ namespace UnitTestGenerator
                     case TestPurpose.AssertSiteEdges:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected <see cref=""" + nameof(VoronoiEdge) + @"""/>`s.");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Cell) + @"""/> contains the expected edges.");
+                        break;
+
+                    case TestPurpose.AssertSiteEdgesClockwise:
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected clockwise-sorted <see cref=""" + nameof(VoronoiEdge) + @"""/>`s.");
+                        strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.ClockwiseCell) + @"""/> contains the expected edges in clockwise order.");
                         break;
 
                     case TestPurpose.AssertEdgeSites:
@@ -830,6 +851,11 @@ namespace UnitTestGenerator
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Points) + @"""/> contains the expected points.");
                         break;
 
+                    case TestPurpose.AssertSitePointsClockwise:
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected clockwise-sorted <see cref=""" + nameof(VoronoiPoint) + @"""/>`s.");
+                        strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.ClockwisePoints) + @"""/> contains the expected points in clockwise order.");
+                        break;
+
                     case TestPurpose.AssertPointBorderLocation:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiPoint) + @"""/>`s have the expected <see cref=""" + nameof(PointBorderLocation) + @"""/>.");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiPoint) + @"." + nameof(VoronoiPoint.BorderLocation) + @"""/> has the expected value.");
@@ -837,6 +863,20 @@ namespace UnitTestGenerator
 
                     default:
                         throw new ArgumentOutOfRangeException(nameof(purpose), purpose, null);
+                }
+
+                switch (borderLogic)
+                {
+                    case TestBorderLogic.UnclosedBorders:
+                        strings.Add(@"/// These tests are run without generating the border edges, i.e. <see cref=""" + nameof(BorderEdgeGeneration) + @"." + nameof(BorderEdgeGeneration.DoNotMakeBorderEdges) + @"""/>.");
+                        break;
+                    
+                    case TestBorderLogic.ClosedBorders:
+                        strings.Add(@"/// These tests are run with generating the border edges, i.e. <see cref=""" + nameof(BorderEdgeGeneration) + @"." + nameof(BorderEdgeGeneration.MakeBorderEdges) + @"""/>.");
+                        break;
+                    
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);
                 }
 
                 strings.Add(@"/// </summary>");
@@ -992,23 +1032,34 @@ namespace UnitTestGenerator
                 return strings;
             }
 
-            private List<string> BuildSitePointsAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic)
+            private List<string> BuildSitePointsAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic, bool clockwise)
             {
                 List<string> strings = new List<string>();
 
                 foreach (Site site in sites.OrderBy(s => s.Id))
                 {
-                    IEnumerable<Point> points = edges
-                                                .Where(e =>
-                                                           EdgeMatchesBorderLogic(e, borderLogic) &&
-                                                           e.EdgeSites.Contains(site))
-                                                .SelectMany(e => e.Points())
-                                                .Distinct() // edges connect at points, so there's repeats
-                                                .OrderBy(p => p.Id);
+                    List<Point> points = edges
+                                         .Where(e =>
+                                                    EdgeMatchesBorderLogic(e, borderLogic) &&
+                                                    e.EdgeSites.Contains(site))
+                                         .SelectMany(e => e.Points())
+                                         .Distinct() // edges connect at points, so there's repeats
+                                         .OrderBy(p => p.Id)
+                                         .ToList();
+
+                    strings.Add(@"Assert.AreEqual(" + points.Count + @", sites[" + sites.IndexOf(site) + @"]" + @"." + (clockwise ? nameof(VoronoiSite.ClockwisePoints) : nameof(VoronoiSite.Points)) + @".Count()); // #" + site.Id);
 
                     foreach (Point point in points)
                     {
-                        strings.Add(@"Assert.IsTrue(SiteHasPoint(sites[" + sites.IndexOf(site) + @"], " + point.X + @", " + point.Y + @")); // #" + site.Id + " has " + (char)point.Id + @"");
+                        strings.Add(@"Assert.IsTrue(SiteHas" + (clockwise ? "Clockwise" : "") + @"Point(sites[" + sites.IndexOf(site) + @"], " + point.X + @", " + point.Y + @")); // #" + site.Id + " has " + (char)point.Id + @"");
+                    }
+                    
+                    if (clockwise)
+                    {
+                        strings.Add(@"Assert.That(sites[" + sites.IndexOf(site) + @"]." + nameof(VoronoiSite.ClockwisePoints) + @", Is.Ordered.Using(new ClockwisePointComparer(" + site.X + @", " + site.Y + @"))); // #" + site.Id);
+
+                        // Okay, so I am literally using the same logic as the algorithm for clockwise angle sort,
+                        // which makes this a really bad test, since I'm just repeating any bugs in the sort logic.
                     }
                 }
 
@@ -1064,7 +1115,7 @@ namespace UnitTestGenerator
                 }
             }
 
-            private List<string> BuildSiteEdgeAssertions(List<Edge> edges, List<Site> allSites, TestBorderLogic borderLogic)
+            private List<string> BuildSiteEdgeAssertions(List<Edge> edges, List<Site> allSites, TestBorderLogic borderLogic, bool clockwise)
             {
                 List<string> strings = new List<string>();
 
@@ -1072,13 +1123,21 @@ namespace UnitTestGenerator
 
                 foreach (Site site in sites)
                 {
-                    IEnumerable<Edge> siteEdges = edges
-                                                  .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
-                                                  .Where(e => e.EdgeSites.Contains(site));
+                    List<Edge> siteEdges = edges
+                                           .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                           .Where(e => e.EdgeSites.Contains(site))
+                                           .ToList();
+
+                    strings.Add(@"Assert.AreEqual(" + siteEdges.Count + @", sites[" + allSites.IndexOf(site) + @"]" + @"." + (clockwise ? nameof(VoronoiSite.ClockwiseCell) : nameof(VoronoiSite.Cell)) + @".Count()); // #" + site.Id);
 
                     foreach (Edge siteEdge in siteEdges)
                     {
-                        strings.Add(@"Assert.IsTrue(SiteHasEdge(sites[" + allSites.IndexOf(site) + @"], " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
+                        strings.Add(@"Assert.IsTrue(SiteHas" + (clockwise ? "Clockwise" : "") + @"Edge(sites[" + allSites.IndexOf(site) + @"], " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
+                    }
+                    
+                    if (clockwise)
+                    {
+                        strings.Add(@"Assert.That(sites[" + allSites.IndexOf(site) + @"]." + nameof(VoronoiSite.ClockwiseCell) + @", Is.Ordered.Using(new ClockwiseEdgeComparer(" + site.X + @", " + site.Y + @"))); // #" + site.Id);
                     }
                 }
 
@@ -1496,7 +1555,9 @@ namespace UnitTestGenerator
             AssertSitePoints,
             AssertPointBorderLocation,
             AssertEdgeNeighbours,
-            AssertSiteNeighbours
+            AssertSiteNeighbours,
+            AssertSiteEdgesClockwise,
+            AssertSitePointsClockwise
         }
 
         private enum TestBorderLogic

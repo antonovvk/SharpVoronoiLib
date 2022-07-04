@@ -8,8 +8,8 @@ using static UnitTests.CommonTestUtilities;
 namespace UnitTests
 {
     /// <summary>
-    /// These tests assert that <see cref="VoronoiEdge"/>`s are returned as expected
-    /// Specifically, that the result of <see cref="FortunesAlgorithm.Run"/>() contains the expected edges.
+    /// These tests assert that <see cref="VoronoiSite"/>`s have expected clockwise-sorted <see cref="VoronoiPoint"/>`s.
+    /// Specifically, that the <see cref="VoronoiSite.ClockwisePoints"/> contains the expected points in clockwise order.
     /// These tests are run without generating the border edges, i.e. <see cref="BorderEdgeGeneration.DoNotMakeBorderEdges"/>.
     /// </summary>
     /// <remarks>
@@ -19,7 +19,7 @@ namespace UnitTests
     /// </remarks>
     [Parallelizable(ParallelScope.All)]
     [TestFixture]
-    public class GeneratedTest_Edges_OpenBorders
+    public class GeneratedTest_SitePointsClockwise_OpenBorders
     {
         [Test]
         public void OnePointInMiddle()
@@ -56,11 +56,12 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, sites[0].ClockwisePoints.Count()); // #1
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #1
         }
 
         [Test]
@@ -99,12 +100,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 500, 1000, 500)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #2
         }
 
         /// <summary>
@@ -147,12 +154,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 1000, 500, 0)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 0)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #2
         }
 
         [Test]
@@ -191,12 +204,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 900))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
         }
 
         /// <summary>
@@ -239,12 +258,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(900, 500))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
         }
 
         [Test]
@@ -284,13 +309,24 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 300, 1000, 300)); // C-D
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 900))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 100))); // #3
         }
 
         /// <summary>
@@ -334,13 +370,24 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 1000, 300, 0)); // C-D
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(900, 500))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(100, 500))); // #3
         }
 
         [Test]
@@ -381,14 +428,30 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 500, 1000, 500)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 300, 1000, 300)); // E-F
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 800))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 600))); // #2
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has F
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 400))); // #3
+            Assert.AreEqual(2, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 300)); // #4 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 300)); // #4 has F
+            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 200))); // #4
         }
 
         /// <summary>
@@ -433,14 +496,30 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 1000, 500, 0)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 1000, 300, 0)); // E-F
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 500))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 500))); // #2
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has F
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 500))); // #3
+            Assert.AreEqual(2, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 1000)); // #4 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 0)); // #4 has F
+            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 500))); // #4
         }
 
         [Test]
@@ -479,12 +558,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #2
         }
 
         /// <summary>
@@ -527,12 +612,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #2
         }
 
         [Test]
@@ -571,12 +662,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 200, 800, 1000)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 800))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 400))); // #2
         }
 
         /// <summary>
@@ -619,12 +716,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 1000, 1000, 200)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 800))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 400))); // #2
         }
 
         /// <summary>
@@ -667,12 +770,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 800, 200, 0)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 200))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 600))); // #2
         }
 
         /// <summary>
@@ -715,12 +824,18 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 0, 0, 800)); // A-B
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has B
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 200))); // #1
+            Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has B
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 600))); // #2
         }
 
         [Test]
@@ -760,13 +875,24 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 300, 700, 1000)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 0, 1000, 700)); // B-C
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 300)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 800))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has C
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 200))); // #3
         }
 
         /// <summary>
@@ -810,13 +936,24 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 1000, 1000, 300)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 700, 700, 0)); // B-C
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 300)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 800))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has C
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 200))); // #3
         }
 
         [Test]
@@ -856,13 +993,24 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 400, 600, 1000)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // B-C
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 800))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 600))); // #2
+            Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has C
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 400))); // #3
         }
 
         /// <summary>
@@ -906,13 +1054,24 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 1000, 1000, 400)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // B-C
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 800))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 600))); // #2
+            Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has C
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 400))); // #3
         }
 
         /// <summary>
@@ -956,13 +1115,24 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 600, 400, 0)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 0, 0)); // B-C
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 0)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 200))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 400))); // #2
+            Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has C
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 600))); // #3
         }
 
         /// <summary>
@@ -1006,13 +1176,24 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 0, 0, 600)); // A-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 0, 1000)); // B-C
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 600)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 200))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 400))); // #2
+            Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has C
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 600))); // #3
         }
 
         [Test]
@@ -1053,14 +1234,30 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 400, 600, 1000)); // A-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // B-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 0, 1000, 600)); // C-D
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has F
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 800))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has F
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 600))); // #2
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 0)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 600)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has E
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 400))); // #3
+            Assert.AreEqual(2, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 0)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 600)); // #4 has D
+            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 200))); // #4
         }
 
         /// <summary>
@@ -1105,14 +1302,30 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 1000, 1000, 400)); // A-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // B-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 0, 600, 600, 0)); // C-D
+            Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has F
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 800))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has F
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 600))); // #2
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 600)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has E
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 400))); // #3
+            Assert.AreEqual(2, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 600)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 0)); // #4 has D
+            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 200))); // #4
         }
 
         [Test]
@@ -1152,14 +1365,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 0, 400)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 400, 0)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 1000, 1000)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has C
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 400)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 0)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #3
         }
 
         /// <summary>
@@ -1203,14 +1427,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 400, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 0, 600)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 1000, 0)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has C
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 600)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 600)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #3
         }
 
         /// <summary>
@@ -1254,14 +1489,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 1000, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 600, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 0, 0)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has C
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 600)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #3
         }
 
         /// <summary>
@@ -1305,14 +1551,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 600, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 1000, 400)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 0, 1000)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has C
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 400)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 400)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #3
         }
 
         [Test]
@@ -1352,14 +1609,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 0)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has C
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #3
         }
 
         /// <summary>
@@ -1403,14 +1671,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 0)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has C
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #3
         }
 
         /// <summary>
@@ -1454,14 +1733,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has C
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #3
         }
 
         /// <summary>
@@ -1505,14 +1795,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has C
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #3
         }
 
         [Test]
@@ -1552,14 +1853,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 300, 200, 0)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 300, 800, 0)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 300, 500, 1000)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 300)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has C
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 100))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #3
         }
 
         /// <summary>
@@ -1603,14 +1915,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 500, 0, 800)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 500, 0, 200)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 300, 500, 1000, 500)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has C
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(100, 500))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 800)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #3
         }
 
         /// <summary>
@@ -1654,14 +1977,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 700, 800, 1000)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 700, 200, 1000)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 500, 700, 500, 0)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has C
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 900))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 700)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #3
         }
 
         /// <summary>
@@ -1705,14 +2039,25 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 500, 1000, 200)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 500, 1000, 800)); // A-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 700, 500, 0, 500)); // A-D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has C
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(900, 500))); // #1
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #2
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 200)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #3
         }
 
         [Test]
@@ -1754,19 +2099,40 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 400, 400)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 600, 400)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 600, 600)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 400, 600)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 0, 1000)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 0, 0)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 1000, 0)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 1000, 1000)); // D-H
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has F
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #2
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 400)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 400)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has G
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #3
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 400)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 600)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has H
+            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #4
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has H
+            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #5
         }
 
         [Test]
@@ -1808,19 +2174,40 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 400, 200)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 200, 600, 200)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 200, 600, 400)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 400, 400)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 0, 800)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 200, 200, 0)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 200, 800, 0)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 1000, 800)); // D-H
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 200)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 200)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 200)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has F
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #2
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 200)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 200)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 0)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 0)); // #3 has G
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 100))); // #3
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 200)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 400)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 800, 0)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 800)); // #4 has H
+            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #4
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 400)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 400)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 800)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 800)); // #5 has H
+            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #5
         }
 
         /// <summary>
@@ -1866,19 +2253,40 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 200, 600)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 600, 200, 400)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 400, 400, 400)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 400, 600)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 800, 1000)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 600, 0, 800)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 200, 400, 0, 200)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 400, 800, 0)); // D-H
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 600)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 400)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 600)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has F
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #2
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 600)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 400)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 800)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 200)); // #3 has G
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(100, 500))); // #3
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 200, 400)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 400)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 200)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 800, 0)); // #4 has H
+            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #4
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 400)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 800, 1000)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 800, 0)); // #5 has H
+            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #5
         }
 
         /// <summary>
@@ -1924,19 +2332,40 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 600, 800)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 800, 400, 800)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 800, 400, 600)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 600, 600)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 1000, 200)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 800, 800, 1000)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 800, 200, 1000)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 400, 600, 0, 200)); // D-H
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 800)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 800)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 800)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has F
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #2
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 800)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 800)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 1000)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 1000)); // #3 has G
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 900))); // #3
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 800)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 600)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 200, 1000)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 200)); // #4 has H
+            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #4
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 200)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 200)); // #5 has H
+            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #5
         }
 
         /// <summary>
@@ -1982,19 +2411,40 @@ namespace UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 800, 400)); // A-B
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 400, 800, 600)); // B-C
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 600, 600, 600)); // C-D
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 600, 400)); // D-A
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 400, 200, 0)); // A-E
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 400, 1000, 200)); // B-F
-            Assert.IsTrue(AnyEdgeBetween(edges, 800, 600, 1000, 800)); // C-G
-            Assert.IsTrue(AnyEdgeBetween(edges, 600, 600, 200, 1000)); // D-H
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 400)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 600)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has D
+            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #1
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 400)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has F
+            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #2
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 400)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 600)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 200)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 800)); // #3 has G
+            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(900, 500))); // #3
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 800, 600)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 600)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 800)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 200, 1000)); // #4 has H
+            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #4
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 400)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 200, 0)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 200, 1000)); // #5 has H
+            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #5
         }
 
     }

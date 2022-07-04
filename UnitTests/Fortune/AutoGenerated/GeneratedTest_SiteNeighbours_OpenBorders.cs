@@ -10,6 +10,7 @@ namespace UnitTests
     /// <summary>
     /// These tests assert that <see cref="VoronoiSite"/>`s have expected neighbouring sites.
     /// Specifically, that the <see cref="VoronoiSite.Neighbours"/> contains the expected <see cref="VoronoiSite"/>`s.
+    /// These tests are run without generating the border edges, i.e. <see cref="BorderEdgeGeneration.DoNotMakeBorderEdges"/>.
     /// </summary>
     /// <remarks>
     /// This is an AUTO-GENERATED test fixture class from UnitTestGenerator.

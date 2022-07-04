@@ -120,17 +120,36 @@ namespace VoronoiLib.Structures
         }
 
 
-        internal static int SortPointsClockwise(VoronoiPoint A, VoronoiPoint B, double x, double y)
+        [Pure]
+        internal static int SortPointsClockwise(VoronoiPoint point1, VoronoiPoint point2, double x, double y)
         {
-            // based on: https://social.msdn.microsoft.com/Forums/en-US/c4c0ce02-bbd0-46e7-aaa0-df85a3408c61/sorting-list-of-xy-coordinates-clockwise-sort-works-if-list-is-unsorted-but-fails-if-list-is?forum=csharplanguage
+            // originally, based on: https://social.msdn.microsoft.com/Forums/en-US/c4c0ce02-bbd0-46e7-aaa0-df85a3408c61/sorting-list-of-xy-coordinates-clockwise-sort-works-if-list-is-unsorted-but-fails-if-list-is?forum=csharplanguage
 
             // comparer to sort the array based on the points relative position to the center
-            double atanA = Math.Atan2(A.Y - y, A.X - x);
-            double atanB = Math.Atan2(B.Y - y, B.X - x);
-
+            double atanA = Atan2(point1.Y - y, point1.X - x);
+            double atanB = Atan2(point2.Y - y, point2.X - x);
+            
             if (atanA < atanB) return -1;
-            else if (atanA > atanB) return 1;
+            if (atanA > atanB) return 1;
             return 0;
+        }
+        
+        [Pure]
+        private static double Atan2(double x, double y)
+        {
+            // Normally, Atan2 return an angle between -π ≤ θ ≤ π as "seen" on the Cartesian plane,
+            // that is, starting at the "right" of x axis and increasing counter-clockwise.
+            // But our convention is that bottom-left is the "origin" and clockwise is the "standard direction":
+            // →→→→↓
+            // ↑   ↓
+            // O←←←←
+
+            double a = -Math.Atan2(-y, -x) + Math.PI / 4;
+		
+            if (a < 0)
+                a += 2 * Math.PI;
+			
+            return a;
         }
 
         internal void AddEdge(VoronoiEdge value)
@@ -140,9 +159,10 @@ namespace VoronoiLib.Structures
         }
 
         
-        private int SortEdgesClockwise(VoronoiEdge A, VoronoiEdge B)
+        [Pure]
+        private int SortEdgesClockwise(VoronoiEdge edge1, VoronoiEdge edge2)
         {
-            return SortPointsClockwise(A.Mid, B.Mid);
+            return SortPointsClockwise(edge1.Mid, edge2.Mid);
             
             // Note that we use edge midpoint because the order of .Start and .End is not guaranteed.
             // If we used Start or End, we would sometimes end up checking the same point/coordinate where the edges connect.
@@ -150,9 +170,10 @@ namespace VoronoiLib.Structures
             // (Technically, any point along the edge that isn't the start/end will do, but midpoint is just the simplest).
         }
 
-        private int SortPointsClockwise(VoronoiPoint A, VoronoiPoint B)
+        [Pure]
+        private int SortPointsClockwise(VoronoiPoint point1, VoronoiPoint point2)
         {
-            return SortPointsClockwise(A, B, X, Y);
+            return SortPointsClockwise(point1, point2, X, Y);
         }
 
 

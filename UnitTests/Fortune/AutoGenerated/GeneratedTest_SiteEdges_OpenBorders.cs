@@ -10,6 +10,7 @@ namespace UnitTests
     /// <summary>
     /// These tests assert that <see cref="VoronoiSite"/>`s have expected <see cref="VoronoiEdge"/>`s.
     /// Specifically, that the <see cref="VoronoiSite.Cell"/> contains the expected edges.
+    /// These tests are run without generating the border edges, i.e. <see cref="BorderEdgeGeneration.DoNotMakeBorderEdges"/>.
     /// </summary>
     /// <remarks>
     /// This is an AUTO-GENERATED test fixture class from UnitTestGenerator.
@@ -59,6 +60,7 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(0, sites[0].Cell.Count()); // #1
         }
 
         [Test]
@@ -101,7 +103,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 500, 1000, 500)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 500, 1000, 500)); // #2 has A-B
         }
 
@@ -149,7 +153,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 1000, 500, 0)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 1000, 500, 0)); // #2 has A-B
         }
 
@@ -193,7 +199,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 700, 1000, 700)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 700, 1000, 700)); // #2 has A-B
         }
 
@@ -241,7 +249,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 700, 1000, 700, 0)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 700, 1000, 700, 0)); // #2 has A-B
         }
 
@@ -286,9 +296,12 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 700, 1000, 700)); // #1 has A-B
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 700, 1000, 700)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 300, 1000, 300)); // #2 has C-D
+            Assert.AreEqual(1, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 0, 300, 1000, 300)); // #3 has C-D
         }
 
@@ -337,9 +350,12 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 700, 1000, 700, 0)); // #1 has A-B
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 700, 1000, 700, 0)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 300, 1000, 300, 0)); // #2 has C-D
+            Assert.AreEqual(1, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 300, 1000, 300, 0)); // #3 has C-D
         }
 
@@ -385,11 +401,15 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 700, 1000, 700)); // #1 has A-B
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 700, 1000, 700)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 500, 1000, 500)); // #2 has C-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 0, 500, 1000, 500)); // #3 has C-D
             Assert.IsTrue(SiteHasEdge(sites[2], 0, 300, 1000, 300)); // #3 has E-F
+            Assert.AreEqual(1, sites[3].Cell.Count()); // #4
             Assert.IsTrue(SiteHasEdge(sites[3], 0, 300, 1000, 300)); // #4 has E-F
         }
 
@@ -439,11 +459,15 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 700, 1000, 700, 0)); // #1 has A-B
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 700, 1000, 700, 0)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 1000, 500, 0)); // #2 has C-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 1000, 500, 0)); // #3 has C-D
             Assert.IsTrue(SiteHasEdge(sites[2], 300, 1000, 300, 0)); // #3 has E-F
+            Assert.AreEqual(1, sites[3].Cell.Count()); // #4
             Assert.IsTrue(SiteHasEdge(sites[3], 300, 1000, 300, 0)); // #4 has E-F
         }
 
@@ -487,7 +511,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 0, 1000, 1000)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 0, 1000, 1000)); // #2 has A-B
         }
 
@@ -535,7 +561,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 1000, 1000, 0)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 1000, 1000, 0)); // #2 has A-B
         }
 
@@ -579,7 +607,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 200, 800, 1000)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 200, 800, 1000)); // #2 has A-B
         }
 
@@ -627,7 +657,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 200, 1000, 1000, 200)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 200, 1000, 1000, 200)); // #2 has A-B
         }
 
@@ -675,7 +707,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 1000, 800, 200, 0)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 1000, 800, 200, 0)); // #2 has A-B
         }
 
@@ -723,7 +757,9 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 800, 0, 0, 800)); // #1 has A-B
+            Assert.AreEqual(1, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 800, 0, 0, 800)); // #2 has A-B
         }
 
@@ -768,9 +804,12 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 300, 700, 1000)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 300, 700, 1000)); // #2 has A-D
             Assert.IsTrue(SiteHasEdge(sites[1], 300, 0, 1000, 700)); // #2 has B-C
+            Assert.AreEqual(1, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 300, 0, 1000, 700)); // #3 has B-C
         }
 
@@ -819,9 +858,12 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 300, 1000, 1000, 300)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 300, 1000, 1000, 300)); // #2 has A-D
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 700, 700, 0)); // #2 has B-C
+            Assert.AreEqual(1, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 0, 700, 700, 0)); // #3 has B-C
         }
 
@@ -866,9 +908,12 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 400, 600, 1000)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 400, 600, 1000)); // #2 has A-D
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 0, 1000, 1000)); // #2 has B-C
+            Assert.AreEqual(1, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 0, 0, 1000, 1000)); // #3 has B-C
         }
 
@@ -917,9 +962,12 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 1000, 1000, 400)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 1000, 1000, 400)); // #2 has A-D
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 1000, 1000, 0)); // #2 has B-C
+            Assert.AreEqual(1, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 0, 1000, 1000, 0)); // #3 has B-C
         }
 
@@ -968,9 +1016,12 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 1000, 600, 400, 0)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 1000, 600, 400, 0)); // #2 has A-D
             Assert.IsTrue(SiteHasEdge(sites[1], 1000, 1000, 0, 0)); // #2 has B-C
+            Assert.AreEqual(1, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 1000, 1000, 0, 0)); // #3 has B-C
         }
 
@@ -1019,9 +1070,12 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 0, 0, 600)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 0, 0, 600)); // #2 has A-D
             Assert.IsTrue(SiteHasEdge(sites[1], 1000, 0, 0, 1000)); // #2 has B-C
+            Assert.AreEqual(1, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 1000, 0, 0, 1000)); // #3 has B-C
         }
 
@@ -1067,11 +1121,15 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 0, 400, 600, 1000)); // #1 has A-F
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 400, 600, 1000)); // #2 has A-F
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 0, 1000, 1000)); // #2 has B-E
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 0, 0, 1000, 1000)); // #3 has B-E
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 0, 1000, 600)); // #3 has C-D
+            Assert.AreEqual(1, sites[3].Cell.Count()); // #4
             Assert.IsTrue(SiteHasEdge(sites[3], 400, 0, 1000, 600)); // #4 has C-D
         }
 
@@ -1121,11 +1179,15 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(1, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 1000, 1000, 400)); // #1 has A-F
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 1000, 1000, 400)); // #2 has A-F
             Assert.IsTrue(SiteHasEdge(sites[1], 0, 1000, 1000, 0)); // #2 has B-E
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 0, 1000, 1000, 0)); // #3 has B-E
             Assert.IsTrue(SiteHasEdge(sites[2], 0, 600, 600, 0)); // #3 has C-D
+            Assert.AreEqual(1, sites[3].Cell.Count()); // #4
             Assert.IsTrue(SiteHasEdge(sites[3], 0, 600, 600, 0)); // #4 has C-D
         }
 
@@ -1170,10 +1232,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 400, 0, 400)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 400, 1000, 1000)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 400, 0, 400)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 400, 400, 0)); // #2 has A-C
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 400, 400, 0)); // #3 has A-C
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 400, 1000, 1000)); // #3 has A-D
         }
@@ -1223,10 +1288,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 600, 400, 1000)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 600, 1000, 0)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 600, 400, 1000)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 600, 0, 600)); // #2 has A-C
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 600, 0, 600)); // #3 has A-C
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 600, 1000, 0)); // #3 has A-D
         }
@@ -1276,10 +1344,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 600, 1000, 600)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 600, 0, 0)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 600, 1000, 600)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 600, 600, 1000)); // #2 has A-C
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 600, 600, 600, 1000)); // #3 has A-C
             Assert.IsTrue(SiteHasEdge(sites[2], 600, 600, 0, 0)); // #3 has A-D
         }
@@ -1329,10 +1400,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 400, 600, 0)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 400, 0, 1000)); // #1 has A-D
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 400, 600, 0)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 400, 1000, 400)); // #2 has A-C
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 600, 400, 1000, 400)); // #3 has A-C
             Assert.IsTrue(SiteHasEdge(sites[2], 600, 400, 0, 1000)); // #3 has A-D
         }
@@ -1378,10 +1452,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 500, 0, 0)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 500, 1000, 0)); // #1 has A-C
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 500, 1000, 0)); // #2 has A-C
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 500, 500, 1000)); // #2 has A-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 500, 0, 0)); // #3 has A-B
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 500, 500, 1000)); // #3 has A-D
         }
@@ -1431,10 +1508,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 500, 0, 1000)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 500, 0, 0)); // #1 has A-C
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 500, 0, 0)); // #2 has A-C
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 500, 1000, 500)); // #2 has A-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 500, 0, 1000)); // #3 has A-B
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 500, 1000, 500)); // #3 has A-D
         }
@@ -1484,10 +1564,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 500, 1000, 1000)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 500, 0, 1000)); // #1 has A-C
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 500, 0, 1000)); // #2 has A-C
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 500, 500, 0)); // #2 has A-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 500, 1000, 1000)); // #3 has A-B
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 500, 500, 0)); // #3 has A-D
         }
@@ -1537,10 +1620,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 500, 1000, 0)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 500, 1000, 1000)); // #1 has A-C
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 500, 1000, 1000)); // #2 has A-C
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 500, 0, 500)); // #2 has A-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 500, 1000, 0)); // #3 has A-B
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 500, 0, 500)); // #3 has A-D
         }
@@ -1586,10 +1672,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 300, 200, 0)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 300, 800, 0)); // #1 has A-C
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 300, 800, 0)); // #2 has A-C
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 300, 500, 1000)); // #2 has A-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 300, 200, 0)); // #3 has A-B
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 300, 500, 1000)); // #3 has A-D
         }
@@ -1639,10 +1728,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 300, 500, 0, 800)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 300, 500, 0, 200)); // #1 has A-C
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 300, 500, 0, 200)); // #2 has A-C
             Assert.IsTrue(SiteHasEdge(sites[1], 300, 500, 1000, 500)); // #2 has A-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 300, 500, 0, 800)); // #3 has A-B
             Assert.IsTrue(SiteHasEdge(sites[2], 300, 500, 1000, 500)); // #3 has A-D
         }
@@ -1692,10 +1784,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 700, 800, 1000)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 500, 700, 200, 1000)); // #1 has A-C
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 700, 200, 1000)); // #2 has A-C
             Assert.IsTrue(SiteHasEdge(sites[1], 500, 700, 500, 0)); // #2 has A-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 700, 800, 1000)); // #3 has A-B
             Assert.IsTrue(SiteHasEdge(sites[2], 500, 700, 500, 0)); // #3 has A-D
         }
@@ -1745,10 +1840,13 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(2, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 700, 500, 1000, 200)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 700, 500, 1000, 800)); // #1 has A-C
+            Assert.AreEqual(2, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 700, 500, 1000, 800)); // #2 has A-C
             Assert.IsTrue(SiteHasEdge(sites[1], 700, 500, 0, 500)); // #2 has A-D
+            Assert.AreEqual(2, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 700, 500, 1000, 200)); // #3 has A-B
             Assert.IsTrue(SiteHasEdge(sites[2], 700, 500, 0, 500)); // #3 has A-D
         }
@@ -1796,19 +1894,24 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(4, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 600, 400, 400)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 400, 600, 400)); // #1 has B-C
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 400, 600, 600)); // #1 has C-D
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 600, 400, 600)); // #1 has D-A
+            Assert.AreEqual(3, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 600, 400, 400)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 600, 0, 1000)); // #2 has A-E
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 400, 0, 0)); // #2 has B-F
+            Assert.AreEqual(3, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 400, 600, 400)); // #3 has B-C
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 400, 0, 0)); // #3 has B-F
             Assert.IsTrue(SiteHasEdge(sites[2], 600, 400, 1000, 0)); // #3 has C-G
+            Assert.AreEqual(3, sites[3].Cell.Count()); // #4
             Assert.IsTrue(SiteHasEdge(sites[3], 600, 400, 600, 600)); // #4 has C-D
             Assert.IsTrue(SiteHasEdge(sites[3], 600, 400, 1000, 0)); // #4 has C-G
             Assert.IsTrue(SiteHasEdge(sites[3], 600, 600, 1000, 1000)); // #4 has D-H
+            Assert.AreEqual(3, sites[4].Cell.Count()); // #5
             Assert.IsTrue(SiteHasEdge(sites[4], 600, 600, 400, 600)); // #5 has D-A
             Assert.IsTrue(SiteHasEdge(sites[4], 400, 600, 0, 1000)); // #5 has A-E
             Assert.IsTrue(SiteHasEdge(sites[4], 600, 600, 1000, 1000)); // #5 has D-H
@@ -1857,19 +1960,24 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(4, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 400, 400, 200)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 200, 600, 200)); // #1 has B-C
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 200, 600, 400)); // #1 has C-D
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 400, 400, 400)); // #1 has D-A
+            Assert.AreEqual(3, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 400, 400, 200)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 400, 0, 800)); // #2 has A-E
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 200, 200, 0)); // #2 has B-F
+            Assert.AreEqual(3, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 200, 600, 200)); // #3 has B-C
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 200, 200, 0)); // #3 has B-F
             Assert.IsTrue(SiteHasEdge(sites[2], 600, 200, 800, 0)); // #3 has C-G
+            Assert.AreEqual(3, sites[3].Cell.Count()); // #4
             Assert.IsTrue(SiteHasEdge(sites[3], 600, 200, 600, 400)); // #4 has C-D
             Assert.IsTrue(SiteHasEdge(sites[3], 600, 200, 800, 0)); // #4 has C-G
             Assert.IsTrue(SiteHasEdge(sites[3], 600, 400, 1000, 800)); // #4 has D-H
+            Assert.AreEqual(3, sites[4].Cell.Count()); // #5
             Assert.IsTrue(SiteHasEdge(sites[4], 600, 400, 400, 400)); // #5 has D-A
             Assert.IsTrue(SiteHasEdge(sites[4], 400, 400, 0, 800)); // #5 has A-E
             Assert.IsTrue(SiteHasEdge(sites[4], 600, 400, 1000, 800)); // #5 has D-H
@@ -1922,19 +2030,24 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(4, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 600, 200, 600)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 200, 600, 200, 400)); // #1 has B-C
             Assert.IsTrue(SiteHasEdge(sites[0], 200, 400, 400, 400)); // #1 has C-D
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 400, 400, 600)); // #1 has D-A
+            Assert.AreEqual(3, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 600, 200, 600)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 400, 600, 800, 1000)); // #2 has A-E
             Assert.IsTrue(SiteHasEdge(sites[1], 200, 600, 0, 800)); // #2 has B-F
+            Assert.AreEqual(3, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 200, 600, 200, 400)); // #3 has B-C
             Assert.IsTrue(SiteHasEdge(sites[2], 200, 600, 0, 800)); // #3 has B-F
             Assert.IsTrue(SiteHasEdge(sites[2], 200, 400, 0, 200)); // #3 has C-G
+            Assert.AreEqual(3, sites[3].Cell.Count()); // #4
             Assert.IsTrue(SiteHasEdge(sites[3], 200, 400, 400, 400)); // #4 has C-D
             Assert.IsTrue(SiteHasEdge(sites[3], 200, 400, 0, 200)); // #4 has C-G
             Assert.IsTrue(SiteHasEdge(sites[3], 400, 400, 800, 0)); // #4 has D-H
+            Assert.AreEqual(3, sites[4].Cell.Count()); // #5
             Assert.IsTrue(SiteHasEdge(sites[4], 400, 400, 400, 600)); // #5 has D-A
             Assert.IsTrue(SiteHasEdge(sites[4], 400, 600, 800, 1000)); // #5 has A-E
             Assert.IsTrue(SiteHasEdge(sites[4], 400, 400, 800, 0)); // #5 has D-H
@@ -1987,19 +2100,24 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(4, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 600, 600, 800)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 800, 400, 800)); // #1 has B-C
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 800, 400, 600)); // #1 has C-D
             Assert.IsTrue(SiteHasEdge(sites[0], 400, 600, 600, 600)); // #1 has D-A
+            Assert.AreEqual(3, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 600, 600, 800)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 600, 1000, 200)); // #2 has A-E
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 800, 800, 1000)); // #2 has B-F
+            Assert.AreEqual(3, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 600, 800, 400, 800)); // #3 has B-C
             Assert.IsTrue(SiteHasEdge(sites[2], 600, 800, 800, 1000)); // #3 has B-F
             Assert.IsTrue(SiteHasEdge(sites[2], 400, 800, 200, 1000)); // #3 has C-G
+            Assert.AreEqual(3, sites[3].Cell.Count()); // #4
             Assert.IsTrue(SiteHasEdge(sites[3], 400, 800, 400, 600)); // #4 has C-D
             Assert.IsTrue(SiteHasEdge(sites[3], 400, 800, 200, 1000)); // #4 has C-G
             Assert.IsTrue(SiteHasEdge(sites[3], 400, 600, 0, 200)); // #4 has D-H
+            Assert.AreEqual(3, sites[4].Cell.Count()); // #5
             Assert.IsTrue(SiteHasEdge(sites[4], 400, 600, 600, 600)); // #5 has D-A
             Assert.IsTrue(SiteHasEdge(sites[4], 600, 600, 1000, 200)); // #5 has A-E
             Assert.IsTrue(SiteHasEdge(sites[4], 400, 600, 0, 200)); // #5 has D-H
@@ -2052,19 +2170,24 @@ namespace UnitTests
 
             // Assert
 
+            Assert.AreEqual(4, sites[0].Cell.Count()); // #1
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 400, 800, 400)); // #1 has A-B
             Assert.IsTrue(SiteHasEdge(sites[0], 800, 400, 800, 600)); // #1 has B-C
             Assert.IsTrue(SiteHasEdge(sites[0], 800, 600, 600, 600)); // #1 has C-D
             Assert.IsTrue(SiteHasEdge(sites[0], 600, 600, 600, 400)); // #1 has D-A
+            Assert.AreEqual(3, sites[1].Cell.Count()); // #2
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 400, 800, 400)); // #2 has A-B
             Assert.IsTrue(SiteHasEdge(sites[1], 600, 400, 200, 0)); // #2 has A-E
             Assert.IsTrue(SiteHasEdge(sites[1], 800, 400, 1000, 200)); // #2 has B-F
+            Assert.AreEqual(3, sites[2].Cell.Count()); // #3
             Assert.IsTrue(SiteHasEdge(sites[2], 800, 400, 800, 600)); // #3 has B-C
             Assert.IsTrue(SiteHasEdge(sites[2], 800, 400, 1000, 200)); // #3 has B-F
             Assert.IsTrue(SiteHasEdge(sites[2], 800, 600, 1000, 800)); // #3 has C-G
+            Assert.AreEqual(3, sites[3].Cell.Count()); // #4
             Assert.IsTrue(SiteHasEdge(sites[3], 800, 600, 600, 600)); // #4 has C-D
             Assert.IsTrue(SiteHasEdge(sites[3], 800, 600, 1000, 800)); // #4 has C-G
             Assert.IsTrue(SiteHasEdge(sites[3], 600, 600, 200, 1000)); // #4 has D-H
+            Assert.AreEqual(3, sites[4].Cell.Count()); // #5
             Assert.IsTrue(SiteHasEdge(sites[4], 600, 600, 600, 400)); // #5 has D-A
             Assert.IsTrue(SiteHasEdge(sites[4], 600, 400, 200, 0)); // #5 has A-E
             Assert.IsTrue(SiteHasEdge(sites[4], 600, 600, 200, 1000)); // #5 has D-H

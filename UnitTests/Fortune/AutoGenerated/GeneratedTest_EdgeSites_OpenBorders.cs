@@ -10,6 +10,7 @@ namespace UnitTests
     /// <summary>
     /// These tests assert that <see cref="VoronoiEdge"/>`s have expected <see cref="VoronoiSite"/>`s.
     /// Specifically, that the <see cref="VoronoiEdge.Left"/> and <see cref="VoronoiEdge.Right"/> are the expected sites.
+    /// These tests are run without generating the border edges, i.e. <see cref="BorderEdgeGeneration.DoNotMakeBorderEdges"/>.
     /// </summary>
     /// <remarks>
     /// This is an AUTO-GENERATED test fixture class from UnitTestGenerator.
