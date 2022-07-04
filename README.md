@@ -1,6 +1,6 @@
 # VoronoiLib
 
-C# implementation of Fortune's Algorithm (for generating a Voronoi diagram from a set of points in a plane) with edge clipping and optional border closure. This implementation guarantees O(n×ln(n)) performance.
+C# implementation of generating a Voronoi diagram from a set of points in a plane (using Fortune's Algorithm) with edge clipping and optional border closure. This implementation guarantees O(n×ln(n)) performance.
 
 The key differences from the [original repo](https://github.com/Zalgo2462/VoronoiLib)
 * Borders can be closed, that is, edges generated along the boundary
@@ -24,7 +24,7 @@ The library (VoronoiLib) is compiled for .NET standard 1.1. As such, projects sh
 
 # Use
 
-Create sites, run algorithm:
+Quick-start:
 
 ```
 IEnumerable<VoronoiSite> sites = new List<VoronoiSite>
@@ -34,22 +34,10 @@ IEnumerable<VoronoiSite> sites = new List<VoronoiSite>
     new FortuneSite(400, 300)
 };
 
-LinkedList<VoronoiEdge> edges = VoronoiPlane.RunOnce(
+LinkedList<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(
     sites, 
     0, 0, 
-    600, 600,
-    BorderEdgeGeneration.MakeBorderEdges
-);
-```
-
-If closing borders is not desired (leaving sites with unclosed cells/polygons):
-
-```
-LinkedList<VoronoiEdge> edges = VoronoiPlane.RunOnce(
-    sites, 
-    0, 0, 
-    600, 600,
-    BorderEdgeGeneration.DoNotMakeBorderEdges
+    600, 600
 );
 ```
 
@@ -60,9 +48,32 @@ Edge end `VoronoiPoint`s also contain a `.BorderLocation` specifying if it's on 
 `VoronoiEdge.Neighbours` (on-demand) are edges directly "connecting" to this edge, basically creating a traversable edge graph.
 `FortuneSite.Cell` contains the edges that enclose the site (starting from the bottom-left "corner").
 `FortuneSite.ClockwiseCell` (on-demand) contains these edges sorted clockwise (starting from the bottom-left "corner" end point).
-`FortuneSite.Neighbors` contains the site's neighbors (in the Delaunay Triangulation), that is, sites across its edges.
+`FortuneSite.Neighbors` contains the site's neighbors (in the Delaunay Triangulation), that is, other sites across its edges.
 `FortuneSite.Points` (on-demand) contains points of the cell, that is, edge end points / edge nodes.
-`FortuneSite.ClockwisePoints` (on-demand) contains these points sorted clockwise.
+`FortuneSite.ClockwisePoints` (on-demand) contains these points sorted clockwise (starting from the bottom-left "corner").
+
+If closing borders around the boundary is not desired (leaving sites with unclosed cells/polygons):
+
+```
+LinkedList<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(
+    sites, 
+    0, 0, 
+    600, 600,
+    BorderEdgeGeneration.DoNotMakeBorderEdges
+);
+```
+
+Full syntax (leaving a reusable `VoronoiPlane` instance):
+
+```
+VoronoiPlane plane = new VoronoiPlane(
+    sites, 
+    0, 0, 
+    600, 600
+);
+
+plane.Tessellate();
+```
 
 # Credits
 
@@ -71,7 +82,6 @@ Edge end `VoronoiPoint`s also contain a `.BorderLocation` specifying if it's on 
 - [Improvements by Jeffrey Jones](https://github.com/rurounijones/VoronoiLib)
 - Various code pieces atributed inline
 
-Original Implementation inspired by:
-- Ivan Kuckir's project (MIT) @ http://blog.ivank.net/fortunes-algorithm-and-implementation.html
-- Raymond Hill's project (MIT) @ https://github.com/gorhill/Javascript-Voronoi
-- Red Black Tree by Raymond Hill
+Original implementation inspired by:
+- [Ivan Kuckir's project](http://blog.ivank.net/fortunes-algorithm-and-implementation.html)
+- [Raymond Hill's project](https://github.com/gorhill/Javascript-Voronoi)
