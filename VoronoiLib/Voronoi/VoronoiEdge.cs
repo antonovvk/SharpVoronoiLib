@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 
 namespace VoronoiLib.Structures
@@ -76,6 +77,21 @@ namespace VoronoiLib.Structures
                 return _neighbours;
             }
         }
+
+        [PublicAPI]
+        public double Length
+        {
+            get
+            {
+                // from https://github.com/Zalgo2462/VoronoiLib/commit/c125991fdd56697539a1a7eac21d8e158bc399c5
+
+                if (_length == null)
+                    _length = Math.Sqrt(Math.Pow(SlopeRise, 2) + Math.Pow(SlopeRun, 2));
+                
+                return _length.Value;
+            }
+        }
+
         
         internal VoronoiEdge? CounterclockwiseNeighbourBorder { get; set; }
         internal VoronoiEdge? ClockwiseNeighbourBorder { get; set; }
@@ -86,9 +102,11 @@ namespace VoronoiLib.Structures
         internal double? Intercept { get; }
         internal VoronoiEdge? LastBeachLineNeighbor { get; set; } // I am not entirely sure this is the right name for this, but I just want to make it clear it's not something usable publicly
 
+        
         private VoronoiPoint? _mid;
         private List<VoronoiEdge>? _neighbours;
-        
+        private double? _length;
+
         
         internal VoronoiEdge(VoronoiPoint start, VoronoiSite left, VoronoiSite right)
         {
