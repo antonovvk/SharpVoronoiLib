@@ -43,7 +43,7 @@ namespace VoronoiLib
 
 
         [PublicAPI]
-        public static LinkedList<VoronoiEdge> TessellateOnce(IEnumerable<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, BorderEdgeGeneration borderGeneration)
+        public static LinkedList<VoronoiEdge> TessellateOnce(IEnumerable<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, BorderEdgeGeneration borderGeneration = BorderEdgeGeneration.MakeBorderEdges)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
@@ -52,7 +52,7 @@ namespace VoronoiLib
         }
 
         [PublicAPI]
-        public LinkedList<VoronoiEdge> Tessellate(BorderEdgeGeneration borderGeneration)
+        public LinkedList<VoronoiEdge> Tessellate(BorderEdgeGeneration borderGeneration = BorderEdgeGeneration.MakeBorderEdges)
         {
             if (_fortunesAlgorithm == null)
                 _fortunesAlgorithm = new FortunesAlgorithm(this);
