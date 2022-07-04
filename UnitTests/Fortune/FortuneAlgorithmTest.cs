@@ -51,7 +51,7 @@ namespace UnitTests
             // So each corner only ever has 3 edges and 3 closest points
             // But there's a 0-length edge
             
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             // There are 5 edges (not 4)
             Assert.AreEqual(5, edges.Count);
@@ -77,7 +77,7 @@ namespace UnitTests
         {
             List<VoronoiSite> points = new List<VoronoiSite>();
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             Assert.AreEqual(0, edges.Count);
         }
@@ -90,7 +90,7 @@ namespace UnitTests
                 new VoronoiSite(300, 300)
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             Assert.AreEqual(0, edges.Count);
         }
@@ -110,7 +110,7 @@ namespace UnitTests
                 new VoronoiSite(x, y)
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             Assert.AreEqual(0, edges.Count);
             Assert.AreEqual(0, points[0].Cell.Count());
@@ -132,7 +132,7 @@ namespace UnitTests
                 new VoronoiSite(300, 300)
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             Assert.AreEqual(1, edges.Count);
             Assert.AreEqual(1, points[0].Cell.Count());
@@ -155,7 +155,7 @@ namespace UnitTests
                 new VoronoiSite(300, 300)
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             Assert.AreEqual(0, edges.Count);
             Assert.AreEqual(0, points[0].Cell.Count());
@@ -177,7 +177,7 @@ namespace UnitTests
                 new VoronoiSite(x, y)
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             Assert.AreEqual(0, edges.Count);
             Assert.AreEqual(0, points[0].Cell.Count());
@@ -199,7 +199,7 @@ namespace UnitTests
                 new VoronoiSite(300, 300)
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             Assert.AreEqual(1, edges.Count);
             Assert.AreEqual(1, points[0].Cell.Count());
@@ -217,7 +217,7 @@ namespace UnitTests
                 new VoronoiSite(400, 300) // 4
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 B                                   E
             //     |\                                 /
@@ -257,7 +257,7 @@ namespace UnitTests
                 new VoronoiSite(300, 800)
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
@@ -281,7 +281,7 @@ namespace UnitTests
                 new VoronoiSite(x2, y2)
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
             
             Assert.AreEqual(0, edges.Count);
         }
@@ -305,7 +305,7 @@ namespace UnitTests
                 points.Add(new VoronoiSite(random.NextDouble() * 3000 - 1500, random.NextDouble() * 3000 - 1500));
             }
     
-            FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges);
             
             // These are really slow and only work on in-bounds values:
             // CollectionAssert.AllItemsAreNotNull(edges);
@@ -344,7 +344,7 @@ namespace UnitTests
                 points.Add(new VoronoiSite(random.Next(3000) - 1500, random.Next(3000) - 1500));
             }
     
-            FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges);
             
             Assert.Pass();
         }

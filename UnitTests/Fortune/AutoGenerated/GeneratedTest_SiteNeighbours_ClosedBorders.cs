@@ -56,7 +56,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -98,7 +98,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -146,7 +146,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -190,7 +190,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -238,7 +238,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -283,7 +283,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -334,7 +334,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -382,7 +382,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -436,7 +436,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -484,7 +484,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -532,7 +532,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -576,7 +576,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -624,7 +624,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -672,7 +672,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -720,7 +720,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -765,7 +765,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -816,7 +816,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -863,7 +863,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -914,7 +914,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -965,7 +965,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1016,7 +1016,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1064,7 +1064,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1118,7 +1118,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1167,7 +1167,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1220,7 +1220,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1273,7 +1273,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1326,7 +1326,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1375,7 +1375,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1428,7 +1428,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1481,7 +1481,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1534,7 +1534,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1583,7 +1583,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1636,7 +1636,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1689,7 +1689,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1742,7 +1742,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1793,7 +1793,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1854,7 +1854,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1919,7 +1919,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -1984,7 +1984,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 
@@ -2049,7 +2049,7 @@ namespace UnitTests
 
             // Act
 
-            FortunesAlgorithm.RunOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
 
             // Assert
 

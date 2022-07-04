@@ -7,7 +7,7 @@ using VoronoiLib.Structures;
 
 namespace VoronoiLib
 {
-    public class FortunesAlgorithm
+    public class VoronoiPlane
     {
         [PublicAPI]
         public double MinX { get; }
@@ -22,7 +22,7 @@ namespace VoronoiLib
         public double MaxY { get; }
         
 
-        public FortunesAlgorithm(double minX, double minY, double maxX, double maxY)
+        public VoronoiPlane(double minX, double minY, double maxX, double maxY)
         {
             if (minX >= maxX) throw new ArgumentException();
             if (minY >= maxY) throw new ArgumentException();
@@ -36,16 +36,16 @@ namespace VoronoiLib
 
 
         [PublicAPI]
-        public static LinkedList<VoronoiEdge> RunOnce(IEnumerable<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, BorderEdgeGeneration borderGeneration)
+        public static LinkedList<VoronoiEdge> TessellateOnce(IEnumerable<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, BorderEdgeGeneration borderGeneration)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             
 
-            return new FortunesAlgorithm(minX, minY, maxX, maxY).Run(sites, borderGeneration);
+            return new VoronoiPlane(minX, minY, maxX, maxY).Tessellate(sites, borderGeneration);
         }
 
         [PublicAPI]
-        public LinkedList<VoronoiEdge> Run(IEnumerable<VoronoiSite> sites, BorderEdgeGeneration borderGeneration)
+        public LinkedList<VoronoiEdge> Tessellate(IEnumerable<VoronoiSite> sites, BorderEdgeGeneration borderGeneration)
         {
             if (sites == null) throw new ArgumentNullException(nameof(sites));
             

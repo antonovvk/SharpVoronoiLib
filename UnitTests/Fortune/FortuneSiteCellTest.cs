@@ -22,7 +22,7 @@ namespace UnitTests
                 new VoronoiSite(400, 300) // 4
             };
 
-            List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // 600 B                                   E
             //     |\                                 /

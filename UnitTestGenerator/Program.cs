@@ -744,9 +744,9 @@ namespace UnitTestGenerator
                     stringBuilder.AppendPaddedLine(3, @"// Act");
                     stringBuilder.AppendLine();
                     if (NeedEdgesFor(purpose))
-                        stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = FortunesAlgorithm.RunOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @").ToList();");
+                        stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @").ToList();");
                     else
-                        stringBuilder.AppendPaddedLine(3, @"FortunesAlgorithm.RunOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @");");
+                        stringBuilder.AppendPaddedLine(3, @"VoronoiPlane.TessellateOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @");");
                     stringBuilder.AppendLine();
 
                     stringBuilder.AppendPaddedLine(3, @"// Assert");
@@ -914,7 +914,7 @@ namespace UnitTestGenerator
                 {
                     case TestPurpose.AssertEdges:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiEdge) + @"""/>`s are returned as expected");
-                        strings.Add(@"/// Specifically, that the result of <see cref=""" + nameof(FortunesAlgorithm) + @"." + nameof(FortunesAlgorithm.Run) + @"""/>() contains the expected edges.");
+                        strings.Add(@"/// Specifically, that the result of <see cref=""" + nameof(VoronoiPlane) + @"." + nameof(VoronoiPlane.Tessellate) + @"""/>() contains the expected edges.");
                         break;
 
                     case TestPurpose.AssertSiteEdges:

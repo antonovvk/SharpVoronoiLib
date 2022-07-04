@@ -33,7 +33,7 @@ namespace VoronoiSpeedTest
                     watch.Reset();
                     List<VoronoiSite> points = GenPoints(numPoints, r);
                     watch.Start();
-                    FortunesAlgorithm.RunOnce(points, 0, 0, WIDTH, HEIGHT, BorderEdgeGeneration.MakeBorderEdges);
+                    VoronoiPlane.TessellateOnce(points, 0, 0, WIDTH, HEIGHT, BorderEdgeGeneration.MakeBorderEdges);
                     watch.Stop();
                     times[point - 1, sample - 1] = watch.ElapsedMilliseconds;
                 }
