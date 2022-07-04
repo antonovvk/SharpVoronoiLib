@@ -1158,7 +1158,7 @@ namespace UnitTestGenerator
                             {
                                 if (PointMatchesBorderLogic(point, borderLogic))
                                 {
-                                    strings.Add(@"Assert.IsTrue(PointIs(sites[" + sites.IndexOf(site) + @"]" + @"." + (clockwise ? nameof(VoronoiSite.ClockwisePoints) : nameof(VoronoiSite.Points)) + @".ElementAt(" + index + @"), " + point.X + @", " + point.Y + @")); // #" + site.Id + @" " + (char)point.Id);
+                                    strings.Add(@"Assert.IsTrue(PointIs(sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwisePoints) + @".ElementAt(" + index + @"), " + point.X + @", " + point.Y + @")); // #" + site.Id + @" " + (char)point.Id);
 
                                     index++;
                                 }
@@ -1238,17 +1238,41 @@ namespace UnitTestGenerator
                     {
                         strings.Add(@"Assert.IsTrue(SiteHas" + (clockwise ? "Clockwise" : "") + @"Edge(sites[" + allSites.IndexOf(site) + @"], " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
                     }
-                    
+
                     if (clockwise)
                     {
-                        strings.Add(@"Assert.That(sites[" + allSites.IndexOf(site) + @"]." + nameof(VoronoiSite.ClockwiseCell) + @", Is.Ordered.Using(new ClockwiseEdgeComparer(" + site.X + @", " + site.Y + @"))); // #" + site.Id);
+                        int index = 0;
 
-                        // Okay, so I am literally using the same logic as the algorithm for clockwise angle sort,
-                        // which makes this a really bad test, since I'm just repeating any bugs in the sort logic.
+                        IEnumerable<Edge> orderedEdges = siteEdges.OrderBy(e => GetEdgeSoftIndex(e, site.Points));
+                        
+                        foreach (Edge edge in orderedEdges)
+                        {
+                            strings.Add(@"Assert.IsTrue(EdgeIs(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @".ElementAt(" + index + @"), " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+
+                            index++;
+                        }
                     }
                 }
 
                 return strings;
+            }
+
+            private int GetEdgeSoftIndex(Edge edge, List<Point>[] sitePoints)
+            {
+                List<Point> flatPoints = sitePoints.SelectMany(sp => sp).ToList();
+
+                int fromIndex = flatPoints.IndexOf(edge.FromPoint);
+                int toIndex = flatPoints.IndexOf(edge.ToPoint);
+
+                // Points are sequential
+                if (Math.Abs(toIndex - fromIndex) == 1)
+                    return Math.Min(fromIndex, toIndex); // select previous index (going to next)
+                
+                // Points wrap around
+                if (Math.Abs(toIndex - fromIndex) == flatPoints.Count - 1)
+                    return Math.Max(fromIndex, toIndex); // select last index (going to first)
+
+                throw new InvalidOperationException();
             }
 
             private List<string> BuildVisualLayout(Test test, TestBorderLogic borderLogic)

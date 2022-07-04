@@ -162,12 +162,27 @@ namespace VoronoiLib.Structures
         [Pure]
         private int SortEdgesClockwise(VoronoiEdge edge1, VoronoiEdge edge2)
         {
+            if (EdgeCrossesOrigin(edge1))
+                return 1;
+            
+            if (EdgeCrossesOrigin(edge2))
+                return -1;
+            
             return SortPointsClockwise(edge1.Mid, edge2.Mid);
             
-            // Note that we use edge midpoint because the order of .Start and .End is not guaranteed.
-            // If we used Start or End, we would sometimes end up checking the same point/coordinate where the edges connect.
-            // A midpoint, however, guarantees each edge has a unique position for the comparison.
-            // (Technically, any point along the edge that isn't the start/end will do, but midpoint is just the simplest).
+            // Note that we don't assume that edges connect.
+        }
+
+        [Pure]
+        private bool EdgeCrossesOrigin(VoronoiEdge edge)
+        {
+            double atanA = Atan2(edge.Start.Y - Y, edge.Start.X - X);
+            double atanB = Atan2(edge.End!.Y - Y, edge.End.X - X);
+            
+            // Edge can only "cover" less than half the circle by definition, otherwise then it wouldn't actually contain the site
+            // So when the difference between end point angles is greater than half a circle, we know we have and edge that "crossed" the angle origin.
+            
+            return Math.Abs(atanA - atanB) >= Math.PI;
         }
 
         [Pure]

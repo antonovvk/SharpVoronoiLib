@@ -54,6 +54,14 @@ namespace UnitTests
             return point.X.ApproxEqual(x) && point.Y.ApproxEqual(y);
         }
 
+        internal static bool EdgeIs(VoronoiEdge edge, double x1, double y1, double x2, double y2)
+        {
+            return
+                edge.Start != null && edge.End != null &&
+                (edge.Start.X.ApproxEqual(x1) && edge.Start.Y.ApproxEqual(y1) && edge.End.X.ApproxEqual(x2) && edge.End.Y.ApproxEqual(y2) ||
+                 edge.Start.X.ApproxEqual(x2) && edge.Start.Y.ApproxEqual(y2) && edge.End.X.ApproxEqual(x1) && edge.End.Y.ApproxEqual(y1));
+        }
+
         internal static bool EdgeHasSite(VoronoiEdge edge, double x, double y)
         {
             return
@@ -115,52 +123,6 @@ namespace UnitTests
             return
                 edge.Start != null && edge.Start.BorderLocation == PointBorderLocation.NotOnBorder &&
                 edge.End != null && edge.End.BorderLocation == PointBorderLocation.NotOnBorder;
-        }
-
-        internal class ClockwiseEdgeComparer : IComparer<VoronoiEdge>
-        {
-            private readonly double _x;
-            private readonly double _y;
-
-            
-            public ClockwiseEdgeComparer(double x, double y)
-            {
-                _x = x;
-                _y = y;
-            }
-
-
-            public int Compare(VoronoiEdge edge1, VoronoiEdge edge2)
-            {
-                return ClockwisePointSort(edge1.Mid, edge2.Mid, _x, _y);
-            }
-        
-            
-            /// <remarks>
-            /// This is a copy of <see cref="VoronoiSite.SortPointsClockwise"/>.
-            /// </remarks>
-            internal static int ClockwisePointSort(VoronoiPoint point1, VoronoiPoint point2, double x, double y)
-            {
-                double atanA = Atan2(point1.Y - y, point1.X - x);
-                double atanB = Atan2(point2.Y - y, point2.X - x);
-            
-                if (atanA < atanB) return -1;
-                if (atanA > atanB) return 1;
-                return 0;
-            }        
-            
-            /// <remarks> 
-            /// This is a copy of <see cref="VoronoiSite.Atan2"/>
-            /// </remarks>
-            private static double Atan2(double y, double x)
-            {
-                double a = -Math.Atan2(-y, -x) + Math.PI / 4;
-		
-                if (a < 0)
-                    a += 2 * Math.PI;
-			
-                return a;
-            }
         }
     }
 }

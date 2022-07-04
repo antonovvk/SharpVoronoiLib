@@ -59,7 +59,7 @@ The returned collection contains the generated edges as `VoronoiEdge`s.
 Edge end `VoronoiPoint`s also contain a `.BorderLocation` specifying if it's on a border and which one.
 `VoronoiEdge.Neighbours` (on-demand) are edges directly "connecting" to this edge, basically creating a traversable edge graph.
 `FortuneSite.Cell` contains the edges that enclose the site (starting from the bottom-left "corner").
-`FortuneSite.ClockwiseCell` (on-demand) contains these edges sorted clockwise (starting from the bottom-left "corner").
+`FortuneSite.ClockwiseCell` (on-demand) contains these edges sorted clockwise (starting from the bottom-left "corner" end point).
 `FortuneSite.Neighbors` contains the site's neighbors (in the Delaunay Triangulation), that is, sites across its edges.
 `FortuneSite.Points` (on-demand) contains points of the cell, that is, edge end points / edge nodes.
 `FortuneSite.ClockwisePoints` (on-demand) contains these points sorted clockwise.
