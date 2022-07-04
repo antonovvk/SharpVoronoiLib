@@ -1,4 +1,4 @@
-﻿namespace VoronoiLib.Structures
+﻿namespace SharpVoronoiLib
 {
     internal class FortuneSiteEvent : FortuneEvent
     {

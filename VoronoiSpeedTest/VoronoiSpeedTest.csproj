@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VoronoiLib\VoronoiLib.csproj" />
+    <ProjectReference Include="..\SharpVoronoiLib\SharpVoronoiLib.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VoronoiLib.Structures
+namespace SharpVoronoiLib
 {
     interface FortuneEvent : IComparable<FortuneEvent>
     {

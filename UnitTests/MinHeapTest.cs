@@ -1,9 +1,8 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using VoronoiLib.Structures;
 
-namespace UnitTests
+namespace SharpVoronoiLib.UnitTests
 {
     [TestFixture]
     [Parallelizable(ParallelScope.Self)]

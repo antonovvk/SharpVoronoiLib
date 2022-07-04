@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using VoronoiLib;
+using SharpVoronoiLib;
 
-namespace UnitTests
+namespace SharpVoronoiLib.UnitTests
 {
     [TestFixture]
     [Parallelizable(ParallelScope.Self)]

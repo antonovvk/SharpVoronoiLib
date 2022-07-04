@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
-namespace VoronoiLib.Structures
+namespace SharpVoronoiLib
 {
     public class VoronoiEdge
     {
@@ -83,7 +83,7 @@ namespace VoronoiLib.Structures
         {
             get
             {
-                // from https://github.com/Zalgo2462/VoronoiLib/commit/c125991fdd56697539a1a7eac21d8e158bc399c5
+                // from https://github.com/Zalgo2462/SharpVoronoiLib/commit/c125991fdd56697539a1a7eac21d8e158bc399c5
 
                 if (_length == null)
                     _length = Math.Sqrt(Math.Pow(SlopeRise, 2) + Math.Pow(SlopeRun, 2));

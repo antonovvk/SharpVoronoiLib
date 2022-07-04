@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace VoronoiLib.Structures
+namespace SharpVoronoiLib
 {
     internal class BeachSection
     {

@@ -1,11 +1,9 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using VoronoiLib;
-using VoronoiLib.Structures;
-using static UnitTests.CommonTestUtilities;
+using static SharpVoronoiLib.UnitTests.CommonTestUtilities;
 
-namespace UnitTests
+namespace SharpVoronoiLib.UnitTests
 {
     /// <summary>
     /// These tests assert that <see cref="VoronoiPoint"/>`s have the expected <see cref="PointBorderLocation"/>.

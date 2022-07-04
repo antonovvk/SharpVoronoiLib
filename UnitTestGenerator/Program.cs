@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using VoronoiLib;
-using VoronoiLib.Structures;
 
-namespace UnitTestGenerator
+namespace SharpVoronoiLib.UnitTestGenerator
 {
     public static class Program
     {
@@ -699,11 +697,9 @@ namespace UnitTestGenerator
                 stringBuilder.AppendLine(@"using NUnit.Framework;");
                 stringBuilder.AppendLine(@"using System.Collections.Generic;");
                 stringBuilder.AppendLine(@"using System.Linq;");
-                stringBuilder.AppendLine(@"using VoronoiLib;");
-                stringBuilder.AppendLine(@"using VoronoiLib.Structures;");
-                stringBuilder.AppendLine(@"using static UnitTests.CommonTestUtilities;");
+                stringBuilder.AppendLine(@"using static SharpVoronoiLib.UnitTests.CommonTestUtilities;");
                 stringBuilder.AppendLine();
-                stringBuilder.AppendLine(@"namespace UnitTests");
+                stringBuilder.AppendLine(@"namespace SharpVoronoiLib.UnitTests");
                 stringBuilder.AppendLine(@"{");
                 List<string> classSummary = BuildClassSummary(purpose, borderLogic);
                 foreach (string summaryLine in classSummary)

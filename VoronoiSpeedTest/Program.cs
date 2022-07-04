@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using VoronoiLib.Structures;
-using VoronoiLib;
+using SharpVoronoiLib;
 
-namespace VoronoiSpeedTest
+namespace SharpVoronoiLib.SpeedTest
 {
     public static class Program
     {

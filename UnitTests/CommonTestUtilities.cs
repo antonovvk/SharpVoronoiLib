@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using VoronoiLib;
-using VoronoiLib.Structures;
+using SharpVoronoiLib;
 
-namespace UnitTests
+namespace SharpVoronoiLib.UnitTests
 {
     internal static class CommonTestUtilities
     {

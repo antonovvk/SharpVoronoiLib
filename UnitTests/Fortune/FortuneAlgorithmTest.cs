@@ -1,14 +1,12 @@
 #define BRUTE_FORCE_TEST
 
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
-using VoronoiLib;
-using VoronoiLib.Structures;
+using SharpVoronoiLib;
 using System.Linq;
 using System;
 
-namespace UnitTests
+namespace SharpVoronoiLib.UnitTests
 {
     [TestFixture]
     [Parallelizable(ParallelScope.Self)]

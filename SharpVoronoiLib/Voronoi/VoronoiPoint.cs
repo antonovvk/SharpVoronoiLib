@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace VoronoiLib.Structures
+namespace SharpVoronoiLib
 {
     public class VoronoiPoint
     {

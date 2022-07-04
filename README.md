@@ -1,8 +1,8 @@
-# VoronoiLib
+# SharpVoronoiLib
 
-C# implementation of generating a Voronoi diagram from a set of points in a plane (using Fortune's Algorithm) with edge clipping and optional border closure. This implementation guarantees O(n×ln(n)) performance.
+C# implementation of generating a Voronoi diagram from a set of points in a plane (using Fortune's Algorithm) with edge clipping and border closure. This implementation guarantees O(n×ln(n)) performance.
 
-The key differences from the [original repo](https://github.com/Zalgo2462/VoronoiLib)
+The key differences from the [original VoronoiLib repo](https://github.com/Zalgo2462/VoronoiLib)
 * Borders can be closed, that is, edges generated along the boundary
 * Edges can correctly go through boundary corners without generating invalid data
 * Edges and points/sites contain additional useful data
@@ -78,7 +78,7 @@ plane.Tessellate();
 
 # Credits
 
-- [Originally written by Logan Lembke](https://github.com/Zalgo2462/VoronoiLib)
+- [Originally written by Logan Lembke as VoronoiLib](https://github.com/Zalgo2462/VoronoiLib)
 - [Updated with unit tests and nuget package by Sean Esopenko](https://github.com/sesopenko/VoronoiLib)
 - [Improvements by Jeffrey Jones](https://github.com/rurounijones/VoronoiLib)
 - Various code pieces atributed inline

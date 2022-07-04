@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoronoiLib", "VoronoiLib\VoronoiLib.csproj", "{14A2A7D7-BCC2-4C8A-A040-C8C38317D5D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpVoronoiLib", "SharpVoronoiLib\SharpVoronoiLib.csproj", "{14A2A7D7-BCC2-4C8A-A040-C8C38317D5D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{50C19554-A91B-44F4-BA65-31E239EE9DA9}"
 EndProject

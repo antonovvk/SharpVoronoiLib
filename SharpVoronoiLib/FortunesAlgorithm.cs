@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using JetBrains.Annotations;
-using VoronoiLib.Structures;
 
-namespace VoronoiLib
+namespace SharpVoronoiLib
 {
     internal class FortunesAlgorithm
     {

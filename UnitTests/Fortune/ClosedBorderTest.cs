@@ -4,10 +4,9 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using VoronoiLib;
-using VoronoiLib.Structures;
+using SharpVoronoiLib;
 
-namespace UnitTests
+namespace SharpVoronoiLib.UnitTests
 {
     [TestFixture]
     [Parallelizable(ParallelScope.Self)]
