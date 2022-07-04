@@ -2069,5 +2069,57 @@ namespace SharpVoronoiLib.UnitTests
             Assert.True(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
         }
 
+        [Test]
+        public void FourEquidistantPointsAroundMiddle()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(300, 700), // #1
+                new VoronoiSite(300, 300), // #2
+                new VoronoiSite(700, 300), // #3
+                new VoronoiSite(700, 700), // #4
+            };
+
+            // 1000 X------------------------B------------------------Z
+            //      |                        |                        |
+            //  900 |                        |                        |
+            //      |                        |                        |
+            //  800 |                        |                        |
+            //      |                        |                        |
+            //  700 |              1         |         4              |
+            //      |                        |                        |
+            //  600 |                        |                        |
+            //      |                        |                        |
+            //  500 C------------------------A------------------------E
+            //      |                        |                        |
+            //  400 |                        |                        |
+            //      |                        |                        |
+            //  300 |              2         |         3              |
+            //      |                        |                        |
+            //  200 |                        |                        |
+            //      |                        |                        |
+            //  100 |                        |                        |
+            //      |                        |                        |
+            //    0 Y------------------------D------------------------W
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+
+            // Assert
+
+            Assert.True(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.True(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
+            Assert.True(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
+            Assert.True(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.True(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
+            Assert.True(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.True(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
+            Assert.True(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
+        }
+
     }
 }

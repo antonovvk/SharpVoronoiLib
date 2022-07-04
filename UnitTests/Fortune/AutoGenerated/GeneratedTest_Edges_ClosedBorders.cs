@@ -2255,5 +2255,62 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Z-X
         }
 
+        [Test]
+        public void FourEquidistantPointsAroundMiddle()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(300, 700), // #1
+                new VoronoiSite(300, 300), // #2
+                new VoronoiSite(700, 300), // #3
+                new VoronoiSite(700, 700), // #4
+            };
+
+            // 1000 X------------------------B------------------------Z
+            //      |                        |                        |
+            //  900 |                        |                        |
+            //      |                        |                        |
+            //  800 |                        |                        |
+            //      |                        |                        |
+            //  700 |              1         |         4              |
+            //      |                        |                        |
+            //  600 |                        |                        |
+            //      |                        |                        |
+            //  500 C------------------------A------------------------E
+            //      |                        |                        |
+            //  400 |                        |                        |
+            //      |                        |                        |
+            //  300 |              2         |         3              |
+            //      |                        |                        |
+            //  200 |                        |                        |
+            //      |                        |                        |
+            //  100 |                        |                        |
+            //      |                        |                        |
+            //    0 Y------------------------D------------------------W
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(12, edges.Count);
+            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-D
+            Assert.IsTrue(AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-E
+            Assert.IsTrue(AnyEdgeBetween(edges, 0, 1000, 0, 500)); // X-C
+            Assert.IsTrue(AnyEdgeBetween(edges, 0, 500, 0, 0)); // C-Y
+            Assert.IsTrue(AnyEdgeBetween(edges, 0, 0, 500, 0)); // Y-D
+            Assert.IsTrue(AnyEdgeBetween(edges, 500, 0, 1000, 0)); // D-W
+            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // W-E
+            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // E-Z
+            Assert.IsTrue(AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Z-B
+            Assert.IsTrue(AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // B-X
+        }
+
     }
 }

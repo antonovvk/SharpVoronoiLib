@@ -2419,5 +2419,69 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(EdgeIs(sites[4].ClockwiseCell.ElementAt(2), 600, 400, 200, 0)); // #5 A-E
         }
 
+        [Test]
+        public void FourEquidistantPointsAroundMiddle()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(300, 700), // #1
+                new VoronoiSite(300, 300), // #2
+                new VoronoiSite(700, 300), // #3
+                new VoronoiSite(700, 700), // #4
+            };
+
+            // 1000 ↑                        B                         
+            //      |                        |                         
+            //  900 |                        |                         
+            //      |                        |                         
+            //  800 |                        |                         
+            //      |                        |                         
+            //  700 |              1         |         4               
+            //      |                        |                         
+            //  600 |                        |                         
+            //      |                        |                         
+            //  500 C------------------------A------------------------E
+            //      |                        |                         
+            //  400 |                        |                         
+            //      |                        |                         
+            //  300 |              2         |         3               
+            //      |                        |                         
+            //  200 |                        |                         
+            //      |                        |                         
+            //  100 |                        |                         
+            //      |                        |                         
+            //    0 └------------------------D------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+
+            // Assert
+
+            Assert.AreEqual(2, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 500, 500, 500, 1000)); // #1 has A-B
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 500, 500, 0, 500)); // #1 has A-C
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 500, 500, 500, 1000)); // #1 A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 500, 500, 0, 500)); // #1 A-C
+            Assert.AreEqual(2, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 500, 500, 0, 500)); // #2 has A-C
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 500, 500, 500, 0)); // #2 has A-D
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 500, 500, 0, 500)); // #2 A-C
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(1), 500, 500, 500, 0)); // #2 A-D
+            Assert.AreEqual(2, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[2], 500, 500, 500, 0)); // #3 has A-D
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[2], 500, 500, 1000, 500)); // #3 has A-E
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 500, 500, 1000, 500)); // #3 A-E
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(1), 500, 500, 500, 0)); // #3 A-D
+            Assert.AreEqual(2, sites[3].ClockwiseCell.Count()); // #4
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[3], 500, 500, 500, 1000)); // #4 has A-B
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[3], 500, 500, 1000, 500)); // #4 has A-E
+            Assert.IsTrue(EdgeIs(sites[3].ClockwiseCell.ElementAt(0), 500, 500, 500, 1000)); // #4 A-B
+            Assert.IsTrue(EdgeIs(sites[3].ClockwiseCell.ElementAt(1), 500, 500, 1000, 500)); // #4 A-E
+        }
+
     }
 }

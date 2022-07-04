@@ -423,6 +423,37 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 5: AE,X,ZH,D
             ", Repeat.RotateAll);
 
+            testGenerator.AddTest("FourEquidistantPointsAroundMiddle", @"
+                X · · · · B · · · · Z 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · 1 · · · 4 · · · 7
+                · · · · · · · · · · · 6
+                C · · · · A · · · · E 5
+                · · · · · · · · · · · 4
+                · · · 2 · · · 3 · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                Y · · · · D · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,4
+                A-C: 1,2
+                A-D: 2,3
+                A-E: 3,4
+                X-C: 1
+                C-Y: 2
+                Y-D: 2
+                D-W: 3
+                W-E: 3
+                E-Z: 4
+                Z-B: 4
+                B-X: 1
+                1: C,XB,,A
+                2: YC,,A,D
+                3: ,A,E,WD 
+                4: A,B,ZE, 
+            ");
+            
             List<(string, TestPurpose)> variants = new List<(string, TestPurpose)>()
             {
                 ("GeneratedTest_Edges", TestPurpose.AssertEdges),
