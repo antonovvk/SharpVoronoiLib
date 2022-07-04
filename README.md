@@ -4,13 +4,13 @@ C# implementation of generating a Voronoi diagram from a set of points in a plan
 
 The key differences from the [original VoronoiLib repo](https://github.com/Zalgo2462/VoronoiLib)
 * Borders can be closed, that is, edges generated along the boundary
-* Edges can correctly go through boundary corners without generating invalid data
 * Edges and points/sites contain additional useful data
+* (Rarish bug where edges going through boundary corners would generate invalid data)[url]
 * (Rare bug fixed that caused infinite loop or invalid data)[url]
+* (Rare bug fixed where more than 3 equidistant sites would create a 0-length edge(s) instead of 3+ edges meeting at the same point.)[url]
 * Lots more unit testing
 
 Known issues:
-* More than 3 equidistant sites will create a 0-length edge instead of 3+ edges meeting at the same point. This is rare since even the tiniest difference will create a non-0-length edge. So this is only an annoying issue if working with an evenly-spaced smaller grid where equidistant points are common and wanting to traverse the edge graph.
 * The algorithm uses a lot of allocations, forcing garbage collection
 * There is no visual output/example since the original used MonoGame
 

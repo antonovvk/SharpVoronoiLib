@@ -12,64 +12,6 @@ namespace SharpVoronoiLib.UnitTests
     [Parallelizable(ParallelScope.Self)]
     public class FortuneAlgorithmTest
     {
-        /// <summary>
-        /// Special test that is more like an explanation of what to expect with this case.
-        /// </summary>
-        [Test]
-        public void FourEquidistantPoints()
-        {
-            List<VoronoiSite> points = new List<VoronoiSite>
-            {
-                new VoronoiSite(200, 200),
-                new VoronoiSite(200, 400),
-                new VoronoiSite(400, 400),
-                new VoronoiSite(400, 200)
-            };
-            
-            // These points form a square, so, intuitively, there should be 4 edges making a "cross".
-            //           |
-            //     X     |     X
-            //           |
-            // ----------+----------
-            //           |    
-            //     X     |     X
-            //           |
-            
-            // But this is not how the algorithm works at the moment -
-            // you can't have a 4+ point "connection", edges always "split into 2" at connections.
-            // So, in reality it makes another edge "in-between" (exaggerated):
-            //           |
-            //     X     |      X
-            //           |
-            // ----------\
-            //            \---------
-            //            |    
-            //     X      |     X
-            //            |
-            // So each corner only ever has 3 edges and 3 closest points
-            // But there's a 0-length edge
-            
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
-            
-            // There are 5 edges (not 4)
-            Assert.AreEqual(5, edges.Count);
-            
-            // One edge is 0 length
-            Assert.AreEqual(edges[1].Start.X, edges[1].End.X);
-            Assert.AreEqual(edges[1].Start.Y, edges[1].End.Y);
-
-            // Two of the sites have expected 2 edges
-            Assert.AreEqual(2, points[1].Cell.Count());
-            Assert.AreEqual(2, points[3].Cell.Count());
-
-            // Two of the sites have an "extra" edge
-            Assert.AreEqual(3, points[0].Cell.Count());
-            Assert.AreEqual(3, points[2].Cell.Count());
-            // And this is the 0-length edge
-            Assert.AreEqual(edges[1], points[0].Cell.ToList()[0]);
-            Assert.AreEqual(edges[1], points[2].Cell.ToList()[1]);
-        }
-
         [Test]
         public void NoPoints()
         {
@@ -260,7 +202,7 @@ namespace SharpVoronoiLib.UnitTests
             foreach (VoronoiEdge edge in edges)
                 Console.WriteLine(edge.ToString("F0"));
             
-            Assert.AreEqual(5, edges.Count);
+            Assert.AreEqual(4, edges.Count);
         }
         
         [TestCase(-100, -100, -200, -200)]
