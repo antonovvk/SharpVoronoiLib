@@ -19,7 +19,7 @@ namespace UnitTests
             );
         }
 
-        internal static bool SiteHasEdge(VoronoiSite site, int x1, int y1, int x2, int y2)
+        internal static bool SiteHasEdge(VoronoiSite site, double x1, double y1, double x2, double y2)
         {
             return site.Cell != null &&
                    site.Cell.Any(e =>
@@ -28,7 +28,7 @@ namespace UnitTests
                    );
         }
 
-        internal static bool SiteHasClockwiseEdge(VoronoiSite site, int x1, int y1, int x2, int y2)
+        internal static bool SiteHasClockwiseEdge(VoronoiSite site, double x1, double y1, double x2, double y2)
         {
             return site.ClockwiseCell != null &&
                    site.ClockwiseCell.Any(e =>
@@ -37,19 +37,24 @@ namespace UnitTests
                    );
         }
 
-        internal static bool SiteHasPoint(VoronoiSite site, int x, int y)
+        internal static bool SiteHasPoint(VoronoiSite site, double x, double y)
         {
             return site.Points != null &&
                    site.Points.Any(p => p.X.ApproxEqual(x) && p.Y.ApproxEqual(y));
         }
 
-        internal static bool SiteHasClockwisePoint(VoronoiSite site, int x, int y)
+        internal static bool SiteHasClockwisePoint(VoronoiSite site, double x, double y)
         {
             return site.ClockwisePoints != null &&
                    site.ClockwisePoints.Any(p => p.X.ApproxEqual(x) && p.Y.ApproxEqual(y));
         }
 
-        internal static bool EdgeHasSite(VoronoiEdge edge, int x, int y)
+        internal static bool PointIs(VoronoiPoint point, double x, double y)
+        {
+            return point.X.ApproxEqual(x) && point.Y.ApproxEqual(y);
+        }
+
+        internal static bool EdgeHasSite(VoronoiEdge edge, double x, double y)
         {
             return
                 (edge.Left != null &&
@@ -61,7 +66,7 @@ namespace UnitTests
                  edge.Right.Y.ApproxEqual(y));
         }
 
-        internal static VoronoiEdge FindEdge(IEnumerable<VoronoiEdge> edges, int x1, int y1, int x2, int y2)
+        internal static VoronoiEdge FindEdge(IEnumerable<VoronoiEdge> edges, double x1, double y1, double x2, double y2)
         {
             return edges.First(
                 e =>
@@ -71,7 +76,7 @@ namespace UnitTests
             );
         }
 
-        internal static VoronoiPoint FindPoint(IEnumerable<VoronoiEdge> edges, int x, int y)
+        internal static VoronoiPoint FindPoint(IEnumerable<VoronoiEdge> edges, double x, double y)
         {
             VoronoiEdge? edge = edges.FirstOrDefault(e => e.Start != null && e.Start.X.ApproxEqual(x) && e.Start.Y.ApproxEqual(y));
             if (edge != null)
@@ -127,25 +132,7 @@ namespace UnitTests
 
             public int Compare(VoronoiEdge edge1, VoronoiEdge edge2)
             {
-                return ClockwisePointComparer.ClockwisePointSort(edge1.Mid, edge2.Mid, _x, _y);
-            }
-        }
-
-        internal class ClockwisePointComparer : IComparer<VoronoiPoint>
-        {
-            private readonly double _x;
-            private readonly double _y;
-
-            
-            public ClockwisePointComparer(double x, double y)
-            {
-                _x = x;
-                _y = y;
-            }
-            
-            public int Compare(VoronoiPoint point1, VoronoiPoint point2)
-            {
-                return ClockwisePointSort(point1, point2, _x, _y);
+                return ClockwisePointSort(edge1.Mid, edge2.Mid, _x, _y);
             }
         
             
@@ -165,7 +152,7 @@ namespace UnitTests
             /// <remarks> 
             /// This is a copy of <see cref="VoronoiSite.Atan2"/>
             /// </remarks>
-            private static double Atan2(double x, double y)
+            private static double Atan2(double y, double x)
             {
                 double a = -Math.Atan2(-y, -x) + Math.PI / 4;
 		

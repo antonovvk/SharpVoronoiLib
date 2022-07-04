@@ -135,7 +135,7 @@ namespace VoronoiLib.Structures
         }
         
         [Pure]
-        private static double Atan2(double x, double y)
+        private static double Atan2(double y, double x)
         {
             // Normally, Atan2 return an angle between -π ≤ θ ≤ π as "seen" on the Cartesian plane,
             // that is, starting at the "right" of x axis and increasing counter-clockwise.

@@ -35,6 +35,7 @@ namespace UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
+                1: Y,X,Z,W
             ");
 
             testGenerator.AddTest("TwoPointsVerticalAroundMiddle", @"
@@ -57,6 +58,8 @@ namespace UnitTestGenerator
                 W-B: 2
                 B-Z: 1
                 Z-X: 1
+                1: AX,,ZB,
+                2: YA,,BW,
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("TwoPointsVerticalOffsetFromMiddle", @"
@@ -79,6 +82,8 @@ namespace UnitTestGenerator
                 W-B: 2
                 B-Z: 1
                 Z-X: 1
+                1: AX,,ZB,
+                2: YA,,B,W
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("ThreeConcentricPointsVerticalAroundMiddle", @"
@@ -104,6 +109,9 @@ namespace UnitTestGenerator
                 D-B: 2
                 B-Z: 1
                 Z-X: 1
+                1: AX,,ZB,
+                2: CA,,BD,
+                3: YC,,DW,
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("FourConcentricPointsVerticalAroundMiddle", @"
@@ -132,6 +140,10 @@ namespace UnitTestGenerator
                 D-B: 2
                 B-Z: 1
                 Z-X: 1
+                1: AX,,ZB,
+                2: CA,,BD,
+                3: EC,,DF,
+                4: YE,,FW,
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("TwoDiagonalPointsAroundMiddle", @"
@@ -152,6 +164,8 @@ namespace UnitTestGenerator
                 A-Y: 2
                 Y-B: 2
                 B-X: 1
+                1: ,X,B,A
+                2: A,B,,Y
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("TwoDiagonalPointsOffsetFromMiddle", @"
@@ -174,6 +188,8 @@ namespace UnitTestGenerator
                 W-Z: 2
                 Z-B: 2
                 B-X: 1
+                1: ,X,B,A
+                2: YA,BZ,,W
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("ThreeConcentricPointsDiagonalAroundMiddle", @"
@@ -199,6 +215,9 @@ namespace UnitTestGenerator
                 C-Z: 2
                 Z-D: 2
                 D-X: 1
+                1: ,X,D,A
+                2: YA,D,ZC,B
+                3: B,C,,W
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("ThreeConcentricPointsDiagonalOffsetFromMiddle", @"
@@ -222,6 +241,9 @@ namespace UnitTestGenerator
                 Y-C: 3
                 C-D: 2
                 D-X: 1
+                1: ,X,D,A
+                2: A,D,C,B
+                3: B,C,,Y
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("FourConcentricPointsDiagonalAroundMiddle", @"
@@ -248,6 +270,10 @@ namespace UnitTestGenerator
                 D-E: 3
                 E-F: 2
                 F-X: 1
+                1: ,X,F,A
+                2: A,F,E,B
+                3: B,E,D,C
+                4: C,D,,Y
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsCorner", @"
@@ -272,6 +298,9 @@ namespace UnitTestGenerator
                 C-W: 3
                 W-D: 3
                 D-X: 1
+                1: B,X,D,A
+                2: YB,,A,C
+                3: ,AD,W,C
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("ThreePointsInAWedgeAroundMiddleTowardsSide", @"
@@ -294,7 +323,10 @@ namespace UnitTestGenerator
                 B-C: 1 
                 C-Y: 2 
                 Y-D: 2 
-                D-X: 3 
+                D-X: 3
+                1: B,A,C,
+                2: A,DY,,C
+                3: ,XD,A,B
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("ThreePointsInAWedgeOffsetFromMiddleTowardsSide", @"
@@ -320,6 +352,9 @@ namespace UnitTestGenerator
                 W-Z: 2 
                 Z-D: 2 
                 D-X: 3 
+                1: B,A,C,
+                2: A,DZ,,WC
+                3: Y,XD,A,B
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("FourPointsSurroundingAPointInMiddle", @"
@@ -347,6 +382,11 @@ namespace UnitTestGenerator
                 F-G: 3
                 G-H: 4
                 H-E: 5
+                1: B,A,D,C
+                2: ,E,A,BF
+                3: F,B,CG,
+                4: C,DH,,G
+                5: AE,,H,D
             ");
 
             testGenerator.AddTest("FourPointsSurroundingAPointOffsetFromMiddle", @"
@@ -378,6 +418,11 @@ namespace UnitTestGenerator
                 W-H: 4
                 H-Z: 5
                 Z-X: 5
+                1: B,A,D,C
+                2: Y,E,A,BF
+                3: F,B,CG,
+                4: C,DH,,WG
+                5: AE,X,ZH,D
             ", Repeat.RotateAll);
 
             List<(string, TestPurpose)> variants = new List<(string, TestPurpose)>()
@@ -400,7 +445,9 @@ namespace UnitTestGenerator
                 foreach ((string testName, TestPurpose testPurpose) in variants)
                 {
                     string fullTestName = testName + "_" + (borderLogic == TestBorderLogic.UnclosedBorders ? "OpenBorders" : "ClosedBorders");
-                    
+
+                    Console.WriteLine("Outputting test " + fullTestName + "...");
+
                     string output = testGenerator.GenerateCode(fullTestName, testPurpose, borderLogic);
 
                     File.WriteAllText("../../../../UnitTests/Fortune/AutoGenerated/" + fullTestName + ".cs", output);
@@ -409,6 +456,8 @@ namespace UnitTestGenerator
                     //Console.WriteLine(output);
                 }
             }
+            
+            Console.WriteLine("Done.");
         }
 
 
@@ -458,6 +507,9 @@ namespace UnitTestGenerator
                 if (string.IsNullOrWhiteSpace(layout)) throw new ArgumentException();
                 if (tests.Any(t => t.Name == name)) throw new ArgumentException();
 
+                
+                Console.WriteLine("Parsing data for test " + name + "...");
+
 
                 string[] lines = layout.Split(Environment.NewLine, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
 
@@ -500,42 +552,46 @@ namespace UnitTestGenerator
 
                 List<Edge> edges = new List<Edge>();
 
+                bool seenSite = false;
+                
                 for (int ex = _verSteps + 1; ex < lines.Length; ex++)
                 {
                     string line = lines[ex];
 
                     // Expecting:
-                    // "A-B"
                     // "A-B: 1,2"
-                    // "A-B: 1,2"
+                    // "A-B: 1"
+                    // "1: A,B,C,D"
+                    // "1: ,AB,,C"
 
-                    if (line.Length < 3) throw new ArgumentException();
+                    if (line.Length < 1) throw new ArgumentException();
+                    
+                    char firstSymbol = line[0];
 
-                    char fromIdSymbol = line[0];
-                    if (fromIdSymbol < 'A' || fromIdSymbol > 'Z') throw new ArgumentException();
-
-                    int fromId = fromIdSymbol;
-                    Point? fromPoint = points.FirstOrDefault(p => p.Id == fromId);
-
-                    if (fromPoint == null) throw new ArgumentException();
-
-                    char toIdSymbol = line[2];
-                    if (toIdSymbol < 'A' || toIdSymbol > 'Z') throw new ArgumentException();
-
-                    int toId = toIdSymbol;
-                    Point? toPoint = points.FirstOrDefault(p => p.Id == toId);
-
-                    if (toPoint == null) throw new ArgumentException();
-
-                    if (line[1] != '-') throw new ArgumentException();
-
-                    if (fromPoint == toPoint) throw new ArgumentException();
-
-                    List<Site> edgeSites = new List<Site>();
-
-                    if (line.Length > 3)
+                    if (firstSymbol >= 'A' && firstSymbol <= 'Z')
                     {
+                        if (seenSite) throw new ArgumentException();
+                        
                         if (line.Length < 6) throw new ArgumentException();
+
+                        int fromId = firstSymbol;
+                        Point? fromPoint = points.FirstOrDefault(p => p.Id == fromId);
+
+                        if (fromPoint == null) throw new ArgumentException();
+
+                        char toIdSymbol = line[2];
+                        if (toIdSymbol < 'A' || toIdSymbol > 'Z') throw new ArgumentException();
+
+                        int toId = toIdSymbol;
+                        Point? toPoint = points.FirstOrDefault(p => p.Id == toId);
+
+                        if (toPoint == null) throw new ArgumentException();
+
+                        if (line[1] != '-') throw new ArgumentException();
+
+                        if (fromPoint == toPoint) throw new ArgumentException();
+
+                        List<Site> edgeSites = new List<Site>();
 
                         if (line[3] != ':') throw new ArgumentException();
                         if (line[4] != ' ') throw new ArgumentException();
@@ -543,7 +599,7 @@ namespace UnitTestGenerator
                         string siteString = line.Substring(5);
 
                         string[] siteSymbolStrings = siteString.Split(",");
-                        
+
                         if (siteSymbolStrings.Length > 2) throw new ArgumentException();
 
                         foreach (string siteSymbolString in siteSymbolStrings)
@@ -563,11 +619,51 @@ namespace UnitTestGenerator
 
                             edgeSites.Add(site);
                         }
-                    }
 
-                    bool border = edgeSites.Count == 1; // any other edge has 2 sites by definition
-                    
-                    edges.Add(new Edge(fromPoint, toPoint, edgeSites, border));
+                        bool border = edgeSites.Count == 1; // any other edge has 2 sites by definition
+
+                        edges.Add(new Edge(fromPoint, toPoint, edgeSites, border));
+                    }
+                    else if (firstSymbol >= '0' && firstSymbol <= '9')
+                    {
+                        seenSite = true;
+
+                        int siteId = int.Parse(firstSymbol.ToString());
+                        Site? site = sites.FirstOrDefault(p => p.Id == siteId);
+                        
+                        if (site == null) throw new ArgumentException();
+
+                        if (line[1] != ':') throw new ArgumentException();
+                        
+                        if (line[2] != ' ') throw new ArgumentException();
+
+                        string pointString = line.Substring(3);
+                        
+                        string[] pointEdgeStrings = pointString.Split(",");
+                        
+                        if (pointEdgeStrings.Length != 4) throw new ArgumentException();
+
+                        for (int q = 0; q < 4; q++)
+                        {
+                            string pointEdgeString = pointEdgeStrings[q];
+                            
+                            for (int c = 0; c < pointEdgeString.Length; c++)
+                            {
+                                char idSymbol = pointEdgeString[c];
+                                int id = idSymbol;
+                                
+                                Point? point = points.FirstOrDefault(p => p.Id == id);
+                                
+                                if (point == null) throw new ArgumentException();
+
+                                site.Points[q].Add(point);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        throw new ArgumentException();
+                    }
                 }
 
                 Test newTest = new Test(name, sites, points, edges);
@@ -1001,8 +1097,6 @@ namespace UnitTestGenerator
             {
                 List<string> strings = new List<string>();
 
-                bool first = true;
-                
                 foreach (Site site in sites.OrderBy(s => s.Id))
                 {
                     // Find other sites that have an edge that we have
@@ -1056,10 +1150,20 @@ namespace UnitTestGenerator
                     
                     if (clockwise)
                     {
-                        strings.Add(@"Assert.That(sites[" + sites.IndexOf(site) + @"]." + nameof(VoronoiSite.ClockwisePoints) + @", Is.Ordered.Using(new ClockwisePointComparer(" + site.X + @", " + site.Y + @"))); // #" + site.Id);
+                        int index = 0;
+                        
+                        foreach (List<Point> quadrantPoints in site.Points)
+                        {
+                            foreach (Point point in quadrantPoints)
+                            {
+                                if (PointMatchesBorderLogic(point, borderLogic))
+                                {
+                                    strings.Add(@"Assert.IsTrue(PointIs(sites[" + sites.IndexOf(site) + @"]" + @"." + (clockwise ? nameof(VoronoiSite.ClockwisePoints) : nameof(VoronoiSite.Points)) + @".ElementAt(" + index + @"), " + point.X + @", " + point.Y + @")); // #" + site.Id + @" " + (char)point.Id);
 
-                        // Okay, so I am literally using the same logic as the algorithm for clockwise angle sort,
-                        // which makes this a really bad test, since I'm just repeating any bugs in the sort logic.
+                                    index++;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -1138,6 +1242,9 @@ namespace UnitTestGenerator
                     if (clockwise)
                     {
                         strings.Add(@"Assert.That(sites[" + allSites.IndexOf(site) + @"]." + nameof(VoronoiSite.ClockwiseCell) + @", Is.Ordered.Using(new ClockwiseEdgeComparer(" + site.X + @", " + site.Y + @"))); // #" + site.Id);
+
+                        // Okay, so I am literally using the same logic as the algorithm for clockwise angle sort,
+                        // which makes this a really bad test, since I'm just repeating any bugs in the sort logic.
                     }
                 }
 
@@ -1396,7 +1503,8 @@ namespace UnitTestGenerator
                     foreach (Site site in givenTest.Sites)
                     {
                         (int x, int y) = TransformX(site.X, site.Y, repeat, minX, minY, maxX, maxY);
-                        Sites.Add(new Site(x, y, site.Id));
+                        Site newSite = new Site(x, y, site.Id);
+                        Sites.Add(newSite);
                     }
 
                     foreach (Point point in givenTest.Points)
@@ -1415,9 +1523,61 @@ namespace UnitTestGenerator
                         Edges.Add(new Edge(fromPoint, toPoint, sites, edge.Border));
                     }
 
+                    for (int s = 0; s < Sites.Count; s++)
+                    {
+                        Site ourSite = Sites[s];
+                        Site givenSite = givenTest.Sites[s];
+
+                        for (int sourceQuadrant = 0; sourceQuadrant < givenSite.Points.Length; sourceQuadrant++)
+                        {
+                            int targetQuadrant = TransformQuadrantIndex(sourceQuadrant, repeat);
+                        
+                            for (int p = 0; p < givenSite.Points[sourceQuadrant].Count; p++)
+                            {
+                                Point givenPoint = givenSite.Points[sourceQuadrant][p];
+                                Point ourPoint = Points[givenTest.Points.IndexOf(givenPoint)];
+                                ourSite.Points[targetQuadrant].Add(ourPoint);
+                            }
+                        }
+                    }
+
                     Name = TransformName(givenTest.Name, repeat);
                 }
 
+
+                private static int TransformQuadrantIndex(int quadrant, Repeat repeat)
+                {
+                    int newQuadrant;
+                    
+                    switch (repeat)
+                    {
+                        case Repeat.Rotate90:
+                            newQuadrant = quadrant + 1;
+                            break;
+                        
+                        case Repeat.Rotate180:
+                            newQuadrant = quadrant + 2;
+                            break;
+                        
+                        case Repeat.Rotate270:
+                            newQuadrant = quadrant + 3;
+                            break;
+                        
+                        case Repeat.RotateAll:
+                            throw new InvalidOperationException();
+                        
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
+                    }
+
+                    if (newQuadrant < 0)
+                        newQuadrant += 4;
+
+                    if (newQuadrant >= 4)
+                        newQuadrant -= 4;
+
+                    return newQuadrant;
+                }
 
                 private static (int x, int y) TransformX(int siteX, int siteY, Repeat repeat, int minX, int minY, int maxX, int maxY)
                 {
@@ -1487,6 +1647,7 @@ namespace UnitTestGenerator
                 public int X { get; }
                 public int Y { get; }
                 public int Id { get; }
+                public List<Point>[] Points { get; init; } = new List<Point>[4] { new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>() };
 
 
                 public Site(int x, int y, int id)

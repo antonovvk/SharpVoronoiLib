@@ -61,7 +61,6 @@ namespace UnitTests
             // Assert
 
             Assert.AreEqual(0, sites[0].ClockwisePoints.Count()); // #1
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #1
         }
 
         [Test]
@@ -107,11 +106,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 500)); // #1 B
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 500)); // #2 B
         }
 
         /// <summary>
@@ -161,11 +162,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 0)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 0)); // #1 B
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 0)); // #2 B
         }
 
         [Test]
@@ -211,11 +214,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 900))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 700)); // #1 B
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 700)); // #2 B
         }
 
         /// <summary>
@@ -265,11 +270,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(900, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 0)); // #1 B
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 700, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 0)); // #2 B
         }
 
         [Test]
@@ -316,17 +323,22 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 900))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 700)); // #1 B
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 300)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 300)); // #2 D
             Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 100))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 300)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 300)); // #3 D
         }
 
         /// <summary>
@@ -377,17 +389,22 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(900, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 0)); // #1 B
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 300, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 300, 0)); // #2 D
             Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(100, 500))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 0)); // #3 D
         }
 
         [Test]
@@ -435,23 +452,31 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 800))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 700)); // #1 B
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 600))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 500)); // #2 D
             Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has F
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 400))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 300)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 500)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 300)); // #3 F
             Assert.AreEqual(2, sites[3].ClockwisePoints.Count()); // #4
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 300)); // #4 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 300)); // #4 has F
-            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 200))); // #4
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 300)); // #4 E
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 1000, 300)); // #4 F
         }
 
         /// <summary>
@@ -503,23 +528,31 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 0)); // #1 B
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
             Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has F
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 500))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 1000)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 0)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 300, 0)); // #3 F
             Assert.AreEqual(2, sites[3].ClockwisePoints.Count()); // #4
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 1000)); // #4 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 0)); // #4 has F
-            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 500))); // #4
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 300, 1000)); // #4 E
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 300, 0)); // #4 F
         }
 
         [Test]
@@ -565,11 +598,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 0)); // #1 A
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 B
         }
 
         /// <summary>
@@ -619,11 +654,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 0)); // #1 B
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 0)); // #2 B
         }
 
         [Test]
@@ -669,11 +706,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 800))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 800, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 200)); // #1 A
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 400))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 200)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 800, 1000)); // #2 B
         }
 
         /// <summary>
@@ -723,11 +762,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 800))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 200)); // #1 B
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 400))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 200)); // #2 B
         }
 
         /// <summary>
@@ -777,11 +818,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 200))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 800)); // #1 A
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 600))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 800)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 200, 0)); // #2 B
         }
 
         /// <summary>
@@ -831,11 +874,13 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has B
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 200))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 800)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 0)); // #1 A
             Assert.AreEqual(2, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has B
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 600))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 800)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 800, 0)); // #2 A
         }
 
         [Test]
@@ -882,17 +927,22 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 300)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 800))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 300)); // #1 A
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 300)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 1000)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 300, 0)); // #2 B
             Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has C
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 200))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 0)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 700)); // #3 C
         }
 
         /// <summary>
@@ -943,17 +993,22 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 1000)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 300)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 800))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 300, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 300)); // #1 D
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 700)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 300, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 300)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 700, 0)); // #2 C
             Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has C
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 200))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 700)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 700, 0)); // #3 C
         }
 
         [Test]
@@ -1000,17 +1055,22 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 800))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 600, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 400)); // #1 A
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 600))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 1000)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 B
             Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has C
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 400))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 C
         }
 
         /// <summary>
@@ -1061,17 +1121,22 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 800))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 400)); // #1 D
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 600))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 400)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 C
             Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has C
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 400))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 0)); // #3 C
         }
 
         /// <summary>
@@ -1122,17 +1187,22 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 0)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 200))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 0)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 600)); // #1 A
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 400))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 0)); // #2 D
             Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has C
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 600))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 1000, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 0)); // #3 C
         }
 
         /// <summary>
@@ -1183,17 +1253,22 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 600)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 200))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 600)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 0)); // #1 A
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 400))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 600)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 0)); // #2 A
             Assert.AreEqual(2, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has C
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 600))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 0)); // #3 B
         }
 
         [Test]
@@ -1241,23 +1316,31 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has F
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 800))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 600, 1000)); // #1 F
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 400)); // #1 A
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has F
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 600))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 1000)); // #2 F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 B
             Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 0)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 600)); // #3 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has E
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 400))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 600)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 400, 0)); // #3 C
             Assert.AreEqual(2, sites[3].ClockwisePoints.Count()); // #4
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 0)); // #4 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 600)); // #4 has D
-            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 200))); // #4
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 400, 0)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 1000, 600)); // #4 D
         }
 
         /// <summary>
@@ -1309,23 +1392,31 @@ namespace UnitTests
             Assert.AreEqual(2, sites[0].ClockwisePoints.Count()); // #1
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has F
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(800, 800))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 400)); // #1 F
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has F
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(600, 600))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 400)); // #2 F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 E
             Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 600)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 0)); // #3 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has E
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(400, 400))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 600)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 600, 0)); // #3 D
             Assert.AreEqual(2, sites[3].ClockwisePoints.Count()); // #4
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 600)); // #4 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 0)); // #4 has D
-            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(200, 200))); // #4
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 600)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 600, 0)); // #4 D
         }
 
         [Test]
@@ -1373,17 +1464,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 400)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 400, 400)); // #1 A
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has C
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 400)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 0)); // #2 C
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 400)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 0)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 400)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 400, 0)); // #3 C
         }
 
         /// <summary>
@@ -1435,17 +1532,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 D
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has C
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 600)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 600)); // #2 A
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 600)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 600)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 600)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 600)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 D
         }
 
         /// <summary>
@@ -1497,17 +1600,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 600)); // #1 B
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 600)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has C
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 600)); // #2 B
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 600)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 1000)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 600, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 600, 600)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 0)); // #3 D
         }
 
         /// <summary>
@@ -1559,17 +1668,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 400)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 0)); // #1 B
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 400)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has C
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 400)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 600, 0)); // #2 B
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 400)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 400)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 600, 400)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 400)); // #3 C
         }
 
         [Test]
@@ -1617,17 +1732,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has C
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 C
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 C
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 0)); // #3 B
         }
 
         /// <summary>
@@ -1679,17 +1800,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has C
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 C
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 D
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 500)); // #3 A
         }
 
         /// <summary>
@@ -1741,17 +1868,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has C
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 500)); // #1 A
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 0)); // #2 D
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 0)); // #3 D
         }
 
         /// <summary>
@@ -1803,17 +1936,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has C
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 B
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 500)); // #2 A
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 B
         }
 
         [Test]
@@ -1861,17 +2000,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 300)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has C
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 100))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 300)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 0)); // #1 C
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 300)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 0)); // #2 C
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 0)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 300)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 200, 0)); // #3 B
         }
 
         /// <summary>
@@ -1923,17 +2068,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 500)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has C
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(100, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 800)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 200)); // #1 C
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 200)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 300, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 D
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 800)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 800)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 500)); // #3 A
         }
 
         /// <summary>
@@ -1985,17 +2136,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has C
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 900))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 700)); // #1 A
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 0)); // #2 D
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 700)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 1000)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 700)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 800, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 0)); // #3 D
         }
 
         /// <summary>
@@ -2047,17 +2204,23 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has C
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(900, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 800)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 200)); // #1 B
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 800)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 500)); // #2 A
             Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 500)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 200)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 700, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 200)); // #3 B
         }
 
         [Test]
@@ -2108,31 +2271,46 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 400)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 600)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 400)); // #1 C
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has F
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 400)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 F
             Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 400)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 400)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has F
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has G
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 400)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 600, 400)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 G
             Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 400)); // #4 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 600)); // #4 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has G
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has H
-            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #4
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 400)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 600, 600)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 1000)); // #4 H
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 G
             Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has H
-            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #5
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 600)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 1000)); // #5 E
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 1000)); // #5 H
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 600)); // #5 D
         }
 
         [Test]
@@ -2183,31 +2361,46 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 200)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 200)); // #1 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 300))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 200)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 400)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 400)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 200)); // #1 C
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 200)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has F
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 800)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 200)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 200, 0)); // #2 F
             Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 200)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 200)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 0)); // #3 has F
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 0)); // #3 has G
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 100))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 200, 0)); // #3 F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 200)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 600, 200)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 800, 0)); // #3 G
             Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 200)); // #4 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 400)); // #4 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 800, 0)); // #4 has G
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 800)); // #4 has H
-            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #4
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 200)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 600, 400)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 800)); // #4 H
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 800, 0)); // #4 G
             Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 400)); // #5 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 400)); // #5 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 800)); // #5 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 800)); // #5 has H
-            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #5
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 400)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 800)); // #5 E
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 800)); // #5 H
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 400)); // #5 D
         }
 
         /// <summary>
@@ -2262,31 +2455,46 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 600)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 400)); // #1 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 400)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 200, 600)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 400, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 400)); // #1 D
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 600)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has F
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 600)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 800)); // #2 F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 1000)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 600)); // #2 A
             Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 600)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 400)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 800)); // #3 has F
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 200)); // #3 has G
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(100, 500))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 800)); // #3 F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 200, 600)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 200, 400)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 200)); // #3 G
             Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 200, 400)); // #4 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 400)); // #4 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 200)); // #4 has G
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 800, 0)); // #4 has H
-            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 300))); // #4
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 200)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 200, 400)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 400, 400)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 800, 0)); // #4 H
             Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 400)); // #5 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 800, 1000)); // #5 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 800, 0)); // #5 has H
-            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #5
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 400)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 400, 600)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 800, 1000)); // #5 E
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 800, 0)); // #5 H
         }
 
         /// <summary>
@@ -2341,31 +2549,46 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 800)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 800)); // #1 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 700))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 600)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 800)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 800)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 600)); // #1 A
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 600)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 800)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has F
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 800)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 1000)); // #2 F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 200)); // #2 E
             Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 800)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 800)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 1000)); // #3 has F
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 1000)); // #3 has G
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 900))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 800)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 200, 1000)); // #3 G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 800, 1000)); // #3 F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 600, 800)); // #3 B
             Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 800)); // #4 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 600)); // #4 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 200, 1000)); // #4 has G
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 200)); // #4 has H
-            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(300, 700))); // #4
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 200, 1000)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 400, 800)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 400, 600)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 0, 200)); // #4 H
             Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 200)); // #5 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 200)); // #5 has H
-            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #5
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 200)); // #5 H
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 400, 600)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 600, 600)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 200)); // #5 E
         }
 
         /// <summary>
@@ -2420,31 +2643,46 @@ namespace UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 400)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 600)); // #1 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has D
-            Assert.That(sites[0].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 500))); // #1
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 600, 400)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 600)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 600)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 800, 400)); // #1 B
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 400)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 400)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has F
-            Assert.That(sites[1].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 300))); // #2
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 0)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 400)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 200)); // #2 F
             Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 400)); // #3 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 600)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 200)); // #3 has F
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 800)); // #3 has G
-            Assert.That(sites[2].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(900, 500))); // #3
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 800, 400)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 800, 600)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 800)); // #3 G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 200)); // #3 F
             Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 800, 600)); // #4 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 600)); // #4 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 800)); // #4 has G
             Assert.IsTrue(SiteHasClockwisePoint(sites[3], 200, 1000)); // #4 has H
-            Assert.That(sites[3].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(700, 700))); // #4
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 600)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 200, 1000)); // #4 H
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 800)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 800, 600)); // #4 C
             Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 400)); // #5 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 200, 0)); // #5 has E
             Assert.IsTrue(SiteHasClockwisePoint(sites[4], 200, 1000)); // #5 has H
-            Assert.That(sites[4].ClockwisePoints, Is.Ordered.Using(new ClockwisePointComparer(500, 500))); // #5
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 200, 1000)); // #5 H
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 600, 600)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 600, 400)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 200, 0)); // #5 E
         }
 
     }
