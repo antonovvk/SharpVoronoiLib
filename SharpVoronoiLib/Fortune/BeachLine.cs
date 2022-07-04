@@ -243,7 +243,7 @@ namespace SharpVoronoiLib
             RBTreeNode<BeachSection> prev = section.Previous;
             while (prev.Data.CircleEvent != null && 
                 (x - prev.Data.CircleEvent.X).ApproxEqual(0) && 
-                (y - prev.Data.CircleEvent.Y).ApproxEqual(0))
+                (y - prev.Data.CircleEvent.YCenter).ApproxEqual(0))
             {
                 toBeRemoved.Add(prev);
                 prev = prev.Previous;
@@ -252,7 +252,7 @@ namespace SharpVoronoiLib
             RBTreeNode<BeachSection> next = section.Next;
             while (next.Data.CircleEvent != null &&
                 (x - next.Data.CircleEvent.X).ApproxEqual(0) &&
-                (y - next.Data.CircleEvent.Y).ApproxEqual(0))
+                (y - next.Data.CircleEvent.YCenter).ApproxEqual(0))
             {
                 toBeRemoved.Add(next);
                 next = next.Next;
