@@ -1,6 +1,10 @@
 MIT License
 
-Copyright (c) 2016 Logan Lembke, Copyright (c) 2021 Sean Esopenko
+Copyright (c) 2016 Logan Lembke (https://github.com/Zalgo2462)
+Copyright (c) 2021 Sean Esopenko (https://github.com/sesopenko)
+Copyright (c) 2021 Jeffrey Jones (https://github.com/rurounijones)
+Copyright (c) 2022 RudyTheDev (https://github.com/RudyTheDev)
+Copyright (c) various authors (as per commit history of https://github.com/RudyTheDev/SharpVoronoiLib/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
