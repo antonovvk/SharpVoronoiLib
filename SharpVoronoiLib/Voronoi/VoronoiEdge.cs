@@ -47,7 +47,16 @@ namespace SharpVoronoiLib
 
                     // Special case - we are a border edge with no sites on the plane
                     if (Left == null && Right == null)
+                    {
+                        // This is an annoying case because there are no sites, so there's nothing to loop around to find the edges.
+                        // So we have to explicitly keep track of the two neighbouring edge as we close the borders.
+                        // We can then use these for this special case.
+                        
+                        _neighbours.Add(ClockwiseNeighbourBorder!);
+                        _neighbours.Add(CounterclockwiseNeighbourBorder!);
+                        
                         return _neighbours;
+                    }
 
                     // Gather edges that connect to either of our end points.
                     // We will loop "around" both points through the sites that have them,
@@ -182,6 +191,9 @@ namespace SharpVoronoiLib
             }
         }
 
+        
+        internal VoronoiEdge? CounterclockwiseNeighbourBorder { get; set; }
+        internal VoronoiEdge? ClockwiseNeighbourBorder { get; set; }
         
         internal double SlopeRise { get; }
         internal double SlopeRun { get; }
