@@ -53,7 +53,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -94,7 +94,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -140,7 +140,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -190,7 +190,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -240,7 +240,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -290,7 +290,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -336,7 +336,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -386,7 +386,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -436,7 +436,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -486,7 +486,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -532,7 +532,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -582,7 +582,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -632,7 +632,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -682,7 +682,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -728,7 +728,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -778,7 +778,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -828,7 +828,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -878,7 +878,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -924,7 +924,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -974,7 +974,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1024,7 +1024,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1074,7 +1074,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1121,7 +1121,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1177,7 +1177,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1229,7 +1229,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1285,7 +1285,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1338,7 +1338,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1400,7 +1400,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1459,7 +1459,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1527,7 +1527,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1589,7 +1589,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1643,7 +1643,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1693,7 +1693,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1749,7 +1749,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1805,7 +1805,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1861,7 +1861,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1914,7 +1914,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -1976,7 +1976,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2034,7 +2034,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2094,7 +2094,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2154,7 +2154,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2214,7 +2214,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2271,7 +2271,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2337,7 +2337,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2398,7 +2398,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2460,7 +2460,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2522,7 +2522,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2584,7 +2584,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2642,7 +2642,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2703,7 +2703,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2764,7 +2764,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2825,7 +2825,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2882,7 +2882,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -2945,7 +2945,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3008,7 +3008,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3071,7 +3071,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3130,7 +3130,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3193,7 +3193,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3256,7 +3256,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3319,7 +3319,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3380,7 +3380,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3450,7 +3450,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3528,7 +3528,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3606,7 +3606,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3684,7 +3684,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3757,7 +3757,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3821,7 +3821,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3889,7 +3889,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -3954,7 +3954,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -4029,7 +4029,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -4104,7 +4104,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -4179,7 +4179,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -4250,7 +4250,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -4323,7 +4323,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -4393,7 +4393,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 
@@ -4473,7 +4473,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.MakeBorderEdges);
+            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assert
 

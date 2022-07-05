@@ -1076,9 +1076,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     stringBuilder.AppendPaddedLine(3, @"// Act");
                     stringBuilder.AppendLine();
                     if (NeedEdgesFor(purpose))
-                        stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @").ToList();");
+                        stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + BorderLogicToRealEnumParam(borderLogic) + @").ToList();");
                     else
-                        stringBuilder.AppendPaddedLine(3, @"VoronoiPlane.TessellateOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + @", " + BorderLogicToRealEnum(borderLogic) + @");");
+                        stringBuilder.AppendPaddedLine(3, @"VoronoiPlane.TessellateOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + BorderLogicToRealEnumParam(borderLogic) + @");");
                     stringBuilder.AppendLine();
 
                     stringBuilder.AppendPaddedLine(3, @"// Assert");
@@ -1199,15 +1199,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 return edges.Count(e => EdgeMatchesBorderLogic(e, borderLogic));
             }
 
-            private string BorderLogicToRealEnum(TestBorderLogic borderLogic)
+            private string BorderLogicToRealEnumParam(TestBorderLogic borderLogic)
             {
                 switch (borderLogic)
                 {
                     case TestBorderLogic.UnclosedBorders:
-                        return nameof(BorderEdgeGeneration) + "." + nameof(BorderEdgeGeneration.DoNotMakeBorderEdges);
+                        return ", " + nameof(BorderEdgeGeneration) + "." + nameof(BorderEdgeGeneration.DoNotMakeBorderEdges);
                     
                     case TestBorderLogic.ClosedBorders:
-                        return nameof(BorderEdgeGeneration) + "." + nameof(BorderEdgeGeneration.MakeBorderEdges);
+                        return ""; // nameof(BorderEdgeGeneration) + "." + nameof(BorderEdgeGeneration.MakeBorderEdges); -- default
                     
                     default:
                         throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);

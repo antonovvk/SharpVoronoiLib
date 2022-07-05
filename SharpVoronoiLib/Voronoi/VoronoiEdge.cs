@@ -6,20 +6,24 @@ namespace SharpVoronoiLib
 {
     public class VoronoiEdge
     {
+        [PublicAPI]
         public VoronoiPoint Start { get; internal set; }
         
+        [PublicAPI]
         public VoronoiPoint End { get; internal set; } = null!; // it will be set eventually if not immediatelly from constructor
 
         /// <summary>
         /// 
         /// Can be null if this is a border edge.
         ///  </summary>
+        [PublicAPI]
         public VoronoiSite? Left { get; }
         
         /// <summary>
         /// 
         /// Can be null if this is a border edge and there are no sites within the bounds.
         /// </summary>
+        [PublicAPI]
         public VoronoiSite? Right { get; }
         
         
