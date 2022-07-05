@@ -16,6 +16,25 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 20, 50
             );
 
+            testGenerator.AddTest("NoPoints", @"
+                X · · · · · · · · · Z 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · · · · · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                Y · · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                X-Y
+                Y-W
+                W-Z
+                Z-X
+            ");
+
             testGenerator.AddTest("OnePointInMiddle", @"
                 X · · · · · · · · · Z 10
                 · · · · · · · · · · · 9
@@ -35,6 +54,106 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Z-X: 1
                 1: Y,X,Z,W
             ");
+
+            testGenerator.AddTest("OnePointOffsetFromMiddle", @"
+                X · · · · · · · · · Z 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · 1 · · · · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                Y · · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                X-Y: 1
+                Y-W: 1
+                W-Z: 1
+                Z-X: 1
+                1: ,X,ZW,Y
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("OnePointArbitrary", @"
+                X · · · · · · · · · Z 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · 1 · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · · · · · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                Y · · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                X-Y: 1
+                Y-W: 1
+                W-Z: 1
+                Z-X: 1
+                1: ,X,ZW,Y
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("OnePointOnBorderCentered", @"
+                X · · · · · · · · · Z 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                1 · · · · · · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                Y · · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                X-Y: 1
+                Y-W: 1
+                W-Z: 1
+                Z-X: 1
+                1: ,X,ZW,Y
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("OnePointOnBorderOffset", @"
+                X · · · · · · · · · Z 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                1 · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · · · · · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                Y · · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                X-Y: 1
+                Y-W: 1
+                W-Z: 1
+                Z-X: 1
+                1: ,X,ZW,Y
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("OnePointInCorner", @"
+                X · · · · · · · · · Z 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                · · · · · · · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                1Y· · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                X-Y: 1
+                Y-W: 1
+                W-Z: 1
+                Z-X: 1
+                1: Y,X,ZW,
+            ", Repeat.RotateAll);
 
             testGenerator.AddTest("TwoPointsVerticalAroundMiddle", @"
                 X · · · · · · · · · Z 10
@@ -301,7 +420,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: ,AD,W,C
             ", Repeat.RotateAll);
 
-            testGenerator.AddTest("ThreePointsInAWedgeAroundMiddleTowardsSide", @"
+            testGenerator.AddTest("ThreePointsInAWedgeTowardsSideAroundMiddle", @"
                 X · · · · D · · · · Y 10
                 · · · · · · · · · · · 9
                 · · · · · · · · · · · 8
@@ -327,7 +446,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: ,XD,A,B
             ", Repeat.RotateAll);
 
-            testGenerator.AddTest("ThreePointsInAWedgeOffsetFromMiddleTowardsSide", @"
+            testGenerator.AddTest("ThreePointsInAWedgeTowardsSideOffsetFromMiddle", @"
                 X · · · · D · · · · Z 10
                 · · · · · · · · · · · 9
                 · · · · · · · · · · · 8
@@ -353,6 +472,34 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 1: B,A,C,
                 2: A,DZ,,WC
                 3: Y,XD,A,B
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("ThreePointsInAWedgeTowardsSideOffsetIntoMiddle", @"
+                X · · · · D · · · · Z 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · 3 · A · 2 · · · 7
+                · · · · · · · · · · · 6
+                · · · · · 1 · · · · · 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                B · · · · · · · · · C 2
+                · · · · · · · · · · · 1
+                Y · · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,3
+                A-C: 1,2
+                A-D: 2,3
+                X-B: 3 
+                B-Y: 1 
+                Y-W: 1 
+                W-C: 1
+                C-Z: 2
+                Z-D: 2
+                D-X: 3
+                1: YB,A,C,W
+                2: A,D,Z,C
+                3: ,XD,A,B
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("FourPointsSurroundingAPointInMiddle", @"
@@ -423,7 +570,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 5: AE,X,ZH,D
             ", Repeat.RotateAll);
 
-            testGenerator.AddTest("FourEquidistantPointsAroundMiddle", @"
+            testGenerator.AddTest("FourEquidistantPointsInASquareAroundMiddle", @"
                 X · · · · B · · · · Z 10
                 · · · · · · · · · · · 9
                 · · · · · · · · · · · 8
@@ -453,6 +600,143 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: ,A,E,WD 
                 4: A,B,ZE, 
             ");
+
+            testGenerator.AddTest("FourEquidistantPointsInARectangleAroundMiddle", @"
+                X · · · · B · · · · Z 10
+                · · · · · · · · · · · 9
+                · · · · 1 · 4 · · · · 8
+                · · · · · · · · · · · 7
+                · · · · · · · · · · · 6
+                C · · · · A · · · · E 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · 2 · 3 · · · · 2
+                · · · · · · · · · · · 1
+                Y · · · · D · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,4
+                A-C: 1,2
+                A-D: 2,3
+                A-E: 3,4
+                X-C: 1
+                C-Y: 2
+                Y-D: 2
+                D-W: 3
+                W-E: 3
+                E-Z: 4
+                Z-B: 4
+                B-X: 1
+                1: CX,B,,A
+                2: YC,A,,D
+                3: ,A,EW,D 
+                4: ,B,ZE,A
+            ", Repeat.Rotate90);
+
+            testGenerator.AddTest("FivePointsInAForkedTallCross", @"
+                W · C · · · · · D · Z 10
+                · · · · · 1 · · · · · 9
+                · · · · · · · · · · · 8
+                · · · 2 · B · 5 · · · 7
+                · · · · · · · · · · · 6
+                · · · · · · · · · · · 5
+                E · · · · A · · · · F 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · 3 · · · 4 · · · 1
+                X · · · · G · · · · Y 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 2,5
+                B-C: 1,2
+                B-D: 1,5
+                A-E: 2,3
+                A-F: 4,5
+                A-G: 3,4
+                C-W: 2
+                W-E: 2
+                E-X: 3 
+                X-G: 3 
+                G-Y: 4 
+                Y-F: 4 
+                F-Z: 5
+                Z-D: 5
+                D-C: 1
+                1: C,,D,B
+                2: E,WC,B,A
+                3: X,EA,G,
+                4: G,A,FY,
+                5: B,D,Z,FA
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("FivePointsInAForkedStubbyCross", @"
+                C · · · · · · · · · D 10
+                · · · · · · · · · · · 9
+                · · · · · · · · · · · 8
+                · · · · · 1 · · · · · 7
+                · · · · · · · · · · · 6
+                · · · 2 · B · 5 · · · 5
+                · · · · · · · · · · · 4
+                E · · · · A · · · · F 3
+                · · · · · · · · · · · 2
+                · · · 3 · · · 4 · · · 1
+                X · · · · G · · · · Y 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 2,5
+                B-C: 1,2
+                B-D: 1,5
+                A-E: 2,3
+                A-F: 4,5
+                A-G: 3,4
+                C-E: 2
+                E-X: 3 
+                X-G: 3 
+                G-Y: 4 
+                Y-F: 4 
+                F-D: 5 
+                D-C: 1 
+                1: C,,D,B
+                2: E,C,B,A
+                3: XE,,AG,
+                4: G,A,FY,
+                5: AB,D,F,
+            ", Repeat.Rotate90);
+
+            testGenerator.AddTest("SixPointsInADoubleCross", @"
+                W · · · · H · · · · Z 10
+                · · · 1 · · · 2 · · · 9
+                · · · · · · · · · · · 8
+                C · · · · B · · · · G 7
+                · · · · · · · · · · · 6
+                · · · 3 · · · 4 · · · 5
+                · · · · · · · · · · · 4
+                D · · · · A · · · · F 3
+                · · · · · · · · · · · 2
+                · · · 5 · · · 6 · · · 1
+                X · · · · E · · · · Y 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 3,4
+                B-C: 1,3
+                B-G: 2,4
+                A-D: 3,5
+                A-F: 4,6
+                A-E: 5,6
+                B-H: 1,2
+                W-C: 1 
+                C-D: 3
+                D-X: 5
+                X-E: 5
+                E-Y: 6
+                Y-F: 6
+                F-G: 4
+                G-Z: 2
+                Z-H: 2 
+                H-W: 1
+                1: CW,,H,B
+                2: BH,,ZG,
+                3: DC,,B,A
+                4: A,B,GF,
+                5: XD,,AE,
+                6: E,A,FY,
+            ", Repeat.Rotate90);
             
             List<(string, TestPurpose)> variants = new List<(string, TestPurpose)>()
             {
@@ -559,16 +843,33 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                         switch (symbol)
                         {
-                            case '·' or ' ':
+                            case '·':
                                 // Filler
                                 break;
 
+                            case ' ':
+                                if (x % 2 != 1) throw new ArgumentException();
+                                // Spacing
+                                break;
+
                             case >= '0' and <= '9':
+                                if (x % 2 != 0) throw new ArgumentException();
+                                
                                 sites.Add(new Site(x * _horStepSize, y * _verStepSize, int.Parse(symbol.ToString())));
                                 break;
 
                             case >= 'A' and <= 'Z':
-                                points.Add(new Point(x * _horStepSize, y * _verStepSize, symbol, symbol >= 'W'));
+                                if (x % 2 == 0) // in main cell
+                                {
+                                    points.Add(new Point(x * _horStepSize, y * _verStepSize, symbol, symbol >= 'W'));
+                                }
+                                else // in spacing, which means it's for the previous cell
+                                {
+                                    if (line[x - 1] < '0' || line[x - 1] > '9') throw new ArgumentException();
+                                    
+                                    points.Add(new Point((x - 1) * _horStepSize, y * _verStepSize, symbol, symbol >= 'W'));
+                                }
+
                                 break;
 
                             default:
@@ -601,7 +902,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     {
                         if (seenSite) throw new ArgumentException();
                         
-                        if (line.Length < 6) throw new ArgumentException();
+                        if (line.Length != 3 && line.Length < 6) throw new ArgumentException();
 
                         int fromId = firstSymbol;
                         Point? fromPoint = points.FirstOrDefault(p => p.Id == fromId);
@@ -622,34 +923,38 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                         List<Site> edgeSites = new List<Site>();
 
-                        if (line[3] != ':') throw new ArgumentException();
-                        if (line[4] != ' ') throw new ArgumentException();
-
-                        string siteString = line.Substring(5);
-
-                        string[] siteSymbolStrings = siteString.Split(",");
-
-                        if (siteSymbolStrings.Length > 2) throw new ArgumentException();
-
-                        foreach (string siteSymbolString in siteSymbolStrings)
+                        if (line.Length != 3)
                         {
-                            if (siteSymbolString.Length != 1) throw new ArgumentException();
 
-                            char siteSymbol = siteSymbolString[0];
+                            if (line[3] != ':') throw new ArgumentException();
+                            if (line[4] != ' ') throw new ArgumentException();
 
-                            if (siteSymbol < '0' || siteSymbol > '9') throw new ArgumentException();
+                            string siteString = line.Substring(5);
 
-                            int siteId = int.Parse(siteSymbol.ToString());
-                            Site? site = sites.FirstOrDefault(p => p.Id == siteId);
+                            string[] siteSymbolStrings = siteString.Split(",");
 
-                            if (site == null) throw new ArgumentException();
+                            if (siteSymbolStrings.Length > 2) throw new ArgumentException();
 
-                            if (edgeSites.Contains(site)) throw new ArgumentException();
+                            foreach (string siteSymbolString in siteSymbolStrings)
+                            {
+                                if (siteSymbolString.Length != 1) throw new ArgumentException();
 
-                            edgeSites.Add(site);
+                                char siteSymbol = siteSymbolString[0];
+
+                                if (siteSymbol < '0' || siteSymbol > '9') throw new ArgumentException();
+
+                                int siteId = int.Parse(siteSymbol.ToString());
+                                Site? site = sites.FirstOrDefault(p => p.Id == siteId);
+
+                                if (site == null) throw new ArgumentException();
+
+                                if (edgeSites.Contains(site)) throw new ArgumentException();
+
+                                edgeSites.Add(site);
+                            }
                         }
 
-                        bool border = edgeSites.Count == 1; // any other edge has 2 sites by definition
+                        bool border = edgeSites.Count <= 1; // any other edge has 2 sites by definition
 
                         edges.Add(new Edge(fromPoint, toPoint, edgeSites, border));
                     }
