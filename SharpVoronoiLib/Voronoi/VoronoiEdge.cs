@@ -7,9 +7,19 @@ namespace SharpVoronoiLib
     public class VoronoiEdge
     {
         public VoronoiPoint Start { get; internal set; }
-        public VoronoiPoint? End { get; internal set; }
         
+        public VoronoiPoint End { get; internal set; } = null!; // it will be set eventually if not immediatelly from constructor
+
+        /// <summary>
+        /// 
+        /// Can be null if this is a border edge.
+        ///  </summary>
         public VoronoiSite? Left { get; }
+        
+        /// <summary>
+        /// 
+        /// Can be null if this is a border edge and there are no sites within the bounds.
+        /// </summary>
         public VoronoiSite? Right { get; }
         
         
@@ -35,43 +45,123 @@ namespace SharpVoronoiLib
                 {
                     _neighbours = new List<VoronoiEdge>();
 
-                    if (Left != null)
+                    // Special case - we are a border edge with no sites on the plane
+                    if (Left == null && Right == null)
+                        return _neighbours;
+
+                    // Gather edges that connect to either of our end points.
+                    // We will loop "around" both points through the sites that have them,
+                    // and record the edges that connect to the points.
+                    // We may encounter the border, so then we also go the other way around for that point.
+                    
+                    //         C                     D                             
+                    //           \        3        /                               
+                    //             \             /                                 
+                    //               \         /                                   
+                    //                 \     /                                    
+                    //                   \ /                                       
+                    //                    A                                        
+                    //                    #                                        
+                    //          1         #         2                              
+                    //                    #                                        
+                    //                    #                                        
+                    //   E----------------B-----------------G                                        
+                    //                    |                                       
+                    //                    |                                       
+                    //          4         |         3                             
+                    //                    |                                       
+                    //                    |                                       
+                    //                    F
+                    //
+                    // Suppose our edge is the #### one.
+                    // We have two end points A and B.
+                    // We will loop around the point A going to site 2 (noting that site 1 is on the other end).
+                    // At site 2 we will find two edges that share the point A: A-B and A-D.
+                    // A-B is where we came from, so we ignore that.
+                    // A-D must then be a neighbour, which we record.
+                    // We continue to loop around the A point, now going to site 3.
+                    // Here we find A-D and A-C around A, so we choose A-C as a neighbour (A-D is where we came from).
+                    // We see that the next site is site 1, which we noted before as the site.
+                    // So we are done with point A (in this loop we added A-D and A-C as neighbour).
+                    // Now loop around point B, starting at site 2.
+                    // At 2, we find B-G; at 3 we find B-F; at 4 we find B-E and finish as we reach 1.
+                    // We now have all the neighbours - A-D, A-C, B-G, B-F, B-E.
+                    // Here, both loops did not encounter missing edges, so consider instead:
+                    //         \                     /                             
+                    //           \        ·        /                               
+                    //             \             /                                 
+                    //               \         /                                   
+                    //                 \     /                                    
+                    //                   \ /                                       
+                    //                    #                                        
+                    //                    #                                        
+                    //          1         #         2                              
+                    //                    #                                        
+                    //                    #                                        
+                    //   E----------------B-----------------G 
+                    // This time, we loop around B starting at 2.
+                    // At site 2, we find A-B and B-G; we dismiss A-B and we record B-G.
+                    // But now we have no site on the other side of B-G.
+                    // Our loop around B notes that it encountered a "missing" site.
+                    // We see this and loop again around B but to the other side, i.e. site 1.
+                    // At site 1 we find A-B and B-E; we dismiss A-B and we record B-E.
+                    // Again, we have a case with no site on the other side of B-E.
+                    // But now we have looped in both direction and reached the border (or corner) both times.
+                    // One can think of the "missing" site as the "out of bounds site" -
+                    // we reached it in both loop directions and recorded both its edges.
+                    
+                    if (GatherNeighbours(Start, this, Right!, Left))
+                        if (Left != null)
+                            GatherNeighbours(Start, this, Left, null);
+                    
+                    if (GatherNeighbours(End, this, Right!, Left))
+                        if (Left != null)
+                            GatherNeighbours(End, this, Left, null);
+
+                    bool GatherNeighbours(VoronoiPoint aroundPoint, VoronoiEdge comingFromEdge, VoronoiSite comingIntoSite, VoronoiSite? ultimateSite)
                     {
-                        List<VoronoiEdge> leftPointCell = Left.cell;
+                        foreach (VoronoiEdge edge in comingIntoSite.cell)
+                        {
+                            if (edge == comingFromEdge)
+                                continue; // this would be the edge we came from, we need the other edge
+                            
+                            if (edge.Start == aroundPoint || 
+                                edge.End == aroundPoint)
+                            {
+                                // This edge is connected to us, so we can add it to the list
+                                _neighbours.Add(edge);
 
-                        foreach (VoronoiEdge edge in leftPointCell)
-                            if (edge != this) // one of its edges is us by definition
-                                if (edge.Start == Start || edge.End == End || edge.Start == End || edge.End == Start)
-                                    _neighbours.Add(edge);
+                                // Continue circling around the point,
+                                // now past the newfound edge
+                                
+                                // We came from one side of the edge, so we go to the other side
+                                VoronoiSite? nextSite = edge.Left == comingIntoSite ? edge.Right : edge.Left;
+
+                                if (nextSite != null) // this we could be a border edge, in which case we can't continue
+                                {
+                                    if (ultimateSite != null && // the other side of the original edge could have been a border/void
+                                        nextSite == ultimateSite) // we reached the other side of the original edge, so no more edges remain around this point
+                                        break;
+
+                                    // Go the next site
+                                    GatherNeighbours(aroundPoint, edge, nextSite, ultimateSite);
+                                }
+                                else
+                                {
+                                    // We encountered an edge with no site on the other side, which means it's a border edge.
+                                    // We must tell the caller to loop the other way now, since we cannot finish our "circle".
+                                    return true;
+                                }
+
+                                // We can only have up to 2 edges connected to a point from the perspective of a site,
+                                // so we will skip or already skipped the one we came from and we just processed the other.
+                                return false;
+                            }
+                        }
+
+                        // This means the only edge shared with this cell was the common edge and there's no second edge
+                        return false;
                     }
-
-                    if (Right != null)
-                    {
-                        List<VoronoiEdge> rightPointCell = Right.cell;
-
-                        foreach (VoronoiEdge edge in rightPointCell)
-                            if (edge != this) // one of its edges is us by definition
-                                if (edge.Start == Start || edge.End == End || edge.Start == End || edge.End == Start)
-                                    _neighbours.Add(edge);
-                    }
-
-                    // Note that this only works when assuming that edge end points can have 2 neighbours,
-                    // that is, 4+ equidistant points actually create an additional 0-length edge.
-                    // And this is indeed how the algorithm works at the moment.
-                    // This makes this neighbour lookup simpler (one doesn't need to recursively "walk around" the edge end point).
-                    
-                    // There is a special case though, the border edges that have non-tesselated "void" as their neighbour.
-                    // These only have one site, so the above logic can't handle connections on the border (which is any clipped edge).
-                    // One neighbour will be part of the site, but the other neighbour will be part of some other cell that we don't know about.
-                    // Thankfully, we can solve this without much additional work just by explicitly keeping those two neighbours recorded when closing the border.
-                    
-                    if (ClockwiseNeighbourBorder != null)
-                        if (!_neighbours.Contains(ClockwiseNeighbourBorder)) 
-                            _neighbours.Add(ClockwiseNeighbourBorder);        
-                    
-                    if (CounterclockwiseNeighbourBorder != null)
-                        if (!_neighbours.Contains(CounterclockwiseNeighbourBorder))
-                            _neighbours.Add(CounterclockwiseNeighbourBorder);
                 }
 
                 return _neighbours;
@@ -93,9 +183,6 @@ namespace SharpVoronoiLib
         }
 
         
-        internal VoronoiEdge? CounterclockwiseNeighbourBorder { get; set; }
-        internal VoronoiEdge? ClockwiseNeighbourBorder { get; set; }
-
         internal double SlopeRise { get; }
         internal double SlopeRun { get; }
         internal double? Slope { get; }
@@ -130,11 +217,10 @@ namespace SharpVoronoiLib
             Intercept = start.Y - Slope*start.X;
         }
         
-        internal VoronoiEdge(VoronoiPoint start, VoronoiPoint end, VoronoiSite? left, VoronoiSite? right)
+        internal VoronoiEdge(VoronoiPoint start, VoronoiPoint end, VoronoiSite? right)
         {
             Start = start;
             End = end;
-            Left = left;
             Right = right;
             
             // Don't bother with slope stuff if we are given explicit coords
