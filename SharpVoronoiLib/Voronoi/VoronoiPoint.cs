@@ -21,12 +21,24 @@ namespace SharpVoronoiLib
 #if DEBUG
         public override string ToString()
         {
-            return "(" + X.ToString("F3") + "," + Y.ToString("F3") + ")" + BorderLocationToString(BorderLocation);
+            return
+                "("
+                + (X == double.MinValue ? "-∞" : X == double.MaxValue ? "+∞" : X.ToString("F3"))
+                + ","
+                + (Y == double.MinValue ? "-∞" : Y == double.MaxValue ? "+∞" : Y.ToString("F3"))
+                + ")"
+                + BorderLocationToString(BorderLocation);
         }
 
         public string ToString(string format)
         {
-            return "(" + X.ToString(format) + "," + Y.ToString(format) + ")" + BorderLocationToString(BorderLocation);
+            return
+                "("
+                + (X == double.MinValue ? "-∞" : X == double.MaxValue ? "+∞" : X.ToString(format))
+                + ","
+                + (Y == double.MinValue ? "-∞" : Y == double.MaxValue ? "+∞" : Y.ToString(format))
+                + ")"
+                + BorderLocationToString(BorderLocation);
         }
 
         private static string BorderLocationToString(PointBorderLocation location)
