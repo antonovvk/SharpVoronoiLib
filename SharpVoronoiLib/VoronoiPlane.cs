@@ -7,7 +7,10 @@ namespace SharpVoronoiLib
     public class VoronoiPlane
     {
         [PublicAPI]
-        public IEnumerable<VoronoiSite> Sites { get; }
+        public List<VoronoiSite>? Sites { get; private set; }
+
+        [PublicAPI]
+        public List<VoronoiEdge>? Edges { get; private set; }
 
         [PublicAPI]
         public double MinX { get; }
@@ -22,16 +25,18 @@ namespace SharpVoronoiLib
         public double MaxY { get; }
 
 
-        private FortunesAlgorithm? _fortunesAlgorithm;
-
+        private ITessellationAlgorithm? _tessellationAlgorithm;
         
-        public VoronoiPlane(IEnumerable<VoronoiSite> sites, double minX, double minY, double maxX, double maxY)
+        private IBorderClippingAlgorithm? _borderClippingAlgorithm;
+        
+        private IBorderClosingAlgorithm? _borderClosingAlgorithm;
+
+
+        public VoronoiPlane(double minX, double minY, double maxX, double maxY)
         {
             if (minX >= maxX) throw new ArgumentException();
             if (minY >= maxY) throw new ArgumentException();
 
-
-            Sites = sites;
             MinX = minX;
             MinY = minY;
             MaxX = maxX;
@@ -40,21 +45,101 @@ namespace SharpVoronoiLib
 
 
         [PublicAPI]
-        public static LinkedList<VoronoiEdge> TessellateOnce(IEnumerable<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, BorderEdgeGeneration borderGeneration = BorderEdgeGeneration.MakeBorderEdges)
+        public List<VoronoiSite> GenerateRandomSites(int amount)
         {
-            if (sites == null) throw new ArgumentNullException(nameof(sites));
-            
+            if (amount < 0) throw new ArgumentOutOfRangeException(nameof(amount));
 
-            return new VoronoiPlane(sites, minX, minY, maxX, maxY).Tessellate(borderGeneration);
+            
+            List<VoronoiSite> sites = new List<VoronoiSite>(amount);
+
+            Random random = new Random();
+            
+            for (int i = 0; i < amount; i++)
+            {
+                sites.Add(
+                    new VoronoiSite(
+                        MinX + random.NextDouble() * (MaxX - MinX),
+                        MinY + random.NextDouble() * (MaxY - MinY)
+                    )
+                );
+            }
+            
+            Sites = sites;
+            
+            return sites;
         }
 
         [PublicAPI]
-        public LinkedList<VoronoiEdge> Tessellate(BorderEdgeGeneration borderGeneration = BorderEdgeGeneration.MakeBorderEdges)
+        public List<VoronoiEdge> Tessellate(BorderEdgeGeneration borderGeneration = BorderEdgeGeneration.MakeBorderEdges)
         {
-            if (_fortunesAlgorithm == null)
-                _fortunesAlgorithm = new FortunesAlgorithm(this);
+            if (Sites == null) throw new InvalidOperationException();
             
-            return _fortunesAlgorithm.Run(borderGeneration);
+            // Tessellate
+            
+            if (_tessellationAlgorithm == null)
+                _tessellationAlgorithm = new FortunesTessellation();
+
+            List<VoronoiEdge> edges = _tessellationAlgorithm.Run(Sites, MinX, MinY, MaxX, MaxY);
+
+            // Clip
+
+            // todo: make clipping optional
+            
+            if (_borderClippingAlgorithm == null)
+                _borderClippingAlgorithm = new GenericClipping();
+            
+            edges = _borderClippingAlgorithm.Clip(edges, MinX, MinY, MaxX, MaxY);
+
+            // Enclose
+            
+            if (borderGeneration == BorderEdgeGeneration.MakeBorderEdges)
+            {
+                if (_borderClosingAlgorithm == null)
+                    _borderClosingAlgorithm = new GenericBorderClosing();
+
+                edges = _borderClosingAlgorithm.Close(edges, MinX, MinY, MaxX, MaxY, Sites);
+            }
+            
+            // Done
+
+            Edges = edges;
+            
+            return edges;
+        }
+        
+
+        private void SetSites(List<VoronoiSite> sites)
+        {
+            if (sites == null) throw new ArgumentNullException(nameof(sites));
+
+            Sites = sites;
+        }
+
+
+        [PublicAPI]
+        public static List<VoronoiEdge> TessellateRandomSitesOnce(int numberOfSites, double minX, double minY, double maxX, double maxY, BorderEdgeGeneration borderGeneration = BorderEdgeGeneration.MakeBorderEdges)
+        {
+            if (numberOfSites < 0) throw new ArgumentOutOfRangeException(nameof(numberOfSites));
+
+
+            VoronoiPlane plane = new VoronoiPlane(minX, minY, maxX, maxY);
+
+            plane.GenerateRandomSites(numberOfSites);
+            
+            return plane.Tessellate(borderGeneration);
+        }
+
+        [PublicAPI]
+        public static List<VoronoiEdge> TessellateOnce(List<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, BorderEdgeGeneration borderGeneration = BorderEdgeGeneration.MakeBorderEdges)
+        {
+            if (sites == null) throw new ArgumentNullException(nameof(sites));
+
+
+            VoronoiPlane plane = new VoronoiPlane(minX, minY, maxX, maxY);
+
+            plane.SetSites(sites);
+            
+            return plane.Tessellate(borderGeneration);
         }
     }
 
