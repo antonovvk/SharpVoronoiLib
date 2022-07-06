@@ -5,8 +5,6 @@ namespace SharpVoronoiLib
 {
     public static class ParabolaMath
     {
-        public const double EPSILON = double.Epsilon*1E100;
-
         public static double EvalParabola(double focusX, double focusY, double directrix, double x)
         {
             return .5*( (x - focusX) * (x - focusX) /(focusY - directrix) + focusY + directrix);
@@ -27,21 +25,6 @@ namespace SharpVoronoiLib
                               (focus1Y - focus2Y)*(focus1Y - focus2Y))
                    )
                   )/(focus1Y - focus2Y);
-        }
-        
-        public static bool ApproxEqual(this double value1, double value2)
-        {
-            return Math.Abs(value1 - value2) <= EPSILON;
-        }
-
-        public static bool ApproxGreaterThanOrEqualTo(this double value1, double value2)
-        {
-            return value2 - value1 < EPSILON;
-        }
-
-        public static bool ApproxLessThanOrEqualTo(this double value1, double value2)
-        {
-            return value1 - value2 < EPSILON;
         }
     }
 }
