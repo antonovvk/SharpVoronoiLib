@@ -4,6 +4,10 @@ using JetBrains.Annotations;
 
 namespace SharpVoronoiLib
 {
+    /// <summary>
+    /// An Euclidean plane where a Voronoi diagram can be constructed from <see cref="VoronoiSite"/>s
+    /// producing a tesselation of cells with <see cref="VoronoiEdge"/> line segments and <see cref="VoronoiPoint"/> vertices.
+    /// </summary>
     public class VoronoiPlane
     {
         [PublicAPI]

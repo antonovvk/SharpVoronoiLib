@@ -5,6 +5,12 @@ using JetBrains.Annotations;
 
 namespace SharpVoronoiLib
 {
+    /// <summary>
+    /// The point/site/seed on the Voronoi plane.
+    /// This has a <see cref="Cell"/> of <see cref="VoronoiEdge"/>s.
+    /// This has <see cref="Points"/> of <see cref="VoronoiPoint"/>s that are the edge end points, i.e. the cell's vertices.
+    /// This also has <see cref="Neighbours"/>, i.e. <see cref="VoronoiSite"/>s across the <see cref="VoronoiEdge"/>s.
+    /// </summary>
     public class VoronoiSite
     {
         [PublicAPI]
@@ -13,6 +19,11 @@ namespace SharpVoronoiLib
         [PublicAPI]
         public double Y { get; }
 
+        /// <summary>
+        /// The edges that make up this cell.
+        /// The vertices of these edges are the <see cref="Points"/>.
+        /// These are also known as Thiessen polygons.
+        /// </summary>
         [PublicAPI]
         public IEnumerable<VoronoiEdge> Cell => cell;
 
@@ -31,9 +42,15 @@ namespace SharpVoronoiLib
             }
         }
 
+        /// <summary>
+        /// The sites across the edges.
+        /// </summary>
         [PublicAPI]
         public IEnumerable<VoronoiSite> Neighbours => neighbours;
 
+        /// <summary>
+        /// The vertices of the <see cref="Cell"/>.
+        /// </summary>
         [PublicAPI]
         public IEnumerable<VoronoiPoint> Points
         {

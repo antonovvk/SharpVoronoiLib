@@ -4,34 +4,52 @@ using JetBrains.Annotations;
 
 namespace SharpVoronoiLib
 {
+    /// <summary>
+    /// The line segment making the Voronoi cells, i.e. the points equidistant to the two nearest Voronoi sites.
+    /// These are the lines in the <see cref="VoronoiSite.Cell"/>.
+    /// This has <see cref="VoronoiPoint"/> end points, i.e. <see cref="Start"/> and <see cref="End"/>.
+    /// This has the two <see cref="VoronoiSite"/>s they separate, i.e. <see cref="Right"/> and <see cref="Left"/>.
+    /// This connects in a <see cref="Neighbours"/> node graph to other <see cref="VoronoiEdge"/>s, i.e. shares end points with them.
+    /// </summary>
     public class VoronoiEdge
     {
+        /// <summary>
+        /// One of the two points making up this line segment, the other being <see cref="End"/>.
+        /// </summary>
         [PublicAPI]
         public VoronoiPoint Start { get; internal set; }
         
+        /// <summary>
+        /// One of the two points making up this line segment, the other being <see cref="Start"/>.
+        /// </summary>
         [PublicAPI]
         public VoronoiPoint End { get; internal set; } = null!; // it will be set eventually if not immediatelly from constructor
 
         /// <summary>
-        /// 
-        /// Can be null if this is a border edge.
-        ///  </summary>
-        [PublicAPI]
-        public VoronoiSite? Left { get; }
-        
-        /// <summary>
-        /// 
+        /// One of the two sites that this edge separates, the other being <see cref="Left"/>.
         /// Can be null if this is a border edge and there are no sites within the bounds.
         /// </summary>
         [PublicAPI]
         public VoronoiSite? Right { get; }
-        
-        
+
+        /// <summary>
+        /// One of the two sites that this edge separates, the other being <see cref="Right"/>.
+        /// Can be null if this is a border edge.
+        ///  </summary>
+        [PublicAPI]
+        public VoronoiSite? Left { get; }
+
+
+        /// <summary>
+        /// The mid-point between <see cref="Start"/> and <see cref="End"/> points.
+        /// </summary>
         [PublicAPI]
         public VoronoiPoint Mid
         {
             get
             {
+                // todo: make null/undefined when the End is infinite
+                
                 if (_mid == null)
                     _mid = new VoronoiPoint((Start.X + End!.X) / 2, (Start.Y + End.Y) / 2);
                 // Note that .End is guaranteed to be set since we don't expose edges extrenally that aren't clipped in bounds
@@ -181,6 +199,9 @@ namespace SharpVoronoiLib
             }
         }
 
+        /// <summary>
+        /// The length of this line segment, i.e. the distance between <see cref="Start"/> and <see cref="End"/> points.
+        /// </summary>
         [PublicAPI]
         public double Length
         {

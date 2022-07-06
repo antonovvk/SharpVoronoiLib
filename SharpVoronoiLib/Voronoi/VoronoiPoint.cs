@@ -3,6 +3,11 @@ using JetBrains.Annotations;
 
 namespace SharpVoronoiLib
 {
+    /// <summary>
+    /// The vertices/nodes of the Voronoi cells, i.e. the points equidistant to three or more Voronoi sites.
+    /// These are the end points of a <see cref="VoronoiEdge"/>.
+    /// These are the <see cref="VoronoiSite.Points"/>. 
+    /// </summary>
     public class VoronoiPoint
     {
         [PublicAPI]
@@ -11,6 +16,12 @@ namespace SharpVoronoiLib
         [PublicAPI]
         public double Y { get; }
         
+        /// <summary>
+        /// Specifies if this point is on the border of the bounds and where.
+        /// </summary>
+        /// <remarks>
+        /// Using this would be preferrable to comparing against the X/Y values due to possible precision issues.
+        /// </remarks>
         [PublicAPI]
         public PointBorderLocation BorderLocation { get; }
 
