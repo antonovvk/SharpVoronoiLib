@@ -74,8 +74,8 @@ namespace SharpVoronoiLib
                         // So we have to explicitly keep track of the two neighbouring edge as we close the borders.
                         // We can then use these for this special case.
                         
-                        _neighbours.Add(ClockwiseNeighbourBorder!);
-                        _neighbours.Add(CounterclockwiseNeighbourBorder!);
+                        _neighbours.Add(BorderNeighbour2!);
+                        _neighbours.Add(BorderNeighbour1!);
                         
                         return _neighbours;
                     }
@@ -217,8 +217,8 @@ namespace SharpVoronoiLib
         }
 
         
-        internal VoronoiEdge? CounterclockwiseNeighbourBorder { get; set; }
-        internal VoronoiEdge? ClockwiseNeighbourBorder { get; set; }
+        internal VoronoiEdge? BorderNeighbour1 { get; set; }
+        internal VoronoiEdge? BorderNeighbour2 { get; set; }
         
         internal double SlopeRise { get; }
         internal double SlopeRun { get; }

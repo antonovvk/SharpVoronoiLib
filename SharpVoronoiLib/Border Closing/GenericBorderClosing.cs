@@ -108,8 +108,8 @@ namespace SharpVoronoiLib
                 if (previousEdge != null)
                 {
                     // Add the neighbours for the edge
-                    newEdge.CounterclockwiseNeighbourBorder = previousEdge; // counter-clockwise = previous
-                    previousEdge.ClockwiseNeighbourBorder = newEdge; // clockwise = next
+                    newEdge.BorderNeighbour1 = previousEdge; // counter-clockwise = previous
+                    previousEdge.BorderNeighbour2 = newEdge; // clockwise = next
                 }
                 else
                 {
@@ -137,14 +137,14 @@ namespace SharpVoronoiLib
             );
             
             // Add the neighbours for the final edge
-            finalEdge.CounterclockwiseNeighbourBorder = previousEdge; // counter-clockwise = previous
-            previousEdge!.ClockwiseNeighbourBorder = finalEdge; // clockwise = next
+            finalEdge.BorderNeighbour1 = previousEdge; // counter-clockwise = previous
+            previousEdge!.BorderNeighbour2 = finalEdge; // clockwise = next
             
             edges.Add(finalEdge);
             
             // And finish the neighbour edges by "looping" back to the first edge
-            firstEdge.CounterclockwiseNeighbourBorder = finalEdge; // counter-clockwise = previous
-            finalEdge.ClockwiseNeighbourBorder = firstEdge; // clockwise = next
+            firstEdge.BorderNeighbour1 = finalEdge; // counter-clockwise = previous
+            finalEdge.BorderNeighbour2 = firstEdge; // clockwise = next
 
             if (finalSite != null)
                 finalSite.cell.Add(finalEdge);

@@ -36,6 +36,14 @@ namespace SharpVoronoiLib
                 {
                     _clockwiseCell = new List<VoronoiEdge>(cell);
                     _clockwiseCell.Sort(SortCellEdgesClockwise);
+
+                    int overlappingEdgeIndex = cell.FindIndex(LiesOnEdge);
+                    // todo: record this when we add first add it
+
+                    if (overlappingEdgeIndex != -1)
+                    {
+                        throw new NotImplementedException();
+                    }
                 }
 
                 return _clockwiseCell;
@@ -87,6 +95,14 @@ namespace SharpVoronoiLib
                 {
                     _clockwisePoints = new List<VoronoiPoint>(Points);
                     _clockwisePoints.Sort(SortPointsClockwise);
+                    
+                    int overlappingPointIndex = _clockwisePoints.FindIndex(point => point.ApproxEqual(X, Y));
+                    // todo: could we know about this when we add first add it?
+
+                    if (overlappingPointIndex != -1)
+                    {
+                        throw new NotImplementedException();
+                    }
                 }
 
                 return _clockwisePoints;
@@ -141,20 +157,29 @@ namespace SharpVoronoiLib
         }
 
 
+        internal void AddEdge(VoronoiEdge value)
+        {
+            if (_clockwisePoints != null) throw new InvalidOperationException();
+            if (_clockwiseCell != null) throw new InvalidOperationException();
+            
+            cell.Add(value);
+        }
+        
+
         [Pure]
-        internal static int SortPointsClockwise(VoronoiPoint point1, VoronoiPoint point2, double x, double y)
+        private static int SortPointsClockwise(VoronoiPoint point1, VoronoiPoint point2, double x, double y)
         {
             // originally, based on: https://social.msdn.microsoft.com/Forums/en-US/c4c0ce02-bbd0-46e7-aaa0-df85a3408c61/sorting-list-of-xy-coordinates-clockwise-sort-works-if-list-is-unsorted-but-fails-if-list-is?forum=csharplanguage
 
             // comparer to sort the array based on the points relative position to the center
-            double atanA = Atan2(point1.Y - y, point1.X - x);
-            double atanB = Atan2(point2.Y - y, point2.X - x);
+            double atan1 = Atan2(point1.Y - y, point1.X - x);
+            double atan2 = Atan2(point2.Y - y, point2.X - x);
             
-            if (atanA < atanB) return -1;
-            if (atanA > atanB) return 1;
+            if (atan1 < atan2) return -1;
+            if (atan1 > atan2) return 1;
             return 0;
         }
-        
+
         [Pure]
         private static double Atan2(double y, double x)
         {
@@ -168,12 +193,6 @@ namespace SharpVoronoiLib
                 a += 2 * Math.PI;
 			
             return a;
-        }
-
-        internal void AddEdge(VoronoiEdge value)
-        {
-            cell.Add(value);
-            _clockwisePoints = null;
         }
 
         
@@ -268,7 +287,8 @@ namespace SharpVoronoiLib
         private int SortPointsClockwise(VoronoiPoint point1, VoronoiPoint point2)
         {
             // When the point lies on top of us, we don't know what to use as an angle because that depends on which way the other edges "close".
-            // So we "shift" the center a little towatds the centroid of the polygon, which would "restore" the angle.
+            // So we "shift" the center a little towards the centroid of the polygon, which would "restore" the angle.
+            
             if (point1.ApproxEqual(X, Y) ||
                 point2.ApproxEqual(X, Y))
                 return SortPointsClockwise(point1, point2, GetCenterShiftedX(), GetCenterShiftedY());

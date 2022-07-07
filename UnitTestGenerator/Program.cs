@@ -112,7 +112,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: ZXYW
+                1: XYWZ
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("OnePointOnBorderOffset", @"
@@ -132,7 +132,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: ZXYW
+                1: XYWZ
             ", Repeat.RotateAndMirrorAll);
 
             testGenerator.AddTest("OnePointInCorner", @"
@@ -152,7 +152,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: ZXYW
+                1: YWZX
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("TwoPointsVerticalAroundMiddle", @"
