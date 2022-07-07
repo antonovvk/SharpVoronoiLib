@@ -52,7 +52,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: Y,X,Z,W
+                1: Z,X,Y,W
             ");
 
             testGenerator.AddTest("OnePointOffsetFromMiddle", @"
@@ -72,7 +72,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: ,X,ZW,Y
+                1: Z,X,Y,W
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("OnePointArbitrary", @"
@@ -92,7 +92,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: ,X,ZW,Y
+                1: Z,X,Y,W
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("OnePointOnBorderCentered", @"
@@ -112,7 +112,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: ,X,ZW,Y
+                1: Z,X,Y,W
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("OnePointOnBorderOffset", @"
@@ -132,7 +132,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: ,X,ZW,Y
+                1: Z,X,Y,W
             ", Repeat.RotateAndMirrorAll);
 
             testGenerator.AddTest("OnePointInCorner", @"
@@ -152,7 +152,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: Y,X,ZW,
+                1: Z,X,Y,W
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("TwoPointsVerticalAroundMiddle", @"
@@ -175,8 +175,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 W-B: 2
                 B-Z: 1
                 Z-X: 1
-                1: AX,,ZB,
-                2: YA,,BW,
+                1: Z,X,A,B
+                2: B,A,Y,W
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("TwoPointsVerticalOffsetFromMiddle", @"
@@ -199,8 +199,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 W-B: 2
                 B-Z: 1
                 Z-X: 1
-                1: AX,,ZB,
-                2: YA,,B,W
+                1: Z,X,A,B
+                2: B,A,Y,W
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("ThreeConcentricPointsVerticalAroundMiddle", @"
@@ -226,9 +226,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 D-B: 2
                 B-Z: 1
                 Z-X: 1
-                1: AX,,ZB,
-                2: CA,,BD,
-                3: YC,,DW,
+                1: Z,X,A,B
+                2: B,A,C,D
+                3: D,C,Y,W
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("FourConcentricPointsVerticalAroundMiddle", @"
@@ -257,10 +257,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 D-B: 2
                 B-Z: 1
                 Z-X: 1
-                1: AX,,ZB,
-                2: CA,,BD,
-                3: EC,,DF,
-                4: YE,,FW,
+                1: Z,X,A,B
+                2: B,A,C,D
+                3: D,C,E,F
+                4: F,E,Y,W
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("TwoDiagonalPointsAroundMiddle", @"
@@ -281,8 +281,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 A-Y: 2
                 Y-B: 2
                 B-X: 1
-                1: ,X,B,A
-                2: A,B,,Y
+                1: B,X,A,
+                2: B,,A,Y
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("TwoDiagonalPointsOffsetFromMiddle", @"
@@ -305,8 +305,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 W-Z: 2
                 Z-B: 2
                 B-X: 1
-                1: ,X,B,A
-                2: YA,BZ,,W
+                1: B,X,A,
+                2: ZB,,AY,W
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("TwoPointsAgainstCorner", @"
@@ -327,8 +327,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 X-B: 1
                 B-Y: 2
                 Y-A: 2
-                1: ,A,B,X
-                2: A,,Y,B
+                1: ,A,X,B
+                2: Y,A,,B
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("TwoPointsAgainstCornerSlanted", @"
@@ -350,8 +350,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-B: 1
                 B-Z: 2
                 Z-A: 2
-                1: X,A,B,Y
-                2: A,,Z,B
+                1: B,A,X,Y
+                2: Z,A,,B
             ", Repeat.RotateAndMirrorAll);
 
             testGenerator.AddTest("ThreeConcentricPointsDiagonalAroundMiddle", @"
@@ -377,9 +377,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 C-Z: 2
                 Z-D: 2
                 D-X: 1
-                1: ,X,D,A
-                2: YA,D,ZC,B
-                3: B,C,,W
+                1: D,X,A,
+                2: CZD,,AYB,
+                3: C,,B,W
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("ThreeConcentricPointsDiagonalOffsetFromMiddle", @"
@@ -403,9 +403,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-C: 3
                 C-D: 2
                 D-X: 1
-                1: ,X,D,A
-                2: A,D,C,B
-                3: B,C,,Y
+                1: D,X,A,
+                2: CD,,AB,
+                3: C,,B,Y
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("FourConcentricPointsDiagonalAroundMiddle", @"
@@ -432,10 +432,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 D-E: 3
                 E-F: 2
                 F-X: 1
-                1: ,X,F,A
-                2: A,F,E,B
-                3: B,E,D,C
-                4: C,D,,Y
+                1: F,X,A,
+                2: EF,,AB,
+                3: DE,,BC,
+                4: D,,C,Y
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsCorner", @"
@@ -460,9 +460,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 C-W: 3
                 W-D: 3
                 D-X: 1
-                1: B,X,D,A
-                2: YB,,A,C
-                3: ,AD,W,C
+                1: D,X,B,A
+                2: A,B,Y,C
+                3: D,A,C,W
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsCornerOffset", @"
@@ -488,9 +488,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 W-Z: 3
                 Z-D: 3
                 D-X: 1
-                1: ,X,D,AB
-                2: ,B,A,CY
-                3: ,ADZ,W,C
+                1: D,X,B,A
+                2: A,B,Y,C
+                3: ZD,A,C,W
             ", Repeat.RotateAndMirrorAll);
             
             // todo: offset to side a bit, then mirror too
@@ -516,9 +516,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 C-Y: 2 
                 Y-D: 2 
                 D-X: 3
-                1: B,A,C,
-                2: A,DY,,C
-                3: ,XD,A,B
+                1: ,A,B,C
+                2: Y,D,A,C
+                3: AD,X,B,
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsSideOffsetFromMiddle", @"
@@ -544,9 +544,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 W-Z: 2 
                 Z-D: 2 
                 D-X: 3 
-                1: B,A,C,
-                2: A,DZ,,WC
-                3: Y,XD,A,B
+                1: ,A,B,C
+                2: Z,D,A,CW
+                3: AD,X,YB,
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsSideOffsetIntoMiddle", @"
@@ -572,9 +572,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 C-Z: 2
                 Z-D: 2
                 D-X: 3
-                1: YB,A,C,W
-                2: A,D,Z,C
-                3: ,XD,A,B
+                1: ,A,BY,WC
+                2: Z,D,A,C
+                3: AD,X,B,
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("FourPointsSurroundingAPointInMiddle", @"
@@ -602,11 +602,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 F-G: 3
                 G-H: 4
                 H-E: 5
-                1: B,A,D,C
-                2: ,E,A,BF
-                3: F,B,CG,
-                4: C,DH,,G
-                5: AE,,H,D
+                1: D,A,B,C
+                2: A,E,F,B
+                3: C,B,F,G
+                4: H,D,C,G
+                5: H,E,A,D
             ");
 
             testGenerator.AddTest("FourPointsSurroundingAPointOffsetFromMiddle", @"
@@ -638,11 +638,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 W-H: 4
                 H-Z: 5
                 Z-X: 5
-                1: B,A,D,C
-                2: Y,E,A,BF
-                3: F,B,CG,
-                4: C,DH,,WG
-                5: AE,X,ZH,D
+                1: D,A,B,C
+                2: A,E,YF,B
+                3: C,B,F,G
+                4: H,D,C,GW
+                5: HZ,XE,A,D
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("FourEquidistantPointsInASquareAroundMiddle", @"
@@ -670,10 +670,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 E-Z: 4
                 Z-B: 4
                 B-X: 1
-                1: C,XB,,A
-                2: YC,,A,D
-                3: ,A,E,WD 
-                4: A,B,ZE, 
+                1: B,X,C,A
+                2: A,C,Y,D
+                3: E,A,D,W
+                4: Z,B,A,E
             ");
 
             testGenerator.AddTest("FourEquidistantPointsInARectangleAroundMiddle", @"
@@ -701,10 +701,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 E-Z: 4
                 Z-B: 4
                 B-X: 1
-                1: CX,B,,A
-                2: YC,A,,D
-                3: ,A,EW,D 
-                4: ,B,ZE,A
+                1: B,X,C,A
+                2: A,C,Y,D
+                3: E,A,D,W
+                4: Z,B,A,E
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("FivePointsInAForkedTallCross", @"
@@ -735,11 +735,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 F-Z: 5
                 Z-D: 5
                 D-C: 1
-                1: C,,D,B
-                2: E,WC,B,A
-                3: X,EA,G,
-                4: G,A,FY,
-                5: B,D,Z,FA
+                1: D,C,,B
+                2: B,CW,E,A
+                3: A,E,X,G
+                4: F,A,G,Y
+                5: ZD,,BA,F
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("FivePointsInAForkedStubbyCross", @"
@@ -767,12 +767,12 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 G-Y: 4 
                 Y-F: 4 
                 F-D: 5 
-                D-C: 1 
-                1: C,,D,B
-                2: E,C,B,A
-                3: XE,,AG,
-                4: G,A,FY,
-                5: AB,D,F,
+                D-C: 1
+                1: D,C,,B
+                2: B,C,E,A
+                3: A,E,X,G
+                4: F,A,G,Y
+                5: D,,BA,F
             ", Repeat.Rotate90);
 
             testGenerator.AddTest("SixPointsInADoubleCross", @"
@@ -805,12 +805,12 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 G-Z: 2
                 Z-H: 2 
                 H-W: 1
-                1: CW,,H,B
-                2: BH,,ZG,
-                3: DC,,B,A
-                4: A,B,GF,
-                5: XD,,AE,
-                6: E,A,FY,
+                1: H,W,C,B
+                2: Z,H,B,G
+                3: B,C,D,A
+                4: G,B,A,F
+                5: A,D,X,E
+                6: F,A,E,Y
             ", Repeat.Rotate90);
             
             List<(string, TestPurpose)> variants = new List<(string, TestPurpose)>()
@@ -2026,13 +2026,13 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     
                     switch (repeat)
                     {
-                        case Repeat.Rotate90:           newQuadrant = quadrant + 1; break;
-                        case Repeat.Rotate180:          newQuadrant = quadrant + 2; break;
-                        case Repeat.Rotate270:          newQuadrant = quadrant + 3; break;
+                        case Repeat.Rotate90:           newQuadrant = quadrant - 1; break;
+                        case Repeat.Rotate180:          newQuadrant = quadrant - 2; break;
+                        case Repeat.Rotate270:          newQuadrant = quadrant - 3; break;
                         case Repeat.Mirror:             newQuadrant = quadrant; break;
-                        case Repeat.MirrorAndRotate90:  newQuadrant = quadrant + 1; break;
-                        case Repeat.MirrorAndRotate180: newQuadrant = quadrant + 2; break;
-                        case Repeat.MirrorAndRotate270: newQuadrant = quadrant + 3; break;
+                        case Repeat.MirrorAndRotate90:  newQuadrant = quadrant - 1; break;
+                        case Repeat.MirrorAndRotate180: newQuadrant = quadrant - 2; break;
+                        case Repeat.MirrorAndRotate270: newQuadrant = quadrant - 3; break;
 
                         case Repeat.RotateAll:
                         case Repeat.RotateAndMirrorAll:

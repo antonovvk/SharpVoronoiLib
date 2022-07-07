@@ -290,7 +290,7 @@ namespace SharpVoronoiLib
             return Y + (target - Y) * shiftAmount;
         }
         
-        private const double shiftAmount = 1 / 1E14;// the point of shifting coordinates is to "change the angle", but Atan cannot distinguish anything smaller than double significant digits, so we need this "epsilon" to be fairly large 
+        private const double shiftAmount = 1 / 1E14;// the point of shifting coordinates is to "change the angle", but Atan cannot distinguish anything smaller than something like double significant digits, so we need this "epsilon" to be fairly large 
 
 
 #if DEBUG
