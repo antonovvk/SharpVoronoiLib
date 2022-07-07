@@ -854,10 +854,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
         }
 
         [Test]
@@ -1098,10 +1098,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
         }
 
         /// <summary>
@@ -1160,10 +1160,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
         }
 
         /// <summary>
@@ -1223,9 +1223,9 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
             Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
             Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
         }
 
         /// <summary>
@@ -1284,10 +1284,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Z
         }
 
         /// <summary>
@@ -1346,10 +1346,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 0)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 W
         }
 
         [Test]
@@ -1404,10 +1404,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
         }
 
         /// <summary>
@@ -3303,16 +3303,16 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 B
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 A
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 Z
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Z
             Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 500)); // #2 B
         }
 
@@ -3375,17 +3375,17 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 A
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 0)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 A
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 0)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 1000)); // #2 Z
             Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 B
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 A
         }
 
         /// <summary>
@@ -3447,17 +3447,17 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 500)); // #1 B
             Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 X
             Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 A
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
             Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 500)); // #2 B
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 0)); // #2 Z
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 0)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 0)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Z
         }
 
         /// <summary>
@@ -3519,17 +3519,17 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 0)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 0)); // #1 B
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 A
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
             Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 A
             Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 0)); // #2 Z
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 0)); // #2 B
         }
 
         [Test]
@@ -4978,30 +4978,30 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 1000)); // #1 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 300, 1000)); // #1 D
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 600)); // #1 B
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 700, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 600)); // #1 B
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 600)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 700, 600)); // #2 A
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 600)); // #2 B
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Y
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 700, 0)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 600)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 0)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Y
             Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 600)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Z
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 700, 600)); // #3 A
             Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 D
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 700, 600)); // #3 A
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 700, 0)); // #3 C
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 0, 0)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 1000)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 700, 0)); // #3 C
         }
 
         /// <summary>
@@ -5068,30 +5068,30 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 0)); // #1 B
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 300)); // #1 A
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 700)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 700)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 300)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 300)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 0)); // #2 B
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 0)); // #2 Y
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 300)); // #2 C
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 300)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 300)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 300)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 0)); // #2 B
             Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 300)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has W
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has Z
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 600, 300)); // #3 A
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 300)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 1000, 700)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 Z
             Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 1000)); // #3 W
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 1000)); // #3 Z
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 700)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 300)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 600, 300)); // #3 A
         }
 
         /// <summary>
@@ -5158,30 +5158,30 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 400)); // #1 B
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 400)); // #1 A
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 700, 0)); // #1 D
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 300, 400)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 400)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 0)); // #1 D
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 400)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 Y
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 300, 1000)); // #2 C
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 300, 400)); // #2 A
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 400)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 300, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 400)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 300, 400)); // #2 A
             Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 400)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has W
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has Z
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 1000)); // #3 C
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 W
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 1000, 1000)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 400)); // #3 A
             Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 700, 0)); // #3 D
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 300, 400)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 0)); // #3 Z
         }
 
         /// <summary>
@@ -5248,30 +5248,30 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 300)); // #1 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 700)); // #1 A
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 300)); // #1 D
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 300)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 700)); // #1 A
             Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 700)); // #2 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has B
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 700)); // #2 C
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 700)); // #2 A
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 1000)); // #2 B
-            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 700)); // #2 C
             Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 700)); // #3 has A
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has C
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has D
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
             Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Z
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 1000, 0)); // #3 W
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 0)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 1000, 700)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 700)); // #3 A
             Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 300)); // #3 D
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 400, 700)); // #3 A
-            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 700)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 0)); // #3 W
         }
 
         [Test]
