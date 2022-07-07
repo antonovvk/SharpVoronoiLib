@@ -37,13 +37,12 @@ namespace SharpVoronoiLib
                     _clockwiseCell = new List<VoronoiEdge>(cell);
                     _clockwiseCell.Sort(SortCellEdgesClockwise);
 
-                    int overlappingEdgeIndex = cell.FindIndex(LiesOnEdge);
+                    int overlappingEdgeIndex = _clockwiseCell.FindIndex(LiesOnEdge);
                     // todo: record this when we add first add it
 
                     if (overlappingEdgeIndex != -1)
-                    {
-                        throw new NotImplementedException();
-                    }
+                        if (overlappingEdgeIndex > 0)
+                            _clockwiseCell.ShiftBy(-overlappingEdgeIndex);
                 }
 
                 return _clockwiseCell;
@@ -100,9 +99,8 @@ namespace SharpVoronoiLib
                     // todo: could we know about this when we add first add it?
 
                     if (overlappingPointIndex != -1)
-                    {
-                        throw new NotImplementedException();
-                    }
+                        if (overlappingPointIndex > 0)
+                            _clockwisePoints.ShiftBy(-overlappingPointIndex);
                 }
 
                 return _clockwisePoints;
