@@ -161,7 +161,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 · · · · · · · · · · · 8
                 · · · · · 1 · · · · · 7
                 · · · · · · · · · · · 6
-                A · · · · · · · · · B 5
+                A x x x x x x x x x B 5
                 · · · · · · · · · · · 4
                 · · · · · 2 · · · · · 3
                 · · · · · · · · · · · 2
@@ -183,7 +183,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 X · · · · · · · · · Z 10
                 · · · · · 1 · · · · · 9
                 · · · · · · · · · · · 8
-                A · · · · · · · · · B 7
+                A x x x x x x x x x B 7
                 · · · · · · · · · · · 6
                 · · · · · 2 · · · · · 5
                 · · · · · · · · · · · 4
@@ -207,11 +207,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 X · · · · · · · · · Z 10
                 · · · · · 1 · · · · · 9
                 · · · · · · · · · · · 8
-                A · · · · · · · · · B 7
+                A x x x x x x x x x B 7
                 · · · · · · · · · · · 6
                 · · · · · 2 · · · · · 5
                 · · · · · · · · · · · 4
-                C · · · · · · · · · D 3
+                C x x x x x x x x x D 3
                 · · · · · · · · · · · 2
                 · · · · · 3 · · · · · 1
                 Y · · · · · · · · · W 0
@@ -235,11 +235,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 X · · · · · · · · · Z 10
                 · · · · · · · · · · · 9
                 · · · · · 1 · · · · · 8
-                A · · · · · · · · · B 7
+                A x x x x x x x x x B 7
                 · · · · · 2 · · · · · 6
-                C · · · · · · · · · D 5
+                C x x x x x x x x x D 5
                 · · · · · 3 · · · · · 4
-                E · · · · · · · · · F 3
+                E x x x x x x x x x F 3
                 · · · · · 4 · · · · · 2
                 · · · · · · · · · · · 1
                 Y · · · · · · · · · W 0
@@ -265,15 +265,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("TwoDiagonalPointsAroundMiddle", @"
                 X · · · · · · · · · B 10
-                · · · · · · · · · · · 9
-                · · · · · · · · · · · 8
-                · · · 1 · · · · · · · 7
-                · · · · · · · · · · · 6
-                · · · · · · · · · · · 5
-                · · · · · · · · · · · 4
-                · · · · · · · 2 · · · 3
-                · · · · · · · · · · · 2
-                · · · · · · · · · · · 1
+                · · · · · · · · · x · 9
+                · · · · · · · · x · · 8
+                · · · 1 · · · x · · · 7
+                · · · · · · x · · · · 6
+                · · · · · x · · · · · 5
+                · · · · x · · · · · · 4
+                · · · x · · · 2 · · · 3
+                · · x · · · · · · · · 2
+                · x · · · · · · · · · 1
                 A · · · · · · · · · Y 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
@@ -287,13 +287,13 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("TwoDiagonalPointsOffsetFromMiddle", @"
                 X · · · · · · · B · Z 10
-                · · · · · · · · · · · 9
-                · · 1 · · · · · · · · 8
-                · · · · · · · · · · · 7
-                · · · · · · · · · · · 6
-                · · · · · · · · · · · 5
-                · · · · · · 2 · · · · 4
-                · · · · · · · · · · · 3
+                · · · · · · · x · · · 9
+                · · 1 · · · x · · · · 8
+                · · · · · x · · · · · 7
+                · · · · x · · · · · · 6
+                · · · x · · · · · · · 5
+                · · x · · · 2 · · · · 4
+                · x · · · · · · · · · 3
                 A · · · · · · · · · · 2
                 · · · · · · · · · · · 1
                 Y · · · · · · · · · W 0
@@ -309,17 +309,62 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 2: YA,BZ,,W
             ", Repeat.RotateAll);
 
+            testGenerator.AddTest("TwoPointsAgainstCorner", @"
+                A · · · · · · · · · Y 10
+                · x · · · · · · · · · 9
+                · · x · · · 2 · · · · 8
+                · · · x · · · · · · · 7
+                · · · · x · · · · · · 6
+                · · · · · x · · · · · 5
+                · · 1 · · · x · · · · 4
+                · · · · · · · x · · · 3
+                · · · · · · · · x · · 2
+                · · · · · · · · · x · 1
+                X · · · · · · · · · B 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,2
+                A-X: 1
+                X-B: 1
+                B-Y: 2
+                Y-A: 2
+                1: ,A,B,X
+                2: A,,Y,B
+            ", Repeat.RotateAll);
+
+            testGenerator.AddTest("TwoPointsAgainstCornerSlanted", @"
+                A · · · · · · · · · Z 10
+                · · x · · · · 2 · · · 9
+                · · · · x · · · · · · 8
+                · · · · · · x · · · · 7
+                · · · · · · · · x · · 6
+                · · · · · 1 · · · · B 5
+                · · · · · · · · · · · 4
+                · · · · · · · · · · · 3
+                · · · · · · · · · · · 2
+                · · · · · · · · · · · 1
+                X · · · · · · · · · Y 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,2
+                A-X: 1
+                X-Y: 1
+                Y-B: 1
+                B-Z: 2
+                Z-A: 2
+                1: X,A,B,Y
+                2: A,,Z,B
+            ", Repeat.RotateAll);
+
             testGenerator.AddTest("ThreeConcentricPointsDiagonalAroundMiddle", @"
                 X · · · · · · D · · Z 10
-                · · · · · · · · · · · 9
-                · · 1 · · · · · · · · 8
-                · · · · · · · · · · C 7
-                · · · · · · · · · · · 6
-                · · · · · 2 · · · · · 5
-                · · · · · · · · · · · 4
-                A · · · · · · · · · · 3
-                · · · · · · · · 3 · · 2
-                · · · · · · · · · · · 1
+                · · · · · · x · · · · 9
+                · · 1 · · x · · · · · 8
+                · · · · x · · · · · C 7
+                · · · x · · · · · x · 6
+                · · x · · 2 · · x · · 5
+                · x · · · · · x · · · 4
+                A · · · · · x · · · · 3
+                · · · · · x · · 3 · · 2
+                · · · · x · · · · · · 1
                 Y · · B · · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-D: 1,2
@@ -339,15 +384,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("ThreeConcentricPointsDiagonalOffsetFromMiddle", @"
                 X · · · · · D · · · C 10
-                · · · · · · · · · · · 9
-                · · 1 · · · · · · · · 8
-                · · · · · · · · · · · 7
-                · · · · 2 · · · · · · 6
-                · · · · · · · · · · · 5
-                A · · · · · 3 · · · · 4
-                · · · · · · · · · · · 3
-                · · · · · · · · · · · 2
-                · · · · · · · · · · · 1
+                · · · · · x · · · x · 9
+                · · 1 · x · · · x · · 8
+                · · · x · · · x · · · 7
+                · · x · 2 · x · · · · 6
+                · x · · · x · · · · · 5
+                A · · · x · 3 · · · · 4
+                · · · x · · · · · · · 3
+                · · x · · · · · · · · 2
+                · x · · · · · · · · · 1
                 B · · · · · · · · · Y 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-D: 1,2
@@ -365,15 +410,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("FourConcentricPointsDiagonalAroundMiddle", @"
                 X · · · · · F · · · E 10
-                · · · · · · · · · · · 9
-                · · 1 · · · · · · · · 8
-                · · · · · · · · · · · 7
-                · · · · 2 · · · · · D 6
-                · · · · · · · · · · · 5
-                A · · · · · 3 · · · · 4
-                · · · · · · · · · · · 3
-                · · · · · · · · 4 · · 2
-                · · · · · · · · · · · 1
+                · · · · · x · · · x · 9
+                · · 1 · x · · · x · · 8
+                · · · x · · · x · · · 7
+                · · x · 2 · x · · · D 6
+                · x · · · x · · · x · 5
+                A · · · x · 3 · x · · 4
+                · · · x · · · x · · · 3
+                · · x · · · x · 4 · · 2
+                · x · · · x · · · · · 1
                 B · · · C · · · · · Y 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-F: 1,2
@@ -395,15 +440,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsCorner", @"
                 X · · · · · · · · · D 10
-                · · · · · · · · · · · 9
-                · · · · · · · · · · · 8
-                · · · · · · · · · · · 7
-                · · · · · · · · · · · 6
-                · · · 1 · · · · · · · 5
-                B · · · A · · · · · · 4
-                · · · 2 · 3 · · · · · 3
-                · · · · · · · · · · · 2
-                · · · · · · · · · · · 1
+                · · · · · · · · · x · 9
+                · · · · · · · · x · · 8
+                · · · · · · · x · · · 7
+                · · · · · · x · · · · 6
+                · · · 1 · x · · · · · 5
+                B x x x A · · · · · · 4
+                · · · 2 x 3 · · · · · 3
+                · · · · x · · · · · · 2
+                · · · · x · · · · · · 1
                 Y · · · C · · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
@@ -422,15 +467,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsSideAroundMiddle", @"
                 X · · · · D · · · · Y 10
-                · · · · · · · · · · · 9
-                · · · · · · · · · · · 8
-                · · · · · · · · · · · 7
-                · · · · · · · · · · · 6
+                · · · · · x · · · · · 9
+                · · · · · x · · · · · 8
+                · · · · · x · · · · · 7
+                · · · · · x · · · · · 6
                 · · · 3 · A · 2 · · · 5
-                · · · · · · · · · · · 4
-                · · · · · 1 · · · · · 3
-                · · · · · · · · · · · 2
-                · · · · · · · · · · · 1
+                · · · · x · x · · · · 4
+                · · · x · 1 · x · · · 3
+                · · x · · · · · x · · 2
+                · x · · · · · · · x · 1
                 B · · · · · · · · · C 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,3
@@ -448,15 +493,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsSideOffsetFromMiddle", @"
                 X · · · · D · · · · Z 10
-                · · · · · · · · · · · 9
-                · · · · · · · · · · · 8
-                · · · · · · · · · · · 7
-                · · · · · · · · · · · 6
-                · · · · · · · · · · · 5
-                · · · · · · · · · · · 4
+                · · · · · x · · · · · 9
+                · · · · · x · · · · · 8
+                · · · · · x · · · · · 7
+                · · · · · x · · · · · 6
+                · · · · · x · · · · · 5
+                · · · · · x · · · · · 4
                 · · · 3 · A · 2 · · · 3
-                · · · · · · · · · · · 2
-                · · · · · 1 · · · · · 1
+                · · · · x · x · · · · 2
+                · · · x · 1 · x · · · 1
                 Y · B · · · · · C · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,3
@@ -476,13 +521,13 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsSideOffsetIntoMiddle", @"
                 X · · · · D · · · · Z 10
-                · · · · · · · · · · · 9
-                · · · · · · · · · · · 8
+                · · · · · x · · · · · 9
+                · · · · · x · · · · · 8
                 · · · 3 · A · 2 · · · 7
-                · · · · · · · · · · · 6
-                · · · · · 1 · · · · · 5
-                · · · · · · · · · · · 4
-                · · · · · · · · · · · 3
+                · · · · x · x · · · · 6
+                · · · x · 1 · x · · · 5
+                · · x · · · · · x · · 4
+                · x · · · · · · · x · 3
                 B · · · · · · · · · C 2
                 · · · · · · · · · · · 1
                 Y · · · · · · · · · W 0
@@ -504,15 +549,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("FourPointsSurroundingAPointInMiddle", @"
                 E · · · · · · · · · H 10
-                · · · · · · · · · · · 9
-                · · · · · · · · · · · 8
-                · · · · · 5 · · · · · 7
-                · · · · A · D · · · · 6
-                · · · 2 · 1 · 4 · · · 5
-                · · · · B · C · · · · 4
-                · · · · · 3 · · · · · 3
-                · · · · · · · · · · · 2
-                · · · · · · · · · · · 1
+                · x · · · · · · · x · 9
+                · · x · · · · · x · · 8
+                · · · x · 5 · x · · · 7
+                · · · · A x D · · · · 6
+                · · · 2 x 1 x 4 · · · 5
+                · · · · B x C · · · · 4
+                · · · x · 3 · x · · · 3
+                · · x · · · · · x · · 2
+                · x · · · · · · · x · 1
                 F · · · · · · · · · G 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
@@ -538,13 +583,13 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 X · · · · · · · · · Z 10
                 · · · · · · · · · · · 9
                 E · · · · · · · · · H 8
-                · · · · · · · · · · · 7
-                · · · · · · · · · · · 6
-                · · · · · 5 · · · · · 5
-                · · · · A · D · · · · 4
-                · · · 2 · 1 · 4 · · · 3
-                · · · · B · C · · · · 2
-                · · · · · 3 · · · · · 1
+                · x · · · · · · · x · 7
+                · · x · · · · · x · · 6
+                · · · x · 5 · x · · · 5
+                · · · · A x D · · · · 4
+                · · · 2 x 1 x 4 · · · 3
+                · · · · B x C · · · · 2
+                · · · x · 3 · x · · · 1
                 Y · F · · · · · G · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,2
@@ -572,15 +617,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("FourEquidistantPointsInASquareAroundMiddle", @"
                 X · · · · B · · · · Z 10
-                · · · · · · · · · · · 9
-                · · · · · · · · · · · 8
-                · · · 1 · · · 4 · · · 7
-                · · · · · · · · · · · 6
-                C · · · · A · · · · E 5
-                · · · · · · · · · · · 4
-                · · · 2 · · · 3 · · · 3
-                · · · · · · · · · · · 2
-                · · · · · · · · · · · 1
+                · · · · · x · · · · · 9
+                · · · · · x · · · · · 8
+                · · · 1 · x · 4 · · · 7
+                · · · · · x · · · · · 6
+                C x x x x A x x x x E 5
+                · · · · · x · · · · · 4
+                · · · 2 · x · 3 · · · 3
+                · · · · · x · · · · · 2
+                · · · · · x · · · · · 1
                 Y · · · · D · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,4
@@ -603,15 +648,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("FourEquidistantPointsInARectangleAroundMiddle", @"
                 X · · · · B · · · · Z 10
-                · · · · · · · · · · · 9
-                · · · · 1 · 4 · · · · 8
-                · · · · · · · · · · · 7
-                · · · · · · · · · · · 6
-                C · · · · A · · · · E 5
-                · · · · · · · · · · · 4
-                · · · · · · · · · · · 3
-                · · · · 2 · 3 · · · · 2
-                · · · · · · · · · · · 1
+                · · · · · x · · · · · 9
+                · · · · 1 x 4 · · · · 8
+                · · · · · x · · · · · 7
+                · · · · · x · · · · · 6
+                C x x x x A x x x x E 5
+                · · · · · x · · · · · 4
+                · · · · · x · · · · · 3
+                · · · · 2 x 3 · · · · 2
+                · · · · · x · · · · · 1
                 Y · · · · D · · · · W 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 1,4
@@ -634,15 +679,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("FivePointsInAForkedTallCross", @"
                 W · C · · · · · D · Z 10
-                · · · · · 1 · · · · · 9
-                · · · · · · · · · · · 8
+                · · · x · 1 · x · · · 9
+                · · · · x · x · · · · 8
                 · · · 2 · B · 5 · · · 7
-                · · · · · · · · · · · 6
-                · · · · · · · · · · · 5
-                E · · · · A · · · · F 4
-                · · · · · · · · · · · 3
-                · · · · · · · · · · · 2
-                · · · 3 · · · 4 · · · 1
+                · · · · · x · · · · · 6
+                · · · · · x · · · · · 5
+                E x x x x A x x x x F 4
+                · · · · · x · · · · · 3
+                · · · · · x · · · · · 2
+                · · · 3 · x · 4 · · · 1
                 X · · · · G · · · · Y 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 2,5
@@ -669,15 +714,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("FivePointsInAForkedStubbyCross", @"
                 C · · · · · · · · · D 10
-                · · · · · · · · · · · 9
-                · · · · · · · · · · · 8
-                · · · · · 1 · · · · · 7
-                · · · · · · · · · · · 6
+                · x · · · · · · · x · 9
+                · · x · · · · · x · · 8
+                · · · x · 1 · x · · · 7
+                · · · · x · x · · · · 6
                 · · · 2 · B · 5 · · · 5
-                · · · · · · · · · · · 4
-                E · · · · A · · · · F 3
-                · · · · · · · · · · · 2
-                · · · 3 · · · 4 · · · 1
+                · · · · · x · · · · · 4
+                E x x x x A x x x x F 3
+                · · · · · x · · · · · 2
+                · · · 3 · x · 4 · · · 1
                 X · · · · G · · · · Y 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 2,5
@@ -702,15 +747,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
             testGenerator.AddTest("SixPointsInADoubleCross", @"
                 W · · · · H · · · · Z 10
-                · · · 1 · · · 2 · · · 9
-                · · · · · · · · · · · 8
-                C · · · · B · · · · G 7
-                · · · · · · · · · · · 6
-                · · · 3 · · · 4 · · · 5
-                · · · · · · · · · · · 4
-                D · · · · A · · · · F 3
-                · · · · · · · · · · · 2
-                · · · 5 · · · 6 · · · 1
+                · · · 1 · x · 2 · · · 9
+                · · · · · x · · · · · 8
+                C x x x x B x x x x G 7
+                · · · · · x · · · · · 6
+                · · · 3 · x · 4 · · · 5
+                · · · · · x · · · · · 4
+                D x x x x A x x x x F 3
+                · · · · · x · · · · · 2
+                · · · 5 · x · 6 · · · 1
                 X · · · · E · · · · Y 0
                 0 1 2 3 4 5 6 7 8 9 10
                 A-B: 3,4
@@ -843,7 +888,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                         switch (symbol)
                         {
-                            case '·':
+                            case '·' or 'x':
                                 // Filler
                                 break;
 
@@ -1035,6 +1080,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 stringBuilder.AppendLine(@"using System.Linq;");
                 stringBuilder.AppendLine(@"using static SharpVoronoiLib.UnitTests.CommonTestUtilities;");
                 stringBuilder.AppendLine();
+                stringBuilder.AppendLine(@"#pragma warning disable");
+                stringBuilder.AppendLine(@"// ReSharper disable All");
+                stringBuilder.AppendLine();
                 stringBuilder.AppendLine(@"namespace SharpVoronoiLib.UnitTests");
                 stringBuilder.AppendLine(@"{");
                 List<string> classSummary = BuildClassSummary(purpose, borderLogic);
@@ -1047,6 +1095,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                 foreach (Test test in tests)
                 {
+                    // Header
+                    
                     if (test is RepeatedTest repeatedTest)
                     {
                         List<string> summary = BuildSummary(repeatedTest.Repeated, repeatedTest.OriginalName);
@@ -1057,8 +1107,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     stringBuilder.AppendPaddedLine(2, @"[Test]");
                     stringBuilder.AppendPaddedLine(2, @"public void " + test.Name + @"()");
                     stringBuilder.AppendPaddedLine(2, @"{");
-                    stringBuilder.AppendPaddedLine(3, @"// Arrange");
-                    stringBuilder.AppendLine();
+
+                    // Arrange
+                    
+                    stringBuilder.AppendPaddedLine(3, @"// Arrange", true);
 
                     stringBuilder.AppendPaddedLine(3, @"List<VoronoiSite> sites = new List<VoronoiSite>");
                     stringBuilder.AppendPaddedLine(3, @"{");
@@ -1073,89 +1125,111 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         stringBuilder.AppendPaddedLine(3, visualLayoutString);
                     stringBuilder.AppendLine();
 
-                    stringBuilder.AppendPaddedLine(3, @"// Act");
-                    stringBuilder.AppendLine();
-                    if (NeedEdgesFor(purpose))
-                        stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + BorderLogicToRealEnumParam(borderLogic) + @").ToList();");
-                    else
-                        stringBuilder.AppendPaddedLine(3, @"VoronoiPlane.TessellateOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + BorderLogicToRealEnumParam(borderLogic) + @");");
+                    // Act
+                    
+                    stringBuilder.AppendPaddedLine(3, @"// Act", true);
+                    
+                    stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, " + _minX + @", " + _minY + @", " + _maxX + @", " + _maxY + BorderLogicToRealEnumParam(borderLogic) + @").ToList();");
                     stringBuilder.AppendLine();
 
-                    stringBuilder.AppendPaddedLine(3, @"// Assert");
-
+                    // Assume + Assert
+                    
                     switch (purpose)
                     {
                         case TestPurpose.AssertEdges:
-                            stringBuilder.AppendLine();
-                            stringBuilder.AppendPaddedLine(3, @"Assert.AreEqual(" + CountExpectedRelevantEdges(test.Edges, borderLogic) + @", edges.Count);");
-
-                            List<string> edgeAssertions = BuildEdgeAssertions(test.Edges, borderLogic);
-                            foreach (string edgeAssertion in edgeAssertions)
-                                stringBuilder.AppendPaddedLine(3, edgeAssertion);
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
                             break;
-
-                        case TestPurpose.AssertSiteEdges:
-                            stringBuilder.AppendLine();
-                            List<string> siteEdgeAssertions = BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic, false);
-                            foreach (string siteEdgeAssertion in siteEdgeAssertions)
-                                stringBuilder.AppendPaddedLine(3, siteEdgeAssertion);
-                            break;
-
-                        case TestPurpose.AssertSiteEdgesClockwise:
-                            stringBuilder.AppendLine();
-                            List<string> siteEdgeClockwiseAssertions = BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic, true);
-                            foreach (string siteEdgeAssertion in siteEdgeClockwiseAssertions)
-                                stringBuilder.AppendPaddedLine(3, siteEdgeAssertion);
+                        
+                        case TestPurpose.AssertSitePoints:
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, true));
                             break;
 
                         case TestPurpose.AssertEdgeSites:
+                            stringBuilder.AppendPaddedLine(3, @"// Assume", true);
+                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
                             stringBuilder.AppendLine();
-                            List<string> edgeSiteAssertions = BuildEdgeSiteAssertions(test.Edges, borderLogic);
-                            foreach (string edgeSiteAssertion in edgeSiteAssertions)
-                                stringBuilder.AppendPaddedLine(3, edgeSiteAssertion);
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, false));
+                            stringBuilder.AppendLine();
+
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildEdgeSiteAssertions(test.Edges, borderLogic, true));
                             break;
 
                         case TestPurpose.AssertEdgeNeighbours:
+                            stringBuilder.AppendPaddedLine(3, @"// Assume", true);
+                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
                             stringBuilder.AppendLine();
-                            List<string> edgeNeighboursAssertions = BuildEdgeNeighboursAssertions(test.Edges, borderLogic);
-                            foreach (string edgeNeighbourAssertion in edgeNeighboursAssertions)
-                                stringBuilder.AppendPaddedLine(3, edgeNeighbourAssertion);
+
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildEdgeNeighboursAssertions(test.Edges, borderLogic, true));
+                            break;
+
+                        case TestPurpose.AssertSiteEdges:
+                            stringBuilder.AppendPaddedLine(3, @"// Assume", true);
+                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
+                            stringBuilder.AppendLine();
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, false));
+                            stringBuilder.AppendLine();
+
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic, false, true));
+                            break;
+
+                        case TestPurpose.AssertSiteEdgesClockwise:
+                            stringBuilder.AppendPaddedLine(3, @"// Assume", true);
+                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
+                            stringBuilder.AppendLine();
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, false));
+                            stringBuilder.AppendLine();
+
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic, true, true));
                             break;
 
                         case TestPurpose.AssertSiteNeighbours:
+                            stringBuilder.AppendPaddedLine(3, @"// Assume", true);
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, false));
                             stringBuilder.AppendLine();
-                            List<string> siteNeighboursAssertions = BuildSiteNeighboursAssertions(test.Sites, test.Edges, borderLogic);
-                            foreach (string siteNeighbourAssertion in siteNeighboursAssertions)
-                                stringBuilder.AppendPaddedLine(3, siteNeighbourAssertion);
-                            break;
 
-                        case TestPurpose.AssertSitePoints:
-                            stringBuilder.AppendLine();
-                            List<string> sitePointsAssertions = BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false);
-                            foreach (string sitePointAssertion in sitePointsAssertions)
-                                stringBuilder.AppendPaddedLine(3, sitePointAssertion);
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildSiteNeighboursAssertions(test.Sites, test.Edges, borderLogic, true));
                             break;
 
                         case TestPurpose.AssertSitePointsClockwise:
+                            stringBuilder.AppendPaddedLine(3, @"// Assume", true);
+                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
                             stringBuilder.AppendLine();
-                            List<string> sitePointsClockwiseAssertions = BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, true);
-                            foreach (string sitePointAssertion in sitePointsClockwiseAssertions)
-                                stringBuilder.AppendPaddedLine(3, sitePointAssertion);
+
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, true, false));
                             break;
 
                         case TestPurpose.AssertPointBorderLocation:
+                            stringBuilder.AppendPaddedLine(3, @"// Assume", true);
+                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
                             stringBuilder.AppendLine();
-                            List<string> pointBorderLocationAssertions = BuildPointBorderLocationAssertions(test.Edges, test.Sites, borderLogic);
-                            foreach (string pointBorderLocationAssertion in pointBorderLocationAssertions)
-                                stringBuilder.AppendPaddedLine(3, pointBorderLocationAssertion);
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, false));
+                            stringBuilder.AppendLine();
+
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildPointBorderLocationAssertions(test.Edges, test.Sites, borderLogic, true));
                             break;
 
                         default:
                             throw new ArgumentOutOfRangeException(nameof(purpose), purpose, null);
                     }
+                    
+                    void AppendAssertions(IEnumerable<string> assertions)
+                    {
+                        foreach (string assertion in assertions)
+                            stringBuilder.AppendPaddedLine(3, assertion);
+                    }
+                    
+                    // Footer
 
-                    stringBuilder.AppendPaddedLine(2, @"}");
-                    stringBuilder.AppendLine();
+                    stringBuilder.AppendPaddedLine(2, @"}", true);
                 }
 
                 stringBuilder.AppendPaddedLine(1, @"}");
@@ -1211,28 +1285,6 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     
                     default:
                         throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);
-                }
-            }
-
-            private bool NeedEdgesFor(TestPurpose purpose)
-            {
-                switch (purpose)
-                {
-                    case TestPurpose.AssertEdges:
-                    case TestPurpose.AssertEdgeSites:
-                    case TestPurpose.AssertPointBorderLocation:
-                    case TestPurpose.AssertEdgeNeighbours:
-                        return true;
-
-                    case TestPurpose.AssertSiteEdges:
-                    case TestPurpose.AssertSiteEdgesClockwise:
-                    case TestPurpose.AssertSitePoints:
-                    case TestPurpose.AssertSitePointsClockwise:
-                    case TestPurpose.AssertSiteNeighbours:
-                        return false;
-
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(purpose), purpose, null);
                 }
             }
 
@@ -1358,19 +1410,36 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 return strings;
             }
 
-            private List<string> BuildEdgeAssertions(List<Edge> edges, TestBorderLogic borderLogic)
+            private List<string> BuildEdgeAssertions(List<Edge> edges, TestBorderLogic borderLogic, bool assert)
             {
                 List<string> strings = new List<string>();
 
+                strings.Add(GetAssertEqualMethodStart(assert) + CountExpectedRelevantEdges(edges, borderLogic) + GetAssertEqualMethodSeparator(assert) + @" edges.Count);");
+                
                 foreach (Edge edge in edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)))
                 {
-                    strings.Add(@"Assert.IsTrue(AnyEdgeBetween(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                    strings.Add(GetAssertTrueMethodStart(assert) + @"AnyEdgeBetween(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
                 }
 
                 return strings;
             }
 
-            private List<string> BuildEdgeSiteAssertions(List<Edge> edges, TestBorderLogic borderLogic)
+            private string GetAssertEqualMethodStart(bool assert)
+            {
+                return assert ? @"Assert.AreEqual(" : @"Assume.That(() => ";
+            }
+
+            private string GetAssertEqualMethodSeparator(bool assert)
+            {
+                return assert ? @"," : @" ==";
+            }
+
+            private string GetAssertTrueMethodStart(bool assert)
+            {
+                return assert ? @"Assert.IsTrue(" : @"Assume.That(() => ";
+            }
+
+            private List<string> BuildEdgeSiteAssertions(List<Edge> edges, TestBorderLogic borderLogic, bool assert)
             {
                 List<string> strings = new List<string>();
 
@@ -1378,14 +1447,14 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 {
                     foreach (Site site in edge.EdgeSites)
                     {
-                        strings.Add(@"Assert.IsTrue(EdgeHasSite(FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"), " + site.X + @", " + site.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " has #" + site.Id + @"");
+                        strings.Add(GetAssertTrueMethodStart(assert) + @"EdgeHasSite(FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"), " + site.X + @", " + site.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " has #" + site.Id + @"");
                     }
                 }
 
                 return strings;
             }
 
-            private List<string> BuildEdgeNeighboursAssertions(List<Edge> edges, TestBorderLogic borderLogic)
+            private List<string> BuildEdgeNeighboursAssertions(List<Edge> edges, TestBorderLogic borderLogic, bool assert)
             {
                 List<string> strings = new List<string>();
 
@@ -1407,25 +1476,25 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     {
                         strings.Add((first ? nameof(VoronoiEdge) + @" " : "") + @"edge = FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
 
-                        strings.Add(@"Assert.AreEqual(" + neighbours.Count + @", edge" + @"." + nameof(VoronoiEdge.Neighbours) + @".Count());");
+                        strings.Add(GetAssertEqualMethodStart(assert) + neighbours.Count + GetAssertEqualMethodSeparator(assert) + @" edge" + @"." + nameof(VoronoiEdge.Neighbours) + @".Count());");
 
                         foreach (Edge neighbour in neighbours)
                         {
-                            strings.Add(@"Assert.IsTrue(edge." + nameof(VoronoiEdge.Neighbours) + @".Contains(FindEdge(edges, " + neighbour.FromPoint.X + @", " + neighbour.FromPoint.Y + @", " + neighbour.ToPoint.X + @", " + neighbour.ToPoint.Y + @"))); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " neighbours " + (char)neighbour.FromPoint.Id + @"-" + (char)neighbour.ToPoint.Id);
+                            strings.Add(GetAssertTrueMethodStart(assert) + @"edge." + nameof(VoronoiEdge.Neighbours) + @".Contains(FindEdge(edges, " + neighbour.FromPoint.X + @", " + neighbour.FromPoint.Y + @", " + neighbour.ToPoint.X + @", " + neighbour.ToPoint.Y + @"))); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " neighbours " + (char)neighbour.FromPoint.Id + @"-" + (char)neighbour.ToPoint.Id);
                         }
 
                         first = false;
                     }
                     else
                     {
-                        strings.Add(@"Assert.AreEqual(0, FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")." + nameof(VoronoiEdge.Neighbours) + @".Count()); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                        strings.Add(GetAssertEqualMethodStart(assert) + @"0" + GetAssertEqualMethodSeparator(assert) + @" FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")." + nameof(VoronoiEdge.Neighbours) + @".Count()); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
                     }
                 }
                 
                 return strings;
             }
 
-            private List<string> BuildSiteNeighboursAssertions(List<Site> sites, List<Edge> edges, TestBorderLogic borderLogic)
+            private List<string> BuildSiteNeighboursAssertions(List<Site> sites, List<Edge> edges, TestBorderLogic borderLogic, bool assert)
             {
                 List<string> strings = new List<string>();
 
@@ -1451,14 +1520,14 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     
                     foreach (Site neighbour in neighbours)
                     {
-                        strings.Add(@"Assert.True(sites[" + sites.IndexOf(site) + @"]." + nameof(VoronoiSite.Neighbours) + @".Contains(sites[" + sites.IndexOf(neighbour) + @"])); // " + site.Id + @" neighbours " + neighbour.Id);
+                        strings.Add(GetAssertTrueMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]." + nameof(VoronoiSite.Neighbours) + @".Contains(sites[" + sites.IndexOf(neighbour) + @"])); // " + site.Id + @" neighbours " + neighbour.Id);
                     }
                 }
 
                 return strings;
             }
 
-            private List<string> BuildSitePointsAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic, bool clockwise)
+            private List<string> BuildSitePointsAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic, bool clockwise, bool assert)
             {
                 List<string> strings = new List<string>();
 
@@ -1473,11 +1542,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                                          .OrderBy(p => p.Id)
                                          .ToList();
 
-                    strings.Add(@"Assert.AreEqual(" + points.Count + @", sites[" + sites.IndexOf(site) + @"]" + @"." + (clockwise ? nameof(VoronoiSite.ClockwisePoints) : nameof(VoronoiSite.Points)) + @".Count()); // #" + site.Id);
+                    strings.Add(GetAssertEqualMethodStart(assert) + points.Count + GetAssertEqualMethodSeparator(assert) + @" sites[" + sites.IndexOf(site) + @"]" + @"." + (clockwise ? nameof(VoronoiSite.ClockwisePoints) : nameof(VoronoiSite.Points)) + @".Count()); // #" + site.Id);
 
                     foreach (Point point in points)
                     {
-                        strings.Add(@"Assert.IsTrue(SiteHas" + (clockwise ? "Clockwise" : "") + @"Point(sites[" + sites.IndexOf(site) + @"], " + point.X + @", " + point.Y + @")); // #" + site.Id + " has " + (char)point.Id + @"");
+                        strings.Add(GetAssertTrueMethodStart(assert) + @"SiteHas" + (clockwise ? "Clockwise" : "") + @"Point(sites[" + sites.IndexOf(site) + @"], " + point.X + @", " + point.Y + @")); // #" + site.Id + " has " + (char)point.Id + @"");
                     }
                     
                     if (clockwise)
@@ -1490,7 +1559,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                             {
                                 if (PointMatchesBorderLogic(point, borderLogic))
                                 {
-                                    strings.Add(@"Assert.IsTrue(PointIs(sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwisePoints) + @".ElementAt(" + index + @"), " + point.X + @", " + point.Y + @")); // #" + site.Id + @" " + (char)point.Id);
+                                    strings.Add(GetAssertTrueMethodStart(assert) + @"PointIs(sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwisePoints) + @".ElementAt(" + index + @"), " + point.X + @", " + point.Y + @")); // #" + site.Id + @" " + (char)point.Id);
 
                                     index++;
                                 }
@@ -1502,7 +1571,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 return strings;
             }
 
-            private List<string> BuildPointBorderLocationAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic)
+            private List<string> BuildPointBorderLocationAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic, bool assert)
             {
                 List<string> strings = new List<string>();
 
@@ -1514,7 +1583,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 
                 foreach (Point point in points)
                 {
-                    strings.Add(@"Assert.AreEqual(" + nameof(PointBorderLocation) + @"." + PointLocationToExpectedBorderLocation(point) + @", FindPoint(edges, " + point.X + @", " + point.Y + @")." + nameof(VoronoiPoint.BorderLocation) + @"); // " + (char)point.Id);
+                    strings.Add(GetAssertEqualMethodStart(assert) + nameof(PointBorderLocation) + @"." + PointLocationToExpectedBorderLocation(point) + GetAssertEqualMethodSeparator(assert) + @" FindPoint(edges, " + point.X + @", " + point.Y + @")." + nameof(VoronoiPoint.BorderLocation) + @"); // " + (char)point.Id);
                 }
 
                 return strings;
@@ -1551,7 +1620,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 }
             }
 
-            private List<string> BuildSiteEdgeAssertions(List<Edge> edges, List<Site> allSites, TestBorderLogic borderLogic, bool clockwise)
+            private List<string> BuildSiteEdgeAssertions(List<Edge> edges, List<Site> allSites, TestBorderLogic borderLogic, bool clockwise, bool assert)
             {
                 List<string> strings = new List<string>();
 
@@ -1564,11 +1633,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                                            .Where(e => e.EdgeSites.Contains(site))
                                            .ToList();
 
-                    strings.Add(@"Assert.AreEqual(" + siteEdges.Count + @", sites[" + allSites.IndexOf(site) + @"]" + @"." + (clockwise ? nameof(VoronoiSite.ClockwiseCell) : nameof(VoronoiSite.Cell)) + @".Count()); // #" + site.Id);
+                    strings.Add(GetAssertEqualMethodStart(assert) + siteEdges.Count + GetAssertEqualMethodSeparator(assert) + @" sites[" + allSites.IndexOf(site) + @"]" + @"." + (clockwise ? nameof(VoronoiSite.ClockwiseCell) : nameof(VoronoiSite.Cell)) + @".Count()); // #" + site.Id);
 
                     foreach (Edge siteEdge in siteEdges)
                     {
-                        strings.Add(@"Assert.IsTrue(SiteHas" + (clockwise ? "Clockwise" : "") + @"Edge(sites[" + allSites.IndexOf(site) + @"], " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
+                        strings.Add(GetAssertTrueMethodStart(assert) + @"SiteHas" + (clockwise ? "Clockwise" : "") + @"Edge(sites[" + allSites.IndexOf(site) + @"], " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
                     }
 
                     if (clockwise)
@@ -1579,7 +1648,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         
                         foreach (Edge edge in orderedEdges)
                         {
-                            strings.Add(@"Assert.IsTrue(EdgeIs(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @".ElementAt(" + index + @"), " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                            strings.Add(GetAssertTrueMethodStart(assert) + @"EdgeIs(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @".ElementAt(" + index + @"), " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
 
                             index++;
                         }
@@ -2087,10 +2156,12 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
     internal static class StringBuilderExtensions
     {
-        public static void AppendPaddedLine(this StringBuilder stringBuilder, int padding, string text)
+        public static void AppendPaddedLine(this StringBuilder stringBuilder, int padding, string text, bool addExtraNewLine = false)
         {
             stringBuilder.Append(' ', padding * 4);
             stringBuilder.AppendLine(text);
+            if (addExtraNewLine)
+                stringBuilder.AppendLine();
         }
     }
 }

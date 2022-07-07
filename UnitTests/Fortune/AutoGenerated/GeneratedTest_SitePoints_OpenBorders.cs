@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using static SharpVoronoiLib.UnitTests.CommonTestUtilities;
 
+#pragma warning disable
+// ReSharper disable All
+
 namespace SharpVoronoiLib.UnitTests
 {
     /// <summary>
@@ -53,7 +56,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -94,7 +97,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -136,7 +139,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -182,7 +185,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -228,7 +231,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -274,7 +277,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -316,7 +319,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -362,7 +365,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -408,7 +411,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -454,7 +457,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -496,7 +499,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -542,7 +545,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -588,7 +591,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -634,7 +637,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -676,7 +679,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -722,7 +725,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -768,7 +771,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -814,7 +817,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -856,7 +859,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -902,7 +905,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -948,7 +951,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -994,7 +997,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1037,7 +1040,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1089,7 +1092,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1137,7 +1140,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1189,7 +1192,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1238,7 +1241,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1296,7 +1299,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1351,7 +1354,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1415,7 +1418,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1473,7 +1476,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1525,7 +1528,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1573,7 +1576,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1625,7 +1628,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1677,7 +1680,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1729,7 +1732,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1739,6 +1742,414 @@ namespace SharpVoronoiLib.UnitTests
             Assert.AreEqual(2, sites[1].Points.Count()); // #2
             Assert.IsTrue(SiteHasPoint(sites[1], 800, 0)); // #2 has A
             Assert.IsTrue(SiteHasPoint(sites[1], 0, 800)); // #2 has B
+        }
+
+        [Test]
+        public void TwoPointsAgainstCorner()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(200, 400), // #1
+                new VoronoiSite(600, 800), // #2
+            };
+
+            // 1000 A,                                                 
+            //      | ',                                               
+            //  900 |   '·,                                            
+            //      |      ',                                          
+            //  800 |        '·,                  2                    
+            //      |           ',                                     
+            //  700 |             '·,                                  
+            //      |                ',                                
+            //  600 |                  '·,                             
+            //      |                     ',                           
+            //  500 |                       '·,                        
+            //      |                          ',                      
+            //  400 |         1                  '·,                   
+            //      |                               ',                 
+            //  300 |                                 '·,              
+            //      |                                    ',            
+            //  200 |                                      '·,         
+            //      |                                         ',       
+            //  100 |                                           '·,    
+            //      |                                              ',  
+            //    0 └------------------------------------------------'B
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, sites[0].Points.Count()); // #1
+            Assert.IsTrue(SiteHasPoint(sites[0], 0, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasPoint(sites[0], 1000, 0)); // #1 has B
+            Assert.AreEqual(2, sites[1].Points.Count()); // #2
+            Assert.IsTrue(SiteHasPoint(sites[1], 0, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasPoint(sites[1], 1000, 0)); // #2 has B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCorner"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCorner_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(400, 800), // #1
+                new VoronoiSite(800, 400), // #2
+            };
+
+            // 1000 ↑                                                ,A
+            //      |                                              ,'  
+            //  900 |                                           ,·'    
+            //      |                                         ,'       
+            //  800 |                   1                  ,·'         
+            //      |                                    ,'            
+            //  700 |                                 ,·'              
+            //      |                               ,'                 
+            //  600 |                            ,·'                   
+            //      |                          ,'                      
+            //  500 |                       ,·'                        
+            //      |                     ,'                           
+            //  400 |                  ,·'                  2          
+            //      |                ,'                                
+            //  300 |             ,·'                                  
+            //      |           ,'                                     
+            //  200 |        ,·'                                       
+            //      |      ,'                                          
+            //  100 |   ,·'                                            
+            //      | ,'                                               
+            //    0 B'------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, sites[0].Points.Count()); // #1
+            Assert.IsTrue(SiteHasPoint(sites[0], 1000, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasPoint(sites[0], 0, 0)); // #1 has B
+            Assert.AreEqual(2, sites[1].Points.Count()); // #2
+            Assert.IsTrue(SiteHasPoint(sites[1], 1000, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasPoint(sites[1], 0, 0)); // #2 has B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCorner"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCorner_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(800, 600), // #1
+                new VoronoiSite(400, 200), // #2
+            };
+
+            // 1000 B,                                                 
+            //      | ',                                               
+            //  900 |   '·,                                            
+            //      |      ',                                          
+            //  800 |        '·,                                       
+            //      |           ',                                     
+            //  700 |             '·,                                  
+            //      |                ',                                
+            //  600 |                  '·,                  1          
+            //      |                     ',                           
+            //  500 |                       '·,                        
+            //      |                          ',                      
+            //  400 |                            '·,                   
+            //      |                               ',                 
+            //  300 |                                 '·,              
+            //      |                                    ',            
+            //  200 |                   2                  '·,         
+            //      |                                         ',       
+            //  100 |                                           '·,    
+            //      |                                              ',  
+            //    0 └------------------------------------------------'A
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, sites[0].Points.Count()); // #1
+            Assert.IsTrue(SiteHasPoint(sites[0], 1000, 0)); // #1 has A
+            Assert.IsTrue(SiteHasPoint(sites[0], 0, 1000)); // #1 has B
+            Assert.AreEqual(2, sites[1].Points.Count()); // #2
+            Assert.IsTrue(SiteHasPoint(sites[1], 1000, 0)); // #2 has A
+            Assert.IsTrue(SiteHasPoint(sites[1], 0, 1000)); // #2 has B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCorner"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCorner_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(600, 200), // #1
+                new VoronoiSite(200, 600), // #2
+            };
+
+            // 1000 ↑                                                ,B
+            //      |                                              ,'  
+            //  900 |                                           ,·'    
+            //      |                                         ,'       
+            //  800 |                                      ,·'         
+            //      |                                    ,'            
+            //  700 |                                 ,·'              
+            //      |                               ,'                 
+            //  600 |         2                  ,·'                   
+            //      |                          ,'                      
+            //  500 |                       ,·'                        
+            //      |                     ,'                           
+            //  400 |                  ,·'                             
+            //      |                ,'                                
+            //  300 |             ,·'                                  
+            //      |           ,'                                     
+            //  200 |        ,·'                  1                    
+            //      |      ,'                                          
+            //  100 |   ,·'                                            
+            //      | ,'                                               
+            //    0 A'------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, sites[0].Points.Count()); // #1
+            Assert.IsTrue(SiteHasPoint(sites[0], 0, 0)); // #1 has A
+            Assert.IsTrue(SiteHasPoint(sites[0], 1000, 1000)); // #1 has B
+            Assert.AreEqual(2, sites[1].Points.Count()); // #2
+            Assert.IsTrue(SiteHasPoint(sites[1], 0, 0)); // #2 has A
+            Assert.IsTrue(SiteHasPoint(sites[1], 1000, 1000)); // #2 has B
+        }
+
+        [Test]
+        public void TwoPointsAgainstCornerSlanted()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(700, 900), // #2
+            };
+
+            // 1000 A,,                                                
+            //      |  ''·,,                                           
+            //  900 |       ''·,,                      2               
+            //      |            ''·,,                                 
+            //  800 |                 ''·,,                            
+            //      |                      ''·,,                       
+            //  700 |                           ''·,,                  
+            //      |                                ''·,,             
+            //  600 |                                     ''·,,        
+            //      |                                          ''·,,   
+            //  500 |                        1                      ''B
+            //      |                                                  
+            //  400 |                                                  
+            //      |                                                  
+            //  300 |                                                  
+            //      |                                                  
+            //  200 |                                                  
+            //      |                                                  
+            //  100 |                                                  
+            //      |                                                  
+            //    0 └-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, sites[0].Points.Count()); // #1
+            Assert.IsTrue(SiteHasPoint(sites[0], 0, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasPoint(sites[0], 1000, 500)); // #1 has B
+            Assert.AreEqual(2, sites[1].Points.Count()); // #2
+            Assert.IsTrue(SiteHasPoint(sites[1], 0, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasPoint(sites[1], 1000, 500)); // #2 has B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(900, 300), // #2
+            };
+
+            // 1000 ↑                                                 A
+            //      |                                                ' 
+            //  900 |                                              ,'  
+            //      |                                             ,    
+            //  800 |                                            ·     
+            //      |                                           '      
+            //  700 |                                         ,'       
+            //      |                                        ,         
+            //  600 |                                       ·          
+            //      |                                      '           
+            //  500 |                        1           ,'            
+            //      |                                   ,              
+            //  400 |                                  ·               
+            //      |                                 '                
+            //  300 |                               ,'           2     
+            //      |                              ,                   
+            //  200 |                             ·                    
+            //      |                            '                     
+            //  100 |                          ,'                      
+            //      |                         ,                        
+            //    0 └------------------------B------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, sites[0].Points.Count()); // #1
+            Assert.IsTrue(SiteHasPoint(sites[0], 1000, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasPoint(sites[0], 500, 0)); // #1 has B
+            Assert.AreEqual(2, sites[1].Points.Count()); // #2
+            Assert.IsTrue(SiteHasPoint(sites[1], 1000, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasPoint(sites[1], 500, 0)); // #2 has B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(300, 100), // #2
+            };
+
+            // 1000 ↑                                                  
+            //      |                                                  
+            //  900 |                                                  
+            //      |                                                  
+            //  800 |                                                  
+            //      |                                                  
+            //  700 |                                                  
+            //      |                                                  
+            //  600 |                                                  
+            //      |                                                  
+            //  500 B,,                      1                         
+            //      |  ''·,,                                           
+            //  400 |       ''·,,                                      
+            //      |            ''·,,                                 
+            //  300 |                 ''·,,                            
+            //      |                      ''·,,                       
+            //  200 |                           ''·,,                  
+            //      |                                ''·,,             
+            //  100 |              2                      ''·,,        
+            //      |                                          ''·,,   
+            //    0 └-----------------------------------------------''A
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, sites[0].Points.Count()); // #1
+            Assert.IsTrue(SiteHasPoint(sites[0], 1000, 0)); // #1 has A
+            Assert.IsTrue(SiteHasPoint(sites[0], 0, 500)); // #1 has B
+            Assert.AreEqual(2, sites[1].Points.Count()); // #2
+            Assert.IsTrue(SiteHasPoint(sites[1], 1000, 0)); // #2 has A
+            Assert.IsTrue(SiteHasPoint(sites[1], 0, 500)); // #2 has B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(100, 700), // #2
+            };
+
+            // 1000 ↑                        B                         
+            //      |                       '                          
+            //  900 |                     ,'                           
+            //      |                    ,                             
+            //  800 |                   ·                              
+            //      |                  '                               
+            //  700 |    2           ,'                                
+            //      |               ,                                  
+            //  600 |              ·                                   
+            //      |             '                                    
+            //  500 |           ,'           1                         
+            //      |          ,                                       
+            //  400 |         ·                                        
+            //      |        '                                         
+            //  300 |      ,'                                          
+            //      |     ,                                            
+            //  200 |    ·                                             
+            //      |   '                                              
+            //  100 | ,'                                               
+            //      |,                                                 
+            //    0 A-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, sites[0].Points.Count()); // #1
+            Assert.IsTrue(SiteHasPoint(sites[0], 0, 0)); // #1 has A
+            Assert.IsTrue(SiteHasPoint(sites[0], 500, 1000)); // #1 has B
+            Assert.AreEqual(2, sites[1].Points.Count()); // #2
+            Assert.IsTrue(SiteHasPoint(sites[1], 0, 0)); // #2 has A
+            Assert.IsTrue(SiteHasPoint(sites[1], 500, 1000)); // #2 has B
         }
 
         [Test]
@@ -1778,7 +2189,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1836,7 +2247,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1890,7 +2301,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -1948,7 +2359,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2006,7 +2417,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2064,7 +2475,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2119,7 +2530,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2183,7 +2594,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2242,7 +2653,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2301,7 +2712,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2360,7 +2771,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2419,7 +2830,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2474,7 +2885,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2533,7 +2944,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2592,7 +3003,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2651,7 +3062,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2706,7 +3117,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2765,7 +3176,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2824,7 +3235,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2883,7 +3294,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2938,7 +3349,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -2997,7 +3408,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3056,7 +3467,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3115,7 +3526,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3172,7 +3583,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3242,7 +3653,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3316,7 +3727,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3390,7 +3801,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3464,7 +3875,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3533,7 +3944,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3593,7 +4004,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3657,7 +4068,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3718,7 +4129,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3789,7 +4200,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3860,7 +4271,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3931,7 +4342,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -3998,7 +4409,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -4069,7 +4480,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -4137,7 +4548,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 
@@ -4213,7 +4624,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
 
             // Assert
 

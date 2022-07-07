@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using static SharpVoronoiLib.UnitTests.CommonTestUtilities;
 
+#pragma warning disable
+// ReSharper disable All
+
 namespace SharpVoronoiLib.UnitTests
 {
     /// <summary>
@@ -53,7 +56,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
 
             // Assert
 
@@ -94,7 +102,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -136,7 +150,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -182,7 +202,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -228,7 +254,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -274,7 +306,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -316,7 +354,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -362,7 +406,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -408,7 +458,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -454,7 +510,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -496,7 +558,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -542,7 +610,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -588,7 +662,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -634,7 +714,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -676,7 +762,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -722,7 +814,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -768,7 +866,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -814,7 +918,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -856,7 +966,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -902,7 +1018,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -948,7 +1070,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -994,7 +1122,13 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            Assume.That(() => 0 == sites[0].Points.Count()); // #1
 
             // Assert
 
@@ -1037,7 +1171,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 1000, 500)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 500)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has B
 
             // Assert
 
@@ -1089,7 +1235,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 500, 0)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 500, 0)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has B
 
             // Assert
 
@@ -1137,7 +1295,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 700)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 700)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 700)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has B
 
             // Assert
 
@@ -1189,7 +1359,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 700, 0)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 700, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has B
 
             // Assert
 
@@ -1238,7 +1420,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 1000, 300)); // C-D
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 700)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 700)); // #1 has B
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 700)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 0, 300)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 300)); // #2 has D
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 300)); // #3 has D
 
             // Assert
 
@@ -1296,7 +1496,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 300, 0)); // C-D
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 700, 0)); // #1 has B
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 700, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 300, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 300, 0)); // #2 has D
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 300, 0)); // #3 has D
 
             // Assert
 
@@ -1351,7 +1569,31 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 1000, 500)); // C-D
+            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 1000, 300)); // E-F
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 700)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 700)); // #1 has B
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 700)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has D
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has D
+            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has E
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 300)); // #3 has F
+            Assume.That(() => 2 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 0, 300)); // #4 has E
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 300)); // #4 has F
 
             // Assert
 
@@ -1415,7 +1657,31 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 500, 0)); // C-D
+            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 300, 0)); // E-F
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 700, 0)); // #1 has B
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 700, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
+            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has E
+            Assume.That(() => SiteHasPoint(sites[2], 300, 0)); // #3 has F
+            Assume.That(() => 2 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 300, 1000)); // #4 has E
+            Assume.That(() => SiteHasPoint(sites[3], 300, 0)); // #4 has F
 
             // Assert
 
@@ -1473,7 +1739,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has B
 
             // Assert
 
@@ -1525,7 +1803,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has B
 
             // Assert
 
@@ -1573,7 +1863,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 200, 800, 1000)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 200)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 800, 1000)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 200)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 800, 1000)); // #2 has B
 
             // Assert
 
@@ -1625,7 +1927,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 200, 1000, 1000, 200)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 200, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 200)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 200, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 200)); // #2 has B
 
             // Assert
 
@@ -1677,7 +1991,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 800, 200, 0)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 800)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 200, 0)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 800)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 200, 0)); // #2 has B
 
             // Assert
 
@@ -1729,7 +2055,19 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 800, 0, 0, 800)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 800, 0)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 800)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 800, 0)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 800)); // #2 has B
 
             // Assert
 
@@ -1739,6 +2077,510 @@ namespace SharpVoronoiLib.UnitTests
             Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
             Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 800, 0, 0, 800)); // #2 has A-B
             Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 800, 0, 0, 800)); // #2 A-B
+        }
+
+        [Test]
+        public void TwoPointsAgainstCorner()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(200, 400), // #1
+                new VoronoiSite(600, 800), // #2
+            };
+
+            // 1000 A,                                                 
+            //      | ',                                               
+            //  900 |   '·,                                            
+            //      |      ',                                          
+            //  800 |        '·,                  2                    
+            //      |           ',                                     
+            //  700 |             '·,                                  
+            //      |                ',                                
+            //  600 |                  '·,                             
+            //      |                     ',                           
+            //  500 |                       '·,                        
+            //      |                          ',                      
+            //  400 |         1                  '·,                   
+            //      |                               ',                 
+            //  300 |                                 '·,              
+            //      |                                    ',            
+            //  200 |                                      '·,         
+            //      |                                         ',       
+            //  100 |                                           '·,    
+            //      |                                              ',  
+            //    0 └------------------------------------------------'B
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has B
+
+            // Assert
+
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 1000, 0)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 0, 1000, 1000, 0)); // #1 A-B
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 0, 1000, 1000, 0)); // #2 has A-B
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 0, 1000, 1000, 0)); // #2 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCorner"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCorner_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(400, 800), // #1
+                new VoronoiSite(800, 400), // #2
+            };
+
+            // 1000 ↑                                                ,A
+            //      |                                              ,'  
+            //  900 |                                           ,·'    
+            //      |                                         ,'       
+            //  800 |                   1                  ,·'         
+            //      |                                    ,'            
+            //  700 |                                 ,·'              
+            //      |                               ,'                 
+            //  600 |                            ,·'                   
+            //      |                          ,'                      
+            //  500 |                       ,·'                        
+            //      |                     ,'                           
+            //  400 |                  ,·'                  2          
+            //      |                ,'                                
+            //  300 |             ,·'                                  
+            //      |           ,'                                     
+            //  200 |        ,·'                                       
+            //      |      ,'                                          
+            //  100 |   ,·'                                            
+            //      | ,'                                               
+            //    0 B'------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 0)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has B
+
+            // Assert
+
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 0)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 0)); // #1 A-B
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 1000, 1000, 0, 0)); // #2 has A-B
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 0)); // #2 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCorner"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCorner_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(800, 600), // #1
+                new VoronoiSite(400, 200), // #2
+            };
+
+            // 1000 B,                                                 
+            //      | ',                                               
+            //  900 |   '·,                                            
+            //      |      ',                                          
+            //  800 |        '·,                                       
+            //      |           ',                                     
+            //  700 |             '·,                                  
+            //      |                ',                                
+            //  600 |                  '·,                  1          
+            //      |                     ',                           
+            //  500 |                       '·,                        
+            //      |                          ',                      
+            //  400 |                            '·,                   
+            //      |                               ',                 
+            //  300 |                                 '·,              
+            //      |                                    ',            
+            //  200 |                   2                  '·,         
+            //      |                                         ',       
+            //  100 |                                           '·,    
+            //      |                                              ',  
+            //    0 └------------------------------------------------'A
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 1000)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has B
+
+            // Assert
+
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 0, 1000)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 0, 0, 1000)); // #1 A-B
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 1000, 0, 0, 1000)); // #2 has A-B
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 1000, 0, 0, 1000)); // #2 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCorner"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCorner_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(600, 200), // #1
+                new VoronoiSite(200, 600), // #2
+            };
+
+            // 1000 ↑                                                ,B
+            //      |                                              ,'  
+            //  900 |                                           ,·'    
+            //      |                                         ,'       
+            //  800 |                                      ,·'         
+            //      |                                    ,'            
+            //  700 |                                 ,·'              
+            //      |                               ,'                 
+            //  600 |         2                  ,·'                   
+            //      |                          ,'                      
+            //  500 |                       ,·'                        
+            //      |                     ,'                           
+            //  400 |                  ,·'                             
+            //      |                ,'                                
+            //  300 |             ,·'                                  
+            //      |           ,'                                     
+            //  200 |        ,·'                  1                    
+            //      |      ,'                                          
+            //  100 |   ,·'                                            
+            //      | ,'                                               
+            //    0 A'------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has B
+
+            // Assert
+
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 1000)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 0, 0, 1000, 1000)); // #1 A-B
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 0, 0, 1000, 1000)); // #2 has A-B
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 0, 0, 1000, 1000)); // #2 A-B
+        }
+
+        [Test]
+        public void TwoPointsAgainstCornerSlanted()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(700, 900), // #2
+            };
+
+            // 1000 A,,                                                
+            //      |  ''·,,                                           
+            //  900 |       ''·,,                      2               
+            //      |            ''·,,                                 
+            //  800 |                 ''·,,                            
+            //      |                      ''·,,                       
+            //  700 |                           ''·,,                  
+            //      |                                ''·,,             
+            //  600 |                                     ''·,,        
+            //      |                                          ''·,,   
+            //  500 |                        1                      ''B
+            //      |                                                  
+            //  400 |                                                  
+            //      |                                                  
+            //  300 |                                                  
+            //      |                                                  
+            //  200 |                                                  
+            //      |                                                  
+            //  100 |                                                  
+            //      |                                                  
+            //    0 └-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 500)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 500)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has B
+
+            // Assert
+
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 1000, 500)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 0, 1000, 1000, 500)); // #1 A-B
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 0, 1000, 1000, 500)); // #2 has A-B
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 0, 1000, 1000, 500)); // #2 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(900, 300), // #2
+            };
+
+            // 1000 ↑                                                 A
+            //      |                                                ' 
+            //  900 |                                              ,'  
+            //      |                                             ,    
+            //  800 |                                            ·     
+            //      |                                           '      
+            //  700 |                                         ,'       
+            //      |                                        ,         
+            //  600 |                                       ·          
+            //      |                                      '           
+            //  500 |                        1           ,'            
+            //      |                                   ,              
+            //  400 |                                  ·               
+            //      |                                 '                
+            //  300 |                               ,'           2     
+            //      |                              ,                   
+            //  200 |                             ·                    
+            //      |                            '                     
+            //  100 |                          ,'                      
+            //      |                         ,                        
+            //    0 └------------------------B------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 0)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 500, 0)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has B
+
+            // Assert
+
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 500, 0)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 500, 0)); // #1 A-B
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 1000, 1000, 500, 0)); // #2 has A-B
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 1000, 1000, 500, 0)); // #2 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(300, 100), // #2
+            };
+
+            // 1000 ↑                                                  
+            //      |                                                  
+            //  900 |                                                  
+            //      |                                                  
+            //  800 |                                                  
+            //      |                                                  
+            //  700 |                                                  
+            //      |                                                  
+            //  600 |                                                  
+            //      |                                                  
+            //  500 B,,                      1                         
+            //      |  ''·,,                                           
+            //  400 |       ''·,,                                      
+            //      |            ''·,,                                 
+            //  300 |                 ''·,,                            
+            //      |                      ''·,,                       
+            //  200 |                           ''·,,                  
+            //      |                                ''·,,             
+            //  100 |              2                      ''·,,        
+            //      |                                          ''·,,   
+            //    0 └-----------------------------------------------''A
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 500)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 500)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has B
+
+            // Assert
+
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 0, 500)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 0, 0, 500)); // #1 A-B
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 1000, 0, 0, 500)); // #2 has A-B
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 1000, 0, 0, 500)); // #2 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(100, 700), // #2
+            };
+
+            // 1000 ↑                        B                         
+            //      |                       '                          
+            //  900 |                     ,'                           
+            //      |                    ,                             
+            //  800 |                   ·                              
+            //      |                  '                               
+            //  700 |    2           ,'                                
+            //      |               ,                                  
+            //  600 |              ·                                   
+            //      |             '                                    
+            //  500 |           ,'           1                         
+            //      |          ,                                       
+            //  400 |         ·                                        
+            //      |        '                                         
+            //  300 |      ,'                                          
+            //      |     ,                                            
+            //  200 |    ·                                             
+            //      |   '                                              
+            //  100 | ,'                                               
+            //      |,                                                 
+            //    0 A-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 1000)); // A-B
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has B
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has B
+
+            // Assert
+
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 500, 1000)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 0, 0, 500, 1000)); // #1 A-B
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(SiteHasClockwiseEdge(sites[1], 0, 0, 500, 1000)); // #2 has A-B
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 0, 0, 500, 1000)); // #2 A-B
         }
 
         [Test]
@@ -1778,7 +2620,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 700, 1000)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 300, 0, 1000, 700)); // B-C
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 300)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 300)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 300, 0)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 700, 1000)); // #2 has D
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 300, 0)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 700)); // #3 has C
 
             // Assert
 
@@ -1836,7 +2696,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 1000, 300)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 700, 0)); // B-C
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 300, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 300)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 300, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 700)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 300)); // #2 has D
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 0, 700)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 700, 0)); // #3 has C
 
             // Assert
 
@@ -1890,7 +2768,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 400, 600, 1000)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // B-C
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 400)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 600, 1000)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 400)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 600, 1000)); // #2 has D
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has C
 
             // Assert
 
@@ -1948,7 +2844,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 1000, 1000, 400)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // B-C
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 400, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 400)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 400, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 400)); // #2 has D
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has C
 
             // Assert
 
@@ -2006,7 +2920,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 600, 400, 0)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 0)); // B-C
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 600)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 400, 0)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 600)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 400, 0)); // #2 has D
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has C
 
             // Assert
 
@@ -2064,7 +2996,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 600, 0, 0, 600)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 1000)); // B-C
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 600, 0)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 600)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 600, 0)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 0, 600)); // #2 has D
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has C
 
             // Assert
 
@@ -2119,7 +3069,31 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 400, 600, 1000)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // B-E
+            Assume.That(() => AnyEdgeBetween(edges, 400, 0, 1000, 600)); // C-D
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 0, 400)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 600, 1000)); // #1 has F
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 0, 400)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has E
+            Assume.That(() => SiteHasPoint(sites[1], 600, 1000)); // #2 has F
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 400, 0)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 600)); // #3 has D
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has E
+            Assume.That(() => 2 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 400, 0)); // #4 has C
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 600)); // #4 has D
 
             // Assert
 
@@ -2183,7 +3157,31 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 1000, 1000, 400)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // B-E
+            Assume.That(() => AnyEdgeBetween(edges, 0, 600, 600, 0)); // C-D
+
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 400, 1000)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 400)); // #1 has F
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 400, 1000)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has E
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 400)); // #2 has F
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 0, 600)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 600, 0)); // #3 has D
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has E
+            Assume.That(() => 2 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 0, 600)); // #4 has C
+            Assume.That(() => SiteHasPoint(sites[3], 600, 0)); // #4 has D
 
             // Assert
 
@@ -2242,7 +3240,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 0, 400)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 400, 0)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 1000, 1000)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 400, 400)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 400)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has D
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 400, 400)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 400)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 400, 0)); // #2 has C
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 400, 400)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 400, 0)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has D
 
             // Assert
 
@@ -2304,7 +3322,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 400, 1000)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 0, 600)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 1000, 0)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 400, 600)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 400, 1000)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has D
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 400, 600)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 400, 1000)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 0, 600)); // #2 has C
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 400, 600)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 0, 600)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has D
 
             // Assert
 
@@ -2366,7 +3404,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 1000, 600)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 600, 1000)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 0, 0)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 600, 600)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 600)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has D
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 600, 600)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 600)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 600, 1000)); // #2 has C
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 600, 600)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 600, 1000)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has D
 
             // Assert
 
@@ -2428,7 +3486,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 600, 0)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 1000, 400)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 0, 1000)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 600, 400)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 600, 0)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has D
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 600, 400)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 600, 0)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 400)); // #2 has C
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 600, 400)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 400)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has D
 
             // Assert
 
@@ -2486,7 +3564,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 0)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 0)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has D
 
             // Assert
 
@@ -2548,7 +3646,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 1000)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 0)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has D
 
             // Assert
 
@@ -2610,7 +3728,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 1000)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
 
             // Assert
 
@@ -2672,7 +3810,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 0)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has D
 
             // Assert
 
@@ -2730,7 +3888,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 200, 0)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 800, 0)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 1000)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 300)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 200, 0)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 800, 0)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 300)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 800, 0)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 300)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 200, 0)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has D
 
             // Assert
 
@@ -2792,7 +3970,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 800)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 200)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 1000, 500)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 300, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 800)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 200)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 300, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 200)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 300, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 0, 800)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has D
 
             // Assert
 
@@ -2854,7 +4052,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 800, 1000)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 200, 1000)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 500, 0)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 700)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 800, 1000)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 200, 1000)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 700)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 200, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 700)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 800, 1000)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
 
             // Assert
 
@@ -2916,7 +4134,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 200)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 800)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 0, 500)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 700, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 200)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 800)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 700, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 800)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 700, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 200)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has D
 
             // Assert
 
@@ -2974,7 +4212,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 0, 200)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 1000, 200)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 500, 1000)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 700)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 0, 200)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 200)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 700)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 200)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 700)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 0, 200)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has D
 
             // Assert
 
@@ -3036,7 +4294,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 200, 1000)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 200, 0)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 500)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 700, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 200, 1000)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 200, 0)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 700, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 200, 0)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 700, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 200, 1000)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has D
 
             // Assert
 
@@ -3098,7 +4376,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 1000, 800)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 0, 800)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 0)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 300)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 800)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 800)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 300)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 800)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 300)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 800)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
 
             // Assert
 
@@ -3160,7 +4458,27 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 800, 0)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 800, 1000)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 500)); // A-D
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 300, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 800, 0)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 800, 1000)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 300, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 800, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 300, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 800, 0)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has D
 
             // Assert
 
@@ -3220,7 +4538,45 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 400, 400)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 600, 400)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 600, 600)); // C-D
+            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 400, 600)); // D-A
+            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 0, 1000)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 0, 0)); // B-F
+            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 1000, 0)); // C-G
+            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 1000, 1000)); // D-H
+
+            Assume.That(() => 4 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 400, 600)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 400, 400)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 600, 400)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 600, 600)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 400, 600)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 400, 400)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has E
+            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has F
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 400, 400)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 600, 400)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has F
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has G
+            Assume.That(() => 4 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 600, 400)); // #4 has C
+            Assume.That(() => SiteHasPoint(sites[3], 600, 600)); // #4 has D
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 0)); // #4 has G
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 1000)); // #4 has H
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 400, 600)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 600, 600)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 0, 1000)); // #5 has E
+            Assume.That(() => SiteHasPoint(sites[4], 1000, 1000)); // #5 has H
 
             // Assert
 
@@ -3302,7 +4658,45 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 400, 200)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 400, 200, 600, 200)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 600, 200, 600, 400)); // C-D
+            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 400, 400)); // D-A
+            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 0, 800)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 400, 200, 200, 0)); // B-F
+            Assume.That(() => AnyEdgeBetween(edges, 600, 200, 800, 0)); // C-G
+            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 1000, 800)); // D-H
+
+            Assume.That(() => 4 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 400, 400)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 400, 200)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 600, 200)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 600, 400)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 400, 400)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 400, 200)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 0, 800)); // #2 has E
+            Assume.That(() => SiteHasPoint(sites[1], 200, 0)); // #2 has F
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 400, 200)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 600, 200)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 200, 0)); // #3 has F
+            Assume.That(() => SiteHasPoint(sites[2], 800, 0)); // #3 has G
+            Assume.That(() => 4 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 600, 200)); // #4 has C
+            Assume.That(() => SiteHasPoint(sites[3], 600, 400)); // #4 has D
+            Assume.That(() => SiteHasPoint(sites[3], 800, 0)); // #4 has G
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 800)); // #4 has H
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 400, 400)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 600, 400)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 0, 800)); // #5 has E
+            Assume.That(() => SiteHasPoint(sites[4], 1000, 800)); // #5 has H
 
             // Assert
 
@@ -3388,7 +4782,45 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 200, 600)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 200, 600, 200, 400)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 200, 400, 400, 400)); // C-D
+            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 400, 600)); // D-A
+            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 800, 1000)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 200, 600, 0, 800)); // B-F
+            Assume.That(() => AnyEdgeBetween(edges, 200, 400, 0, 200)); // C-G
+            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 800, 0)); // D-H
+
+            Assume.That(() => 4 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 400, 600)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 200, 600)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 200, 400)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 400, 400)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 400, 600)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 200, 600)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 800, 1000)); // #2 has E
+            Assume.That(() => SiteHasPoint(sites[1], 0, 800)); // #2 has F
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 200, 600)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 200, 400)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 0, 800)); // #3 has F
+            Assume.That(() => SiteHasPoint(sites[2], 0, 200)); // #3 has G
+            Assume.That(() => 4 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 200, 400)); // #4 has C
+            Assume.That(() => SiteHasPoint(sites[3], 400, 400)); // #4 has D
+            Assume.That(() => SiteHasPoint(sites[3], 0, 200)); // #4 has G
+            Assume.That(() => SiteHasPoint(sites[3], 800, 0)); // #4 has H
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 400, 600)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 400, 400)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 800, 1000)); // #5 has E
+            Assume.That(() => SiteHasPoint(sites[4], 800, 0)); // #5 has H
 
             // Assert
 
@@ -3474,7 +4906,45 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 600, 800)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 600, 800, 400, 800)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 400, 800, 400, 600)); // C-D
+            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 600, 600)); // D-A
+            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 1000, 200)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 600, 800, 800, 1000)); // B-F
+            Assume.That(() => AnyEdgeBetween(edges, 400, 800, 200, 1000)); // C-G
+            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 0, 200)); // D-H
+
+            Assume.That(() => 4 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 600, 600)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 600, 800)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 400, 800)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 400, 600)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 600, 600)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 600, 800)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 200)); // #2 has E
+            Assume.That(() => SiteHasPoint(sites[1], 800, 1000)); // #2 has F
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 600, 800)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 400, 800)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 800, 1000)); // #3 has F
+            Assume.That(() => SiteHasPoint(sites[2], 200, 1000)); // #3 has G
+            Assume.That(() => 4 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 400, 800)); // #4 has C
+            Assume.That(() => SiteHasPoint(sites[3], 400, 600)); // #4 has D
+            Assume.That(() => SiteHasPoint(sites[3], 200, 1000)); // #4 has G
+            Assume.That(() => SiteHasPoint(sites[3], 0, 200)); // #4 has H
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 600, 600)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 400, 600)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 1000, 200)); // #5 has E
+            Assume.That(() => SiteHasPoint(sites[4], 0, 200)); // #5 has H
 
             // Assert
 
@@ -3560,7 +5030,45 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 800, 400)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 800, 400, 800, 600)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 800, 600, 600, 600)); // C-D
+            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 600, 400)); // D-A
+            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 200, 0)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 800, 400, 1000, 200)); // B-F
+            Assume.That(() => AnyEdgeBetween(edges, 800, 600, 1000, 800)); // C-G
+            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 200, 1000)); // D-H
+
+            Assume.That(() => 4 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 600, 400)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 800, 400)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 800, 600)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 600, 600)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 600, 400)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 800, 400)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 200, 0)); // #2 has E
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 200)); // #2 has F
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 800, 400)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 800, 600)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 200)); // #3 has F
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 800)); // #3 has G
+            Assume.That(() => 4 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 800, 600)); // #4 has C
+            Assume.That(() => SiteHasPoint(sites[3], 600, 600)); // #4 has D
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 800)); // #4 has G
+            Assume.That(() => SiteHasPoint(sites[3], 200, 1000)); // #4 has H
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 600, 400)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 600, 600)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 200, 0)); // #5 has E
+            Assume.That(() => SiteHasPoint(sites[4], 200, 1000)); // #5 has H
 
             // Assert
 
@@ -3641,7 +5149,32 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-E
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 500)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has E
+            Assume.That(() => 3 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 500, 500)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 500, 1000)); // #4 has B
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 500)); // #4 has E
 
             // Assert
 
@@ -3705,7 +5238,32 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-E
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 500)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has E
+            Assume.That(() => 3 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 500, 500)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 500, 1000)); // #4 has B
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 500)); // #4 has E
 
             // Assert
 
@@ -3773,7 +5331,32 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-E
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 500)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has C
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has D
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has D
+            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has E
+            Assume.That(() => 3 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 500, 500)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 500)); // #4 has B
+            Assume.That(() => SiteHasPoint(sites[3], 500, 0)); // #4 has E
 
             // Assert
 
@@ -3838,7 +5421,40 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 400, 500, 700)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 200, 1000)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 800, 1000)); // B-D
+            Assume.That(() => AnyEdgeBetween(edges, 500, 400, 0, 400)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 500, 400, 1000, 400)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 500, 400, 500, 0)); // A-G
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 700)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 200, 1000)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 800, 1000)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 400)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 500, 700)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 200, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 0, 400)); // #2 has E
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 400)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 0, 400)); // #3 has E
+            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has G
+            Assume.That(() => 3 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 500, 400)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 400)); // #4 has F
+            Assume.That(() => SiteHasPoint(sites[3], 500, 0)); // #4 has G
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 500, 400)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 500, 700)); // #5 has B
+            Assume.That(() => SiteHasPoint(sites[4], 800, 1000)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 1000, 400)); // #5 has F
 
             // Assert
 
@@ -3916,7 +5532,40 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 500, 700, 500)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 800)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 200)); // B-D
+            Assume.That(() => AnyEdgeBetween(edges, 400, 500, 400, 1000)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 400, 500, 400, 0)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 400, 500, 0, 500)); // A-G
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 700, 500)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 800)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 200)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 400, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 700, 500)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 800)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 400, 1000)); // #2 has E
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 400, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 400, 1000)); // #3 has E
+            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has G
+            Assume.That(() => 3 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 400, 500)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 400, 0)); // #4 has F
+            Assume.That(() => SiteHasPoint(sites[3], 0, 500)); // #4 has G
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 400, 500)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 700, 500)); // #5 has B
+            Assume.That(() => SiteHasPoint(sites[4], 1000, 200)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 400, 0)); // #5 has F
 
             // Assert
 
@@ -3994,7 +5643,40 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 600, 500, 300)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 800, 0)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 200, 0)); // B-D
+            Assume.That(() => AnyEdgeBetween(edges, 500, 600, 1000, 600)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 500, 600, 0, 600)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 500, 600, 500, 1000)); // A-G
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 300)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 800, 0)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 200, 0)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 600)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 500, 300)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 800, 0)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 600)); // #2 has E
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 600)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 600)); // #3 has E
+            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has G
+            Assume.That(() => 3 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 500, 600)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 0, 600)); // #4 has F
+            Assume.That(() => SiteHasPoint(sites[3], 500, 1000)); // #4 has G
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 500, 600)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 500, 300)); // #5 has B
+            Assume.That(() => SiteHasPoint(sites[4], 200, 0)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 0, 600)); // #5 has F
 
             // Assert
 
@@ -4072,7 +5754,40 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 600, 500, 300, 500)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 200)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 800)); // B-D
+            Assume.That(() => AnyEdgeBetween(edges, 600, 500, 600, 0)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 600, 500, 600, 1000)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 600, 500, 1000, 500)); // A-G
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 300, 500)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 200)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 0, 800)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 600, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 300, 500)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 0, 200)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 600, 0)); // #2 has E
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 600, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 600, 0)); // #3 has E
+            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has G
+            Assume.That(() => 3 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 600, 500)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 600, 1000)); // #4 has F
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 500)); // #4 has G
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 600, 500)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 300, 500)); // #5 has B
+            Assume.That(() => SiteHasPoint(sites[4], 0, 800)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 600, 1000)); // #5 has F
 
             // Assert
 
@@ -4146,7 +5861,40 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 500)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 1000)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // B-D
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 0, 300)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 1000, 300)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 0)); // A-G
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 300)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 0, 300)); // #2 has E
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 300)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has E
+            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has G
+            Assume.That(() => 3 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 500, 300)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 300)); // #4 has F
+            Assume.That(() => SiteHasPoint(sites[3], 500, 0)); // #4 has G
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 500, 300)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 500, 500)); // #5 has B
+            Assume.That(() => SiteHasPoint(sites[4], 1000, 1000)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 1000, 300)); // #5 has F
 
             // Assert
 
@@ -4224,7 +5972,40 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 500, 500)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 0)); // B-D
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 300, 1000)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 300, 0)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 500)); // A-G
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has D
+            Assume.That(() => 4 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 300, 500)); // #2 has A
+            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has C
+            Assume.That(() => SiteHasPoint(sites[1], 300, 1000)); // #2 has E
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 300, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has E
+            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has G
+            Assume.That(() => 3 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 300, 500)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 300, 0)); // #4 has F
+            Assume.That(() => SiteHasPoint(sites[3], 0, 500)); // #4 has G
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 300, 500)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 500, 500)); // #5 has B
+            Assume.That(() => SiteHasPoint(sites[4], 1000, 0)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 300, 0)); // #5 has F
 
             // Assert
 
@@ -4299,7 +6080,45 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 7 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 700)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 0, 700)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 1000, 700)); // B-G
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 0, 300)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 1000, 300)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 0)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 500, 1000)); // B-H
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 500, 700)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 0, 700)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has H
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 500, 700)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has G
+            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has H
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 500, 300)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 500, 700)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 0, 700)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has D
+            Assume.That(() => 4 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 500, 300)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 500, 700)); // #4 has B
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 300)); // #4 has F
+            Assume.That(() => SiteHasPoint(sites[3], 1000, 700)); // #4 has G
+            Assume.That(() => 3 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 500, 300)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 0, 300)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 500, 0)); // #5 has E
+            Assume.That(() => 3 == sites[5].Points.Count()); // #6
+            Assume.That(() => SiteHasPoint(sites[5], 500, 300)); // #6 has A
+            Assume.That(() => SiteHasPoint(sites[5], 500, 0)); // #6 has E
+            Assume.That(() => SiteHasPoint(sites[5], 1000, 300)); // #6 has F
 
             // Assert
 
@@ -4383,7 +6202,45 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges);
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 7 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 700, 500)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 700, 1000)); // B-C
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 700, 0)); // B-G
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 300, 1000)); // A-D
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 300, 0)); // A-F
+            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 500)); // A-E
+            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 500)); // B-H
+
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => SiteHasPoint(sites[0], 700, 500)); // #1 has B
+            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has C
+            Assume.That(() => SiteHasPoint(sites[0], 1000, 500)); // #1 has H
+            Assume.That(() => 3 == sites[1].Points.Count()); // #2
+            Assume.That(() => SiteHasPoint(sites[1], 700, 500)); // #2 has B
+            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has G
+            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has H
+            Assume.That(() => 4 == sites[2].Points.Count()); // #3
+            Assume.That(() => SiteHasPoint(sites[2], 300, 500)); // #3 has A
+            Assume.That(() => SiteHasPoint(sites[2], 700, 500)); // #3 has B
+            Assume.That(() => SiteHasPoint(sites[2], 700, 1000)); // #3 has C
+            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has D
+            Assume.That(() => 4 == sites[3].Points.Count()); // #4
+            Assume.That(() => SiteHasPoint(sites[3], 300, 500)); // #4 has A
+            Assume.That(() => SiteHasPoint(sites[3], 700, 500)); // #4 has B
+            Assume.That(() => SiteHasPoint(sites[3], 300, 0)); // #4 has F
+            Assume.That(() => SiteHasPoint(sites[3], 700, 0)); // #4 has G
+            Assume.That(() => 3 == sites[4].Points.Count()); // #5
+            Assume.That(() => SiteHasPoint(sites[4], 300, 500)); // #5 has A
+            Assume.That(() => SiteHasPoint(sites[4], 300, 1000)); // #5 has D
+            Assume.That(() => SiteHasPoint(sites[4], 0, 500)); // #5 has E
+            Assume.That(() => 3 == sites[5].Points.Count()); // #6
+            Assume.That(() => SiteHasPoint(sites[5], 300, 500)); // #6 has A
+            Assume.That(() => SiteHasPoint(sites[5], 0, 500)); // #6 has E
+            Assume.That(() => SiteHasPoint(sites[5], 300, 0)); // #6 has F
 
             // Assert
 
