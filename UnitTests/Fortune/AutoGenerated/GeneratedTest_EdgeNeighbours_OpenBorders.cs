@@ -879,6 +879,202 @@ namespace SharpVoronoiLib.UnitTests
 
         }
 
+        /// <summary>
+        /// This test basically repeats <see cref="OnePointOnBorderOffset"/> above,
+        /// but all coordinates are mirrored horizontally.
+        /// </summary>
+        [Test]
+        public void OnePointOnBorderOffset_Mirrored()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(1000, 700), // #1
+            };
+
+            // 1000 ↑                                                  
+            //      |                                                  
+            //  900 |                                                  
+            //      |                                                  
+            //  800 |                                                  
+            //      |                                                  
+            //  700 |                                                 1
+            //      |                                                  
+            //  600 |                                                  
+            //      |                                                  
+            //  500 |                                                  
+            //      |                                                  
+            //  400 |                                                  
+            //      |                                                  
+            //  300 |                                                  
+            //      |                                                  
+            //  200 |                                                  
+            //      |                                                  
+            //  100 |                                                  
+            //      |                                                  
+            //    0 └-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            // Assert
+
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="OnePointOnBorderOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void OnePointOnBorderOffset_MirroredAndRotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(700, 0), // #1
+            };
+
+            // 1000 ↑                                                  
+            //      |                                                  
+            //  900 |                                                  
+            //      |                                                  
+            //  800 |                                                  
+            //      |                                                  
+            //  700 |                                                  
+            //      |                                                  
+            //  600 |                                                  
+            //      |                                                  
+            //  500 |                                                  
+            //      |                                                  
+            //  400 |                                                  
+            //      |                                                  
+            //  300 |                                                  
+            //      |                                                  
+            //  200 |                                                  
+            //      |                                                  
+            //  100 |                                                  
+            //      |                                                  
+            //    0 └----------------------------------1--------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            // Assert
+
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="OnePointOnBorderOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void OnePointOnBorderOffset_MirroredAndRotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(0, 300), // #1
+            };
+
+            // 1000 ↑                                                  
+            //      |                                                  
+            //  900 |                                                  
+            //      |                                                  
+            //  800 |                                                  
+            //      |                                                  
+            //  700 |                                                  
+            //      |                                                  
+            //  600 |                                                  
+            //      |                                                  
+            //  500 |                                                  
+            //      |                                                  
+            //  400 |                                                  
+            //      |                                                  
+            //  300 1                                                  
+            //      |                                                  
+            //  200 |                                                  
+            //      |                                                  
+            //  100 |                                                  
+            //      |                                                  
+            //    0 └-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            // Assert
+
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="OnePointOnBorderOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void OnePointOnBorderOffset_MirroredAndRotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(300, 1000), // #1
+            };
+
+            // 1000 ↑              1                                   
+            //      |                                                  
+            //  900 |                                                  
+            //      |                                                  
+            //  800 |                                                  
+            //      |                                                  
+            //  700 |                                                  
+            //      |                                                  
+            //  600 |                                                  
+            //      |                                                  
+            //  500 |                                                  
+            //      |                                                  
+            //  400 |                                                  
+            //      |                                                  
+            //  300 |                                                  
+            //      |                                                  
+            //  200 |                                                  
+            //      |                                                  
+            //  100 |                                                  
+            //      |                                                  
+            //    0 └-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 0 == edges.Count);
+
+            // Assert
+
+        }
+
         [Test]
         public void OnePointInCorner()
         {
@@ -2201,6 +2397,214 @@ namespace SharpVoronoiLib.UnitTests
             Assert.AreEqual(0, FindEdge(edges, 0, 0, 500, 1000).Neighbours.Count()); // A-B
         }
 
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are mirrored horizontally.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_Mirrored()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(300, 900), // #2
+            };
+
+            // 1000 ↑                                               ,,A
+            //      |                                          ,,·''   
+            //  900 |              2                      ,,·''        
+            //      |                                ,,·''             
+            //  800 |                           ,,·''                  
+            //      |                      ,,·''                       
+            //  700 |                 ,,·''                            
+            //      |            ,,·''                                 
+            //  600 |       ,,·''                                      
+            //      |  ,,·''                                           
+            //  500 B''                      1                         
+            //      |                                                  
+            //  400 |                                                  
+            //      |                                                  
+            //  300 |                                                  
+            //      |                                                  
+            //  200 |                                                  
+            //      |                                                  
+            //  100 |                                                  
+            //      |                                                  
+            //    0 └-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 500)); // A-B
+
+            // Assert
+
+            Assert.AreEqual(0, FindEdge(edges, 1000, 1000, 0, 500).Neighbours.Count()); // A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_MirroredAndRotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(900, 700), // #2
+            };
+
+            // 1000 ↑                        B                         
+            //      |                         '                        
+            //  900 |                          ',                      
+            //      |                            ,                     
+            //  800 |                             ·                    
+            //      |                              '                   
+            //  700 |                               ',           2     
+            //      |                                 ,                
+            //  600 |                                  ·               
+            //      |                                   '              
+            //  500 |                        1           ',            
+            //      |                                      ,           
+            //  400 |                                       ·          
+            //      |                                        '         
+            //  300 |                                         ',       
+            //      |                                           ,      
+            //  200 |                                            ·     
+            //      |                                             '    
+            //  100 |                                              ',  
+            //      |                                                , 
+            //    0 └-------------------------------------------------A
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 500, 1000)); // A-B
+
+            // Assert
+
+            Assert.AreEqual(0, FindEdge(edges, 1000, 0, 500, 1000).Neighbours.Count()); // A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_MirroredAndRotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(700, 100), // #2
+            };
+
+            // 1000 ↑                                                  
+            //      |                                                  
+            //  900 |                                                  
+            //      |                                                  
+            //  800 |                                                  
+            //      |                                                  
+            //  700 |                                                  
+            //      |                                                  
+            //  600 |                                                  
+            //      |                                                  
+            //  500 |                        1                      ,,B
+            //      |                                          ,,·''   
+            //  400 |                                     ,,·''        
+            //      |                                ,,·''             
+            //  300 |                           ,,·''                  
+            //      |                      ,,·''                       
+            //  200 |                 ,,·''                            
+            //      |            ,,·''                                 
+            //  100 |       ,,·''                      2               
+            //      |  ,,·''                                           
+            //    0 A''-----------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 500)); // A-B
+
+            // Assert
+
+            Assert.AreEqual(0, FindEdge(edges, 0, 0, 1000, 500).Neighbours.Count()); // A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="TwoPointsAgainstCornerSlanted"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void TwoPointsAgainstCornerSlanted_MirroredAndRotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 500), // #1
+                new VoronoiSite(100, 300), // #2
+            };
+
+            // 1000 A                                                  
+            //      |'                                                 
+            //  900 | ',                                               
+            //      |   ,                                              
+            //  800 |    ·                                             
+            //      |     '                                            
+            //  700 |      ',                                          
+            //      |        ,                                         
+            //  600 |         ·                                        
+            //      |          '                                       
+            //  500 |           ',           1                         
+            //      |             ,                                    
+            //  400 |              ·                                   
+            //      |               '                                  
+            //  300 |    2           ',                                
+            //      |                  ,                               
+            //  200 |                   ·                              
+            //      |                    '                             
+            //  100 |                     ',                           
+            //      |                       ,                          
+            //    0 └------------------------B------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 500, 0)); // A-B
+
+            // Assert
+
+            Assert.AreEqual(0, FindEdge(edges, 0, 1000, 500, 0).Neighbours.Count()); // A-B
+        }
+
         [Test]
         public void ThreeConcentricPointsDiagonalAroundMiddle()
         {
@@ -2893,6 +3297,530 @@ namespace SharpVoronoiLib.UnitTests
             Assert.AreEqual(2, edge.Neighbours.Count());
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 600, 0))); // A-D neighbours A-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 400))); // A-D neighbours A-C
+        }
+
+        [Test]
+        public void ThreePointsInAWedgeTowardsCornerOffset()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 800), // #1
+                new VoronoiSite(100, 400), // #2
+                new VoronoiSite(500, 400), // #3
+            };
+
+            // 1000 ↑                                 ,D               
+            //      |                               ,'                 
+            //  900 |                            ,·'                   
+            //      |                          ,'                      
+            //  800 |    1                  ,·'                        
+            //      |                     ,'                           
+            //  700 |                  ,·'                             
+            //      |                ,'                                
+            //  600 B--------------A'                                  
+            //      |              |                                   
+            //  500 |              |                                   
+            //      |              |                                   
+            //  400 |    2         |         3                         
+            //      |              |                                   
+            //  300 |              |                                   
+            //      |              |                                   
+            //  200 |              |                                   
+            //      |              |                                   
+            //  100 |              |                                   
+            //      |              |                                   
+            //    0 └--------------C----------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 300, 600, 0, 600)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 300, 600, 300, 0)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 300, 600, 700, 1000)); // A-D
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 300, 600, 0, 600); // A-B
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 600, 300, 0))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 600, 700, 1000))); // A-B neighbours A-D
+            edge = FindEdge(edges, 300, 600, 300, 0); // A-C
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 600, 0, 600))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 600, 700, 1000))); // A-C neighbours A-D
+            edge = FindEdge(edges, 300, 600, 700, 1000); // A-D
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 600, 0, 600))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 600, 300, 0))); // A-D neighbours A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsInAWedgeTowardsCornerOffset"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsInAWedgeTowardsCornerOffset_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(800, 900), // #1
+                new VoronoiSite(400, 900), // #2
+                new VoronoiSite(400, 500), // #3
+            };
+
+            // 1000 ↑                             B                    
+            //      |                             |                    
+            //  900 |                   2         |         1          
+            //      |                             |                    
+            //  800 |                             |                    
+            //      |                             |                    
+            //  700 C-----------------------------A,                   
+            //      |                               ',                 
+            //  600 |                                 '·,              
+            //      |                                    ',            
+            //  500 |                   3                  '·,         
+            //      |                                         ',       
+            //  400 |                                           '·,    
+            //      |                                              ',  
+            //  300 |                                                'D
+            //      |                                                  
+            //  200 |                                                  
+            //      |                                                  
+            //  100 |                                                  
+            //      |                                                  
+            //    0 └-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 600, 700, 600, 1000)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 600, 700, 0, 700)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 600, 700, 1000, 300)); // A-D
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 600, 700, 600, 1000); // A-B
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 700, 0, 700))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 700, 1000, 300))); // A-B neighbours A-D
+            edge = FindEdge(edges, 600, 700, 0, 700); // A-C
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 700, 600, 1000))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 700, 1000, 300))); // A-C neighbours A-D
+            edge = FindEdge(edges, 600, 700, 1000, 300); // A-D
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 700, 600, 1000))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 700, 0, 700))); // A-D neighbours A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsInAWedgeTowardsCornerOffset"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsInAWedgeTowardsCornerOffset_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 200), // #1
+                new VoronoiSite(900, 600), // #2
+                new VoronoiSite(500, 600), // #3
+            };
+
+            // 1000 ↑                                  C               
+            //      |                                  |               
+            //  900 |                                  |               
+            //      |                                  |               
+            //  800 |                                  |               
+            //      |                                  |               
+            //  700 |                                  |               
+            //      |                                  |               
+            //  600 |                        3         |         2     
+            //      |                                  |               
+            //  500 |                                  |               
+            //      |                                  |               
+            //  400 |                                 ,A--------------B
+            //      |                               ,'                 
+            //  300 |                            ,·'                   
+            //      |                          ,'                      
+            //  200 |                       ,·'                  1     
+            //      |                     ,'                           
+            //  100 |                  ,·'                             
+            //      |                ,'                                
+            //    0 └--------------D'---------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 700, 400, 1000, 400)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 700, 400, 700, 1000)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 700, 400, 300, 0)); // A-D
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 700, 400, 1000, 400); // A-B
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 400, 700, 1000))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 400, 300, 0))); // A-B neighbours A-D
+            edge = FindEdge(edges, 700, 400, 700, 1000); // A-C
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 400, 1000, 400))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 400, 300, 0))); // A-C neighbours A-D
+            edge = FindEdge(edges, 700, 400, 300, 0); // A-D
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 400, 1000, 400))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 400, 700, 1000))); // A-D neighbours A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsInAWedgeTowardsCornerOffset"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsInAWedgeTowardsCornerOffset_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(200, 100), // #1
+                new VoronoiSite(600, 100), // #2
+                new VoronoiSite(600, 500), // #3
+            };
+
+            // 1000 ↑                                                  
+            //      |                                                  
+            //  900 |                                                  
+            //      |                                                  
+            //  800 |                                                  
+            //      |                                                  
+            //  700 D,                                                 
+            //      | ',                                               
+            //  600 |   '·,                                            
+            //      |      ',                                          
+            //  500 |        '·,                  3                    
+            //      |           ',                                     
+            //  400 |             '·,                                  
+            //      |                ',                                
+            //  300 |                  'A-----------------------------C
+            //      |                   |                              
+            //  200 |                   |                              
+            //      |                   |                              
+            //  100 |         1         |         2                    
+            //      |                   |                              
+            //    0 └-------------------B-----------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 300, 400, 0)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 400, 300, 1000, 300)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 400, 300, 0, 700)); // A-D
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 400, 300, 400, 0); // A-B
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 300, 1000, 300))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 300, 0, 700))); // A-B neighbours A-D
+            edge = FindEdge(edges, 400, 300, 1000, 300); // A-C
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 300, 400, 0))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 300, 0, 700))); // A-C neighbours A-D
+            edge = FindEdge(edges, 400, 300, 0, 700); // A-D
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 300, 400, 0))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 300, 1000, 300))); // A-D neighbours A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsInAWedgeTowardsCornerOffset"/> above,
+        /// but all coordinates are mirrored horizontally.
+        /// </summary>
+        [Test]
+        public void ThreePointsInAWedgeTowardsCornerOffset_Mirrored()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 800), // #1
+                new VoronoiSite(900, 400), // #2
+                new VoronoiSite(500, 400), // #3
+            };
+
+            // 1000 ↑              D,                                  
+            //      |                ',                                
+            //  900 |                  '·,                             
+            //      |                     ',                           
+            //  800 |                       '·,                  1     
+            //      |                          ',                      
+            //  700 |                            '·,                   
+            //      |                               ',                 
+            //  600 |                                 'A--------------B
+            //      |                                  |               
+            //  500 |                                  |               
+            //      |                                  |               
+            //  400 |                        3         |         2     
+            //      |                                  |               
+            //  300 |                                  |               
+            //      |                                  |               
+            //  200 |                                  |               
+            //      |                                  |               
+            //  100 |                                  |               
+            //      |                                  |               
+            //    0 └----------------------------------C--------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 700, 600, 1000, 600)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 700, 600, 700, 0)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 700, 600, 300, 1000)); // A-D
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 700, 600, 1000, 600); // A-B
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 600, 700, 0))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 600, 300, 1000))); // A-B neighbours A-D
+            edge = FindEdge(edges, 700, 600, 700, 0); // A-C
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 600, 1000, 600))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 600, 300, 1000))); // A-C neighbours A-D
+            edge = FindEdge(edges, 700, 600, 300, 1000); // A-D
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 600, 1000, 600))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 600, 700, 0))); // A-D neighbours A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsInAWedgeTowardsCornerOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsInAWedgeTowardsCornerOffset_MirroredAndRotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(800, 100), // #1
+                new VoronoiSite(400, 100), // #2
+                new VoronoiSite(400, 500), // #3
+            };
+
+            // 1000 ↑                                                  
+            //      |                                                  
+            //  900 |                                                  
+            //      |                                                  
+            //  800 |                                                  
+            //      |                                                  
+            //  700 |                                                ,D
+            //      |                                              ,'  
+            //  600 |                                           ,·'    
+            //      |                                         ,'       
+            //  500 |                   3                  ,·'         
+            //      |                                    ,'            
+            //  400 |                                 ,·'              
+            //      |                               ,'                 
+            //  300 C-----------------------------A'                   
+            //      |                             |                    
+            //  200 |                             |                    
+            //      |                             |                    
+            //  100 |                   2         |         1          
+            //      |                             |                    
+            //    0 └-----------------------------B-------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 600, 300, 600, 0)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 600, 300, 0, 300)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 600, 300, 1000, 700)); // A-D
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 600, 300, 600, 0); // A-B
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 300, 0, 300))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 300, 1000, 700))); // A-B neighbours A-D
+            edge = FindEdge(edges, 600, 300, 0, 300); // A-C
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 300, 600, 0))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 300, 1000, 700))); // A-C neighbours A-D
+            edge = FindEdge(edges, 600, 300, 1000, 700); // A-D
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 300, 600, 0))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 300, 0, 300))); // A-D neighbours A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsInAWedgeTowardsCornerOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsInAWedgeTowardsCornerOffset_MirroredAndRotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 200), // #1
+                new VoronoiSite(100, 600), // #2
+                new VoronoiSite(500, 600), // #3
+            };
+
+            // 1000 ↑              C                                   
+            //      |              |                                   
+            //  900 |              |                                   
+            //      |              |                                   
+            //  800 |              |                                   
+            //      |              |                                   
+            //  700 |              |                                   
+            //      |              |                                   
+            //  600 |    2         |         3                         
+            //      |              |                                   
+            //  500 |              |                                   
+            //      |              |                                   
+            //  400 B--------------A,                                  
+            //      |                ',                                
+            //  300 |                  '·,                             
+            //      |                     ',                           
+            //  200 |    1                  '·,                        
+            //      |                          ',                      
+            //  100 |                            '·,                   
+            //      |                               ',                 
+            //    0 └---------------------------------'D--------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 300, 400, 0, 400)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 300, 400, 300, 1000)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 300, 400, 700, 0)); // A-D
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 300, 400, 0, 400); // A-B
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 400, 300, 1000))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 400, 700, 0))); // A-B neighbours A-D
+            edge = FindEdge(edges, 300, 400, 300, 1000); // A-C
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 400, 0, 400))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 400, 700, 0))); // A-C neighbours A-D
+            edge = FindEdge(edges, 300, 400, 700, 0); // A-D
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 400, 0, 400))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 400, 300, 1000))); // A-D neighbours A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsInAWedgeTowardsCornerOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsInAWedgeTowardsCornerOffset_MirroredAndRotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(200, 900), // #1
+                new VoronoiSite(600, 900), // #2
+                new VoronoiSite(600, 500), // #3
+            };
+
+            // 1000 ↑                   B                              
+            //      |                   |                              
+            //  900 |         1         |         2                    
+            //      |                   |                              
+            //  800 |                   |                              
+            //      |                   |                              
+            //  700 |                  ,A-----------------------------C
+            //      |                ,'                                
+            //  600 |             ,·'                                  
+            //      |           ,'                                     
+            //  500 |        ,·'                  3                    
+            //      |      ,'                                          
+            //  400 |   ,·'                                            
+            //      | ,'                                               
+            //  300 D'                                                 
+            //      |                                                  
+            //  200 |                                                  
+            //      |                                                  
+            //  100 |                                                  
+            //      |                                                  
+            //    0 └-------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => AnyEdgeBetween(edges, 400, 700, 400, 1000)); // A-B
+            Assume.That(() => AnyEdgeBetween(edges, 400, 700, 1000, 700)); // A-C
+            Assume.That(() => AnyEdgeBetween(edges, 400, 700, 0, 300)); // A-D
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 400, 700, 400, 1000); // A-B
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 700, 1000, 700))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 700, 0, 300))); // A-B neighbours A-D
+            edge = FindEdge(edges, 400, 700, 1000, 700); // A-C
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 700, 400, 1000))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 700, 0, 300))); // A-C neighbours A-D
+            edge = FindEdge(edges, 400, 700, 0, 300); // A-D
+            Assert.AreEqual(2, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 700, 400, 1000))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 700, 1000, 700))); // A-D neighbours A-C
         }
 
         [Test]

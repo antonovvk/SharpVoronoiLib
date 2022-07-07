@@ -133,7 +133,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 W-Z: 1
                 Z-X: 1
                 1: ,X,ZW,Y
-            ", Repeat.RotateAll);
+            ", Repeat.RotateAndMirrorAll);
 
             testGenerator.AddTest("OnePointInCorner", @"
                 X · · · · · · · · · Z 10
@@ -352,7 +352,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Z-A: 2
                 1: X,A,B,Y
                 2: A,,Z,B
-            ", Repeat.RotateAll);
+            ", Repeat.RotateAndMirrorAll);
 
             testGenerator.AddTest("ThreeConcentricPointsDiagonalAroundMiddle", @"
                 X · · · · · · D · · Z 10
@@ -464,6 +464,36 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 2: YB,,A,C
                 3: ,AD,W,C
             ", Repeat.RotateAll);
+
+            testGenerator.AddTest("ThreePointsInAWedgeTowardsCornerOffset", @"
+                X · · · · · · D · · Z 10
+                · · · · · · x · · · · 9
+                · 1 · · · x · · · · · 8
+                · · · · x · · · · · · 7
+                B x x A · · · · · · · 6
+                · · · x · · · · · · · 5
+                · 2 · x · 3 · · · · · 4
+                · · · x · · · · · · · 3
+                · · · x · · · · · · · 2
+                · · · x · · · · · · · 1
+                Y · · C · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,2
+                A-C: 2,3
+                A-D: 1,3
+                X-B: 1
+                B-Y: 2
+                Y-C: 2
+                C-W: 3
+                W-Z: 3
+                Z-D: 3
+                D-X: 1
+                1: ,X,D,AB
+                2: ,B,A,CY
+                3: ,ADZ,W,C
+            ", Repeat.RotateAndMirrorAll);
+            
+            // todo: offset to side a bit, then mirror too
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsSideAroundMiddle", @"
                 X · · · · D · · · · Y 10
@@ -859,7 +889,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
             }
 
 
-            public void AddTest(string name, string layout, params Repeat[] repeats)
+            public void AddTest(string name, string layout, Repeat? repeat = null)
             {
                 if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException();
                 if (string.IsNullOrWhiteSpace(layout)) throw new ArgumentException();
@@ -1049,13 +1079,18 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                 tests.Add(newTest);
 
-                foreach (Repeat repeat in repeats)
+                if (repeat != null)
                 {
-                    switch (repeat)
+                    switch (repeat.Value)
                     {
                         case Repeat.Rotate90:
                             if (_width != _height) throw new InvalidOperationException();
                             tests.Add(new RepeatedTest(newTest, Repeat.Rotate90, _minX, _minY, _maxX, _maxY));
+                            break;
+
+                        case Repeat.Mirror:
+                            if (_width != _height) throw new InvalidOperationException();
+                            tests.Add(new RepeatedTest(newTest, Repeat.Mirror, _minX, _minY, _maxX, _maxY));
                             break;
 
                         case Repeat.RotateAll:
@@ -1063,6 +1098,17 @@ namespace SharpVoronoiLib.UnitTestGenerator
                             tests.Add(new RepeatedTest(newTest, Repeat.Rotate90, _minX, _minY, _maxX, _maxY));
                             tests.Add(new RepeatedTest(newTest, Repeat.Rotate180, _minX, _minY, _maxX, _maxY));
                             tests.Add(new RepeatedTest(newTest, Repeat.Rotate270, _minX, _minY, _maxX, _maxY));
+                            break;
+
+                        case Repeat.RotateAndMirrorAll:
+                            if (_width != _height) throw new InvalidOperationException();
+                            tests.Add(new RepeatedTest(newTest, Repeat.Rotate90, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.Rotate180, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.Rotate270, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.Mirror, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.MirrorAndRotate90, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.MirrorAndRotate180, _minX, _minY, _maxX, _maxY));
+                            tests.Add(new RepeatedTest(newTest, Repeat.MirrorAndRotate270, _minX, _minY, _maxX, _maxY));
                             break;
 
                         default:
@@ -1386,13 +1432,17 @@ namespace SharpVoronoiLib.UnitTestGenerator
             {
                 switch (repeat)
                 {
-                    case Repeat.Rotate90:  return "rotated 90° around the center of the boundary";
-                    case Repeat.Rotate180: return "rotated 180° around the center of the boundary";
-                    case Repeat.Rotate270: return "rotated 270° around the center of the boundary";
+                    case Repeat.Rotate90:           return "rotated 90° around the center of the boundary";
+                    case Repeat.Rotate180:          return "rotated 180° around the center of the boundary";
+                    case Repeat.Rotate270:          return "rotated 270° around the center of the boundary";
+                    case Repeat.Mirror:             return "mirrored horizontally";
+                    case Repeat.MirrorAndRotate90:  return "mirrored horizontally and then rotated 90° around the center of the boundary";
+                    case Repeat.MirrorAndRotate180: return "mirrored horizontally and then rotated 180° around the center of the boundary";
+                    case Repeat.MirrorAndRotate270: return "mirrored horizontally and then rotated 270° around the center of the boundary";
 
                     case Repeat.RotateAll:
+                    case Repeat.RotateAndMirrorAll:
                         throw new InvalidOperationException();
-
                     default:
                         throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                 }
@@ -1927,14 +1977,14 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                     foreach (Site site in givenTest.Sites)
                     {
-                        (int x, int y) = TransformX(site.X, site.Y, repeat, minX, minY, maxX, maxY);
+                        (int x, int y) = TransformCoord(site.X, site.Y, repeat, minX, minY, maxX, maxY);
                         Site newSite = new Site(x, y, site.Id);
                         Sites.Add(newSite);
                     }
 
                     foreach (Point point in givenTest.Points)
                     {
-                        (int x, int y) = TransformX(point.X, point.Y, repeat, minX, minY, maxX, maxY);
+                        (int x, int y) = TransformCoord(point.X, point.Y, repeat, minX, minY, maxX, maxY);
                         Points.Add(new Point(x, y, point.Id, point.Corner));
                     }
 
@@ -1976,21 +2026,18 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     
                     switch (repeat)
                     {
-                        case Repeat.Rotate90:
-                            newQuadrant = quadrant + 1;
-                            break;
-                        
-                        case Repeat.Rotate180:
-                            newQuadrant = quadrant + 2;
-                            break;
-                        
-                        case Repeat.Rotate270:
-                            newQuadrant = quadrant + 3;
-                            break;
-                        
+                        case Repeat.Rotate90:           newQuadrant = quadrant + 1; break;
+                        case Repeat.Rotate180:          newQuadrant = quadrant + 2; break;
+                        case Repeat.Rotate270:          newQuadrant = quadrant + 3; break;
+                        case Repeat.Mirror:             newQuadrant = quadrant; break;
+                        case Repeat.MirrorAndRotate90:  newQuadrant = quadrant + 1; break;
+                        case Repeat.MirrorAndRotate180: newQuadrant = quadrant + 2; break;
+                        case Repeat.MirrorAndRotate270: newQuadrant = quadrant + 3; break;
+
                         case Repeat.RotateAll:
+                        case Repeat.RotateAndMirrorAll:
                             throw new InvalidOperationException();
-                        
+
                         default:
                             throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                     }
@@ -2004,7 +2051,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     return newQuadrant;
                 }
 
-                private static (int x, int y) TransformX(int siteX, int siteY, Repeat repeat, int minX, int minY, int maxX, int maxY)
+                private static (int x, int y) TransformCoord(int siteX, int siteY, Repeat repeat, int minX, int minY, int maxX, int maxY)
                 {
                     int x0 = minX;
                     int y0 = minY;
@@ -2013,20 +2060,57 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     int xc = siteX;
                     int yc = siteY;
 
+                    if (DoesRepeatMirror(repeat))
+                    {
+                        xc = x1 - xc + x0;
+                        //yc = y1 - yc + y0; -- we only mirror horizontally
+                    }
+
                     switch (repeat)
                     {
+                        case Repeat.Mirror:
+                            return (xc, yc); // no change except what mirror already applied
+                            
                         case Repeat.Rotate90:
+                        case Repeat.MirrorAndRotate90:
                             return (x0 + yc, y1 - xc);
 
                         case Repeat.Rotate180:
+                        case Repeat.MirrorAndRotate180:
                             return (x1 - xc, y1 - yc);
 
                         case Repeat.Rotate270:
+                        case Repeat.MirrorAndRotate270:
                             return (x1 - yc, y0 + xc);
 
                         case Repeat.RotateAll:
+                        case Repeat.RotateAndMirrorAll:
                             throw new InvalidOperationException();
+                        
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
+                    }
+                }
 
+                private static bool DoesRepeatMirror(Repeat repeat)
+                {
+                    switch (repeat)
+                    {
+                        case Repeat.Rotate90:
+                        case Repeat.Rotate180:
+                        case Repeat.Rotate270:
+                            return false;
+
+                        case Repeat.Mirror:
+                        case Repeat.MirrorAndRotate90:
+                        case Repeat.MirrorAndRotate180:
+                        case Repeat.MirrorAndRotate270:
+                            return true;
+
+                        case Repeat.RotateAndMirrorAll:
+                        case Repeat.RotateAll:
+                            throw new InvalidOperationException();
+                        
                         default:
                             throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                     }
@@ -2049,18 +2133,18 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 {
                     switch (repeat)
                     {
-                        case Repeat.Rotate90:
-                            return "Rotated90";
-
-                        case Repeat.Rotate180:
-                            return "Rotated180";
-
-                        case Repeat.Rotate270:
-                            return "Rotated270";
+                        case Repeat.Rotate90:           return "Rotated90";
+                        case Repeat.Rotate180:          return "Rotated180";
+                        case Repeat.Rotate270:          return "Rotated270";
+                        case Repeat.Mirror:             return "Mirrored";
+                        case Repeat.MirrorAndRotate90:  return "MirroredAndRotated90";
+                        case Repeat.MirrorAndRotate180: return "MirroredAndRotated180";
+                        case Repeat.MirrorAndRotate270: return "MirroredAndRotated270";
 
                         case Repeat.RotateAll:
+                        case Repeat.RotateAndMirrorAll:
                             throw new InvalidOperationException();
-
+                        
                         default:
                             throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                     }
@@ -2130,7 +2214,12 @@ namespace SharpVoronoiLib.UnitTestGenerator
             Rotate90,
             Rotate180,
             Rotate270,
-            RotateAll
+            RotateAll,
+            Mirror,            
+            MirrorAndRotate90,
+            MirrorAndRotate180,
+            MirrorAndRotate270,
+            RotateAndMirrorAll
         }
 
         private enum TestPurpose
