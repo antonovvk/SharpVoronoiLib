@@ -158,14 +158,11 @@ namespace SharpVoronoiLib
         [Pure]
         private static double Atan2(double y, double x)
         {
-            // Normally, Atan2 return an angle between -π ≤ θ ≤ π as "seen" on the Cartesian plane,
+            // "Normal" Atan2 return an angle between -π ≤ θ ≤ π as "seen" on the Cartesian plane,
             // that is, starting at the "right" of x axis and increasing counter-clockwise.
-            // But our convention is that bottom-left is the "origin" and clockwise is the "standard direction":
-            // →→→→↓
-            // ↑   ↓
-            // O←←←←
+            // But we want the angle sortable where the origin is the "lowest" angle: 0 ≤ θ ≤ 2×π
 
-            double a = -Math.Atan2(-y, -x) + Math.PI / 4;
+            double a = Math.Atan2(y, x);
 		
             if (a < 0)
                 a += 2 * Math.PI;

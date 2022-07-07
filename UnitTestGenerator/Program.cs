@@ -1249,7 +1249,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                             stringBuilder.AppendLine();
 
                             stringBuilder.AppendPaddedLine(3, @"// Assert", true);
-                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, true, false));
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, true, true));
                             break;
 
                         case TestPurpose.AssertPointBorderLocation:

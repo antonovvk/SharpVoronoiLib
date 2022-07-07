@@ -117,15 +117,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 W
         }
 
         [Test]
@@ -175,15 +175,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
         }
 
         /// <summary>
@@ -237,15 +237,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
         }
 
         /// <summary>
@@ -299,15 +299,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
         }
 
         /// <summary>
@@ -361,15 +361,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
         }
 
         [Test]
@@ -419,15 +419,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
         }
 
         /// <summary>
@@ -481,15 +481,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
         }
 
         /// <summary>
@@ -543,15 +543,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
         }
 
         /// <summary>
@@ -605,15 +605,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
         }
 
         [Test]
@@ -663,15 +663,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
         }
 
         /// <summary>
@@ -725,15 +725,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
         }
 
         /// <summary>
@@ -787,15 +787,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
         }
 
         /// <summary>
@@ -849,15 +849,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
         }
 
         [Test]
@@ -907,15 +907,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
         }
 
         /// <summary>
@@ -969,15 +969,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
         }
 
         /// <summary>
@@ -1031,15 +1031,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
         }
 
         /// <summary>
@@ -1093,15 +1093,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
         }
 
         /// <summary>
@@ -1155,15 +1155,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
         }
 
         /// <summary>
@@ -1217,15 +1217,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 1000)); // #1 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 1000)); // #1 W
         }
 
         /// <summary>
@@ -1279,15 +1279,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
         }
 
         /// <summary>
@@ -1341,15 +1341,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 1000)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 1000)); // #1 Y
         }
 
         [Test]
@@ -1399,15 +1399,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 W
         }
 
         /// <summary>
@@ -1461,15 +1461,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 W
         }
 
         /// <summary>
@@ -1523,15 +1523,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
         }
 
         /// <summary>
@@ -1585,15 +1585,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
         }
 
         [Test]
@@ -1647,24 +1647,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 500)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 500)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 W
         }
 
         /// <summary>
@@ -1722,24 +1722,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 0)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 0)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 W
         }
 
         [Test]
@@ -1793,24 +1793,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 700)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 700)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 700)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 W
         }
 
         /// <summary>
@@ -1868,24 +1868,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 0)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 700, 0)); // #2 B
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 0)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 700, 0)); // #2 B
         }
 
         [Test]
@@ -1943,33 +1943,33 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 700)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 300)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 700)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 300)); // #2 D
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 300)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 300)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 700)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 300)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 300)); // #2 D
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 300)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 300)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 W
         }
 
         /// <summary>
@@ -2031,33 +2031,33 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 0)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 300, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 300, 0)); // #2 D
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 0)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 0)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 300, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 300, 0)); // #2 D
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 0)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 W
         }
 
         [Test]
@@ -2119,42 +2119,42 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 700)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 700)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 500)); // #2 D
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has F
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 300)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 500)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 500)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 300)); // #3 F
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 300)); // #4 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 300)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 0)); // #4 Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 0, 300)); // #4 E
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 300)); // #4 F
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 700)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 500)); // #2 D
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 300)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 500)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 300)); // #3 F
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 300)); // #4 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 300)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 0)); // #4 Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 0, 300)); // #4 E
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 300)); // #4 F
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 W
         }
 
         /// <summary>
@@ -2220,42 +2220,42 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 0)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has F
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 1000)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 1000)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 0)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 300, 0)); // #3 F
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 300, 1000)); // #4 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 300, 0)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 1000)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 1000)); // #4 Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 300, 1000)); // #4 E
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 300, 0)); // #4 F
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 0, 0)); // #4 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Z
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 0)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 1000)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 0)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 300, 0)); // #3 F
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 1000)); // #4 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 0)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 1000)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 1000)); // #4 Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 300, 1000)); // #4 E
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 300, 0)); // #4 F
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 0, 0)); // #4 W
         }
 
         [Test]
@@ -2307,20 +2307,20 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 A
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Y
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 A
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Y
         }
 
         /// <summary>
@@ -2376,20 +2376,20 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 B
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 B
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 B
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 B
         }
 
         [Test]
@@ -2443,24 +2443,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 200)); // #1 A
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 200)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 W
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 200)); // #1 A
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 200)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 W
         }
 
         /// <summary>
@@ -2518,24 +2518,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 200)); // #1 B
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 200, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 200)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 Z
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 200)); // #1 B
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 200, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 200)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 Z
         }
 
         /// <summary>
@@ -2593,24 +2593,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 0)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 800)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 X
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 800)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 200, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 0, 0)); // #2 Z
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 800)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 X
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 800)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 200, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 0, 0)); // #2 Z
         }
 
         /// <summary>
@@ -2668,24 +2668,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 800)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 0)); // #1 A
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 800)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 800, 0)); // #2 A
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 800)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 0)); // #1 A
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 800)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 800, 0)); // #2 A
         }
 
         [Test]
@@ -2737,20 +2737,20 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 0)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 X
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 B
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 X
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 B
         }
 
         /// <summary>
@@ -2806,20 +2806,20 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 B
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Y
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 B
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Y
         }
 
         /// <summary>
@@ -2875,20 +2875,20 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 A
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 A
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 A
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 A
         }
 
         /// <summary>
@@ -2944,20 +2944,20 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 X
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 0)); // #2 A
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 X
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 0)); // #2 A
         }
 
         [Test]
@@ -3010,22 +3010,22 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 500)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 B
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 B
         }
 
         /// <summary>
@@ -3082,22 +3082,22 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 0)); // #1 B
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Z
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 0)); // #1 B
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Z
         }
 
         /// <summary>
@@ -3154,22 +3154,22 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 A
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 500)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 A
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 A
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 500)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 A
         }
 
         /// <summary>
@@ -3226,22 +3226,22 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 0)); // #2 A
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 0)); // #2 A
         }
 
         /// <summary>
@@ -3298,22 +3298,22 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 500)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 500)); // #2 B
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 500)); // #2 B
         }
 
         /// <summary>
@@ -3370,22 +3370,22 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 1000)); // #1 B
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 0)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Z
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 1000)); // #1 B
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 0)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Z
         }
 
         /// <summary>
@@ -3442,22 +3442,22 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 500)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 A
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 0)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 500)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 0)); // #2 A
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 A
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 0)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 500)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 0)); // #2 A
         }
 
         /// <summary>
@@ -3514,22 +3514,22 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 0)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 1000)); // #1 X
-            Assume.That(() => 3 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 1000)); // #2 A
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 1000)); // #1 X
+            Assert.AreEqual(3, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 1000)); // #2 A
         }
 
         [Test]
@@ -3587,33 +3587,33 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 300)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 1000)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 300)); // #1 A
-            Assume.That(() => 6 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 300)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 1000)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 700)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(5), 300, 0)); // #2 B
-            Assume.That(() => 3 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 0)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 700)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 W
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 300)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 300)); // #1 A
+            Assert.AreEqual(6, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 300)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 1000)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 700)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(5), 300, 0)); // #2 B
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 0)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 700)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 W
         }
 
         /// <summary>
@@ -3675,33 +3675,33 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 300, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 300)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 300, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 300)); // #1 D
-            Assume.That(() => 6 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 700)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 300, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 300)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(5), 700, 0)); // #2 C
-            Assume.That(() => 3 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 700)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 700, 0)); // #3 C
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 300)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 300, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 300)); // #1 D
+            Assert.AreEqual(6, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 700)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 300, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 300)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(5), 700, 0)); // #2 C
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 700)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 700, 0)); // #3 C
         }
 
         [Test]
@@ -3757,29 +3757,29 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 1000)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 400)); // #1 A
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 400)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 1000)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 B
-            Assume.That(() => 3 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 Y
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 400)); // #1 A
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 1000)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 B
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 Y
         }
 
         /// <summary>
@@ -3839,29 +3839,29 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 400)); // #1 D
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 400)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 C
-            Assume.That(() => 3 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 C
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 400)); // #1 D
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 400)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 C
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 C
         }
 
         /// <summary>
@@ -3921,29 +3921,29 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 0)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 0)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 600)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 X
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 600)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 0)); // #2 D
-            Assume.That(() => 3 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 0)); // #3 C
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 0)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 0)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 X
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 0)); // #2 D
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 0)); // #3 C
         }
 
         /// <summary>
@@ -4003,29 +4003,29 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 600)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 600)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 0)); // #1 A
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 600)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 0)); // #2 A
-            Assume.That(() => 3 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 B
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 600)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 600)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 0)); // #1 A
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 600)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 0)); // #2 A
+            Assert.AreEqual(3, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 B
         }
 
         [Test]
@@ -4085,38 +4085,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 1000)); // #1 F
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 400)); // #1 A
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has F
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 400)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 1000)); // #2 F
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 B
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 0)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 600)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 600)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 400, 0)); // #3 C
-            Assume.That(() => 3 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 400, 0)); // #4 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 600)); // #4 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 400, 0)); // #4 C
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 1000, 600)); // #4 D
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 0)); // #4 Y
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 1000)); // #1 F
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 400)); // #1 A
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 1000)); // #2 F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 B
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 0)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 600)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 600)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 400, 0)); // #3 C
+            Assert.AreEqual(3, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 0)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 600)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 400, 0)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 1000, 600)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 0)); // #4 Y
         }
 
         /// <summary>
@@ -4180,38 +4180,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 1000)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 400)); // #1 F
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has F
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 400)); // #2 F
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 E
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 600)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 600)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 600, 0)); // #3 D
-            Assume.That(() => 3 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 600)); // #4 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 600, 0)); // #4 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 0)); // #4 Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 0, 600)); // #4 C
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 600, 0)); // #4 D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 1000)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 400)); // #1 F
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 400)); // #2 F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 E
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 600)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 600)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 600, 0)); // #3 D
+            Assert.AreEqual(3, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 600)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 0)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 0)); // #4 Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 0, 600)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 600, 0)); // #4 D
         }
 
         [Test]
@@ -4268,33 +4268,33 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 400)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 400)); // #1 A
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 400)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 400)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 0)); // #2 C
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 400)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 0)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 400)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 400, 0)); // #3 C
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 400)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 400)); // #1 A
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 400)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 0)); // #2 C
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 400)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 0)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 400)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 400, 0)); // #3 C
         }
 
         /// <summary>
@@ -4355,33 +4355,33 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 600)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 D
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 600)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 600)); // #2 A
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 600)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 600)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 600)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 600)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 D
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 600)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 600)); // #2 A
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 600)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 600)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 600)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 600)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 W
         }
 
         /// <summary>
@@ -4442,33 +4442,33 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 600)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 600)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 600)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 600)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 600)); // #2 B
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 600)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 1000)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 600, 1000)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 600, 600)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 D
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 600)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 600)); // #2 B
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 600)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 600, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 600, 600)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 D
         }
 
         /// <summary>
@@ -4529,33 +4529,33 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 400)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 0)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 400)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 400)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 400)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 0)); // #2 B
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 400)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 400)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 600, 400)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 1000)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 400)); // #3 C
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 400)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 0)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 400)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 0)); // #2 B
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 400)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 400)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 600, 400)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 1000)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 400)); // #3 C
         }
 
         [Test]
@@ -4613,35 +4613,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 300, 600)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 600)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 1000)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 300, 600)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 600)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 600)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 600)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 300, 600)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 300, 0)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 Y
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 600)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 1000)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 600)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 700, 1000)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 1000)); // #3 Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 300, 0)); // #3 C
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 600)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 300, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 600)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 600)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 600)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 300, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 300, 0)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 Y
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 600)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 1000)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 600)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 700, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 1000)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 300, 0)); // #3 C
         }
 
         /// <summary>
@@ -4703,35 +4703,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 700)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 300)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 600, 700)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 300)); // #1 D
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 700)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 700)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 600, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 700)); // #2 A
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 700)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 700)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 600, 700)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 300)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 0, 0)); // #3 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 300)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 600, 700)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 300)); // #1 D
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 700)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 700)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 600, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 700)); // #2 A
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 700)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 700)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 600, 700)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 300)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 0, 0)); // #3 W
         }
 
         /// <summary>
@@ -4793,35 +4793,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 400)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 300, 0)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 300, 0)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 400)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 400)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 400)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 700, 400)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 400)); // #2 B
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 400)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 1000)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 700, 1000)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 700, 400)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 300, 0)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 0, 0)); // #3 Z
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 400)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 0)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 300, 0)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 400)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 400)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 400)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 700, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 400)); // #2 B
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 400)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 700, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 700, 400)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 300, 0)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 0, 0)); // #3 Z
         }
 
         /// <summary>
@@ -4883,35 +4883,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 300)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 700)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 400, 300)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 0)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 300)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 400, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 300)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 300)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Y
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 300)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 300)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 700)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 1000)); // #3 Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 1000)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 300)); // #3 C
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 300)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 700)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 400, 300)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 0)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 300)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 300)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 400, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 300)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 300)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Y
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 300)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 300)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 300)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 700)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 1000)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 1000)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 300)); // #3 C
         }
 
         /// <summary>
@@ -4973,35 +4973,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 600)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 300, 1000)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 1000)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 700, 600)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 600)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 600)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 600)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 600)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 0)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Y
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 600)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 700, 600)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 1000)); // #3 Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 700, 0)); // #3 C
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 600)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 1000)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 700, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 600)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 1000, 600)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 700, 0)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Y
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 600)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 700, 600)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 1000)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 700, 0)); // #3 C
         }
 
         /// <summary>
@@ -5063,35 +5063,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 300)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 600, 300)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 0)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 700)); // #1 D
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 300)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 300)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 600, 0)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 300)); // #2 A
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 300)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 300)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 600, 300)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 700)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 1000)); // #3 Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 0, 1000)); // #3 W
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 300)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 700)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 600, 300)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 700)); // #1 D
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 300)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 300)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 600, 0)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 300)); // #2 A
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 300)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 300)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 600, 300)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 700)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 1000)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 0, 1000)); // #3 W
         }
 
         /// <summary>
@@ -5153,35 +5153,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 300, 400)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 0)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 400)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 400)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 400)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 300, 400)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 300, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 400)); // #2 B
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 400)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 1000, 1000)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 400)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 700, 0)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 0)); // #3 Z
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 400)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 0)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 0)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 400)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 400)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 300, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 300, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 400)); // #2 B
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 400)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 1000, 1000)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 400)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 700, 0)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 0)); // #3 Z
         }
 
         /// <summary>
@@ -5243,35 +5243,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 700)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 300)); // #1 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 300)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 400, 700)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 1000)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 700)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 400, 1000)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 700)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 1000)); // #2 Y
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 700)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 700)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 300)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 0)); // #3 Z
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 700)); // #3 C
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 300)); // #1 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 300)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 400, 700)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 1000)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 400, 1000)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 700)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 1000)); // #2 Y
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 700)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 700)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 700)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 300)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 0, 0)); // #3 Z
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 700)); // #3 C
         }
 
         [Test]
@@ -5327,31 +5327,31 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 500)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 C
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 C
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 1000)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 B
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 C
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 C
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 B
         }
 
         /// <summary>
@@ -5411,31 +5411,31 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 500)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 C
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Y
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 500)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 500)); // #3 A
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 C
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Y
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 500)); // #3 A
         }
 
         /// <summary>
@@ -5495,31 +5495,31 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 500)); // #1 A
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 0)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 Y
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 500)); // #1 A
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 0)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 Y
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 D
         }
 
         /// <summary>
@@ -5579,31 +5579,31 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 500)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 500)); // #2 A
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 500)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 B
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 500)); // #2 A
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 B
         }
 
         [Test]
@@ -5661,35 +5661,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 300)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 0)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 300)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 0)); // #1 C
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 300)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 800, 0)); // #2 C
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 200, 0)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 1000)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 300)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 200, 0)); // #3 B
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 300)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 0)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 300)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 0)); // #1 C
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 300)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 800, 0)); // #2 C
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 300)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 200, 0)); // #3 B
         }
 
         /// <summary>
@@ -5751,35 +5751,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 300, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 800)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 500)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 200)); // #1 C
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 200)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 300, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 500)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 Z
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 800)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 800)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 1000)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 500)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 300, 500)); // #3 A
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 800)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 200)); // #1 C
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 200)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 300, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 500)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 Z
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 800)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 800)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 1000)); // #3 Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 1000)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 300, 500)); // #3 A
         }
 
         /// <summary>
@@ -5841,35 +5841,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 1000)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 700)); // #1 A
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 200, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 700)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 0, 0)); // #2 Z
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 700)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 800, 1000)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 700)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 800, 1000)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 1000)); // #3 Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 500, 0)); // #3 D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 700)); // #1 A
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 200, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 0, 0)); // #2 Z
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 700)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 700)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 800, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 1000)); // #3 Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 500, 0)); // #3 D
         }
 
         /// <summary>
@@ -5931,35 +5931,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 500)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 800)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 200)); // #1 B
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 800)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 700, 500)); // #2 A
-            Assume.That(() => 5 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 200)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has Y
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 500)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 700, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 200)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 0)); // #3 Y
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 800)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 200)); // #1 B
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 800)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 700, 500)); // #2 A
+            Assert.AreEqual(5, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 200)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has Y
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 700, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 200)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(4), 1000, 0)); // #3 Y
         }
 
         [Test]
@@ -6017,35 +6017,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 5 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 200)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 700)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 200)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(4), 1000, 0)); // #1 W
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 700)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 200)); // #2 C
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 700)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 200)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 1000)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 700)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 200)); // #3 B
+            Assert.AreEqual(5, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 200)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 700)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 200)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(4), 1000, 0)); // #1 W
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 700)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 200)); // #2 C
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 700)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 200)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 700)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 200)); // #3 B
         }
 
         /// <summary>
@@ -6107,35 +6107,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 5 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 200, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 500)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(4), 200, 0)); // #1 C
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 0)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Z
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 200, 1000)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 200, 1000)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 500)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 700, 500)); // #3 A
+            Assert.AreEqual(5, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 0)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 200, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 700, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(4), 200, 0)); // #1 C
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 0)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 700, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 500)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 Z
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 1000)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 200, 1000)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 700, 500)); // #3 A
         }
 
         /// <summary>
@@ -6197,35 +6197,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 5 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 300)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 800)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 800)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(4), 500, 300)); // #1 A
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 800)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 300)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 800)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 300)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 800)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 D
+            Assert.AreEqual(5, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 300)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 800)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 800)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(4), 500, 300)); // #1 A
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 800)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 300)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 800)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 300)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 800)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 D
         }
 
         /// <summary>
@@ -6287,35 +6287,35 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 5 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 300, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 300, 500)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 1000)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(4), 800, 0)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 300, 500)); // #2 A
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 800, 0)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 500)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 800, 0)); // #3 B
+            Assert.AreEqual(5, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 300, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(4), 800, 0)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 300, 500)); // #2 A
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 0)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 800, 0)); // #3 B
         }
 
         [Test]
@@ -6377,51 +6377,51 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 400)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 600)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 600)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 400)); // #1 C
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has F
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 600)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 400)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 F
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 400)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 400)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has G
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 F
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 400)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 600, 400)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 G
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 600, 400)); // #4 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 600, 600)); // #4 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has H
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 400)); // #4 C
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 600, 600)); // #4 D
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 1000)); // #4 H
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 G
-            Assume.That(() => 4 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has H
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 600)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 1000)); // #5 E
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 1000)); // #5 H
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 600)); // #5 D
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 400)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 600)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 400)); // #1 C
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 1000)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 400)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 0, 0)); // #2 F
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 400)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 400)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 400)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 600, 400)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 G
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 400)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 600)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has H
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 400)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 600, 600)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 1000)); // #4 H
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 G
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has H
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 600)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 1000)); // #5 E
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 1000)); // #5 H
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 600)); // #5 D
         }
 
         [Test]
@@ -6487,59 +6487,59 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 200)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 200)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 200)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 400)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 400)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 200)); // #1 C
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 200)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 800)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 400)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 200)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 200, 0)); // #2 F
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 200)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 200)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 200, 0)); // #3 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 800, 0)); // #3 has G
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 200, 0)); // #3 F
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 200)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 600, 200)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 800, 0)); // #3 G
-            Assume.That(() => 5 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 600, 200)); // #4 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 600, 400)); // #4 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 800, 0)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 800)); // #4 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has W
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 200)); // #4 C
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 600, 400)); // #4 D
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 800)); // #4 H
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 W
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(4), 800, 0)); // #4 G
-            Assume.That(() => 6 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 400, 400)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 600, 400)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 800)); // #5 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 800)); // #5 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 400)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 800)); // #5 E
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 0, 1000)); // #5 X
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 1000)); // #5 Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(4), 1000, 800)); // #5 H
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(5), 600, 400)); // #5 D
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 200)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 200)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 200)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 400)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 400)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 200)); // #1 C
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 200)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 800)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 400, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 400, 200)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 200, 0)); // #2 F
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 200)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 200)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 0)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 0)); // #3 has G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 200, 0)); // #3 F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 200)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 600, 200)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 800, 0)); // #3 G
+            Assert.AreEqual(5, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 200)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 400)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 800, 0)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 800)); // #4 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has W
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 200)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 600, 400)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 800)); // #4 H
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 W
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(4), 800, 0)); // #4 G
+            Assert.AreEqual(6, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 400)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 400)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 800)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 800)); // #5 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 400)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 800)); // #5 E
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 0, 1000)); // #5 X
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 1000)); // #5 Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(4), 1000, 800)); // #5 H
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(5), 600, 400)); // #5 D
         }
 
         /// <summary>
@@ -6609,59 +6609,59 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 600)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 400)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 400)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 200, 600)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 400, 600)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 400)); // #1 D
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 200, 600)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 600)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 800)); // #2 F
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 800, 1000)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 400, 600)); // #2 A
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 200, 600)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 200, 400)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 800)); // #3 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 200)); // #3 has G
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 800)); // #3 F
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 200, 600)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 200, 400)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 200)); // #3 G
-            Assume.That(() => 5 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 200, 400)); // #4 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 400, 400)); // #4 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 200)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 800, 0)); // #4 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has W
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 0)); // #4 W
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 0, 200)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 200, 400)); // #4 C
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 400, 400)); // #4 D
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(4), 800, 0)); // #4 H
-            Assume.That(() => 6 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 400, 400)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 800, 1000)); // #5 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 800, 0)); // #5 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 0)); // #5 has Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 400)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 400, 600)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 800, 1000)); // #5 E
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 1000)); // #5 X
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(4), 1000, 0)); // #5 Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(5), 800, 0)); // #5 H
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 600)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 400)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 400)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 400)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 200, 600)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 400, 600)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 400, 400)); // #1 D
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 600)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 800)); // #2 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 600)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 800)); // #2 F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 800, 1000)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 400, 600)); // #2 A
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 600)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 400)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 800)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 200)); // #3 has G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 800)); // #3 F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 200, 600)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 200, 400)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 200)); // #3 G
+            Assert.AreEqual(5, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 200, 400)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 400)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 200)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 800, 0)); // #4 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has W
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 0)); // #4 W
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 0, 200)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 200, 400)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 400, 400)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(4), 800, 0)); // #4 H
+            Assert.AreEqual(6, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 400)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 800, 1000)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 800, 0)); // #5 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 0)); // #5 has Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 400)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 400, 600)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 800, 1000)); // #5 E
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 1000)); // #5 X
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(4), 1000, 0)); // #5 Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(5), 800, 0)); // #5 H
         }
 
         /// <summary>
@@ -6731,59 +6731,59 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 800)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 800)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 600)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 800)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 800)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 600)); // #1 A
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 600)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 800)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 600)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 800)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 1000)); // #2 F
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 200)); // #2 E
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 800)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 800)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 800, 1000)); // #3 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 200, 1000)); // #3 has G
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 800)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 200, 1000)); // #3 G
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 800, 1000)); // #3 F
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 600, 800)); // #3 B
-            Assume.That(() => 5 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 400, 800)); // #4 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 400, 600)); // #4 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 200, 1000)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 200)); // #4 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 1000)); // #4 has W
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 1000)); // #4 W
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 200, 1000)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 400, 800)); // #4 C
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 400, 600)); // #4 D
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(4), 0, 200)); // #4 H
-            Assume.That(() => 6 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 200)); // #5 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 200)); // #5 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 0)); // #5 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 0)); // #5 has Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 0)); // #5 Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 200)); // #5 H
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 400, 600)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 600)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(4), 1000, 200)); // #5 E
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(5), 1000, 0)); // #5 X
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 800)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 800)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 400, 600)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 400, 600)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 400, 800)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 600, 800)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 600, 600)); // #1 A
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 800)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 1000)); // #2 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 600, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 800)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 1000)); // #2 F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 200)); // #2 E
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 800)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 800)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 1000)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 200, 1000)); // #3 has G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 400, 800)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 200, 1000)); // #3 G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 800, 1000)); // #3 F
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 600, 800)); // #3 B
+            Assert.AreEqual(5, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 800)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 600)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 200, 1000)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 200)); // #4 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 1000)); // #4 has W
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 1000)); // #4 W
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 200, 1000)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 400, 800)); // #4 C
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 400, 600)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(4), 0, 200)); // #4 H
+            Assert.AreEqual(6, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 600)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 200)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 200)); // #5 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 0)); // #5 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 0)); // #5 has Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 0)); // #5 Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 200)); // #5 H
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 400, 600)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 600)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(4), 1000, 200)); // #5 E
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(5), 1000, 0)); // #5 X
         }
 
         /// <summary>
@@ -6853,59 +6853,59 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 400)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 600)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 600, 400)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 600)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 600)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 800, 400)); // #1 B
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 400)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 800, 400)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 0)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 400)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 400)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 200)); // #2 F
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 Y
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 800, 400)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 800, 600)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 200)); // #3 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 800)); // #3 has G
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 800, 400)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 800, 600)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 800)); // #3 G
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 200)); // #3 F
-            Assume.That(() => 5 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 800, 600)); // #4 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 600, 600)); // #4 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 800)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 200, 1000)); // #4 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has W
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 600)); // #4 D
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 200, 1000)); // #4 H
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 1000)); // #4 W
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 800)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(4), 800, 600)); // #4 C
-            Assume.That(() => 6 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 600, 400)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 200, 0)); // #5 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 200, 1000)); // #5 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 0)); // #5 has X
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 0)); // #5 X
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 1000)); // #5 Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 200, 1000)); // #5 H
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 600)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(4), 600, 400)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(5), 200, 0)); // #5 E
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 400)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 400)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 600)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 600, 600)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 600, 400)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 600, 600)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 600)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 800, 400)); // #1 B
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 400)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 0)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 200)); // #2 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 200, 0)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 600, 400)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 800, 400)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 200)); // #2 F
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 1000, 0)); // #2 Y
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 400)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 800, 600)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 200)); // #3 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 800)); // #3 has G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 800, 400)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 800, 600)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 800)); // #3 G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 200)); // #3 F
+            Assert.AreEqual(5, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 800, 600)); // #4 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 600)); // #4 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 800)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 200, 1000)); // #4 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has W
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 600)); // #4 D
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 200, 1000)); // #4 H
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 1000)); // #4 W
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 800)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(4), 800, 600)); // #4 C
+            Assert.AreEqual(6, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 400)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 600)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 200, 0)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 200, 1000)); // #5 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 0)); // #5 has X
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 0)); // #5 X
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 1000)); // #5 Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 200, 1000)); // #5 H
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 600)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(4), 600, 400)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(5), 200, 0)); // #5 E
         }
 
         [Test]
@@ -6966,42 +6966,42 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 500)); // #1 A
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 500)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 500)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 D
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 500)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 1000)); // #4 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 500)); // #4 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has Z
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 500)); // #4 A
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 500, 1000)); // #4 B
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 1000)); // #4 Z
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 500)); // #4 E
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 500)); // #1 A
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 500)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 500)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 D
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 500)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 1000)); // #4 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 500)); // #4 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has Z
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 500)); // #4 A
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 500, 1000)); // #4 B
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 1000)); // #4 Z
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 500)); // #4 E
         }
 
         [Test]
@@ -7062,42 +7062,42 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 1000)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 500)); // #1 A
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 500)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 500)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 D
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 500)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 1000)); // #4 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 500)); // #4 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has Z
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 1000)); // #4 B
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 1000, 1000)); // #4 Z
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 500)); // #4 E
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 500, 500)); // #4 A
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 500)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 500)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 1000)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 500)); // #1 A
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 0)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 500)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 0)); // #2 D
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 500)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 0)); // #3 W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 D
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 500)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 1000)); // #4 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 500)); // #4 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has Z
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 1000)); // #4 B
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 1000, 1000)); // #4 Z
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 500)); // #4 E
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 500, 500)); // #4 A
         }
 
         /// <summary>
@@ -7162,42 +7162,42 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 500)); // #1 A
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 1000)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 X
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 500)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 500)); // #2 A
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 500)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 0)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 W
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 500)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 500)); // #4 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 0)); // #4 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has Z
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 500)); // #4 A
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 1000, 500)); // #4 B
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 0)); // #4 Z
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 500, 0)); // #4 E
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 500)); // #1 A
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 X
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 500)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 500)); // #2 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 500)); // #2 D
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 Y
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 500)); // #2 A
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has W
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 500)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 500, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 0)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 0)); // #3 W
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 500)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 500)); // #4 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 0)); // #4 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has Z
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 500)); // #4 A
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 1000, 500)); // #4 B
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 0)); // #4 Z
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 500, 0)); // #4 E
         }
 
         [Test]
@@ -7262,53 +7262,53 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 1000)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 1000)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 700)); // #1 B
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 400)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 400)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 200, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 700)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 500, 400)); // #2 A
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 400)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 400)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 400)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 400)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 G
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 400)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 400)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 0)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 0)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 500, 400)); // #4 A
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 400)); // #4 F
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 Y
-            Assume.That(() => 5 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 500, 400)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 500, 700)); // #5 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 800, 1000)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 400)); // #5 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 500, 700)); // #5 B
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 800, 1000)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 1000)); // #5 Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 400)); // #5 F
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(4), 500, 400)); // #5 A
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 1000)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 1000)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 800, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 700)); // #1 B
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 400)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 200, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 400)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 400)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 200, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 700)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 500, 400)); // #2 A
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 400)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 400)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 400)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 400)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 G
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 400)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 400)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 0)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 0)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 500, 400)); // #4 A
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 400)); // #4 F
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 Y
+            Assert.AreEqual(5, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 500, 400)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 500, 700)); // #5 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 800, 1000)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 400)); // #5 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 500, 700)); // #5 B
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 800, 1000)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 1000)); // #5 Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 400)); // #5 F
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(4), 500, 400)); // #5 A
         }
 
         /// <summary>
@@ -7377,53 +7377,53 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 500)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 800)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 200)); // #1 D
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 400, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 800)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 700, 500)); // #2 B
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 400, 1000)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 1000)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 400, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 500)); // #3 G
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 400, 500)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 400, 0)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 500)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 500)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 400, 500)); // #4 A
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 400, 0)); // #4 F
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 0, 0)); // #4 Y
-            Assume.That(() => 5 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 400, 500)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 700, 500)); // #5 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 200)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 400, 0)); // #5 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 0)); // #5 has Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 0)); // #5 F
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 400, 500)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 700, 500)); // #5 B
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 200)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(4), 1000, 0)); // #5 Z
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 800)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 200)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 800)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 200)); // #1 D
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 800)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 400, 1000)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 400, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 400, 1000)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 800)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 700, 500)); // #2 B
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 400, 1000)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 400, 1000)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 400, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 500)); // #3 G
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 500)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 400, 0)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 500)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 500)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 400, 500)); // #4 A
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 400, 0)); // #4 F
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 0, 0)); // #4 Y
+            Assert.AreEqual(5, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 500)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 700, 500)); // #5 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 200)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 400, 0)); // #5 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 0)); // #5 has Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 400, 0)); // #5 F
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 400, 500)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 700, 500)); // #5 B
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 200)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(4), 1000, 0)); // #5 Z
         }
 
         /// <summary>
@@ -7492,53 +7492,53 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 300)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 0)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 300)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 0)); // #1 C
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 600)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 300)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 600)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 600)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 800, 0)); // #2 C
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 600)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 600)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 1000)); // #3 G
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 600)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 600)); // #3 A
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 600)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 600)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 1000)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 1000)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 600)); // #4 F
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 0, 1000)); // #4 Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 500, 1000)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 500, 600)); // #4 A
-            Assume.That(() => 5 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 500, 600)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 500, 300)); // #5 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 200, 0)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 600)); // #5 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 0)); // #5 has Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 0)); // #5 Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 600)); // #5 F
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 500, 600)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 500, 300)); // #5 B
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(4), 200, 0)); // #5 D
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 300)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 800, 0)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 200, 0)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 200, 0)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 500, 300)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 800, 0)); // #1 C
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 600)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 800, 0)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 600)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 300)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 600)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 600)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 0)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 800, 0)); // #2 C
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 600)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 600)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 1000)); // #3 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 1000)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 500, 1000)); // #3 G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 1000, 1000)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 600)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 600)); // #3 A
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 600)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 600)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 1000)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 1000)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 600)); // #4 F
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 0, 1000)); // #4 Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 500, 1000)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 500, 600)); // #4 A
+            Assert.AreEqual(5, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 500, 600)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 500, 300)); // #5 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 200, 0)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 600)); // #5 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 0)); // #5 has Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 0)); // #5 Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 600)); // #5 F
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 500, 600)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 500, 300)); // #5 B
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(4), 200, 0)); // #5 D
         }
 
         /// <summary>
@@ -7607,53 +7607,53 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 300, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 800)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 500)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 200)); // #1 C
-            Assume.That(() => 5 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 W
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 200)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 300, 500)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(4), 600, 0)); // #2 E
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 600, 0)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 600, 0)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 600, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 500)); // #3 G
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 X
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 600, 500)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 600, 1000)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 500)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 500)); // #4 A
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 600, 1000)); // #4 F
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 1000)); // #4 Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 500)); // #4 G
-            Assume.That(() => 5 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 600, 500)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 300, 500)); // #5 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 800)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 600, 1000)); // #5 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 800)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 1000)); // #5 Z
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 600, 1000)); // #5 F
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 500)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(4), 300, 500)); // #5 B
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 300, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 200)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 800)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 800)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 300, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 200)); // #1 C
+            Assert.AreEqual(5, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 200)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 600, 0)); // #2 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 0)); // #2 has W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 0)); // #2 W
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 200)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 300, 500)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 600, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(4), 600, 0)); // #2 E
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 600, 0)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 500)); // #3 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 1000, 0)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 600, 0)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 600, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 1000, 500)); // #3 G
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 1000, 0)); // #3 X
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 500)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 600, 1000)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 500)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 1000)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 600, 500)); // #4 A
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 600, 1000)); // #4 F
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 1000)); // #4 Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 500)); // #4 G
+            Assert.AreEqual(5, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 500)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 300, 500)); // #5 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 800)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 600, 1000)); // #5 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 800)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 1000)); // #5 Z
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 600, 1000)); // #5 F
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 600, 500)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(4), 300, 500)); // #5 B
         }
 
         [Test]
@@ -7716,49 +7716,49 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 500)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 300)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 500)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 300)); // #2 A
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 300)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 300)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 G
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 300)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 300)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 0)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 0)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 500, 300)); // #4 A
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 300)); // #4 F
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 Y
-            Assume.That(() => 4 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 500, 300)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 500, 500)); // #5 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 300)); // #5 has F
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 500, 300)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 500, 500)); // #5 B
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 1000)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 300)); // #5 F
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 500)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 300)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 0, 300)); // #2 has E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 0, 300)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 0, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 500, 500)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 300)); // #2 A
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 0)); // #3 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 0)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 0)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 300)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 300)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 0)); // #3 G
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 300)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 300)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 0)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 0)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 0)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 500, 300)); // #4 A
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 300)); // #4 F
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 0)); // #4 Y
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 500, 300)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 500, 500)); // #5 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 1000)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 300)); // #5 has F
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 500, 300)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 500, 500)); // #5 B
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 1000)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 1000, 300)); // #5 F
         }
 
         /// <summary>
@@ -7825,49 +7825,49 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 3 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has D
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 500)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 D
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 300, 500)); // #2 A
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 300, 1000)); // #2 E
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 C
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 500)); // #2 B
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 X
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 E
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 500)); // #3 G
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 300, 500)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 300, 0)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 500)); // #4 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has Y
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 500)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 300, 500)); // #4 A
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 300, 0)); // #4 F
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 0, 0)); // #4 Y
-            Assume.That(() => 4 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 300, 500)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 500, 500)); // #5 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 1000, 0)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 300, 0)); // #5 has F
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 300, 500)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 500, 500)); // #5 B
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 0)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 300, 0)); // #5 F
+            Assert.AreEqual(3, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has D
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 500, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 0)); // #1 D
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 500)); // #2 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 300, 1000)); // #2 has E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 300, 500)); // #2 A
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 300, 1000)); // #2 E
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 C
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 500, 500)); // #2 B
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 500)); // #3 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 1000)); // #3 has X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 1000)); // #3 X
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 E
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 300, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 0, 500)); // #3 G
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 500)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 0)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 500)); // #4 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 0, 0)); // #4 has Y
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 0, 500)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 300, 500)); // #4 A
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 300, 0)); // #4 F
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 0, 0)); // #4 Y
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 300, 500)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 500, 500)); // #5 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 1000, 0)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 300, 0)); // #5 has F
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 300, 500)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 500, 500)); // #5 B
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 1000, 0)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 300, 0)); // #5 F
         }
 
         [Test]
@@ -7935,60 +7935,60 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 1000)); // #1 H
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 700)); // #1 B
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 700)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 H
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 700)); // #2 G
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 500, 700)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 300)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 700)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 700)); // #3 B
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 300)); // #3 A
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 300)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 500, 700)); // #4 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 300)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 1000, 700)); // #4 has G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 300)); // #4 A
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 500, 700)); // #4 B
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 700)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 300)); // #4 F
-            Assume.That(() => 4 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 500, 300)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 300)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 500, 0)); // #5 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 0)); // #5 has X
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 0)); // #5 X
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 300)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 500, 300)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 500, 0)); // #5 E
-            Assume.That(() => 4 == sites[5].ClockwisePoints.Count()); // #6
-            Assume.That(() => SiteHasClockwisePoint(sites[5], 500, 300)); // #6 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[5], 500, 0)); // #6 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[5], 1000, 300)); // #6 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[5], 1000, 0)); // #6 has Y
-            Assume.That(() => PointIs(sites[5].ClockwisePoints.ElementAt(0), 500, 0)); // #6 E
-            Assume.That(() => PointIs(sites[5].ClockwisePoints.ElementAt(1), 500, 300)); // #6 A
-            Assume.That(() => PointIs(sites[5].ClockwisePoints.ElementAt(2), 1000, 300)); // #6 F
-            Assume.That(() => PointIs(sites[5].ClockwisePoints.ElementAt(3), 1000, 0)); // #6 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 700)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 700)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 500, 1000)); // #1 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 0, 700)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 500, 1000)); // #1 H
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 500, 700)); // #1 B
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 700)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 700)); // #2 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 500, 1000)); // #2 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 1000)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 500, 700)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 500, 1000)); // #2 H
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 1000)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 1000, 700)); // #2 G
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 300)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 500, 700)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 700)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 0, 300)); // #3 has D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 0, 300)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 0, 700)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 500, 700)); // #3 B
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 500, 300)); // #3 A
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 300)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 500, 700)); // #4 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 300)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 1000, 700)); // #4 has G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 500, 300)); // #4 A
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 500, 700)); // #4 B
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 1000, 700)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 1000, 300)); // #4 F
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 500, 300)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 300)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 500, 0)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 0)); // #5 has X
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 0)); // #5 X
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 0, 300)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 500, 300)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 500, 0)); // #5 E
+            Assert.AreEqual(4, sites[5].ClockwisePoints.Count()); // #6
+            Assert.IsTrue(SiteHasClockwisePoint(sites[5], 500, 300)); // #6 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[5], 500, 0)); // #6 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[5], 1000, 300)); // #6 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[5], 1000, 0)); // #6 has Y
+            Assert.IsTrue(PointIs(sites[5].ClockwisePoints.ElementAt(0), 500, 0)); // #6 E
+            Assert.IsTrue(PointIs(sites[5].ClockwisePoints.ElementAt(1), 500, 300)); // #6 A
+            Assert.IsTrue(PointIs(sites[5].ClockwisePoints.ElementAt(2), 1000, 300)); // #6 F
+            Assert.IsTrue(PointIs(sites[5].ClockwisePoints.ElementAt(3), 1000, 0)); // #6 Y
         }
 
         /// <summary>
@@ -8060,60 +8060,60 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assume.That(() => 4 == sites[0].ClockwisePoints.Count()); // #1
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 500)); // #1 B
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 1000)); // #1 C
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
-            Assume.That(() => PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 500)); // #1 H
-            Assume.That(() => 4 == sites[1].ClockwisePoints.Count()); // #2
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has G
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has H
-            Assume.That(() => SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(0), 700, 500)); // #2 B
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 500)); // #2 H
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Z
-            Assume.That(() => PointIs(sites[1].ClockwisePoints.ElementAt(3), 700, 0)); // #2 G
-            Assume.That(() => 4 == sites[2].ClockwisePoints.Count()); // #3
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 500)); // #3 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 700, 1000)); // #3 has C
-            Assume.That(() => SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 500)); // #3 A
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 D
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(2), 700, 1000)); // #3 C
-            Assume.That(() => PointIs(sites[2].ClockwisePoints.ElementAt(3), 700, 500)); // #3 B
-            Assume.That(() => 4 == sites[3].ClockwisePoints.Count()); // #4
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 300, 500)); // #4 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 700, 500)); // #4 has B
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 300, 0)); // #4 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[3], 700, 0)); // #4 has G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(0), 300, 500)); // #4 A
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(1), 700, 500)); // #4 B
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(2), 700, 0)); // #4 G
-            Assume.That(() => PointIs(sites[3].ClockwisePoints.ElementAt(3), 300, 0)); // #4 F
-            Assume.That(() => 4 == sites[4].ClockwisePoints.Count()); // #5
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 300, 500)); // #5 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 300, 1000)); // #5 has D
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 500)); // #5 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has X
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 1000)); // #5 X
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(1), 300, 1000)); // #5 D
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(2), 300, 500)); // #5 A
-            Assume.That(() => PointIs(sites[4].ClockwisePoints.ElementAt(3), 0, 500)); // #5 E
-            Assume.That(() => 4 == sites[5].ClockwisePoints.Count()); // #6
-            Assume.That(() => SiteHasClockwisePoint(sites[5], 300, 500)); // #6 has A
-            Assume.That(() => SiteHasClockwisePoint(sites[5], 0, 500)); // #6 has E
-            Assume.That(() => SiteHasClockwisePoint(sites[5], 300, 0)); // #6 has F
-            Assume.That(() => SiteHasClockwisePoint(sites[5], 0, 0)); // #6 has Y
-            Assume.That(() => PointIs(sites[5].ClockwisePoints.ElementAt(0), 0, 500)); // #6 E
-            Assume.That(() => PointIs(sites[5].ClockwisePoints.ElementAt(1), 300, 500)); // #6 A
-            Assume.That(() => PointIs(sites[5].ClockwisePoints.ElementAt(2), 300, 0)); // #6 F
-            Assume.That(() => PointIs(sites[5].ClockwisePoints.ElementAt(3), 0, 0)); // #6 Y
+            Assert.AreEqual(4, sites[0].ClockwisePoints.Count()); // #1
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 500)); // #1 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 700, 1000)); // #1 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 500)); // #1 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 700, 500)); // #1 B
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 700, 1000)); // #1 C
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 1000, 1000)); // #1 W
+            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 500)); // #1 H
+            Assert.AreEqual(4, sites[1].ClockwisePoints.Count()); // #2
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 500)); // #2 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 700, 0)); // #2 has G
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 500)); // #2 has H
+            Assert.IsTrue(SiteHasClockwisePoint(sites[1], 1000, 0)); // #2 has Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(0), 700, 500)); // #2 B
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(1), 1000, 500)); // #2 H
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(2), 1000, 0)); // #2 Z
+            Assert.IsTrue(PointIs(sites[1].ClockwisePoints.ElementAt(3), 700, 0)); // #2 G
+            Assert.AreEqual(4, sites[2].ClockwisePoints.Count()); // #3
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 500)); // #3 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 500)); // #3 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 700, 1000)); // #3 has C
+            Assert.IsTrue(SiteHasClockwisePoint(sites[2], 300, 1000)); // #3 has D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(0), 300, 500)); // #3 A
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(1), 300, 1000)); // #3 D
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(2), 700, 1000)); // #3 C
+            Assert.IsTrue(PointIs(sites[2].ClockwisePoints.ElementAt(3), 700, 500)); // #3 B
+            Assert.AreEqual(4, sites[3].ClockwisePoints.Count()); // #4
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 500)); // #4 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 700, 500)); // #4 has B
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 300, 0)); // #4 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[3], 700, 0)); // #4 has G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(0), 300, 500)); // #4 A
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(1), 700, 500)); // #4 B
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(2), 700, 0)); // #4 G
+            Assert.IsTrue(PointIs(sites[3].ClockwisePoints.ElementAt(3), 300, 0)); // #4 F
+            Assert.AreEqual(4, sites[4].ClockwisePoints.Count()); // #5
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 300, 500)); // #5 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 300, 1000)); // #5 has D
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 500)); // #5 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[4], 0, 1000)); // #5 has X
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(0), 0, 1000)); // #5 X
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(1), 300, 1000)); // #5 D
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(2), 300, 500)); // #5 A
+            Assert.IsTrue(PointIs(sites[4].ClockwisePoints.ElementAt(3), 0, 500)); // #5 E
+            Assert.AreEqual(4, sites[5].ClockwisePoints.Count()); // #6
+            Assert.IsTrue(SiteHasClockwisePoint(sites[5], 300, 500)); // #6 has A
+            Assert.IsTrue(SiteHasClockwisePoint(sites[5], 0, 500)); // #6 has E
+            Assert.IsTrue(SiteHasClockwisePoint(sites[5], 300, 0)); // #6 has F
+            Assert.IsTrue(SiteHasClockwisePoint(sites[5], 0, 0)); // #6 has Y
+            Assert.IsTrue(PointIs(sites[5].ClockwisePoints.ElementAt(0), 0, 500)); // #6 E
+            Assert.IsTrue(PointIs(sites[5].ClockwisePoints.ElementAt(1), 300, 500)); // #6 A
+            Assert.IsTrue(PointIs(sites[5].ClockwisePoints.ElementAt(2), 300, 0)); // #6 F
+            Assert.IsTrue(PointIs(sites[5].ClockwisePoints.ElementAt(3), 0, 0)); // #6 Y
         }
 
     }
