@@ -61,10 +61,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         [Test]
@@ -107,10 +108,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         [Test]
@@ -153,10 +155,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -203,10 +206,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         /// <summary>
@@ -253,10 +257,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
         }
 
         /// <summary>
@@ -303,10 +308,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
         }
 
         [Test]
@@ -349,10 +355,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -399,10 +406,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         /// <summary>
@@ -449,10 +457,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
         }
 
         /// <summary>
@@ -499,10 +508,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
         }
 
         [Test]
@@ -545,10 +555,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -595,10 +606,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         /// <summary>
@@ -645,10 +657,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
         }
 
         /// <summary>
@@ -695,10 +708,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
         }
 
         [Test]
@@ -741,10 +755,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -791,10 +806,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         /// <summary>
@@ -841,10 +857,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
         }
 
         /// <summary>
@@ -891,10 +908,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
         }
 
         /// <summary>
@@ -941,10 +959,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // Z-X
         }
 
         /// <summary>
@@ -991,10 +1010,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // Z-X
         }
 
         /// <summary>
@@ -1041,10 +1061,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // Z-X
         }
 
         /// <summary>
@@ -1091,10 +1112,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // Z-X
         }
 
         [Test]
@@ -1137,10 +1159,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -1187,10 +1210,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         /// <summary>
@@ -1237,10 +1261,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
         }
 
         /// <summary>
@@ -1287,10 +1312,11 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 4 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
         }
 
         [Test]
@@ -1334,13 +1360,14 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 7 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 1000, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // W-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 500, 1000, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // A-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // W-B
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -1388,13 +1415,14 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 7 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 500, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // W-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 1000, 500, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // X-A
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // A-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // W-B
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         [Test]
@@ -1438,13 +1466,14 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 7 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 700)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 0, 0)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 700)); // W-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 700, 1000, 1000)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 700, 1000, 700)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 700)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 700, 0, 0)); // A-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 700)); // W-B
+            Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -1492,13 +1521,14 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 7 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 0, 1000)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 700, 0)); // W-B
-            Assume.That(() => AnyEdgeBetween(edges, 700, 0, 1000, 0)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 700, 1000, 700, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 700, 1000)); // X-A
+            Assume.That(() => HasEdge(edges, 700, 1000, 0, 1000)); // A-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 700, 0)); // W-B
+            Assume.That(() => HasEdge(edges, 700, 0, 1000, 0)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         [Test]
@@ -1543,16 +1573,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 1000, 300)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 700)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 0, 300)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 0, 0)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // W-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 300, 1000, 700)); // D-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 700, 1000, 1000)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 700, 1000, 700)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 300, 1000, 300)); // C-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 700)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 700, 0, 300)); // A-C
+            Assume.That(() => HasEdge(edges, 0, 300, 0, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // W-D
+            Assume.That(() => HasEdge(edges, 1000, 300, 1000, 700)); // D-B
+            Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -1601,16 +1632,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 300, 0)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 300, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 0, 1000)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 300, 0)); // W-D
-            Assume.That(() => AnyEdgeBetween(edges, 300, 0, 700, 0)); // D-B
-            Assume.That(() => AnyEdgeBetween(edges, 700, 0, 1000, 0)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 700, 1000, 700, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 300, 1000, 300, 0)); // C-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 700, 1000)); // X-A
+            Assume.That(() => HasEdge(edges, 700, 1000, 300, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 300, 1000, 0, 1000)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 300, 0)); // W-D
+            Assume.That(() => HasEdge(edges, 300, 0, 700, 0)); // D-B
+            Assume.That(() => HasEdge(edges, 700, 0, 1000, 0)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         [Test]
@@ -1656,19 +1688,20 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 13 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 1000, 700)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 1000, 500)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 1000, 300)); // E-F
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 700)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 0, 500)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 300)); // C-E
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 0, 0)); // E-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // W-F
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 300, 1000, 500)); // F-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 700)); // D-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 700, 1000, 1000)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 700, 1000, 700)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 500, 1000, 500)); // C-D
+            Assume.That(() => HasEdge(edges, 0, 300, 1000, 300)); // E-F
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 700)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 700, 0, 500)); // A-C
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 300)); // C-E
+            Assume.That(() => HasEdge(edges, 0, 300, 0, 0)); // E-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // W-F
+            Assume.That(() => HasEdge(edges, 1000, 300, 1000, 500)); // F-D
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 700)); // D-B
+            Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -1718,19 +1751,20 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 13 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 700, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 500, 0)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 300, 0)); // E-F
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 500, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 300, 1000)); // C-E
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 0, 1000)); // E-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 300, 0)); // W-F
-            Assume.That(() => AnyEdgeBetween(edges, 300, 0, 500, 0)); // F-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 700, 0)); // D-B
-            Assume.That(() => AnyEdgeBetween(edges, 700, 0, 1000, 0)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 700, 1000, 700, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 1000, 500, 0)); // C-D
+            Assume.That(() => HasEdge(edges, 300, 1000, 300, 0)); // E-F
+            Assume.That(() => HasEdge(edges, 1000, 1000, 700, 1000)); // X-A
+            Assume.That(() => HasEdge(edges, 700, 1000, 500, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 1000, 300, 1000)); // C-E
+            Assume.That(() => HasEdge(edges, 300, 1000, 0, 1000)); // E-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 300, 0)); // W-F
+            Assume.That(() => HasEdge(edges, 300, 0, 500, 0)); // F-D
+            Assume.That(() => HasEdge(edges, 500, 0, 700, 0)); // D-B
+            Assume.That(() => HasEdge(edges, 700, 0, 1000, 0)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         [Test]
@@ -1774,11 +1808,12 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 5 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // B-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // A-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // B-X
         }
 
         /// <summary>
@@ -1826,11 +1861,12 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 5 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // B-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // A-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // B-X
         }
 
         [Test]
@@ -1874,13 +1910,14 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 7 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 200, 800, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 200)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 200, 0, 0)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // Z-B
-            Assume.That(() => AnyEdgeBetween(edges, 800, 1000, 0, 1000)); // B-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 200, 800, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 200)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 200, 0, 0)); // A-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 800, 1000)); // Z-B
+            Assume.That(() => HasEdge(edges, 800, 1000, 0, 1000)); // B-X
         }
 
         /// <summary>
@@ -1928,13 +1965,14 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 7 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 200, 1000, 1000, 200)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 200, 1000)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // Z-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 200, 1000, 1000)); // B-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 200, 1000, 1000, 200)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 200, 1000)); // X-A
+            Assume.That(() => HasEdge(edges, 200, 1000, 0, 1000)); // A-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 200)); // Z-B
+            Assume.That(() => HasEdge(edges, 1000, 200, 1000, 1000)); // B-X
         }
 
         /// <summary>
@@ -1982,13 +2020,14 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 7 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 800, 200, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 800)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 200, 0)); // Z-B
-            Assume.That(() => AnyEdgeBetween(edges, 200, 0, 1000, 0)); // B-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 800, 200, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 800)); // X-A
+            Assume.That(() => HasEdge(edges, 1000, 800, 1000, 1000)); // A-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 200, 0)); // Z-B
+            Assume.That(() => HasEdge(edges, 200, 0, 1000, 0)); // B-X
         }
 
         /// <summary>
@@ -2036,13 +2075,14 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 7 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 800, 0, 0, 800)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 800, 0)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 800, 0, 1000, 0)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 800)); // Z-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 800, 0, 0)); // B-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 800, 0, 0, 800)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 800, 0)); // X-A
+            Assume.That(() => HasEdge(edges, 800, 0, 1000, 0)); // A-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 800)); // Z-B
+            Assume.That(() => HasEdge(edges, 0, 800, 0, 0)); // B-X
         }
 
         [Test]
@@ -2086,11 +2126,12 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 5 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // A-X
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-A
         }
 
         /// <summary>
@@ -2138,11 +2179,12 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 5 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // A-X
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-B
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-A
         }
 
         /// <summary>
@@ -2190,11 +2232,12 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 5 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // A-X
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-A
         }
 
         /// <summary>
@@ -2242,11 +2285,12 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 5 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // A-X
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // X-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-A
         }
 
         [Test]
@@ -2290,12 +2334,13 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 6 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // A-X
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Y-B
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-A
         }
 
         /// <summary>
@@ -2343,12 +2388,13 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 6 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // A-X
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // Y-B
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-A
         }
 
         /// <summary>
@@ -2396,12 +2442,13 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 6 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Z-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // A-X
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // Y-B
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // B-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-A
         }
 
         /// <summary>
@@ -2449,12 +2496,13 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 6 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Z-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // A-X
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Y-B
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // B-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-A
         }
 
         /// <summary>
@@ -2502,12 +2550,13 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 6 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 0)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 500)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 1000)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 1000)); // Z-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // A-X
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 500)); // Y-B
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 1000)); // B-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // Z-A
         }
 
         /// <summary>
@@ -2555,12 +2604,13 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 6 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 500, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 0)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 500, 1000)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 1000, 1000)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 0)); // Z-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 0, 500, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // A-X
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 500, 1000)); // Y-B
+            Assume.That(() => HasEdge(edges, 500, 1000, 1000, 1000)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // Z-A
         }
 
         /// <summary>
@@ -2608,12 +2658,13 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 6 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 1000)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 500)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 0)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 0)); // Z-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // A-X
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 500)); // Y-B
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 0)); // B-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // Z-A
         }
 
         /// <summary>
@@ -2661,12 +2712,13 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 6 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 500, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 1000)); // A-X
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 500, 0)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 0, 0)); // B-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 1000)); // Z-A
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 1000, 500, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // A-X
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 500, 0)); // Y-B
+            Assume.That(() => HasEdge(edges, 500, 0, 0, 0)); // B-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // Z-A
         }
 
         [Test]
@@ -2711,16 +2763,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 700, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 300, 0, 1000, 700)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 300)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 0, 0)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 300, 0)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 300, 0, 1000, 0)); // B-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 700)); // W-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 700, 1000, 1000)); // C-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 0, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 300, 700, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 300, 0, 1000, 700)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 300)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 300, 0, 0)); // A-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 300, 0)); // Y-B
+            Assume.That(() => HasEdge(edges, 300, 0, 1000, 0)); // B-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 700)); // W-C
+            Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // C-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 700, 1000)); // Z-D
+            Assume.That(() => HasEdge(edges, 700, 1000, 0, 1000)); // D-X
         }
 
         /// <summary>
@@ -2769,16 +2822,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 1000, 300)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 700, 0)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 300, 1000)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 0, 1000)); // A-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 700)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 0, 0)); // B-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 700, 0)); // W-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 0, 1000, 0)); // C-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 300, 1000, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 300, 1000, 1000, 300)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 700, 700, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 1000, 1000, 300, 1000)); // X-A
+            Assume.That(() => HasEdge(edges, 300, 1000, 0, 1000)); // A-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 700)); // Y-B
+            Assume.That(() => HasEdge(edges, 0, 700, 0, 0)); // B-W
+            Assume.That(() => HasEdge(edges, 0, 0, 700, 0)); // W-C
+            Assume.That(() => HasEdge(edges, 700, 0, 1000, 0)); // C-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // Z-D
+            Assume.That(() => HasEdge(edges, 1000, 300, 1000, 1000)); // D-X
         }
 
         [Test]
@@ -2823,14 +2877,15 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 8 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 400, 600, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 400)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 400, 0, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 600, 1000)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 600, 1000, 0, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 400, 600, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 400)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 400, 0, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-C
+            Assume.That(() => HasEdge(edges, 1000, 1000, 600, 1000)); // C-D
+            Assume.That(() => HasEdge(edges, 600, 1000, 0, 1000)); // D-X
         }
 
         /// <summary>
@@ -2879,14 +2934,15 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 8 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 1000, 1000, 400)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 400, 1000)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 400, 1000, 0, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 400)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 400, 1000, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 1000, 1000, 400)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 1000, 1000, 400, 1000)); // X-A
+            Assume.That(() => HasEdge(edges, 400, 1000, 0, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-C
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 400)); // C-D
+            Assume.That(() => HasEdge(edges, 1000, 400, 1000, 1000)); // D-X
         }
 
         /// <summary>
@@ -2935,14 +2991,15 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 8 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 600, 400, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 0)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 600)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 600, 1000, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 400, 0)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 400, 0, 1000, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 600, 400, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 600)); // X-A
+            Assume.That(() => HasEdge(edges, 1000, 600, 1000, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-C
+            Assume.That(() => HasEdge(edges, 0, 0, 400, 0)); // C-D
+            Assume.That(() => HasEdge(edges, 400, 0, 1000, 0)); // D-X
         }
 
         /// <summary>
@@ -2991,14 +3048,15 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 8 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 600, 0, 0, 600)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 1000)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 600, 0)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 600, 0, 1000, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 600)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 600, 0, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 0, 0, 600)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 0, 600, 0)); // X-A
+            Assume.That(() => HasEdge(edges, 600, 0, 1000, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-C
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 600)); // C-D
+            Assume.That(() => HasEdge(edges, 0, 600, 0, 0)); // D-X
         }
 
         [Test]
@@ -3044,17 +3102,18 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 11 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 0, 400, 600, 1000)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 1000)); // B-E
-            Assume.That(() => AnyEdgeBetween(edges, 400, 0, 1000, 600)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 400)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 0, 400, 0, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 400, 0)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 400, 0, 1000, 0)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 600)); // Y-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 600, 1000, 1000)); // D-E
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 600, 1000)); // E-F
-            Assume.That(() => AnyEdgeBetween(edges, 600, 1000, 0, 1000)); // F-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 400, 600, 1000)); // A-F
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000)); // B-E
+            Assume.That(() => HasEdge(edges, 400, 0, 1000, 600)); // C-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 400)); // X-A
+            Assume.That(() => HasEdge(edges, 0, 400, 0, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 400, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 400, 0, 1000, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 600)); // Y-D
+            Assume.That(() => HasEdge(edges, 1000, 600, 1000, 1000)); // D-E
+            Assume.That(() => HasEdge(edges, 1000, 1000, 600, 1000)); // E-F
+            Assume.That(() => HasEdge(edges, 600, 1000, 0, 1000)); // F-X
         }
 
         /// <summary>
@@ -3104,17 +3163,18 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 11 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 1000, 1000, 400)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 0)); // B-E
-            Assume.That(() => AnyEdgeBetween(edges, 0, 600, 600, 0)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 400, 1000)); // X-A
-            Assume.That(() => AnyEdgeBetween(edges, 400, 1000, 0, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 600)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 600, 0, 0)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 600, 0)); // Y-D
-            Assume.That(() => AnyEdgeBetween(edges, 600, 0, 1000, 0)); // D-E
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 400)); // E-F
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 400, 1000, 1000)); // F-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 1000, 1000, 400)); // A-F
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0)); // B-E
+            Assume.That(() => HasEdge(edges, 0, 600, 600, 0)); // C-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 400, 1000)); // X-A
+            Assume.That(() => HasEdge(edges, 400, 1000, 0, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 600)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 600, 0, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 600, 0)); // Y-D
+            Assume.That(() => HasEdge(edges, 600, 0, 1000, 0)); // D-E
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 400)); // E-F
+            Assume.That(() => HasEdge(edges, 1000, 400, 1000, 1000)); // F-X
         }
 
         [Test]
@@ -3159,15 +3219,16 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 9 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 0, 400)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 400, 0)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 1000, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 400)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 400, 0, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 400, 0)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 400, 0, 1000, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 400)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 400, 400, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 400, 400, 1000, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 400)); // X-B
+            Assume.That(() => HasEdge(edges, 0, 400, 0, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 400, 0)); // Y-C
+            Assume.That(() => HasEdge(edges, 400, 0, 1000, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // D-X
         }
 
         /// <summary>
@@ -3216,15 +3277,16 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 9 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 400, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 0, 600)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 1000, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 400, 1000)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 400, 1000, 0, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 600)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 600, 0, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 600, 400, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 600)); // A-C
+            Assume.That(() => HasEdge(edges, 400, 600, 1000, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 400, 1000)); // X-B
+            Assume.That(() => HasEdge(edges, 400, 1000, 0, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 600)); // Y-C
+            Assume.That(() => HasEdge(edges, 0, 600, 0, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // D-X
         }
 
         /// <summary>
@@ -3273,15 +3335,16 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 9 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 1000, 600)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 600, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 0, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 600)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 600, 1000, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 600, 1000)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 600, 1000, 0, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 600)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 600, 600, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 600, 0, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 600)); // X-B
+            Assume.That(() => HasEdge(edges, 1000, 600, 1000, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 600, 1000)); // Y-C
+            Assume.That(() => HasEdge(edges, 600, 1000, 0, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-D
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // D-X
         }
 
         /// <summary>
@@ -3330,15 +3393,16 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 9 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 600, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 1000, 400)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 0, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 600, 0)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 600, 0, 1000, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 400)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 400, 1000, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 400, 600, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 400)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 400, 0, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 0, 600, 0)); // X-B
+            Assume.That(() => HasEdge(edges, 600, 0, 1000, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 400)); // Y-C
+            Assume.That(() => HasEdge(edges, 1000, 400, 1000, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // D-X
         }
 
         [Test]
@@ -3383,16 +3447,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 300, 600, 0, 600)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 300, 600, 300, 0)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 300, 600, 700, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 600)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 600, 0, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 300, 0)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 300, 0, 1000, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 0, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 300, 600, 0, 600)); // A-B
+            Assume.That(() => HasEdge(edges, 300, 600, 300, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 300, 600, 700, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 600)); // X-B
+            Assume.That(() => HasEdge(edges, 0, 600, 0, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 300, 0)); // Y-C
+            Assume.That(() => HasEdge(edges, 300, 0, 1000, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 700, 1000)); // Z-D
+            Assume.That(() => HasEdge(edges, 700, 1000, 0, 1000)); // D-X
         }
 
         /// <summary>
@@ -3441,16 +3506,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 600, 700, 600, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 600, 700, 0, 700)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 600, 700, 1000, 300)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 600, 1000)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 600, 1000, 0, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 700)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 0, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 300, 1000, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 700, 600, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 700, 0, 700)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 700, 1000, 300)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 600, 1000)); // X-B
+            Assume.That(() => HasEdge(edges, 600, 1000, 0, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 700)); // Y-C
+            Assume.That(() => HasEdge(edges, 0, 700, 0, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // Z-D
+            Assume.That(() => HasEdge(edges, 1000, 300, 1000, 1000)); // D-X
         }
 
         /// <summary>
@@ -3499,16 +3565,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 700, 400, 1000, 400)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 700, 400, 700, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 400, 300, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 400)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 400, 1000, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 0, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 300, 0)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 300, 0, 1000, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 700, 400, 1000, 400)); // A-B
+            Assume.That(() => HasEdge(edges, 700, 400, 700, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 700, 400, 300, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 400)); // X-B
+            Assume.That(() => HasEdge(edges, 1000, 400, 1000, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 700, 1000)); // Y-C
+            Assume.That(() => HasEdge(edges, 700, 1000, 0, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 300, 0)); // Z-D
+            Assume.That(() => HasEdge(edges, 300, 0, 1000, 0)); // D-X
         }
 
         /// <summary>
@@ -3557,16 +3624,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 300, 400, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 400, 300, 1000, 300)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 400, 300, 0, 700)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 400, 0)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 400, 0, 1000, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 300, 1000, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 700)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 0, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 300, 400, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 300, 1000, 300)); // A-C
+            Assume.That(() => HasEdge(edges, 400, 300, 0, 700)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 0, 400, 0)); // X-B
+            Assume.That(() => HasEdge(edges, 400, 0, 1000, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // Y-C
+            Assume.That(() => HasEdge(edges, 1000, 300, 1000, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 700)); // Z-D
+            Assume.That(() => HasEdge(edges, 0, 700, 0, 0)); // D-X
         }
 
         /// <summary>
@@ -3615,16 +3683,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 700, 600, 1000, 600)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 700, 600, 700, 0)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 600, 300, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 600)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 600, 1000, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 700, 0)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 0, 0, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 300, 1000)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 1000, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 700, 600, 1000, 600)); // A-B
+            Assume.That(() => HasEdge(edges, 700, 600, 700, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 700, 600, 300, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 600)); // X-B
+            Assume.That(() => HasEdge(edges, 1000, 600, 1000, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 700, 0)); // Y-C
+            Assume.That(() => HasEdge(edges, 700, 0, 0, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 300, 1000)); // Z-D
+            Assume.That(() => HasEdge(edges, 300, 1000, 1000, 1000)); // D-X
         }
 
         /// <summary>
@@ -3673,16 +3742,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 600, 300, 600, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 600, 300, 0, 300)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 600, 300, 1000, 700)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 600, 0)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 600, 0, 0, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 300)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 0, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 700)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 700, 1000, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 300, 600, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 300, 0, 300)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 300, 1000, 700)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 600, 0)); // X-B
+            Assume.That(() => HasEdge(edges, 600, 0, 0, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 300)); // Y-C
+            Assume.That(() => HasEdge(edges, 0, 300, 0, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 700)); // Z-D
+            Assume.That(() => HasEdge(edges, 1000, 700, 1000, 0)); // D-X
         }
 
         /// <summary>
@@ -3731,16 +3801,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 300, 400, 0, 400)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 300, 400, 300, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 300, 400, 700, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 400)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 400, 0, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 300, 1000)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 1000, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 700, 0)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 700, 0, 0, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 300, 400, 0, 400)); // A-B
+            Assume.That(() => HasEdge(edges, 300, 400, 300, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 300, 400, 700, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 400)); // X-B
+            Assume.That(() => HasEdge(edges, 0, 400, 0, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 300, 1000)); // Y-C
+            Assume.That(() => HasEdge(edges, 300, 1000, 1000, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 700, 0)); // Z-D
+            Assume.That(() => HasEdge(edges, 700, 0, 0, 0)); // D-X
         }
 
         /// <summary>
@@ -3789,16 +3860,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 700, 400, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 400, 700, 1000, 700)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 400, 700, 0, 300)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 400, 1000)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 400, 1000, 1000, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 1000, 700)); // Y-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 700, 1000, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 0, 300)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 0, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 700, 400, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 700, 1000, 700)); // A-C
+            Assume.That(() => HasEdge(edges, 400, 700, 0, 300)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 400, 1000)); // X-B
+            Assume.That(() => HasEdge(edges, 400, 1000, 1000, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 700)); // Y-C
+            Assume.That(() => HasEdge(edges, 1000, 700, 1000, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 300)); // Z-D
+            Assume.That(() => HasEdge(edges, 0, 300, 0, 1000)); // D-X
         }
 
         [Test]
@@ -3843,14 +3915,15 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 8 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 0)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Y-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-B
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // C-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Y-D
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // D-X
         }
 
         /// <summary>
@@ -3899,14 +3972,15 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 8 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 0)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // Y-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Y-D
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // D-X
         }
 
         /// <summary>
@@ -3955,14 +4029,15 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 8 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // Y-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // X-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // Y-D
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // D-X
         }
 
         /// <summary>
@@ -4011,14 +4086,15 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 8 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // Y-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // Y-D
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // D-X
         }
 
         [Test]
@@ -4063,16 +4139,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 200, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 800, 0)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 200, 0)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 200, 0, 800, 0)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 800, 0, 1000, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 300, 200, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 300, 800, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 200, 0)); // Y-B
+            Assume.That(() => HasEdge(edges, 200, 0, 800, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 800, 0, 1000, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-D
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // D-X
         }
 
         /// <summary>
@@ -4121,16 +4198,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 800)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 200)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 1000, 500)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 800)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 800, 0, 200)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 200, 0, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 800)); // A-B
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 200)); // A-C
+            Assume.That(() => HasEdge(edges, 300, 500, 1000, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 800)); // Y-B
+            Assume.That(() => HasEdge(edges, 0, 800, 0, 200)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 200, 0, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Z-D
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // D-X
         }
 
         /// <summary>
@@ -4179,16 +4257,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 800, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 200, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 500, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 800, 1000, 200, 1000)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 700, 800, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 700, 200, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 700, 500, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 800, 1000)); // Y-B
+            Assume.That(() => HasEdge(edges, 800, 1000, 200, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 200, 1000, 0, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // Z-D
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // D-X
         }
 
         /// <summary>
@@ -4237,16 +4316,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 200)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 800)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 0, 500)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // X-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // Y-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 200, 1000, 800)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // W-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 200)); // A-B
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 800)); // A-C
+            Assume.That(() => HasEdge(edges, 700, 500, 0, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 200)); // Y-B
+            Assume.That(() => HasEdge(edges, 1000, 200, 1000, 800)); // B-C
+            Assume.That(() => HasEdge(edges, 1000, 800, 1000, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // Z-D
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // D-X
         }
 
         [Test]
@@ -4291,16 +4371,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 0, 200)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 1000, 200)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 500, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 200)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 0, 200, 0, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // W-C
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 200, 1000, 1000)); // C-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 700, 0, 200)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 700, 1000, 200)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 700, 500, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 200)); // X-B
+            Assume.That(() => HasEdge(edges, 0, 200, 0, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 200)); // W-C
+            Assume.That(() => HasEdge(edges, 1000, 200, 1000, 1000)); // C-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-D
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // D-X
         }
 
         /// <summary>
@@ -4349,16 +4430,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 200, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 200, 0)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 500)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 200, 1000)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 200, 0)); // W-C
-            Assume.That(() => AnyEdgeBetween(edges, 200, 0, 1000, 0)); // C-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 700, 500, 200, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 700, 500, 200, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 200, 1000)); // X-B
+            Assume.That(() => HasEdge(edges, 200, 1000, 0, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 0, 200, 0)); // W-C
+            Assume.That(() => HasEdge(edges, 200, 0, 1000, 0)); // C-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Z-D
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // D-X
         }
 
         /// <summary>
@@ -4407,16 +4489,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 1000, 800)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 0, 800)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 800)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 800)); // W-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 800, 0, 0)); // C-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 300, 1000, 800)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 300, 0, 800)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 800)); // X-B
+            Assume.That(() => HasEdge(edges, 1000, 800, 1000, 1000)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 800)); // W-C
+            Assume.That(() => HasEdge(edges, 0, 800, 0, 0)); // C-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // Z-D
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // D-X
         }
 
         /// <summary>
@@ -4465,16 +4548,17 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 10 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 800, 0)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 800, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 500)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 800, 0)); // X-B
-            Assume.That(() => AnyEdgeBetween(edges, 800, 0, 1000, 0)); // B-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Y-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // W-C
-            Assume.That(() => AnyEdgeBetween(edges, 800, 1000, 0, 1000)); // C-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // D-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 300, 500, 800, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 300, 500, 800, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 0, 0, 800, 0)); // X-B
+            Assume.That(() => HasEdge(edges, 800, 0, 1000, 0)); // B-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 800, 1000)); // W-C
+            Assume.That(() => HasEdge(edges, 800, 1000, 0, 1000)); // C-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // Z-D
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // D-X
         }
 
         [Test]
@@ -4521,18 +4605,19 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 12 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 400, 400)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 600, 400)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 600, 600)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 400, 600)); // D-A
-            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 0, 1000)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 0, 0)); // B-F
-            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 1000, 0)); // C-G
-            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 1000, 1000)); // D-H
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // E-F
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // F-G
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // G-H
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // H-E
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 600, 400, 400)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 400, 600, 400)); // B-C
+            Assume.That(() => HasEdge(edges, 600, 400, 600, 600)); // C-D
+            Assume.That(() => HasEdge(edges, 600, 600, 400, 600)); // D-A
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 0)); // B-F
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 0)); // C-G
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 1000)); // D-H
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // E-F
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // F-G
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // G-H
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // H-E
         }
 
         [Test]
@@ -4579,22 +4664,23 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 16 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 400, 200)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 400, 200, 600, 200)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 600, 200, 600, 400)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 400, 400)); // D-A
-            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 0, 800)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 400, 200, 200, 0)); // B-F
-            Assume.That(() => AnyEdgeBetween(edges, 600, 200, 800, 0)); // C-G
-            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 1000, 800)); // D-H
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 800)); // X-E
-            Assume.That(() => AnyEdgeBetween(edges, 0, 800, 0, 0)); // E-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 200, 0)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 200, 0, 800, 0)); // F-G
-            Assume.That(() => AnyEdgeBetween(edges, 800, 0, 1000, 0)); // G-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 800)); // W-H
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // H-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 400, 400, 200)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 200, 600, 200)); // B-C
+            Assume.That(() => HasEdge(edges, 600, 200, 600, 400)); // C-D
+            Assume.That(() => HasEdge(edges, 600, 400, 400, 400)); // D-A
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 800)); // A-E
+            Assume.That(() => HasEdge(edges, 400, 200, 200, 0)); // B-F
+            Assume.That(() => HasEdge(edges, 600, 200, 800, 0)); // C-G
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 800)); // D-H
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 800)); // X-E
+            Assume.That(() => HasEdge(edges, 0, 800, 0, 0)); // E-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 200, 0)); // Y-F
+            Assume.That(() => HasEdge(edges, 200, 0, 800, 0)); // F-G
+            Assume.That(() => HasEdge(edges, 800, 0, 1000, 0)); // G-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 800)); // W-H
+            Assume.That(() => HasEdge(edges, 1000, 800, 1000, 1000)); // H-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
         }
 
         /// <summary>
@@ -4645,22 +4731,23 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 16 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 200, 600)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 200, 600, 200, 400)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 200, 400, 400, 400)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 400, 600)); // D-A
-            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 800, 1000)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 200, 600, 0, 800)); // B-F
-            Assume.That(() => AnyEdgeBetween(edges, 200, 400, 0, 200)); // C-G
-            Assume.That(() => AnyEdgeBetween(edges, 400, 400, 800, 0)); // D-H
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // X-E
-            Assume.That(() => AnyEdgeBetween(edges, 800, 1000, 0, 1000)); // E-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 800)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 0, 800, 0, 200)); // F-G
-            Assume.That(() => AnyEdgeBetween(edges, 0, 200, 0, 0)); // G-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 800, 0)); // W-H
-            Assume.That(() => AnyEdgeBetween(edges, 800, 0, 1000, 0)); // H-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 600, 200, 600)); // A-B
+            Assume.That(() => HasEdge(edges, 200, 600, 200, 400)); // B-C
+            Assume.That(() => HasEdge(edges, 200, 400, 400, 400)); // C-D
+            Assume.That(() => HasEdge(edges, 400, 400, 400, 600)); // D-A
+            Assume.That(() => HasEdge(edges, 400, 600, 800, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 200, 600, 0, 800)); // B-F
+            Assume.That(() => HasEdge(edges, 200, 400, 0, 200)); // C-G
+            Assume.That(() => HasEdge(edges, 400, 400, 800, 0)); // D-H
+            Assume.That(() => HasEdge(edges, 1000, 1000, 800, 1000)); // X-E
+            Assume.That(() => HasEdge(edges, 800, 1000, 0, 1000)); // E-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 800)); // Y-F
+            Assume.That(() => HasEdge(edges, 0, 800, 0, 200)); // F-G
+            Assume.That(() => HasEdge(edges, 0, 200, 0, 0)); // G-W
+            Assume.That(() => HasEdge(edges, 0, 0, 800, 0)); // W-H
+            Assume.That(() => HasEdge(edges, 800, 0, 1000, 0)); // H-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
         }
 
         /// <summary>
@@ -4711,22 +4798,23 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 16 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 600, 800)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 600, 800, 400, 800)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 400, 800, 400, 600)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 600, 600)); // D-A
-            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 1000, 200)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 600, 800, 800, 1000)); // B-F
-            Assume.That(() => AnyEdgeBetween(edges, 400, 800, 200, 1000)); // C-G
-            Assume.That(() => AnyEdgeBetween(edges, 400, 600, 0, 200)); // D-H
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // X-E
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 200, 1000, 1000)); // E-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 800, 1000, 200, 1000)); // F-G
-            Assume.That(() => AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // G-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 200)); // W-H
-            Assume.That(() => AnyEdgeBetween(edges, 0, 200, 0, 0)); // H-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 1000, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 600, 600, 800)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 800, 400, 800)); // B-C
+            Assume.That(() => HasEdge(edges, 400, 800, 400, 600)); // C-D
+            Assume.That(() => HasEdge(edges, 400, 600, 600, 600)); // D-A
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 200)); // A-E
+            Assume.That(() => HasEdge(edges, 600, 800, 800, 1000)); // B-F
+            Assume.That(() => HasEdge(edges, 400, 800, 200, 1000)); // C-G
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 200)); // D-H
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 200)); // X-E
+            Assume.That(() => HasEdge(edges, 1000, 200, 1000, 1000)); // E-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 800, 1000)); // Y-F
+            Assume.That(() => HasEdge(edges, 800, 1000, 200, 1000)); // F-G
+            Assume.That(() => HasEdge(edges, 200, 1000, 0, 1000)); // G-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 200)); // W-H
+            Assume.That(() => HasEdge(edges, 0, 200, 0, 0)); // H-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
         }
 
         /// <summary>
@@ -4777,22 +4865,23 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 16 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 800, 400)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 800, 400, 800, 600)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 800, 600, 600, 600)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 600, 400)); // D-A
-            Assume.That(() => AnyEdgeBetween(edges, 600, 400, 200, 0)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 800, 400, 1000, 200)); // B-F
-            Assume.That(() => AnyEdgeBetween(edges, 800, 600, 1000, 800)); // C-G
-            Assume.That(() => AnyEdgeBetween(edges, 600, 600, 200, 1000)); // D-H
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 200, 0)); // X-E
-            Assume.That(() => AnyEdgeBetween(edges, 200, 0, 1000, 0)); // E-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 200, 1000, 800)); // F-G
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // G-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 200, 1000)); // W-H
-            Assume.That(() => AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // H-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 0)); // Z-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 400, 800, 400)); // A-B
+            Assume.That(() => HasEdge(edges, 800, 400, 800, 600)); // B-C
+            Assume.That(() => HasEdge(edges, 800, 600, 600, 600)); // C-D
+            Assume.That(() => HasEdge(edges, 600, 600, 600, 400)); // D-A
+            Assume.That(() => HasEdge(edges, 600, 400, 200, 0)); // A-E
+            Assume.That(() => HasEdge(edges, 800, 400, 1000, 200)); // B-F
+            Assume.That(() => HasEdge(edges, 800, 600, 1000, 800)); // C-G
+            Assume.That(() => HasEdge(edges, 600, 600, 200, 1000)); // D-H
+            Assume.That(() => HasEdge(edges, 0, 0, 200, 0)); // X-E
+            Assume.That(() => HasEdge(edges, 200, 0, 1000, 0)); // E-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 200)); // Y-F
+            Assume.That(() => HasEdge(edges, 1000, 200, 1000, 800)); // F-G
+            Assume.That(() => HasEdge(edges, 1000, 800, 1000, 1000)); // G-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 200, 1000)); // W-H
+            Assume.That(() => HasEdge(edges, 200, 1000, 0, 1000)); // H-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
         }
 
         [Test]
@@ -4838,18 +4927,19 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 12 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // X-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // Y-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // D-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // W-E
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // E-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Z-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // B-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 500)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500)); // A-E
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // X-C
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // Y-D
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // D-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // W-E
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // E-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-B
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // B-X
         }
 
         [Test]
@@ -4895,18 +4985,19 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 12 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // X-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // Y-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // D-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // W-E
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // E-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Z-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // B-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 500)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500)); // A-E
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // X-C
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // Y-D
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // D-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // W-E
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // E-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-B
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // B-X
         }
 
         /// <summary>
@@ -4956,18 +5047,19 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 12 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 1000)); // A-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 500)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 500, 0)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // X-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // C-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // Y-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // D-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // W-E
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // E-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // Z-B
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // B-X
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 0)); // A-E
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // X-C
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // Y-D
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // D-W
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // W-E
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // E-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Z-B
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // B-X
         }
 
         [Test]
@@ -5014,21 +5106,22 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 15 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 400, 500, 700)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 200, 1000)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 800, 1000)); // B-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 400, 0, 400)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 500, 400, 1000, 400)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 500, 400, 500, 0)); // A-G
-            Assume.That(() => AnyEdgeBetween(edges, 200, 1000, 0, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 400)); // W-E
-            Assume.That(() => AnyEdgeBetween(edges, 0, 400, 0, 0)); // E-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // X-G
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // G-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 400)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 400, 1000, 1000)); // F-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 800, 1000)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 800, 1000, 200, 1000)); // D-C
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 400, 500, 700)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 700, 200, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 500, 700, 800, 1000)); // B-D
+            Assume.That(() => HasEdge(edges, 500, 400, 0, 400)); // A-E
+            Assume.That(() => HasEdge(edges, 500, 400, 1000, 400)); // A-F
+            Assume.That(() => HasEdge(edges, 500, 400, 500, 0)); // A-G
+            Assume.That(() => HasEdge(edges, 200, 1000, 0, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 400)); // W-E
+            Assume.That(() => HasEdge(edges, 0, 400, 0, 0)); // E-X
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // X-G
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // G-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 400)); // Y-F
+            Assume.That(() => HasEdge(edges, 1000, 400, 1000, 1000)); // F-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 800, 1000)); // Z-D
+            Assume.That(() => HasEdge(edges, 800, 1000, 200, 1000)); // D-C
         }
 
         /// <summary>
@@ -5079,21 +5172,22 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 15 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 400, 500, 700, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 800)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 200)); // B-D
-            Assume.That(() => AnyEdgeBetween(edges, 400, 500, 400, 1000)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 400, 500, 400, 0)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 400, 500, 0, 500)); // A-G
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 800, 1000, 1000)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 400, 1000)); // W-E
-            Assume.That(() => AnyEdgeBetween(edges, 400, 1000, 0, 1000)); // E-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // X-G
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // G-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 400, 0)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 400, 0, 1000, 0)); // F-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 200)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 200, 1000, 800)); // D-C
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 500, 700, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 800)); // B-C
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 200)); // B-D
+            Assume.That(() => HasEdge(edges, 400, 500, 400, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 400, 500, 400, 0)); // A-F
+            Assume.That(() => HasEdge(edges, 400, 500, 0, 500)); // A-G
+            Assume.That(() => HasEdge(edges, 1000, 800, 1000, 1000)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 400, 1000)); // W-E
+            Assume.That(() => HasEdge(edges, 400, 1000, 0, 1000)); // E-X
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // X-G
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // G-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 400, 0)); // Y-F
+            Assume.That(() => HasEdge(edges, 400, 0, 1000, 0)); // F-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 200)); // Z-D
+            Assume.That(() => HasEdge(edges, 1000, 200, 1000, 800)); // D-C
         }
 
         /// <summary>
@@ -5144,21 +5238,22 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 15 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 600, 500, 300)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 800, 0)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 200, 0)); // B-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 600, 1000, 600)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 500, 600, 0, 600)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 500, 600, 500, 1000)); // A-G
-            Assume.That(() => AnyEdgeBetween(edges, 800, 0, 1000, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 600)); // W-E
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 600, 1000, 1000)); // E-X
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // X-G
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // G-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 600)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 0, 600, 0, 0)); // F-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 200, 0)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 200, 0, 800, 0)); // D-C
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 600, 500, 300)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 300, 800, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 500, 300, 200, 0)); // B-D
+            Assume.That(() => HasEdge(edges, 500, 600, 1000, 600)); // A-E
+            Assume.That(() => HasEdge(edges, 500, 600, 0, 600)); // A-F
+            Assume.That(() => HasEdge(edges, 500, 600, 500, 1000)); // A-G
+            Assume.That(() => HasEdge(edges, 800, 0, 1000, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 600)); // W-E
+            Assume.That(() => HasEdge(edges, 1000, 600, 1000, 1000)); // E-X
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // X-G
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // G-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 600)); // Y-F
+            Assume.That(() => HasEdge(edges, 0, 600, 0, 0)); // F-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 200, 0)); // Z-D
+            Assume.That(() => HasEdge(edges, 200, 0, 800, 0)); // D-C
         }
 
         /// <summary>
@@ -5209,21 +5304,22 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 15 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 600, 500, 300, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 200)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 800)); // B-D
-            Assume.That(() => AnyEdgeBetween(edges, 600, 500, 600, 0)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 600, 500, 600, 1000)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 600, 500, 1000, 500)); // A-G
-            Assume.That(() => AnyEdgeBetween(edges, 0, 200, 0, 0)); // C-W
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 600, 0)); // W-E
-            Assume.That(() => AnyEdgeBetween(edges, 600, 0, 1000, 0)); // E-X
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // X-G
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // G-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 600, 1000)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 600, 1000, 0, 1000)); // F-Z
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 800)); // Z-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 800, 0, 200)); // D-C
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 500, 300, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 200)); // B-C
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 800)); // B-D
+            Assume.That(() => HasEdge(edges, 600, 500, 600, 0)); // A-E
+            Assume.That(() => HasEdge(edges, 600, 500, 600, 1000)); // A-F
+            Assume.That(() => HasEdge(edges, 600, 500, 1000, 500)); // A-G
+            Assume.That(() => HasEdge(edges, 0, 200, 0, 0)); // C-W
+            Assume.That(() => HasEdge(edges, 0, 0, 600, 0)); // W-E
+            Assume.That(() => HasEdge(edges, 600, 0, 1000, 0)); // E-X
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // X-G
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // G-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 600, 1000)); // Y-F
+            Assume.That(() => HasEdge(edges, 600, 1000, 0, 1000)); // F-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 800)); // Z-D
+            Assume.That(() => HasEdge(edges, 0, 800, 0, 200)); // D-C
         }
 
         [Test]
@@ -5270,19 +5366,20 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 13 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 0, 1000)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // B-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 0, 300)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 1000, 300)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 0)); // A-G
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 300)); // C-E
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 0, 0)); // E-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // X-G
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // G-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 300, 1000, 1000)); // F-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 0, 1000)); // D-C
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // B-D
+            Assume.That(() => HasEdge(edges, 500, 300, 0, 300)); // A-E
+            Assume.That(() => HasEdge(edges, 500, 300, 1000, 300)); // A-F
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 0)); // A-G
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 300)); // C-E
+            Assume.That(() => HasEdge(edges, 0, 300, 0, 0)); // E-X
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // X-G
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // G-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // Y-F
+            Assume.That(() => HasEdge(edges, 1000, 300, 1000, 1000)); // F-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // D-C
         }
 
         /// <summary>
@@ -5333,19 +5430,20 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 13 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 500, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 1000)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 500, 1000, 0)); // B-D
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 300, 1000)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 300, 0)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 500)); // A-G
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 300, 1000)); // C-E
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 0, 1000)); // E-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // X-G
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // G-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 300, 0)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 300, 0, 1000, 0)); // F-D
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 1000)); // D-C
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 300, 500, 500, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0)); // B-D
+            Assume.That(() => HasEdge(edges, 300, 500, 300, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 300, 500, 300, 0)); // A-F
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 500)); // A-G
+            Assume.That(() => HasEdge(edges, 1000, 1000, 300, 1000)); // C-E
+            Assume.That(() => HasEdge(edges, 300, 1000, 0, 1000)); // E-X
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // X-G
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // G-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 300, 0)); // Y-F
+            Assume.That(() => HasEdge(edges, 300, 0, 1000, 0)); // F-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // D-C
         }
 
         [Test]
@@ -5393,23 +5491,24 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 17 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 700)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 0, 700)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 1000, 700)); // B-G
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 0, 300)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 1000, 300)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 500, 300, 500, 0)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 500, 700, 500, 1000)); // B-H
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 700)); // W-C
-            Assume.That(() => AnyEdgeBetween(edges, 0, 700, 0, 300)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 0, 300, 0, 0)); // D-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 500, 0)); // X-E
-            Assume.That(() => AnyEdgeBetween(edges, 500, 0, 1000, 0)); // E-Y
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 300)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 300, 1000, 700)); // F-G
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 700, 1000, 1000)); // G-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 500, 1000)); // Z-H
-            Assume.That(() => AnyEdgeBetween(edges, 500, 1000, 0, 1000)); // H-W
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 700)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 700, 0, 700)); // B-C
+            Assume.That(() => HasEdge(edges, 500, 700, 1000, 700)); // B-G
+            Assume.That(() => HasEdge(edges, 500, 300, 0, 300)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 300, 1000, 300)); // A-F
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 0)); // A-E
+            Assume.That(() => HasEdge(edges, 500, 700, 500, 1000)); // B-H
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 700)); // W-C
+            Assume.That(() => HasEdge(edges, 0, 700, 0, 300)); // C-D
+            Assume.That(() => HasEdge(edges, 0, 300, 0, 0)); // D-X
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // X-E
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // E-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // Y-F
+            Assume.That(() => HasEdge(edges, 1000, 300, 1000, 700)); // F-G
+            Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // G-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-H
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // H-W
         }
 
         /// <summary>
@@ -5461,23 +5560,24 @@ namespace SharpVoronoiLib.UnitTests
             // Assert
 
             Assume.That(() => 17 == edges.Count);
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 700, 500)); // A-B
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 700, 1000)); // B-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 700, 0)); // B-G
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 300, 1000)); // A-D
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 300, 0)); // A-F
-            Assume.That(() => AnyEdgeBetween(edges, 300, 500, 0, 500)); // A-E
-            Assume.That(() => AnyEdgeBetween(edges, 700, 500, 1000, 500)); // B-H
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 1000, 700, 1000)); // W-C
-            Assume.That(() => AnyEdgeBetween(edges, 700, 1000, 300, 1000)); // C-D
-            Assume.That(() => AnyEdgeBetween(edges, 300, 1000, 0, 1000)); // D-X
-            Assume.That(() => AnyEdgeBetween(edges, 0, 1000, 0, 500)); // X-E
-            Assume.That(() => AnyEdgeBetween(edges, 0, 500, 0, 0)); // E-Y
-            Assume.That(() => AnyEdgeBetween(edges, 0, 0, 300, 0)); // Y-F
-            Assume.That(() => AnyEdgeBetween(edges, 300, 0, 700, 0)); // F-G
-            Assume.That(() => AnyEdgeBetween(edges, 700, 0, 1000, 0)); // G-Z
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 0, 1000, 500)); // Z-H
-            Assume.That(() => AnyEdgeBetween(edges, 1000, 500, 1000, 1000)); // H-W
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 300, 500, 700, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 700, 500, 700, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 700, 500, 700, 0)); // B-G
+            Assume.That(() => HasEdge(edges, 300, 500, 300, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 300, 500, 300, 0)); // A-F
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 500)); // A-E
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 500)); // B-H
+            Assume.That(() => HasEdge(edges, 1000, 1000, 700, 1000)); // W-C
+            Assume.That(() => HasEdge(edges, 700, 1000, 300, 1000)); // C-D
+            Assume.That(() => HasEdge(edges, 300, 1000, 0, 1000)); // D-X
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // X-E
+            Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // E-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 300, 0)); // Y-F
+            Assume.That(() => HasEdge(edges, 300, 0, 700, 0)); // F-G
+            Assume.That(() => HasEdge(edges, 700, 0, 1000, 0)); // G-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Z-H
+            Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // H-W
         }
 
     }

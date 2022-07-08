@@ -104,14 +104,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         [Test]
@@ -153,14 +156,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -206,14 +212,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -259,14 +268,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -312,14 +324,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         [Test]
@@ -361,14 +376,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -414,14 +432,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -467,14 +488,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -520,14 +544,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         [Test]
@@ -569,14 +596,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -622,14 +652,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -675,14 +708,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -728,14 +764,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         [Test]
@@ -777,14 +816,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -830,14 +872,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -883,14 +928,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -936,14 +984,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -989,14 +1040,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -1042,14 +1096,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -1095,14 +1152,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -1148,14 +1208,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         [Test]
@@ -1197,14 +1260,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -1250,14 +1316,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -1303,14 +1372,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         /// <summary>
@@ -1356,14 +1428,17 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Y
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(0, sites[0].Neighbours.Count());
         }
 
         [Test]
@@ -1406,20 +1481,26 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -1467,20 +1548,26 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 500, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 500, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -1524,20 +1611,26 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 700)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 700)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 700)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 700)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -1585,20 +1678,26 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 700, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 700, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 700, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -1643,27 +1742,36 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 700)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 700)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 700)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 700)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 300)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 300)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 300)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 300)); // #2 has D
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 300)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 300)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(1, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
@@ -1712,27 +1820,36 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 700, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 700, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 700, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 300, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 300, 0)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 300, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 300, 0)); // #2 has D
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 300, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(1, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
@@ -1778,34 +1895,46 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 700)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 700)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 700)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 700)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has D
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 300)); // #3 has F
+            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 300)); // #3 has F
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 0, 300)); // #4 has E
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 300)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 0)); // #4 has W
-            Assume.That(() => SiteHasPoint(sites[3], 0, 0)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 0, 300)); // #4 has E
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 300)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has W
+            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(1, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
 
@@ -1855,34 +1984,46 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 700, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Z
+            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 700, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 700, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 300, 0)); // #3 has F
+            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has F
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 300, 1000)); // #4 has E
-            Assume.That(() => SiteHasPoint(sites[3], 300, 0)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 0, 0)); // #4 has W
-            Assume.That(() => SiteHasPoint(sites[3], 0, 1000)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 300, 1000)); // #4 has E
+            Assume.That(() => HasPoint(sites[3].Points, 300, 0)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has W
+            Assume.That(() => HasPoint(sites[3].Points, 0, 1000)); // #4 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(1, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
 
@@ -1926,18 +2067,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -1985,18 +2132,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2040,20 +2193,26 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 200)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 800, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 800, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 200)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 800, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 0, 200)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 800, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2101,20 +2260,26 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 200, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 200)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 200, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 200)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 200, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 200)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 200, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 200)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2162,20 +2327,26 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 800)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 200, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 800)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 800)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 200, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Y
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 800)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 200, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2223,20 +2394,26 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 800, 0)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 800)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 800, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 800)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 800, 0)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 800)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Y
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 800, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 800)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2280,18 +2457,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2339,18 +2522,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2398,18 +2587,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2457,18 +2652,24 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2512,19 +2713,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2572,19 +2779,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 500, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 500, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2632,19 +2845,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2692,19 +2911,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2752,19 +2977,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2812,19 +3043,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2872,19 +3109,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2932,19 +3175,25 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 500, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 500, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(1, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
         }
 
@@ -2989,27 +3238,36 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 300)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 300)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 6 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 300)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 300, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 700, 1000)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 0, 300)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 300, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 300, 0)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 700)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 700)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(1, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
@@ -3058,27 +3316,36 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 300, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 300)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 300, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 300)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 6 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 300, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 700)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 300)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 300, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 300)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 0, 700)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 700, 0)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 0, 700)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 700, 0)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(1, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
@@ -3123,25 +3390,34 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 400)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 600, 1000)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 400)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 600, 1000)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 400)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 600, 1000)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 600, 1000)); // #2 has D
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(1, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
@@ -3190,25 +3466,34 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 400, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 400)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 400, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 400)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 400)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 400)); // #2 has D
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(1, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
@@ -3257,25 +3542,34 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 600)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 400, 0)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 400, 0)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 600)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 400, 0)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 400, 0)); // #2 has D
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(1, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
@@ -3324,25 +3618,34 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 600, 0)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 600)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 600, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 600)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 600, 0)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 600)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 600)); // #2 has D
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(1, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
 
@@ -3388,32 +3691,44 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 0, 400)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 600, 1000)); // #1 has F
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 0, 400)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 600, 1000)); // #1 has F
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 0, 400)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 600, 1000)); // #2 has F
+            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 600, 1000)); // #2 has F
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 400, 0)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 600)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 400, 0)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 600)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has E
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 3 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 400, 0)); // #4 has C
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 600)); // #4 has D
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 0)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 400, 0)); // #4 has C
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 600)); // #4 has D
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(1, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
 
@@ -3463,32 +3778,44 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 400, 1000)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 400)); // #1 has F
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 400, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 400)); // #1 has F
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 1000)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 400)); // #2 has F
+            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 400)); // #2 has F
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 0, 600)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 600, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 600)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 600, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has E
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 3 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 0, 600)); // #4 has C
-            Assume.That(() => SiteHasPoint(sites[3], 600, 0)); // #4 has D
-            Assume.That(() => SiteHasPoint(sites[3], 0, 0)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 0, 600)); // #4 has C
+            Assume.That(() => HasPoint(sites[3].Points, 600, 0)); // #4 has D
+            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(1, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(1, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
 
@@ -3533,28 +3860,37 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 400, 400)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 400)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 400)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 400)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 400)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 400, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 400, 400)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 400, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 400, 400)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 400, 0)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 400, 400)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 400, 0)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -3604,28 +3940,37 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 400, 600)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 400, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 400, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 600)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 400, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 600)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 400, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 600)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 400, 600)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 600)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 400, 600)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 600)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -3675,28 +4020,37 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 600, 600)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 600)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 600)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 600, 600)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 600)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 600, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 600, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 600)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 600, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 600, 600)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 600, 1000)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 600, 600)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 600, 1000)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has W
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -3746,28 +4100,37 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 600, 400)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 600, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 600, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 600, 400)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 600, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 400)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 600, 400)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 400)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 600, 400)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 400)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 600, 400)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 400)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has W
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -3813,29 +4176,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 300, 600)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 600)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 300, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 600)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 300, 600)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 600)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 300, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 300, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 600)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 300, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 300, 600)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 300, 0)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 700, 1000)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has Z
+            Assume.That(() => HasPoint(sites[2].Points, 300, 600)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 700, 1000)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -3885,29 +4257,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 600, 700)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 600, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 300)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 600, 700)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 600, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 300)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 600, 700)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 600, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 700)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 600, 700)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 600, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 600, 700)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 700)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 300)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has Z
+            Assume.That(() => HasPoint(sites[2].Points, 600, 700)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 700)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 300)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -3957,29 +4338,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 700, 400)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 400)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 300, 0)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 700, 400)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 400)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 300, 0)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 700, 400)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 400)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 700, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 700, 400)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 400)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 700, 400)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 700, 1000)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 300, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has Z
+            Assume.That(() => HasPoint(sites[2].Points, 700, 400)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 700, 1000)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4029,29 +4419,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 400, 300)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 400, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 700)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 400, 300)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 400, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 300)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 400, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 300)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 400, 300)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 400, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 300)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 400, 300)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 300)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 700)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has Z
+            Assume.That(() => HasPoint(sites[2].Points, 400, 300)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 300)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 700)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4101,29 +4500,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 700, 600)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 600)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 300, 1000)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 700, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 600)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 300, 1000)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 700, 600)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 600)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 700, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 600)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 700, 600)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 700, 0)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has Z
+            Assume.That(() => HasPoint(sites[2].Points, 700, 600)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 700, 0)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4173,29 +4581,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 600, 300)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 600, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 700)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 600, 300)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 600, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 700)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 600, 300)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 600, 0)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 300)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 600, 300)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 300)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 600, 300)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 700)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has Z
+            Assume.That(() => HasPoint(sites[2].Points, 600, 300)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 700)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4245,29 +4662,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 300, 400)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 400)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 700, 0)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 300, 400)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 400)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 700, 0)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 300, 400)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 400)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 300, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 300, 400)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 300, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 300, 400)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 700, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has Z
+            Assume.That(() => HasPoint(sites[2].Points, 300, 400)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 700, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4317,29 +4743,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 400, 700)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 400, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 300)); // #1 has D
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 400, 700)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 400, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 300)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 700)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 400, 1000)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 400, 700)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 400, 700)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 700)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has W
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has Z
+            Assume.That(() => HasPoint(sites[2].Points, 400, 700)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 700)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4385,27 +4820,36 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4455,27 +4899,36 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has X
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4525,27 +4978,36 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has X
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4595,27 +5057,36 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4661,29 +5132,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 300)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 200, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 800, 0)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 500, 300)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 800, 0)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 300)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 800, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 500, 300)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 800, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 300)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 200, 0)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has X
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 500, 300)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 200, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4733,29 +5213,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 300, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 800)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 200)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 300, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 800)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 300, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 200)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 300, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 200)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 300, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 800)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has X
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 300, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 800)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4805,29 +5294,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 700)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 800, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 200, 1000)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 500, 700)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 800, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 200, 1000)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 700)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 200, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 500, 700)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 200, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 700)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 800, 1000)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has X
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 500, 700)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 800, 1000)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4877,29 +5375,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 700, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 200)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 800)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 700, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 200)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 800)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 700, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 800)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has W
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 700, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 800)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 700, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 200)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has X
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has Y
+            Assume.That(() => HasPoint(sites[2].Points, 700, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 200)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -4945,29 +5452,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 5 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 700)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 0, 200)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 200)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 500, 700)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 200)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 700)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 200)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 500, 700)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 200)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 700)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 200)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 500, 700)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 200)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -5017,29 +5533,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 5 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 700, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 200, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 200, 0)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 0, 0)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 700, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 200, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 700, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 200, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 700, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 200, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 700, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 200, 1000)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 700, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 200, 1000)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has X
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -5089,29 +5614,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 5 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 300)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 800)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 800)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 500, 300)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 800)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 800)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 300)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 800)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 500, 300)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 800)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 300)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 800)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 500, 300)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 800)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has X
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -5161,29 +5695,38 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 5 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 300, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 800, 0)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 800, 1000)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has W
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has Y
+            Assume.That(() => HasPoint(sites[0].Points, 300, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 800, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 800, 1000)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 300, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 800, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 300, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 800, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 300, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 800, 0)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 300, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 800, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
         }
@@ -5231,47 +5774,62 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 400, 600)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 400, 400)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 600, 400)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 600, 600)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 600)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 400, 400)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has F
+            Assume.That(() => HasPoint(sites[1].Points, 400, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 400, 400)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has F
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 400, 400)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 600, 400)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has F
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 400, 400)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 600, 400)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has F
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has G
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 600, 400)); // #4 has C
-            Assume.That(() => SiteHasPoint(sites[3], 600, 600)); // #4 has D
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 0)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 1000)); // #4 has H
+            Assume.That(() => HasPoint(sites[3].Points, 600, 400)); // #4 has C
+            Assume.That(() => HasPoint(sites[3].Points, 600, 600)); // #4 has D
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has H
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 400, 600)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 600, 600)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 0, 1000)); // #5 has E
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 1000)); // #5 has H
+            Assume.That(() => HasPoint(sites[4].Points, 400, 600)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 600, 600)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has E
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has H
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(4, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(3, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(3, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -5320,51 +5878,66 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 400, 400)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 400, 200)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 600, 200)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 600, 400)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 400, 200)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 600, 200)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 400)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 400, 200)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 800)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 200, 0)); // #2 has F
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 400, 400)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 400, 200)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 800)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 200, 0)); // #2 has F
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 400, 200)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 600, 200)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 200, 0)); // #3 has F
-            Assume.That(() => SiteHasPoint(sites[2], 800, 0)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 400, 200)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 600, 200)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 200, 0)); // #3 has F
+            Assume.That(() => HasPoint(sites[2].Points, 800, 0)); // #3 has G
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 5 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 600, 200)); // #4 has C
-            Assume.That(() => SiteHasPoint(sites[3], 600, 400)); // #4 has D
-            Assume.That(() => SiteHasPoint(sites[3], 800, 0)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 800)); // #4 has H
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 0)); // #4 has W
+            Assume.That(() => HasPoint(sites[3].Points, 600, 200)); // #4 has C
+            Assume.That(() => HasPoint(sites[3].Points, 600, 400)); // #4 has D
+            Assume.That(() => HasPoint(sites[3].Points, 800, 0)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 800)); // #4 has H
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has W
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 6 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 400, 400)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 600, 400)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 0, 800)); // #5 has E
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 800)); // #5 has H
-            Assume.That(() => SiteHasPoint(sites[4], 0, 1000)); // #5 has X
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 1000)); // #5 has Z
+            Assume.That(() => HasPoint(sites[4].Points, 400, 400)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 600, 400)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 0, 800)); // #5 has E
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 800)); // #5 has H
+            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has X
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(4, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(3, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(3, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -5417,51 +5990,66 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 400, 600)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 200, 600)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 200, 400)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 400, 400)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 200, 600)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 200, 400)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 600)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 200, 600)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 800, 1000)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 0, 800)); // #2 has F
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 400, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 200, 600)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 800, 1000)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 0, 800)); // #2 has F
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 200, 600)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 200, 400)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 800)); // #3 has F
-            Assume.That(() => SiteHasPoint(sites[2], 0, 200)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 200, 600)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 200, 400)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 800)); // #3 has F
+            Assume.That(() => HasPoint(sites[2].Points, 0, 200)); // #3 has G
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 5 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 200, 400)); // #4 has C
-            Assume.That(() => SiteHasPoint(sites[3], 400, 400)); // #4 has D
-            Assume.That(() => SiteHasPoint(sites[3], 0, 200)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 800, 0)); // #4 has H
-            Assume.That(() => SiteHasPoint(sites[3], 0, 0)); // #4 has W
+            Assume.That(() => HasPoint(sites[3].Points, 200, 400)); // #4 has C
+            Assume.That(() => HasPoint(sites[3].Points, 400, 400)); // #4 has D
+            Assume.That(() => HasPoint(sites[3].Points, 0, 200)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 800, 0)); // #4 has H
+            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has W
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 6 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 400, 600)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 400, 400)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 800, 1000)); // #5 has E
-            Assume.That(() => SiteHasPoint(sites[4], 800, 0)); // #5 has H
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 1000)); // #5 has X
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 0)); // #5 has Z
+            Assume.That(() => HasPoint(sites[4].Points, 400, 600)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 400, 400)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 800, 1000)); // #5 has E
+            Assume.That(() => HasPoint(sites[4].Points, 800, 0)); // #5 has H
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has X
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 0)); // #5 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(4, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(3, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(3, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -5514,51 +6102,66 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 600, 600)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 600, 800)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 400, 800)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 400, 600)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 600, 800)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 400, 800)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 600, 600)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 600, 800)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 200)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 800, 1000)); // #2 has F
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 600, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 600, 800)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 200)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 800, 1000)); // #2 has F
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 600, 800)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 400, 800)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 800, 1000)); // #3 has F
-            Assume.That(() => SiteHasPoint(sites[2], 200, 1000)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 600, 800)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 400, 800)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 800, 1000)); // #3 has F
+            Assume.That(() => HasPoint(sites[2].Points, 200, 1000)); // #3 has G
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 5 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 400, 800)); // #4 has C
-            Assume.That(() => SiteHasPoint(sites[3], 400, 600)); // #4 has D
-            Assume.That(() => SiteHasPoint(sites[3], 200, 1000)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 0, 200)); // #4 has H
-            Assume.That(() => SiteHasPoint(sites[3], 0, 1000)); // #4 has W
+            Assume.That(() => HasPoint(sites[3].Points, 400, 800)); // #4 has C
+            Assume.That(() => HasPoint(sites[3].Points, 400, 600)); // #4 has D
+            Assume.That(() => HasPoint(sites[3].Points, 200, 1000)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 0, 200)); // #4 has H
+            Assume.That(() => HasPoint(sites[3].Points, 0, 1000)); // #4 has W
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 6 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 600, 600)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 400, 600)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 200)); // #5 has E
-            Assume.That(() => SiteHasPoint(sites[4], 0, 200)); // #5 has H
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 0)); // #5 has X
-            Assume.That(() => SiteHasPoint(sites[4], 0, 0)); // #5 has Z
+            Assume.That(() => HasPoint(sites[4].Points, 600, 600)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 400, 600)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 200)); // #5 has E
+            Assume.That(() => HasPoint(sites[4].Points, 0, 200)); // #5 has H
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 0)); // #5 has X
+            Assume.That(() => HasPoint(sites[4].Points, 0, 0)); // #5 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(4, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(3, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(3, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -5611,51 +6214,66 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 600, 400)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 800, 400)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 800, 600)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 600, 600)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 800, 400)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 800, 600)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 600, 400)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 800, 400)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 200, 0)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 200)); // #2 has F
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 600, 400)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 800, 400)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 200, 0)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 200)); // #2 has F
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 800, 400)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 800, 600)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 200)); // #3 has F
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 800)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 800, 400)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 800, 600)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 200)); // #3 has F
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 800)); // #3 has G
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 5 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 800, 600)); // #4 has C
-            Assume.That(() => SiteHasPoint(sites[3], 600, 600)); // #4 has D
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 800)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 200, 1000)); // #4 has H
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 1000)); // #4 has W
+            Assume.That(() => HasPoint(sites[3].Points, 800, 600)); // #4 has C
+            Assume.That(() => HasPoint(sites[3].Points, 600, 600)); // #4 has D
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 800)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 200, 1000)); // #4 has H
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has W
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 6 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 600, 400)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 600, 600)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 200, 0)); // #5 has E
-            Assume.That(() => SiteHasPoint(sites[4], 200, 1000)); // #5 has H
-            Assume.That(() => SiteHasPoint(sites[4], 0, 0)); // #5 has X
-            Assume.That(() => SiteHasPoint(sites[4], 0, 1000)); // #5 has Z
+            Assume.That(() => HasPoint(sites[4].Points, 600, 400)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 600, 600)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 200, 0)); // #5 has E
+            Assume.That(() => HasPoint(sites[4].Points, 200, 1000)); // #5 has H
+            Assume.That(() => HasPoint(sites[4].Points, 0, 0)); // #5 has X
+            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(4, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(3, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(3, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -5703,35 +6321,47 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 500)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 500, 500)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 500, 1000)); // #4 has B
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 500)); // #4 has E
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 1000)); // #4 has Z
+            Assume.That(() => HasPoint(sites[3].Points, 500, 500)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 500, 1000)); // #4 has B
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has E
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(2, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
@@ -5778,35 +6408,47 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 500)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 500, 0)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 500, 500)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 500, 1000)); // #4 has B
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 500)); // #4 has E
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 1000)); // #4 has Z
+            Assume.That(() => HasPoint(sites[3].Points, 500, 500)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 500, 1000)); // #4 has B
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has E
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(2, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
@@ -5857,35 +6499,47 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has A
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has X
+            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 500)); // #2 has D
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has Y
+            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has D
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has D
-            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has W
+            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 500, 500)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 500)); // #4 has B
-            Assume.That(() => SiteHasPoint(sites[3], 500, 0)); // #4 has E
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 0)); // #4 has Z
+            Assume.That(() => HasPoint(sites[3].Points, 500, 500)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has B
+            Assume.That(() => HasPoint(sites[3].Points, 500, 0)); // #4 has E
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[3])); // 1 neighbours 4
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(2, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[0])); // 4 neighbours 1
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
         }
@@ -5933,44 +6587,59 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 700)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 200, 1000)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 800, 1000)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 500, 700)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 200, 1000)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 800, 1000)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 400)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 700)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 200, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 400)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 500, 400)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 700)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 200, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has W
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 400)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 400)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has G
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 500, 400)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 400)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 500, 400)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 400)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 500, 0)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 0)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 500, 400)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 400)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 500, 0)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Y
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 5 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 500, 400)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 500, 700)); // #5 has B
-            Assume.That(() => SiteHasPoint(sites[4], 800, 1000)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 400)); // #5 has F
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 1000)); // #5 has Z
+            Assume.That(() => HasPoint(sites[4].Points, 500, 400)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 500, 700)); // #5 has B
+            Assume.That(() => HasPoint(sites[4].Points, 800, 1000)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 400)); // #5 has F
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(2, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -6023,44 +6692,59 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 700, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 800)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 200)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 700, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 800)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 200)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 400, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 700, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 800)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 400, 1000)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 400, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 700, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 800)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has W
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 400, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 400, 1000)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has G
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 400, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 400, 1000)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 400, 500)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 400, 0)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 0, 500)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 0, 0)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 400, 500)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 400, 0)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 0, 500)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Y
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 5 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 400, 500)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 700, 500)); // #5 has B
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 200)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 400, 0)); // #5 has F
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 0)); // #5 has Z
+            Assume.That(() => HasPoint(sites[4].Points, 400, 500)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 700, 500)); // #5 has B
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 200)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 400, 0)); // #5 has F
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 0)); // #5 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(2, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -6113,44 +6797,59 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 300)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 800, 0)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 200, 0)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 500, 300)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 800, 0)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 600)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 300)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 800, 0)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 600)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 500, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 300)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 800, 0)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 600)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 600)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 600)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 500, 1000)); // #3 has G
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 1000)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 500, 600)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 600)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has X
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 500, 600)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 0, 600)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 500, 1000)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 0, 1000)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 500, 600)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 0, 600)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 500, 1000)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 0, 1000)); // #4 has Y
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 5 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 500, 600)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 500, 300)); // #5 has B
-            Assume.That(() => SiteHasPoint(sites[4], 200, 0)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 0, 600)); // #5 has F
-            Assume.That(() => SiteHasPoint(sites[4], 0, 0)); // #5 has Z
+            Assume.That(() => HasPoint(sites[4].Points, 500, 600)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 500, 300)); // #5 has B
+            Assume.That(() => HasPoint(sites[4].Points, 200, 0)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 0, 600)); // #5 has F
+            Assume.That(() => HasPoint(sites[4].Points, 0, 0)); // #5 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(2, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -6203,44 +6902,59 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 300, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 200)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 0, 800)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 300, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 0, 800)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 600, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 300, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 200)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 600, 0)); // #2 has E
-            Assume.That(() => SiteHasPoint(sites[1], 0, 0)); // #2 has W
+            Assume.That(() => HasPoint(sites[1].Points, 600, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 300, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 200)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 600, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 600, 0)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 500)); // #3 has G
-            Assume.That(() => SiteHasPoint(sites[2], 1000, 0)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 600, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 600, 0)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has X
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 600, 500)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 600, 1000)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 500)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 1000)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 600, 500)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 600, 1000)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has Y
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 5 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 600, 500)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 300, 500)); // #5 has B
-            Assume.That(() => SiteHasPoint(sites[4], 0, 800)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 600, 1000)); // #5 has F
-            Assume.That(() => SiteHasPoint(sites[4], 0, 1000)); // #5 has Z
+            Assume.That(() => HasPoint(sites[4].Points, 600, 500)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 300, 500)); // #5 has B
+            Assume.That(() => HasPoint(sites[4].Points, 0, 800)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 600, 1000)); // #5 has F
+            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has Z
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(2, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -6289,42 +7003,57 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 300)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 0, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 0, 300)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 500, 300)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 300)); // #2 has E
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 300)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 500, 0)); // #3 has G
-            Assume.That(() => SiteHasPoint(sites[2], 0, 0)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 500, 300)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 500, 300)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 300)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 500, 0)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 0)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 500, 300)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 300)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 500, 0)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Y
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 500, 300)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 500, 500)); // #5 has B
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 1000)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 300)); // #5 has F
+            Assume.That(() => HasPoint(sites[4].Points, 500, 300)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 500, 500)); // #5 has B
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 300)); // #5 has F
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(2, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -6377,42 +7106,57 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 0)); // #1 has D
+            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has D
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 300, 500)); // #2 has A
-            Assume.That(() => SiteHasPoint(sites[1], 500, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has C
-            Assume.That(() => SiteHasPoint(sites[1], 300, 1000)); // #2 has E
+            Assume.That(() => HasPoint(sites[1].Points, 300, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 300, 1000)); // #2 has E
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 300, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has E
-            Assume.That(() => SiteHasPoint(sites[2], 0, 500)); // #3 has G
-            Assume.That(() => SiteHasPoint(sites[2], 0, 1000)); // #3 has X
+            Assume.That(() => HasPoint(sites[2].Points, 300, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has E
+            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has G
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 300, 500)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 300, 0)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 0, 500)); // #4 has G
-            Assume.That(() => SiteHasPoint(sites[3], 0, 0)); // #4 has Y
+            Assume.That(() => HasPoint(sites[3].Points, 300, 500)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 300, 0)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 0, 500)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Y
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 300, 500)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 500, 500)); // #5 has B
-            Assume.That(() => SiteHasPoint(sites[4], 1000, 0)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 300, 0)); // #5 has F
+            Assume.That(() => HasPoint(sites[4].Points, 300, 500)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 500, 500)); // #5 has B
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 0)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 300, 0)); // #5 has F
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[4])); // 1 neighbours 5
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(3, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[2])); // 2 neighbours 3
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[4])); // 2 neighbours 5
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(2, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[1])); // 3 neighbours 2
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(2, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[4])); // 4 neighbours 5
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(3, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[0])); // 5 neighbours 1
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[1])); // 5 neighbours 2
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[3])); // 5 neighbours 4
@@ -6462,51 +7206,69 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 500, 700)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 0, 700)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 500, 1000)); // #1 has H
-            Assume.That(() => SiteHasPoint(sites[0], 0, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 500, 700)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has H
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 500, 700)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 700)); // #2 has G
-            Assume.That(() => SiteHasPoint(sites[1], 500, 1000)); // #2 has H
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 1000)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 500, 700)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has G
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has H
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 500, 300)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 500, 700)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 0, 700)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 0, 300)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 500, 300)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 500, 700)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 700)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has D
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 500, 300)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 500, 700)); // #4 has B
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 300)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 1000, 700)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 500, 300)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 500, 700)); // #4 has B
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 300)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 700)); // #4 has G
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 500, 300)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 0, 300)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 500, 0)); // #5 has E
-            Assume.That(() => SiteHasPoint(sites[4], 0, 0)); // #5 has X
+            Assume.That(() => HasPoint(sites[4].Points, 500, 300)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 0, 300)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 500, 0)); // #5 has E
+            Assume.That(() => HasPoint(sites[4].Points, 0, 0)); // #5 has X
+            Assume.That(() => null != sites[5].Points);
             Assume.That(() => 4 == sites[5].Points.Count()); // #6
-            Assume.That(() => SiteHasPoint(sites[5], 500, 300)); // #6 has A
-            Assume.That(() => SiteHasPoint(sites[5], 500, 0)); // #6 has E
-            Assume.That(() => SiteHasPoint(sites[5], 1000, 300)); // #6 has F
-            Assume.That(() => SiteHasPoint(sites[5], 1000, 0)); // #6 has Y
+            Assume.That(() => HasPoint(sites[5].Points, 500, 300)); // #6 has A
+            Assume.That(() => HasPoint(sites[5].Points, 500, 0)); // #6 has E
+            Assume.That(() => HasPoint(sites[5].Points, 1000, 300)); // #6 has F
+            Assume.That(() => HasPoint(sites[5].Points, 1000, 0)); // #6 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[3])); // 2 neighbours 4
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(3, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[4])); // 3 neighbours 5
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(3, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[1])); // 4 neighbours 2
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[5])); // 4 neighbours 6
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(2, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[2])); // 5 neighbours 3
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[5])); // 5 neighbours 6
+            Assert.NotNull(sites[5].Neighbours);
+            Assert.AreEqual(2, sites[5].Neighbours.Count());
             Assert.IsTrue(sites[5].Neighbours.Contains(sites[3])); // 6 neighbours 4
             Assert.IsTrue(sites[5].Neighbours.Contains(sites[4])); // 6 neighbours 5
         }
@@ -6559,51 +7321,69 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
+            Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => SiteHasPoint(sites[0], 700, 500)); // #1 has B
-            Assume.That(() => SiteHasPoint(sites[0], 700, 1000)); // #1 has C
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 500)); // #1 has H
-            Assume.That(() => SiteHasPoint(sites[0], 1000, 1000)); // #1 has W
+            Assume.That(() => HasPoint(sites[0].Points, 700, 500)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has C
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has H
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
+            Assume.That(() => null != sites[1].Points);
             Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => SiteHasPoint(sites[1], 700, 500)); // #2 has B
-            Assume.That(() => SiteHasPoint(sites[1], 700, 0)); // #2 has G
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 500)); // #2 has H
-            Assume.That(() => SiteHasPoint(sites[1], 1000, 0)); // #2 has Z
+            Assume.That(() => HasPoint(sites[1].Points, 700, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has G
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has H
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
+            Assume.That(() => null != sites[2].Points);
             Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => SiteHasPoint(sites[2], 300, 500)); // #3 has A
-            Assume.That(() => SiteHasPoint(sites[2], 700, 500)); // #3 has B
-            Assume.That(() => SiteHasPoint(sites[2], 700, 1000)); // #3 has C
-            Assume.That(() => SiteHasPoint(sites[2], 300, 1000)); // #3 has D
+            Assume.That(() => HasPoint(sites[2].Points, 300, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 700, 500)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 700, 1000)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has D
+            Assume.That(() => null != sites[3].Points);
             Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => SiteHasPoint(sites[3], 300, 500)); // #4 has A
-            Assume.That(() => SiteHasPoint(sites[3], 700, 500)); // #4 has B
-            Assume.That(() => SiteHasPoint(sites[3], 300, 0)); // #4 has F
-            Assume.That(() => SiteHasPoint(sites[3], 700, 0)); // #4 has G
+            Assume.That(() => HasPoint(sites[3].Points, 300, 500)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 700, 500)); // #4 has B
+            Assume.That(() => HasPoint(sites[3].Points, 300, 0)); // #4 has F
+            Assume.That(() => HasPoint(sites[3].Points, 700, 0)); // #4 has G
+            Assume.That(() => null != sites[4].Points);
             Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => SiteHasPoint(sites[4], 300, 500)); // #5 has A
-            Assume.That(() => SiteHasPoint(sites[4], 300, 1000)); // #5 has D
-            Assume.That(() => SiteHasPoint(sites[4], 0, 500)); // #5 has E
-            Assume.That(() => SiteHasPoint(sites[4], 0, 1000)); // #5 has X
+            Assume.That(() => HasPoint(sites[4].Points, 300, 500)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 300, 1000)); // #5 has D
+            Assume.That(() => HasPoint(sites[4].Points, 0, 500)); // #5 has E
+            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has X
+            Assume.That(() => null != sites[5].Points);
             Assume.That(() => 4 == sites[5].Points.Count()); // #6
-            Assume.That(() => SiteHasPoint(sites[5], 300, 500)); // #6 has A
-            Assume.That(() => SiteHasPoint(sites[5], 0, 500)); // #6 has E
-            Assume.That(() => SiteHasPoint(sites[5], 300, 0)); // #6 has F
-            Assume.That(() => SiteHasPoint(sites[5], 0, 0)); // #6 has Y
+            Assume.That(() => HasPoint(sites[5].Points, 300, 500)); // #6 has A
+            Assume.That(() => HasPoint(sites[5].Points, 0, 500)); // #6 has E
+            Assume.That(() => HasPoint(sites[5].Points, 300, 0)); // #6 has F
+            Assume.That(() => HasPoint(sites[5].Points, 0, 0)); // #6 has Y
 
             // Assert
 
+            Assert.NotNull(sites[0].Neighbours);
+            Assert.AreEqual(2, sites[0].Neighbours.Count());
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[1])); // 1 neighbours 2
             Assert.IsTrue(sites[0].Neighbours.Contains(sites[2])); // 1 neighbours 3
+            Assert.NotNull(sites[1].Neighbours);
+            Assert.AreEqual(2, sites[1].Neighbours.Count());
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[0])); // 2 neighbours 1
             Assert.IsTrue(sites[1].Neighbours.Contains(sites[3])); // 2 neighbours 4
+            Assert.NotNull(sites[2].Neighbours);
+            Assert.AreEqual(3, sites[2].Neighbours.Count());
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[0])); // 3 neighbours 1
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[3])); // 3 neighbours 4
             Assert.IsTrue(sites[2].Neighbours.Contains(sites[4])); // 3 neighbours 5
+            Assert.NotNull(sites[3].Neighbours);
+            Assert.AreEqual(3, sites[3].Neighbours.Count());
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[1])); // 4 neighbours 2
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[2])); // 4 neighbours 3
             Assert.IsTrue(sites[3].Neighbours.Contains(sites[5])); // 4 neighbours 6
+            Assert.NotNull(sites[4].Neighbours);
+            Assert.AreEqual(2, sites[4].Neighbours.Count());
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[2])); // 5 neighbours 3
             Assert.IsTrue(sites[4].Neighbours.Contains(sites[5])); // 5 neighbours 6
+            Assert.NotNull(sites[5].Neighbours);
+            Assert.AreEqual(2, sites[5].Neighbours.Count());
             Assert.IsTrue(sites[5].Neighbours.Contains(sites[3])); // 6 neighbours 4
             Assert.IsTrue(sites[5].Neighbours.Contains(sites[4])); // 6 neighbours 5
         }

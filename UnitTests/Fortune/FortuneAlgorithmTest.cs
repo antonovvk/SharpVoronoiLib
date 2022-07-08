@@ -2,9 +2,9 @@
 
 using NUnit.Framework;
 using System.Collections.Generic;
-using SharpVoronoiLib;
 using System.Linq;
 using System;
+using static SharpVoronoiLib.UnitTests.CommonTestUtilities;
 
 namespace SharpVoronoiLib.UnitTests
 {
@@ -179,11 +179,11 @@ namespace SharpVoronoiLib.UnitTests
 
             Assert.AreEqual(5, edges.Count);
 
-            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 600)); // A-B
-            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 000, 000)); // A-C
-            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 000)); // A-D
-            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 600, 600)); // A-E
-            Assert.IsTrue(CommonTestUtilities.AnyEdgeBetween(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
+            Assert.IsTrue(HasEdge(edges, 300, 300, 000, 600)); // A-B
+            Assert.IsTrue(HasEdge(edges, 300, 300, 000, 000)); // A-C
+            Assert.IsTrue(HasEdge(edges, 300, 300, 600, 000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 300, 300, 600, 600)); // A-E
+            Assert.IsTrue(HasEdge(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
         }
         
         [Test]
