@@ -1,27 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace SharpVoronoiLib
 {
-    internal class RandomUniformPointGeneration : IPointGenerationAlgorithm
+    internal class RandomUniformPointGeneration : RandomPointGeneration
     {
-        public List<VoronoiSite> Generate(double minX, double minY, double maxX, double maxY, int count)
+        protected override double GetNextRandomValue(Random random, double minX, double maxX)
         {
-            List<VoronoiSite> sites = new List<VoronoiSite>(count);
-
-            Random random = new Random();
-            
-            for (int i = 0; i < count; i++)
+            do
             {
-                sites.Add(
-                    new VoronoiSite(
-                        minX + random.NextDouble() * (maxX - minX),
-                        minY + random.NextDouble() * (maxY - minY)
-                    )
-                );
-            }
-
-            return sites;
+                double value = minX + random.NextDouble() * (maxX - minX);
+                
+                if (value < maxX && value < maxX)
+                    return value;
+                
+            } while (true);
         }
     }
 }

@@ -29,7 +29,8 @@ namespace SharpVoronoiLib
         public double MaxY { get; }
 
 
-        private IPointGenerationAlgorithm? _pointGenerationAlgorithm;
+        private RandomUniformPointGeneration? _randomUniformPointGeneration;
+        private RandomGaussianPointGeneration? _randomGaussianPointGeneration;
         
         private ITessellationAlgorithm? _tessellationAlgorithm;
         
@@ -64,16 +65,19 @@ namespace SharpVoronoiLib
             Edges = null;
         }
 
+        /// <summary>
+        ///
+        /// The generated sites are guaranteed not to lie on the border of the plane (although they may be very close).
+        /// </summary>
         [PublicAPI]
-        public List<VoronoiSite> GenerateRandomSites(int amount)
+        public List<VoronoiSite> GenerateRandomSites(int amount, PointGenerationMethod method = PointGenerationMethod.Uniform)
         {
             if (amount < 0) throw new ArgumentOutOfRangeException(nameof(amount));
 
 
-            if (_pointGenerationAlgorithm == null)
-                _pointGenerationAlgorithm = new RandomUniformPointGeneration();
+            IPointGenerationAlgorithm algorithm = GetPointGenerationAlgorithm(method);
 
-            List<VoronoiSite> sites = _pointGenerationAlgorithm.Generate(MinX, MinY, MaxX, MaxY, amount);
+            List<VoronoiSite> sites = algorithm.Generate(MinX, MinY, MaxX, MaxY, amount);
             
             Sites = sites;
 
@@ -174,6 +178,18 @@ namespace SharpVoronoiLib
             plane.SetSites(sites);
             
             return plane.Tessellate(borderGeneration);
+        }
+        
+
+        private IPointGenerationAlgorithm GetPointGenerationAlgorithm(PointGenerationMethod pointGenerationMethod)
+        {
+            return pointGenerationMethod switch
+            {
+                PointGenerationMethod.Uniform  => _randomUniformPointGeneration ??= new RandomUniformPointGeneration(),
+                PointGenerationMethod.Gaussian => _randomGaussianPointGeneration ??= new RandomGaussianPointGeneration(),
+
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
     }
 
