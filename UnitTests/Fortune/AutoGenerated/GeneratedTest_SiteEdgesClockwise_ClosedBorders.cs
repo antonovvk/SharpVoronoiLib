@@ -729,10 +729,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 0)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 1000, 1000)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 1000)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 1000)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 0, 0)); // #1 X-Y
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 1000, 0)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 1000, 1000)); // #1 W-Z
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -797,10 +798,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 0, 0)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 0)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 1000, 1000)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 1000)); // #1 X-Y
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 0, 0)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 1000, 0)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 1000, 1000)); // #1 Z-X
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -865,10 +867,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 1000)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 0, 0)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 0)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 1000)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 0, 0)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 1000, 0)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 1000, 1000)); // #1 X-Y
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -933,10 +936,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 1000, 1000)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 1000)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 0, 0)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 0, 1000, 1000)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 1000, 1000, 0, 1000)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 1000, 0, 0)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 0, 0, 1000, 0)); // #1 X-Y
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 X-Y > Y-W
         }
 
         [Test]
@@ -997,10 +1001,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 0)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 1000, 1000)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 1000)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 1000)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 0, 0)); // #1 X-Y
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 1000, 0)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 1000, 1000)); // #1 W-Z
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -1065,10 +1070,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 0, 0)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 0)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 1000, 1000)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 1000)); // #1 X-Y
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 0, 0)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 1000, 0)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 1000, 1000)); // #1 Z-X
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -1133,10 +1139,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 1000)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 0, 0)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 0)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 1000)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 0, 0)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 1000, 0)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 1000, 1000)); // #1 X-Y
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -1201,10 +1208,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 1000, 1000)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 1000)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 0, 0)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 0, 1000, 1000)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 1000, 1000, 0, 1000)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 1000, 0, 0)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 0, 0, 1000, 0)); // #1 X-Y
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -1269,10 +1277,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 0, 0)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 0, 1000)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 1000, 1000)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 0, 1000, 1000, 1000)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 0, 0, 1000)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 1000, 0, 0, 0)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 1000, 1000, 0)); // #1 X-Y
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 1000, 1000, 0, 0, 0, 1000)); // #1 Z-X > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 0, 1000, 1000, 0, 0, 0)); // #1 W-Z > Y-W
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 0, 0, 1000, 1000, 1000, 0)); // #1 Y-W > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 1000, 0, 0, 1000, 1000, 1000)); // #1 X-Y > Z-X
         }
 
         /// <summary>
@@ -1337,10 +1346,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 0, 1000)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 1000, 1000)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 1000, 0)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 1000, 0)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 1000, 1000)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 0, 1000)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 0, 0)); // #1 X-Y
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 1000, 0, 0, 1000, 1000, 1000)); // #1 Z-X > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 1000, 1000, 0, 0, 0, 1000)); // #1 W-Z > Y-W
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 0, 1000, 1000, 0, 0, 0)); // #1 Y-W > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 0, 0, 1000, 1000, 1000, 0)); // #1 X-Y > Z-X
         }
 
         /// <summary>
@@ -1405,10 +1415,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 1000, 1000)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 1000, 0)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 0, 0)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 0, 1000, 1000, 1000)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 0, 0, 1000)); // #1 X-Y
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 1000, 0, 0, 0)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 1000, 1000, 0)); // #1 W-Z
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 0, 0, 1000, 1000, 1000, 0)); // #1 Z-X > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 1000, 0, 0, 1000, 1000, 1000)); // #1 W-Z > Y-W
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 1000, 1000, 0, 0, 0, 1000)); // #1 Y-W > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 0, 1000, 1000, 0, 0, 0)); // #1 X-Y > Z-X
         }
 
         /// <summary>
@@ -1473,10 +1484,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 1000, 0)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 0, 0)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 0, 1000)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 0, 1000, 1000, 1000)); // #1 X-Y
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 0, 0, 1000)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 1000, 0, 0, 0)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 1000, 1000, 0)); // #1 Y-W
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 0, 1000, 1000, 0, 0, 0)); // #1 Z-X > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 0, 0, 1000, 1000, 1000, 0)); // #1 W-Z > Y-W
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 1000, 0, 0, 1000, 1000, 1000)); // #1 Y-W > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 1000, 1000, 0, 0, 0, 1000)); // #1 X-Y > Z-X
         }
 
         [Test]
@@ -1537,10 +1549,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 0)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 1000, 1000)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 1000)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 0, 1000, 1000)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 1000, 1000, 0, 1000)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 1000, 0, 0)); // #1 X-Y
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 0, 0, 1000, 0)); // #1 Y-W
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -1605,10 +1618,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 0, 0)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 0)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 1000, 1000)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 1000)); // #1 X-Y
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 0, 0)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 1000, 0)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 1000, 1000)); // #1 Z-X
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -1673,10 +1687,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 1000)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 0, 0)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 0, 1000, 0)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 1000)); // #1 Y-W
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 0, 0)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 1000, 0)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 1000, 1000)); // #1 X-Y
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 X-Y > Y-W
         }
 
         /// <summary>
@@ -1741,10 +1756,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 0, 1000, 1000)); // #1 has Y-W
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 1000, 1000, 0, 1000)); // #1 has W-Z
             Assert.IsTrue(SiteHasClockwiseEdge(sites[0], 0, 1000, 0, 0)); // #1 has Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 1000, 0, 1000)); // #1 W-Z
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 1000, 0, 0)); // #1 Z-X
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(2), 0, 0, 1000, 0)); // #1 X-Y
-            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(3), 1000, 0, 1000, 1000)); // #1 Y-W
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 0, 1000, 1000, 1000, 1000, 0, 1000)); // #1 Y-W > W-Z
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 1000, 1000, 0, 1000, 0, 1000, 0, 0)); // #1 W-Z > Z-X
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 1000, 0, 0, 0, 0, 1000, 0)); // #1 Z-X > X-Y
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 0, 0, 1000, 0, 1000, 0, 1000, 1000)); // #1 X-Y > Y-W
         }
 
         [Test]

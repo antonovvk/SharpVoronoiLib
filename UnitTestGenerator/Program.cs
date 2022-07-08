@@ -112,7 +112,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: XYWZ
+                1: YWZX !
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("OnePointOnBorderOffset", @"
@@ -132,7 +132,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: XYWZ
+                1: YWZX !
             ", Repeat.RotateAndMirrorAll);
 
             testGenerator.AddTest("OnePointInCorner", @"
@@ -152,7 +152,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 Y-W: 1
                 W-Z: 1
                 Z-X: 1
-                1: YWZX
+                1: YWZX !
             ", Repeat.RotateAll);
 
             testGenerator.AddTest("TwoPointsVerticalAroundMiddle", @"
@@ -967,6 +967,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     // "A-B: 1,2"
                     // "A-B: 1"
                     // "1: ABCD"
+                    // "1: ABCD !"
 
                     if (line.Length < 1) throw new ArgumentException();
                     
@@ -1046,17 +1047,43 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         if (line[2] != ' ') throw new ArgumentException();
 
                         string pointString = line.Substring(3);
+
+                        string[] pointStringSections = pointString.Split(' ');
                         
-                        for (int c = 0; c < pointString.Length; c++)
+                        if (pointStringSections.Length > 2) throw new ArgumentException();
+
+                        string pointSection = pointStringSections[0];
+                        
+                        if (pointStringSections.Length == 2)
                         {
-                            char idSymbol = pointString[c];
+                            string modifierSection = pointStringSections[1];
+                            
+                            if (modifierSection.Length != 1) throw new ArgumentException();
+                            if (modifierSection[0] != '!') throw new ArgumentException();
+                            
+                            site.UndefinedPointOrder = true;
+                        }
+
+                        if (site.UndefinedPointOrder)
+                            site.Points = new[] { new List<Point>() };
+                        else
+                            site.Points = new[] { new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>() };
+                        
+                        for (int c = 0; c < pointSection.Length; c++)
+                        {
+                            char idSymbol = pointSection[c];
                             int id = idSymbol;
                             
                             Point? point = points.FirstOrDefault(p => p.Id == id);
                             
                             if (point == null) throw new ArgumentException();
 
-                            int quadrant = GetQuadrant(site, point);
+                            int quadrant;
+                            
+                            if (site.UndefinedPointOrder)
+                                quadrant = 0;
+                            else
+                                quadrant = GetQuadrant(site, point);
                             
                             site.Points[quadrant].Add(point);
                         }
@@ -1252,7 +1279,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                             stringBuilder.AppendLine();
 
                             stringBuilder.AppendPaddedLine(3, @"// Assert", true);
-                            AppendAssertions(BuildPointBorderLocationAssertions(test.Edges, test.Sites, borderLogic, true));
+                            AppendAssertions(BuildPointBorderLocationAssertions(test.Edges, borderLogic, true));
                             break;
 
                         default:
@@ -1660,13 +1687,31 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         
                         foreach (List<Point> quadrantPoints in site.Points)
                         {
-                            foreach (Point point in quadrantPoints)
-                            {
-                                if (PointMatchesBorderLogic(point, borderLogic))
-                                {
-                                    strings.Add(GetAssertTrueMethodStart(assert) + @"PointIs(sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwisePoints) + @".ElementAt(" + index + @"), " + point.X + @", " + point.Y + @")); // #" + site.Id + @" " + (char)point.Id);
+                            List<Point> applicablePoints = quadrantPoints.Where(p => PointMatchesBorderLogic(p, borderLogic)).ToList();
 
-                                    index++;
+                            if (applicablePoints.Count > 0)
+                            {
+                                if (!site.UndefinedPointOrder)
+                                {
+                                    foreach (Point point in applicablePoints)
+                                    {
+                                        strings.Add(GetAssertTrueMethodStart(assert) + @"PointIs(sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwisePoints) + @".ElementAt(" + index + @"), " + point.X + @", " + point.Y + @")); // #" + site.Id + @" " + (char)point.Id);
+
+                                        index++;
+                                    }
+                                }
+                                else
+                                {
+                                    strings.Add("// Exact starting point is undefined, so we only check that points are sequential");
+                                    // we only have 1 "quadrant" for undefined order, so this will only appear once so we can keep it nested 
+
+                                    for (int i = 0; i < applicablePoints.Count; i++)
+                                    {
+                                        Point point1 = applicablePoints[i];
+                                        Point point2 = applicablePoints[i == applicablePoints.Count - 1 ? 0 : i + 1];
+
+                                        strings.Add(GetAssertTrueMethodStart(assert) + @"PointsAreSequential(sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwisePoints) + @", " + point1.X + @", " + point1.Y + @", " + point2.X + @", " + point2.Y + @")); // #" + site.Id + @" " + (char)point1.Id + " > " + (char)point2.Id);
+                                    }
                                 }
                             }
                         }
@@ -1676,7 +1721,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 return strings;
             }
 
-            private List<string> BuildPointBorderLocationAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic, bool assert)
+            private List<string> BuildPointBorderLocationAssertions(List<Edge> edges, TestBorderLogic borderLogic, bool assert)
             {
                 List<string> strings = new List<string>();
 
@@ -1747,15 +1792,31 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                     if (clockwise)
                     {
-                        int index = 0;
-
-                        IEnumerable<Edge> orderedEdges = siteEdges.OrderBy(e => GetEdgeSoftIndex(e, site.Points));
-                        
-                        foreach (Edge edge in orderedEdges)
+                        if (siteEdges.Count > 0)
                         {
-                            strings.Add(GetAssertTrueMethodStart(assert) + @"EdgeIs(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @".ElementAt(" + index + @"), " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                            List<Edge> orderedEdges = siteEdges.OrderBy(e => GetEdgeSoftIndex(e, site.Points)).ToList();
 
-                            index++;
+                            if (!site.UndefinedPointOrder)
+                            {
+                                for (int i = 0; i < orderedEdges.Count; i++)
+                                {
+                                    Edge edge = orderedEdges[i];
+
+                                    strings.Add(GetAssertTrueMethodStart(assert) + @"EdgeIs(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @".ElementAt(" + i + @"), " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                                }
+                            }
+                            else
+                            {
+                                strings.Add("// Exact starting edge is undefined, so we only check that edges are sequential");
+
+                                for (int i = 0; i < orderedEdges.Count; i++)
+                                {
+                                    Edge edge1 = orderedEdges[i];
+                                    Edge edge2 = orderedEdges[i == orderedEdges.Count - 1 ? 0 : i + 1];
+                                    
+                                    strings.Add(GetAssertTrueMethodStart(assert) + @"EdgesAreSequential(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @", " + edge1.FromPoint.X + @", " + edge1.FromPoint.Y + @", " + edge1.ToPoint.X + @", " + edge1.ToPoint.Y + @", " + edge2.FromPoint.X + @", " + edge2.FromPoint.Y + @", " + edge2.ToPoint.X + @", " + edge2.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge1.FromPoint.Id + @"-" + (char)edge1.ToPoint.Id + @" > " + (char)edge2.FromPoint.Id + @"-" + (char)edge2.ToPoint.Id);
+                                }
+                            }
                         }
                     }
                 }
@@ -1798,16 +1859,16 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                 for (int y = _verPreviewSteps - 1; y >= 0; y--)
                 {
-                    string s = "// ";
+                    string str = "// ";
 
                     int verValue = y * _verPreviewStepSize;
 
                     if (verValue % 100 == 0)
-                        s += $"{verValue,4}";
+                        str += $"{verValue,4}";
                     else
-                        s += @"    ";
+                        str += @"    ";
 
-                    s += @" ";
+                    str += @" ";
 
                     for (int x = 0; x < _horPreviewSteps; x++)
                     {
@@ -1817,7 +1878,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                         if (site != null)
                         {
-                            s += site.Id;
+                            str += site.Id;
                         }
                         else
                         {
@@ -1825,7 +1886,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                             if (point != null)
                             {
-                                s += (char)point.Id;
+                                str += (char)point.Id;
                             }
                             else
                             {
@@ -1835,38 +1896,38 @@ namespace SharpVoronoiLib.UnitTestGenerator
                                     edges.Count > 0)
                                 {
                                     if (edges.Count > 1)
-                                        s += "#";
+                                        str += "#";
                                     else
-                                        s += MakeEdgeLineSymbol(edges[0], horValue, verValue);
+                                        str += MakeEdgeLineSymbol(edges[0], horValue, verValue);
                                 }
                                 else
                                 {
                                     if (x == 0)
                                     {
                                         if (y == 0)
-                                            s += @"└";
+                                            str += @"└";
                                         else if (y == _verPreviewSteps - 1)
-                                            s += @"↑";
+                                            str += @"↑";
                                         else
-                                            s += @"|";
+                                            str += @"|";
                                     }
                                     else if (y == 0)
                                     {
                                         if (x == _horPreviewSteps - 1)
-                                            s += "→";
+                                            str += "→";
                                         else
-                                            s += "-";
+                                            str += "-";
                                     }
                                     else
                                     {
-                                        s += " ";
+                                        str += " ";
                                     }
                                 }
                             }
                         }
                     }
 
-                    lines.Add(s);
+                    lines.Add(str);
                 }
 
                 string fs = "//    ";
@@ -1901,7 +1962,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 // Find the closest point to the given cell's center
 
                 double closestDistToValue = -1;
-                double closestXToValue = -1;
+                //double closestXToValue = -1; - not using X atm
                 double closestYToValue = -1;
 
                 for (int i = 0; i <= totalSteps; i++)
@@ -1919,14 +1980,14 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         distToValue < closestDistToValue)
                     {
                         closestDistToValue = distToValue;
-                        closestXToValue = actualX;
+                        //closestXToValue = actualX; - not using X atm
                         closestYToValue = actualY;
                     }
                 }
 
                 // Calculate the difference between cell center and where the line passes through the cell
 
-                double diffX = (valueX - closestXToValue) / _horPreviewStepSize;
+                //double diffX = (valueX - closestXToValue) / _horPreviewStepSize; - not using X atm
                 double diffY = (valueY - closestYToValue) / _verPreviewStepSize;
 
                 // Choose a symbol that best "describes" this position
@@ -2061,9 +2122,19 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         Site ourSite = Sites[s];
                         Site givenSite = givenTest.Sites[s];
 
+                        ourSite.UndefinedPointOrder = givenSite.UndefinedPointOrder;
+                        if (ourSite.UndefinedPointOrder)
+                            ourSite.Points = new[] { new List<Point>() };
+                        else
+                            ourSite.Points = new[] { new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>() };
+
                         for (int sourceQuadrant = 0; sourceQuadrant < givenSite.Points.Length; sourceQuadrant++)
                         {
-                            int targetQuadrant = TransformQuadrantIndex(sourceQuadrant, repeat);
+                            int targetQuadrant;
+                            if (givenSite.UndefinedPointOrder)
+                                targetQuadrant = sourceQuadrant; // 0, basically
+                            else
+                                targetQuadrant = TransformQuadrantIndex(sourceQuadrant, repeat);
                         
                             for (int p = 0; p < givenSite.Points[sourceQuadrant].Count; p++)
                             {
@@ -2256,7 +2327,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 public int X { get; }
                 public int Y { get; }
                 public int Id { get; }
-                public List<Point>[] Points { get; } = { new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>() };
+                public List<Point>[] Points { get; set; } = null!;
+                public bool UndefinedPointOrder { get; set; }
 
 
                 public Site(int x, int y, int id)

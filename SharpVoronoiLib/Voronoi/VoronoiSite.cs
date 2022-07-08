@@ -27,6 +27,10 @@ namespace SharpVoronoiLib
         [PublicAPI]
         public IEnumerable<VoronoiEdge> Cell => cell;
 
+        /// <summary>
+        ///
+        /// If the site lies on any of the edges (or corners), then the starting order is not defined.
+        /// </summary>
         [PublicAPI]
         public IEnumerable<VoronoiEdge> ClockwiseCell
         {
@@ -36,13 +40,6 @@ namespace SharpVoronoiLib
                 {
                     _clockwiseCell = new List<VoronoiEdge>(cell);
                     _clockwiseCell.Sort(SortCellEdgesClockwise);
-
-                    int overlappingEdgeIndex = _clockwiseCell.FindIndex(LiesOnEdge);
-                    // todo: record this when we add first add it
-
-                    if (overlappingEdgeIndex != -1)
-                        if (overlappingEdgeIndex > 0)
-                            _clockwiseCell.ShiftBy(-overlappingEdgeIndex);
                 }
 
                 return _clockwiseCell;
@@ -84,7 +81,11 @@ namespace SharpVoronoiLib
                 return _points;
             }
         }
-
+        
+        /// <summary>
+        /// 
+        /// If the site lies on any of the edges (or corners), then the starting order is not defined.
+        /// </summary>
         [PublicAPI]
         public IEnumerable<VoronoiPoint> ClockwisePoints
         {
@@ -94,13 +95,6 @@ namespace SharpVoronoiLib
                 {
                     _clockwisePoints = new List<VoronoiPoint>(Points);
                     _clockwisePoints.Sort(SortPointsClockwise);
-                    
-                    int overlappingPointIndex = _clockwisePoints.FindIndex(point => point.ApproxEqual(X, Y));
-                    // todo: could we know about this when we add first add it?
-
-                    if (overlappingPointIndex != -1)
-                        if (overlappingPointIndex > 0)
-                            _clockwisePoints.ShiftBy(-overlappingPointIndex);
                 }
 
                 return _clockwisePoints;

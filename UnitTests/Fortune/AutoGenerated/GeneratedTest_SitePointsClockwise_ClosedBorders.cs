@@ -668,10 +668,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 W
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 X > Y
         }
 
         /// <summary>
@@ -730,10 +731,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Z
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 X > Y
         }
 
         /// <summary>
@@ -792,10 +794,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 X > Y
         }
 
         /// <summary>
@@ -854,10 +857,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 X > Y
         }
 
         [Test]
@@ -912,10 +916,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 W
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 X > Y
         }
 
         /// <summary>
@@ -974,10 +979,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Z
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 X > Y
         }
 
         /// <summary>
@@ -1036,10 +1042,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 X > Y
         }
 
         /// <summary>
@@ -1098,10 +1105,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 X
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 X > Y
         }
 
         /// <summary>
@@ -1160,10 +1168,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 X > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 Z > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 W > Y
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 Y > X
         }
 
         /// <summary>
@@ -1222,10 +1231,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 X > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 Z > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 W > Y
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 Y > X
         }
 
         /// <summary>
@@ -1284,10 +1294,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Z
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 X > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 Z > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 W > Y
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 Y > X
         }
 
         /// <summary>
@@ -1346,10 +1357,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 W
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 X > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 Z > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 W > Y
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 Y > X
         }
 
         [Test]
@@ -1404,10 +1416,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 0)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 1000, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 0, 0)); // #1 Y
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 X > Y
         }
 
         /// <summary>
@@ -1466,10 +1479,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Z
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 X > Y
         }
 
         /// <summary>
@@ -1528,10 +1542,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 1000)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 Y
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 X
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 X > Y
         }
 
         /// <summary>
@@ -1590,10 +1605,11 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 0)); // #1 has X
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 1000, 0)); // #1 has Y
             Assert.IsTrue(SiteHasClockwisePoint(sites[0], 0, 1000)); // #1 has Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(0), 1000, 1000)); // #1 W
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(1), 0, 1000)); // #1 Z
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(2), 0, 0)); // #1 X
-            Assert.IsTrue(PointIs(sites[0].ClockwisePoints.ElementAt(3), 1000, 0)); // #1 Y
+            // Exact starting point is undefined, so we only check that points are sequential
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 0, 1000, 1000)); // #1 Y > W
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 1000, 1000, 0, 1000)); // #1 W > Z
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 1000, 0, 0)); // #1 Z > X
+            Assert.IsTrue(PointsAreSequential(sites[0].ClockwisePoints, 0, 0, 1000, 0)); // #1 X > Y
         }
 
         [Test]
