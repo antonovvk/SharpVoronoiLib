@@ -6,7 +6,8 @@ namespace SharpVoronoiLib
     /// <summary>
     /// The vertices/nodes of the Voronoi cells, i.e. the points equidistant to three or more Voronoi sites.
     /// These are the end points of a <see cref="VoronoiEdge"/>.
-    /// These are the <see cref="VoronoiSite.Points"/>. 
+    /// These are the <see cref="VoronoiSite.Points"/>.
+    /// Also used for some other derived locations.
     /// </summary>
     public class VoronoiPoint
     {

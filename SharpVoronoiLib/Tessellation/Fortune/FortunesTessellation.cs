@@ -15,6 +15,8 @@ namespace SharpVoronoiLib
             {
                 if (site == null) throw new ArgumentNullException(nameof(sites));
 
+                site.TessellationStarted(); 
+                
                 eventQueue.Insert(new FortuneSiteEvent(site));
             }
 

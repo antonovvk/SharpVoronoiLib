@@ -127,15 +127,13 @@ namespace SharpVoronoiLib
         }
 
         [PublicAPI]
-        public List<VoronoiEdge> Relax(int iterations = 1, float strength = 1.0f)
+        public List<VoronoiEdge> Relax(int iterations = 1, float strength = 1.0f, bool reTessellate = true)
         {
             if (Sites == null) throw new InvalidOperationException();
             if (Edges == null) throw new InvalidOperationException();
             if (iterations < 1) throw new ArgumentOutOfRangeException(nameof(iterations));
             if (strength <= 0f || strength > 1f) throw new ArgumentOutOfRangeException(nameof(strength));
 
-            // Relax sites
-            
             if (_relaxationAlgorithm == null)
                 _relaxationAlgorithm = new LloydsRelaxation();
 
@@ -143,9 +141,13 @@ namespace SharpVoronoiLib
             {
                 // Relax once
                 _relaxationAlgorithm.Relax(Sites, MinX, MinY, MaxX, MaxY, strength);
-                
-                // Re-tesselate with the new site locations
-                Tessellate(_lastBorderGeneration); // will set Edges
+
+                if (i < iterations - 1 || // always have to tessellate if this isn't the last iteration, otherwise this makes no sense
+                    reTessellate)
+                {
+                    // Re-tesselate with the new site locations
+                    Tessellate(_lastBorderGeneration); // will set Edges
+                }
             }
 
             return Edges;

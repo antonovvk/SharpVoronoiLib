@@ -140,8 +140,8 @@ namespace SharpVoronoiLib
                 rightSection.Data.Edge = rightEdge;
                 
                 //store neighbors for delaunay
-                leftSection.Data.Site.neighbours.Add(newSection.Data.Site);
-                newSection.Data.Site.neighbours.Add(leftSection.Data.Site);
+                leftSection.Data.Site.AddNeighbour(newSection.Data.Site);
+                newSection.Data.Site.AddNeighbour(leftSection.Data.Site);
 
                 //create circle events
                 CheckCircle(leftSection, eventQueue);
@@ -160,8 +160,8 @@ namespace SharpVoronoiLib
                 newEdge.LastBeachLineNeighbor = infEdge;
                 edges.AddFirst(newEdge);
 
-                leftSection.Data.Site.neighbours.Add(newSection.Data.Site);
-                newSection.Data.Site.neighbours.Add(leftSection.Data.Site);
+                leftSection.Data.Site.AddNeighbour(newSection.Data.Site);
+                newSection.Data.Site.AddNeighbour(leftSection.Data.Site);
 
                 newSection.Data.Edge = newEdge;
                 
@@ -218,11 +218,11 @@ namespace SharpVoronoiLib
                 edges.AddFirst(rightSection.Data.Edge);
 
                 //add neighbors for delaunay
-                newSection.Data.Site.neighbours.Add(leftSection.Data.Site);
-                leftSection.Data.Site.neighbours.Add(newSection.Data.Site);
+                newSection.Data.Site.AddNeighbour(leftSection.Data.Site);
+                leftSection.Data.Site.AddNeighbour(newSection.Data.Site);
 
-                newSection.Data.Site.neighbours.Add(rightSection.Data.Site);
-                rightSection.Data.Site.neighbours.Add(newSection.Data.Site);
+                newSection.Data.Site.AddNeighbour(rightSection.Data.Site);
+                rightSection.Data.Site.AddNeighbour(newSection.Data.Site);
 
                 CheckCircle(leftSection, eventQueue);
                 CheckCircle(rightSection, eventQueue);
@@ -291,8 +291,8 @@ namespace SharpVoronoiLib
             edges.AddFirst(newEdge);
 
             //add neighbors for delaunay
-            prev.Data.Site.neighbours.Add(next.Data.Site);
-            next.Data.Site.neighbours.Add(prev.Data.Site);
+            prev.Data.Site.AddNeighbour(next.Data.Site);
+            next.Data.Site.AddNeighbour(prev.Data.Site);
             
             //remove the sectionfrom the tree
             beachLine.RemoveNode(section);

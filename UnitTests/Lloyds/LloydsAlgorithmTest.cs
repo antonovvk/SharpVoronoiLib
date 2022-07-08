@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 namespace SharpVoronoiLib.UnitTests
@@ -12,7 +13,7 @@ namespace SharpVoronoiLib.UnitTests
         {
             // Arrange
             
-            List<VoronoiSite> points = new List<VoronoiSite>
+            List<VoronoiSite> originalPoints = new List<VoronoiSite>
             {
                 new VoronoiSite(-100, 300),
                 new VoronoiSite(300, -100),
@@ -20,6 +21,8 @@ namespace SharpVoronoiLib.UnitTests
                 new VoronoiSite(300, 800)
             };
 
+            List<VoronoiSite> points = new List<VoronoiSite>(originalPoints);
+            
             // Act
 
             VoronoiPlane plane = new VoronoiPlane(0, 0, 600, 600);
@@ -32,9 +35,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
             
-            // TODO: actual tests
-            
-            Assert.Pass();
+            Assert.NotNull(edges);
+            Assert.IsNotEmpty(edges);
+            Assert.AreEqual(originalPoints.Count, points.Count);
+            // todo: check movement
         }
     }
 }

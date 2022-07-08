@@ -14,10 +14,10 @@ namespace SharpVoronoiLib
     public class VoronoiSite
     {
         [PublicAPI]
-        public double X { get; }
-        
+        public double X { get; private set; }
+
         [PublicAPI]
-        public double Y { get; }
+        public double Y { get; private set; }
 
         /// <summary>
         /// The edges that make up this cell.
@@ -25,7 +25,16 @@ namespace SharpVoronoiLib
         /// These are also known as Thiessen polygons.
         /// </summary>
         [PublicAPI]
-        public IEnumerable<VoronoiEdge> Cell => _cell;
+        public IEnumerable<VoronoiEdge> Cell
+        {
+            get
+            {
+                if (!_tessellated)
+                    throw new InvalidOperationException();
+                
+                return _cell;
+            }
+        }
 
         /// <summary>
         ///
@@ -36,6 +45,9 @@ namespace SharpVoronoiLib
         {
             get
             {
+                if (!_tessellated)
+                    throw new InvalidOperationException();
+                
                 if (_clockwiseCell == null)
                 {
                     _clockwiseCell = new List<VoronoiEdge>(_cell);
@@ -50,7 +62,16 @@ namespace SharpVoronoiLib
         /// The sites across the edges.
         /// </summary>
         [PublicAPI]
-        public IEnumerable<VoronoiSite> Neighbours => neighbours;
+        public IEnumerable<VoronoiSite> Neighbours
+        {
+            get
+            {
+                if (!_tessellated)
+                    throw new InvalidOperationException();
+                
+                return _neighbours;
+            }
+        }
 
         /// <summary>
         /// The vertices of the <see cref="Cell"/>.
@@ -60,6 +81,9 @@ namespace SharpVoronoiLib
         {
             get
             {
+                if (!_tessellated)
+                    throw new InvalidOperationException();
+                
                 if (_points == null)
                 {
                     _points = new List<VoronoiPoint>();
@@ -95,6 +119,9 @@ namespace SharpVoronoiLib
         {
             get
             {
+                if (!_tessellated)
+                    throw new InvalidOperationException();
+                
                 if (_clockwisePoints == null)
                 {
                     _clockwisePoints = new List<VoronoiPoint>(Points);
@@ -111,23 +138,67 @@ namespace SharpVoronoiLib
         /// This won't be set if instead <see cref="LiesOnCorner"/> is set, i.e. the site lies on the intersection of 2 of its edges.
         /// </summary>
         [PublicAPI]
-        public VoronoiEdge? LiesOnEdge { get; internal set; }
+        public VoronoiEdge? LiesOnEdge
+        {
+            get
+            {
+                if (!_tessellated)
+                    throw new InvalidOperationException();
+                
+                return _liesOnEdge;
+            }
+        }
 
         /// <summary>
         /// Whether this site lies directly on the intersection point of two of its <see cref="Cell"/>'s edges.
         /// This happens when sites overlap or are on the border's corner.
         /// </summary>
         [PublicAPI]
-        public VoronoiPoint? LiesOnCorner { get; internal set; }
+        public VoronoiPoint? LiesOnCorner
+        {
+            get
+            {
+                if (!_tessellated)
+                    throw new InvalidOperationException();
+                
+                return _liesOnCorner;
+            }
+        }
+
+        /// <summary>
+        /// The center of our cell.
+        /// Specifically, the geometric center aka center of mass, i.e. the arithmetic mean position of all the edge end points.
+        /// This is assuming a non-self-intersecting closed polygon of our cell.
+        /// If we don't have a closed cell (i.e. unclosed "polygon"), then this will produce approximate results that aren't mathematically sound, but work for most purposes. 
+        /// </summary>
+        public VoronoiPoint Centroid
+        {
+            get
+            {
+                if (!_tessellated)
+                    throw new InvalidOperationException();
+                
+                if (_centroid != null)
+                    return _centroid;
+
+                _centroid = ComputeCentroid();
+                
+                return _centroid;
+            }
+        }
 
 
-        internal readonly List<VoronoiSite> neighbours;
-
-
+        private bool _tessellated;
+        
+        private readonly List<VoronoiSite> _neighbours;
         private readonly List<VoronoiEdge> _cell;
         private List<VoronoiPoint>? _points;
         private List<VoronoiPoint>? _clockwisePoints;
         private List<VoronoiEdge>? _clockwiseCell;
+        private VoronoiEdge? _liesOnEdge;
+        private VoronoiPoint? _liesOnCorner;
+        private VoronoiPoint? _centroid;
+        // Note: if adding something new, don't forget to clear it in Relocate() if it doesn't apply pre-tessellation
 
 
         [PublicAPI]
@@ -135,8 +206,9 @@ namespace SharpVoronoiLib
         {
             X = x;
             Y = y;
+            
             _cell = new List<VoronoiEdge>();
-            neighbours = new List<VoronoiSite>();
+            _neighbours = new List<VoronoiSite>();
         }
 
         
@@ -167,6 +239,11 @@ namespace SharpVoronoiLib
             return result;
         }
 
+        
+        internal void TessellationStarted()
+        {
+            _tessellated = true;
+        }
 
         internal void AddEdge(VoronoiEdge newEdge)
         {
@@ -184,7 +261,7 @@ namespace SharpVoronoiLib
             
             if (LiesOnEdge == null)
             {
-                LiesOnEdge = newEdge;
+                _liesOnEdge = newEdge;
             }
             else
             {
@@ -192,14 +269,39 @@ namespace SharpVoronoiLib
                 
                 if (newEdge.Start == LiesOnEdge.Start ||
                     newEdge.Start == LiesOnEdge.End)
-                    LiesOnCorner = newEdge.Start;
+                    _liesOnCorner = newEdge.Start;
                 else
-                    LiesOnCorner = newEdge.End; 
+                    _liesOnCorner = newEdge.End; 
                         
-                LiesOnEdge = null; // we only keep this for one and only one edge
+                _liesOnEdge = null; // we only keep this for one and only one edge
             }
         }
+
+        internal void AddNeighbour(VoronoiSite newNeighbour)
+        {
+            _neighbours.Add(newNeighbour);
+        }
         
+        internal void Relocate(double newX, double newY)
+        {
+            X = newX;
+            Y = newY;
+            
+            // We are no longer part of voronoi
+            _tessellated = false;
+            
+            // Clear all the values we used before
+            
+            _cell.Clear();
+            _neighbours.Clear();
+            _points = null;
+            _clockwisePoints = null;
+            _clockwiseCell = null;
+            _liesOnEdge = null;
+            _liesOnCorner = null;
+            _centroid = null;
+        }
+
 
         [Pure]
         private static int SortPointsClockwise(VoronoiPoint point1, VoronoiPoint point2, double x, double y)
@@ -322,7 +424,8 @@ namespace SharpVoronoiLib
         private int SortPointsClockwise(VoronoiPoint point1, VoronoiPoint point2)
         {
             // When the point lies on top of us, we don't know what to use as an angle because that depends on which way the other edges "close".
-            // So we "shift" the center a little towards the centroid of the polygon, which would "restore" the angle.
+            // So we "shift" the center a little towards the (approximate*) centroid of the polygon, which would "restore" the angle.
+            // (* We don't want to waste time computing the actual true centroid though.)
             
             if (point1.ApproxEqual(X, Y) ||
                 point2.ApproxEqual(X, Y))
@@ -345,7 +448,62 @@ namespace SharpVoronoiLib
             return Y + (target - Y) * shiftAmount;
         }
         
-        private const double shiftAmount = 1 / 1E14;// the point of shifting coordinates is to "change the angle", but Atan cannot distinguish anything smaller than something like double significant digits, so we need this "epsilon" to be fairly large 
+        private const double shiftAmount = 1 / 1E14;// the point of shifting coordinates is to "change the angle", but Atan cannot distinguish anything smaller than something like double significant digits, so we need this "epsilon" to be fairly large
+        
+        private VoronoiPoint ComputeCentroid()
+        {
+            // Basically, https://stackoverflow.com/a/34732659/8047867
+            // https://en.wikipedia.org/wiki/Centroid#Of_a_polygon
+            
+            // If we don't have points generated yet, do so now (by calling the property that does so when read)
+            if (_clockwisePoints == null)
+            {
+                IEnumerable<VoronoiPoint> _ = ClockwisePoints;
+            }
+            
+            double centroidX = 0; // just for compiler to be happy, we won't use these default values
+            double centroidY = 0;
+            double area = 0;
+
+            for (int i = 0; i < _clockwisePoints!.Count; i++)
+            {
+                int i2 = i == _clockwisePoints.Count - 1 ? 0 : i + 1;
+
+                double xi = _clockwisePoints[i].X;
+                double yi = _clockwisePoints[i].Y;
+                double xi2 = _clockwisePoints[i2].X;
+                double yi2 = _clockwisePoints[i2].Y;
+
+                double addX = (xi + xi2) * (xi * yi2 - xi2 * yi);
+                double addY = (yi + yi2) * (xi * yi2 - xi2 * yi);
+                    
+                double addArea = xi * yi2 - xi2 * yi;
+
+                if (i == 0)
+                {
+                    centroidX = addX;
+                    centroidY = addY;
+                    area = addArea;
+                }
+                else
+                {
+                    centroidX += addX;
+                    centroidY += addY;
+                    area += addArea;
+                }
+            }
+
+            // If the area is 0, then we are basically squashed on top of other points... weird, but ok, this makes centroid exactly us
+            if (area.ApproxEqual(0))
+                return new VoronoiPoint(X, Y);
+            
+            area /= 3; // total XY is 1/6A (sum) and A = 1/2 (sum), so we are using 1/3 A
+            
+            centroidX = area;
+            centroidY = area;
+
+            return new VoronoiPoint(centroidX, centroidY);
+        }
 
 
 #if DEBUG
