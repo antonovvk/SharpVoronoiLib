@@ -151,7 +151,7 @@ namespace SharpVoronoiLib
 
                     bool GatherNeighbours(VoronoiPoint aroundPoint, VoronoiEdge comingFromEdge, VoronoiSite comingIntoSite, VoronoiSite? ultimateSite)
                     {
-                        foreach (VoronoiEdge edge in comingIntoSite.cell)
+                        foreach (VoronoiEdge edge in comingIntoSite.Cell)
                         {
                             if (edge == comingFromEdge)
                                 continue; // this would be the edge we came from, we need the other edge

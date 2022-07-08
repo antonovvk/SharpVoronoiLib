@@ -823,7 +823,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 ("GeneratedTest_SiteNeighbours", TestPurpose.AssertSiteNeighbours),
                 ("GeneratedTest_SitePoints", TestPurpose.AssertSitePoints),
                 ("GeneratedTest_SitePointsClockwise", TestPurpose.AssertSitePointsClockwise),
-                ("GeneratedTest_PointBorderLocation", TestPurpose.AssertPointBorderLocation)
+                ("GeneratedTest_PointBorderLocation", TestPurpose.AssertPointBorderLocation),
+                ("GeneratedTest_LiesOnEdgeOrCorner", TestPurpose.AssertLiesOnEdgeOrCorner)
             };
 
             for (int i = 0; i < 2; i++)
@@ -1203,7 +1204,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     {
                         case TestPurpose.AssertEdges:
                             stringBuilder.AppendPaddedLine(3, @"// Assert", true);
-                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
+                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, true));
                             break;
                         
                         case TestPurpose.AssertSitePoints:
@@ -1280,6 +1281,17 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                             stringBuilder.AppendPaddedLine(3, @"// Assert", true);
                             AppendAssertions(BuildPointBorderLocationAssertions(test.Edges, borderLogic, true));
+                            break;
+
+                        case TestPurpose.AssertLiesOnEdgeOrCorner:
+                            stringBuilder.AppendPaddedLine(3, @"// Assume", true);
+                            AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
+                            stringBuilder.AppendLine();
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, false));
+                            stringBuilder.AppendLine();
+
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildLiesOnEdgeOrCornerAssertions(test.Edges, test.Sites, borderLogic, true));
                             break;
 
                         default:
@@ -1464,6 +1476,12 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.ClockwisePoints) + @"""/> contains the expected points in clockwise order.");
                         break;
 
+                    case TestPurpose.AssertLiesOnEdgeOrCorner:
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected flags for being on an edge or corner.");
+                        strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.LiesOnEdge) + @"""/> is set when the site is on exactly one of its <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Cell) + @"""/> edges.");
+                        strings.Add(@"/// And that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.LiesOnCorner) + @"""/> is set when the site is on exactly two of its <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Cell) + @"""/> edges, i.e. the point between them.");
+                        break;
+
                     case TestPurpose.AssertPointBorderLocation:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiPoint) + @"""/>`s have the expected <see cref=""" + nameof(PointBorderLocation) + @"""/>.");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiPoint) + @"." + nameof(VoronoiPoint.BorderLocation) + @"""/> has the expected value.");
@@ -1546,7 +1564,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
             {
                 List<string> strings = new List<string>();
 
-                strings.Add(GetAssertEqualMethodStart(assert) + CountExpectedRelevantEdges(edges, borderLogic) + GetAssertEqualMethodSeparator(assert) + @" edges.Count);");
+                strings.Add(GetAssertEqualMethodStart(assert) + CountExpectedRelevantEdges(edges, borderLogic) + GetAssertEqualMethodSeparator(assert) + @"edges.Count);");
                 
                 strings.Add(GetAssertNotNullMethodStart(assert) + @"edges);");
                 
@@ -1568,9 +1586,14 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 return assert ? @"Assert.NotNull(" : @"Assume.That(() => null != ";
             }
 
+            private string GetAssertNullMethodStart(bool assert)
+            {
+                return assert ? @"Assert.Null(" : @"Assume.That(() => null == ";
+            }
+
             private string GetAssertEqualMethodSeparator(bool assert)
             {
-                return assert ? @"," : @" ==";
+                return assert ? @", " : @" == ";
             }
 
             private string GetAssertTrueMethodStart(bool assert)
@@ -1582,11 +1605,24 @@ namespace SharpVoronoiLib.UnitTestGenerator
             {
                 List<string> strings = new List<string>();
 
-                foreach (Edge edge in edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)))
+                List<Edge> matchingEdges = edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)).ToList();
+
+                if (matchingEdges.Count > 0)
                 {
-                    foreach (Site site in edge.EdgeSites)
+                    foreach (Edge edge in matchingEdges)
                     {
-                        strings.Add(GetAssertTrueMethodStart(assert) + @"EdgeHasSite(FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"), " + site.X + @", " + site.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " has #" + site.Id + @"");
+                        foreach (Site site in edge.EdgeSites)
+                        {
+                            strings.Add(GetAssertTrueMethodStart(assert) + @"EdgeHasSite(FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"), " + site.X + @", " + site.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " has #" + site.Id + @"");
+                        }
+                    }
+                }
+                else
+                {
+                    if (assert)
+                    {
+                        strings.Add("// There are no edges, so nothing to check");
+                        strings.Add("Assert.Pass();");
                     }
                 }
 
@@ -1598,32 +1634,45 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 List<string> strings = new List<string>();
 
                 bool first = true;
-                
-                foreach (Edge edge in edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)))
+
+                List<Edge> matchingEdges = edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)).ToList();
+
+                if (matchingEdges.Count > 0)
                 {
-                    // Find other edges that have a point that we have
-                    
-                    List<Edge> neighbours = edges
-                        .Where(e =>
-                                   e != edge &&
-                                   EdgeMatchesBorderLogic(e, borderLogic) &&
-                                   e.Points()
-                                       .Any(p => p == edge.FromPoint || p == edge.ToPoint)
-                        ).ToList();
-
-                    strings.Add((first ? nameof(VoronoiEdge) + @" " : "") + @"edge = FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
-                    first = false; // don't redefine the variable again, only set value
-
-                    strings.Add(GetAssertNotNullMethodStart(assert) + @"edge" + @"." + nameof(VoronoiEdge.Neighbours) + @");");
-
-                    strings.Add(GetAssertEqualMethodStart(assert) + neighbours.Count + GetAssertEqualMethodSeparator(assert) + @" edge" + @"." + nameof(VoronoiEdge.Neighbours) + @".Count());");
-
-                    foreach (Edge neighbour in neighbours)
+                    foreach (Edge edge in matchingEdges)
                     {
-                        strings.Add(GetAssertTrueMethodStart(assert) + @"edge." + nameof(VoronoiEdge.Neighbours) + @".Contains(FindEdge(edges, " + neighbour.FromPoint.X + @", " + neighbour.FromPoint.Y + @", " + neighbour.ToPoint.X + @", " + neighbour.ToPoint.Y + @"))); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " neighbours " + (char)neighbour.FromPoint.Id + @"-" + (char)neighbour.ToPoint.Id);
+                        // Find other edges that have a point that we have
+
+                        List<Edge> neighbours = edges
+                                                .Where(e =>
+                                                           e != edge &&
+                                                           EdgeMatchesBorderLogic(e, borderLogic) &&
+                                                           e.Points()
+                                                            .Any(p => p == edge.FromPoint || p == edge.ToPoint)
+                                                ).ToList();
+
+                        strings.Add((first ? nameof(VoronoiEdge) + @" " : "") + @"edge = FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                        first = false; // don't redefine the variable again, only set value
+
+                        strings.Add(GetAssertNotNullMethodStart(assert) + @"edge" + @"." + nameof(VoronoiEdge.Neighbours) + @");");
+
+                        strings.Add(GetAssertEqualMethodStart(assert) + neighbours.Count + GetAssertEqualMethodSeparator(assert) + @"edge" + @"." + nameof(VoronoiEdge.Neighbours) + @".Count());");
+
+                        foreach (Edge neighbour in neighbours)
+                        {
+                            strings.Add(GetAssertTrueMethodStart(assert) + @"edge." + nameof(VoronoiEdge.Neighbours) + @".Contains(FindEdge(edges, " + neighbour.FromPoint.X + @", " + neighbour.FromPoint.Y + @", " + neighbour.ToPoint.X + @", " + neighbour.ToPoint.Y + @"))); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " neighbours " + (char)neighbour.FromPoint.Id + @"-" + (char)neighbour.ToPoint.Id);
+                        }
                     }
                 }
-                
+                else
+                {
+                    if (assert)
+                    {
+                        strings.Add("// There are no edges, so nothing to check");
+                        strings.Add("Assert.Pass();");
+                    }
+                }
+
                 return strings;
             }
 
@@ -1631,33 +1680,44 @@ namespace SharpVoronoiLib.UnitTestGenerator
             {
                 List<string> strings = new List<string>();
 
-                foreach (Site site in sites.OrderBy(s => s.Id))
+                if (sites.Count > 0)
                 {
-                    // Find other sites that have an edge that we have
-
-                    IEnumerable<Edge> siteEdges = edges
-                                                  .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
-                                                  .Where(e => e.EdgeSites.Contains(site));
-                    
-                    List<Site> neighbours = sites
-                                            .Where(s =>
-                                                       s != site &&
-                                                       siteEdges.Intersect(
-                                                           // We need to get edges for the site
-                                                           edges
-                                                               .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
-                                                               .Where(e => e.EdgeSites.Contains(s))
-                                                       ).Any())
-                                            .OrderBy(s => s.Id)
-                                            .ToList();
-
-                    strings.Add(GetAssertNotNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.Neighbours) + @");");
-
-                    strings.Add(GetAssertEqualMethodStart(assert) + neighbours.Count + GetAssertEqualMethodSeparator(assert) + @" sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiEdge.Neighbours) + @".Count());");
-
-                    foreach (Site neighbour in neighbours)
+                    foreach (Site site in sites.OrderBy(s => s.Id))
                     {
-                        strings.Add(GetAssertTrueMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]." + nameof(VoronoiSite.Neighbours) + @".Contains(sites[" + sites.IndexOf(neighbour) + @"])); // " + site.Id + @" neighbours " + neighbour.Id);
+                        // Find other sites that have an edge that we have
+
+                        IEnumerable<Edge> siteEdges = edges
+                                                      .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                                      .Where(e => e.EdgeSites.Contains(site));
+
+                        List<Site> neighbours = sites
+                                                .Where(s =>
+                                                           s != site &&
+                                                           siteEdges.Intersect(
+                                                               // We need to get edges for the site
+                                                               edges
+                                                                   .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                                                   .Where(e => e.EdgeSites.Contains(s))
+                                                           ).Any())
+                                                .OrderBy(s => s.Id)
+                                                .ToList();
+
+                        strings.Add(GetAssertNotNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.Neighbours) + @");");
+
+                        strings.Add(GetAssertEqualMethodStart(assert) + neighbours.Count + GetAssertEqualMethodSeparator(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiEdge.Neighbours) + @".Count());");
+
+                        foreach (Site neighbour in neighbours)
+                        {
+                            strings.Add(GetAssertTrueMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]." + nameof(VoronoiSite.Neighbours) + @".Contains(sites[" + sites.IndexOf(neighbour) + @"])); // " + site.Id + @" neighbours " + neighbour.Id);
+                        }
+                    }
+                }
+                else
+                {
+                    if (assert)
+                    {
+                        strings.Add("// There are no sites, so nothing to check");
+                        strings.Add("Assert.Pass();");
                     }
                 }
 
@@ -1668,81 +1728,177 @@ namespace SharpVoronoiLib.UnitTestGenerator
             {
                 List<string> strings = new List<string>();
 
-                foreach (Site site in sites.OrderBy(s => s.Id))
+                if (sites.Count > 0)
                 {
-                    List<Point> points = edges
-                                         .Where(e =>
-                                                    EdgeMatchesBorderLogic(e, borderLogic) &&
-                                                    e.EdgeSites.Contains(site))
-                                         .SelectMany(e => e.Points())
-                                         .Distinct() // edges connect at points, so there's repeats
-                                         .OrderBy(p => p.Id)
-                                         .ToList();
-
-                    string listName = clockwise ? nameof(VoronoiSite.ClockwisePoints) : nameof(VoronoiSite.Points);
-                    
-                    strings.Add(GetAssertNotNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @");");
-
-                    strings.Add(GetAssertEqualMethodStart(assert) + points.Count + GetAssertEqualMethodSeparator(assert) + @" sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @".Count()); // #" + site.Id);
-
-                    foreach (Point point in points)
+                    foreach (Site site in sites.OrderBy(s => s.Id))
                     {
-                        strings.Add(GetAssertTrueMethodStart(assert) + @"HasPoint(sites[" + sites.IndexOf(site) + @"]." + listName + @", " + point.X + @", " + point.Y + @")); // #" + site.Id + " has " + (char)point.Id + @"");
-                    }
-                    
-                    if (clockwise)
-                    {
-                        int index = 0;
-                        
-                        foreach (List<Point> quadrantPoints in site.Points)
+                        List<Point> points = edges
+                                             .Where(e =>
+                                                        EdgeMatchesBorderLogic(e, borderLogic) &&
+                                                        e.EdgeSites.Contains(site))
+                                             .SelectMany(e => e.Points())
+                                             .Distinct() // edges connect at points, so there's repeats
+                                             .OrderBy(p => p.Id)
+                                             .ToList();
+
+                        string listName = clockwise ? nameof(VoronoiSite.ClockwisePoints) : nameof(VoronoiSite.Points);
+
+                        strings.Add(GetAssertNotNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @");");
+
+                        strings.Add(GetAssertEqualMethodStart(assert) + points.Count + GetAssertEqualMethodSeparator(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @".Count()); // #" + site.Id);
+
+                        foreach (Point point in points)
                         {
-                            List<Point> applicablePoints = quadrantPoints.Where(p => PointMatchesBorderLogic(p, borderLogic)).ToList();
+                            strings.Add(GetAssertTrueMethodStart(assert) + @"HasPoint(sites[" + sites.IndexOf(site) + @"]." + listName + @", " + point.X + @", " + point.Y + @")); // #" + site.Id + " has " + (char)point.Id + @"");
+                        }
 
-                            if (applicablePoints.Count > 0)
+                        if (clockwise)
+                        {
+                            int index = 0;
+
+                            foreach (List<Point> quadrantPoints in site.Points)
                             {
-                                if (!site.UndefinedPointOrder)
-                                {
-                                    foreach (Point point in applicablePoints)
-                                    {
-                                        strings.Add(GetAssertTrueMethodStart(assert) + @"PointIs(sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @".ElementAt(" + index + @"), " + point.X + @", " + point.Y + @")); // #" + site.Id + @" " + (char)point.Id);
+                                List<Point> applicablePoints = quadrantPoints.Where(p => PointMatchesBorderLogic(p, borderLogic)).ToList();
 
-                                        index++;
+                                if (applicablePoints.Count > 0)
+                                {
+                                    if (!site.UndefinedPointOrder)
+                                    {
+                                        foreach (Point point in applicablePoints)
+                                        {
+                                            strings.Add(GetAssertTrueMethodStart(assert) + @"PointIs(sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @".ElementAt(" + index + @"), " + point.X + @", " + point.Y + @")); // #" + site.Id + @" " + (char)point.Id);
+
+                                            index++;
+                                        }
                                     }
-                                }
-                                else
-                                {
-                                    strings.Add("// Exact starting point is undefined, so we only check that points are sequential");
-                                    // we only have 1 "quadrant" for undefined order, so this will only appear once so we can keep it nested 
-
-                                    for (int i = 0; i < applicablePoints.Count; i++)
+                                    else
                                     {
-                                        Point point1 = applicablePoints[i];
-                                        Point point2 = applicablePoints[i == applicablePoints.Count - 1 ? 0 : i + 1];
+                                        strings.Add("// Exact starting point is undefined, so we only check that points are sequential");
+                                        // we only have 1 "quadrant" for undefined order, so this will only appear once so we can keep it nested 
 
-                                        strings.Add(GetAssertTrueMethodStart(assert) + @"PointsAreSequential(sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @", " + point1.X + @", " + point1.Y + @", " + point2.X + @", " + point2.Y + @")); // #" + site.Id + @" " + (char)point1.Id + " > " + (char)point2.Id);
+                                        for (int i = 0; i < applicablePoints.Count; i++)
+                                        {
+                                            Point point1 = applicablePoints[i];
+                                            Point point2 = applicablePoints[i == applicablePoints.Count - 1 ? 0 : i + 1];
+
+                                            strings.Add(GetAssertTrueMethodStart(assert) + @"PointsAreSequential(sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @", " + point1.X + @", " + point1.Y + @", " + point2.X + @", " + point2.Y + @")); // #" + site.Id + @" " + (char)point1.Id + " > " + (char)point2.Id);
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+                else
+                {
+                    if (assert)
+                    {
+                        strings.Add("// There are no sites, so nothing to check");
+                        strings.Add("Assert.Pass();");
+                    }
+                }
 
                 return strings;
+            }
+
+            private List<string> BuildLiesOnEdgeOrCornerAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic, bool assert)
+            {
+                List<string> strings = new List<string>();
+
+                if (sites.Count > 0)
+                {
+                    foreach (Site site in sites.OrderBy(s => s.Id))
+                    {
+                        List<Edge> onEdges = edges
+                                             .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                             .Where(e => e.EdgeSites.Contains(site))
+                                             .Where(e => IsSiteOnEdge(site, e))
+                                             .ToList();
+
+                        switch (onEdges.Count)
+                        {
+                            case 0:
+                                // Edge - null
+                                strings.Add(GetAssertNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.LiesOnEdge) + @"); // #" + site.Id);
+                                // Corner - null
+                                strings.Add(GetAssertNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.LiesOnCorner) + @"); // #" + site.Id);
+                                break;
+
+                            case 1:
+                                // Edge - set
+                                Edge edge = onEdges[0];
+                                strings.Add(GetAssertNotNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.LiesOnEdge) + @"); // #" + site.Id);
+                                strings.Add(GetAssertEqualMethodStart(assert) + @"FindEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")" + GetAssertEqualMethodSeparator(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.LiesOnEdge) + @"); // #" + site.Id + @" on " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                                // Corner - null
+                                strings.Add(GetAssertNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.LiesOnCorner) + @"); // #" + site.Id);
+                                break;
+
+                            case 2:
+                                // Edge - null
+                                strings.Add(GetAssertNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.LiesOnEdge) + @"); // #" + site.Id);
+                                // Corner - set
+                                strings.Add(GetAssertNotNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.LiesOnCorner) + @"); // #" + site.Id);
+                                Point point = onEdges[0].FromPoint == onEdges[1].FromPoint || onEdges[0].FromPoint == onEdges[1].ToPoint ? onEdges[0].FromPoint : onEdges[0].ToPoint;
+                                strings.Add(GetAssertEqualMethodStart(assert) + @"FindPoint(edges, " + point.X + @", " + point.Y + @")" + GetAssertEqualMethodSeparator(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.LiesOnCorner) + @"); // #" + site.Id + @" on " + (char)point.Id);
+                                break;
+
+                            case > 3:
+                                throw new InvalidOperationException();
+                        }
+                    }
+                }
+                else
+                {
+                    if (assert)
+                    {
+                        strings.Add("// There are no sites, so nothing to check");
+                        strings.Add("Assert.Pass();");
+                    }
+                }
+
+                return strings;
+            }
+
+            private bool IsSiteOnEdge(Site site, Edge edge)
+            {
+                return ArePointsColinear(
+                    site.X, site.Y, 
+                    edge.FromPoint.X, edge.FromPoint.Y, 
+                    edge.ToPoint.X, edge.ToPoint.Y
+                );
+            }
+
+            private static bool ArePointsColinear(int x1, int y1, int x2, int y2, int x3, int y3)
+            {
+                return (x2 - x1) * (y3 - y1) == (x3 - x1) * (y2 - y1);
             }
 
             private List<string> BuildPointBorderLocationAssertions(List<Edge> edges, TestBorderLogic borderLogic, bool assert)
             {
                 List<string> strings = new List<string>();
 
-                IEnumerable<Point> points = edges
-                                            .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
-                                            .SelectMany(e => e.Points())
-                                            .Distinct() // edges connect at points, so there's repeats
-                                            .OrderBy(p => p.Id + (p.Corner ? 10 : 0)); // corner after regular
-                
-                foreach (Point point in points)
+                List<Point> points = edges
+                                     .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                     .SelectMany(e => e.Points())
+                                     .Distinct() // edges connect at points, so there's repeats
+                                     .OrderBy(p => p.Id + (p.Corner ? 10 : 0)) // corner after regular
+                                     .ToList();
+
+                if (points.Count > 0)
                 {
-                    strings.Add(GetAssertEqualMethodStart(assert) + nameof(PointBorderLocation) + @"." + PointLocationToExpectedBorderLocation(point) + GetAssertEqualMethodSeparator(assert) + @" FindPoint(edges, " + point.X + @", " + point.Y + @")." + nameof(VoronoiPoint.BorderLocation) + @"); // " + (char)point.Id);
+                    foreach (Point point in points)
+                    {
+                        strings.Add(GetAssertEqualMethodStart(assert) + nameof(PointBorderLocation) + @"." + PointLocationToExpectedBorderLocation(point) + GetAssertEqualMethodSeparator(assert) + @"FindPoint(edges, " + point.X + @", " + point.Y + @")." + nameof(VoronoiPoint.BorderLocation) + @"); // " + (char)point.Id);
+                    }
+                
+                }
+                else
+                {
+                    if (assert)
+                    {
+                        strings.Add("// There are no points, so nothing to check");
+                        strings.Add("Assert.Pass();");
+                    }
                 }
 
                 return strings;
@@ -1783,54 +1939,65 @@ namespace SharpVoronoiLib.UnitTestGenerator
             {
                 List<string> strings = new List<string>();
 
-                IEnumerable<Site> sites = edges.SelectMany(e => e.EdgeSites).Distinct().OrderBy(s => s.Id);
+                List<Site> sites = edges.SelectMany(e => e.EdgeSites).Distinct().OrderBy(s => s.Id).ToList();
 
-                foreach (Site site in sites)
+                if (sites.Count > 0)
                 {
-                    List<Edge> siteEdges = edges
-                                           .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
-                                           .Where(e => e.EdgeSites.Contains(site))
-                                           .ToList();
-
-                    string listName = clockwise ? nameof(VoronoiSite.ClockwiseCell) : nameof(VoronoiSite.Cell);
-
-                    strings.Add(GetAssertNotNullMethodStart(assert) + @"sites[" + allSites.IndexOf(site) + @"]" + @"." + listName + @");");
-
-                    strings.Add(GetAssertEqualMethodStart(assert) + siteEdges.Count + GetAssertEqualMethodSeparator(assert) + @" sites[" + allSites.IndexOf(site) + @"]" + @"." + listName + @".Count()); // #" + site.Id);
-
-                    foreach (Edge siteEdge in siteEdges)
+                    foreach (Site site in sites)
                     {
-                        strings.Add(GetAssertTrueMethodStart(assert) + @"HasEdge(sites[" + allSites.IndexOf(site) + @"]." + listName + @", " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
-                    }
+                        List<Edge> siteEdges = edges
+                                               .Where(e => EdgeMatchesBorderLogic(e, borderLogic))
+                                               .Where(e => e.EdgeSites.Contains(site))
+                                               .ToList();
 
-                    if (clockwise)
-                    {
-                        if (siteEdges.Count > 0)
+                        string listName = clockwise ? nameof(VoronoiSite.ClockwiseCell) : nameof(VoronoiSite.Cell);
+
+                        strings.Add(GetAssertNotNullMethodStart(assert) + @"sites[" + allSites.IndexOf(site) + @"]" + @"." + listName + @");");
+
+                        strings.Add(GetAssertEqualMethodStart(assert) + siteEdges.Count + GetAssertEqualMethodSeparator(assert) + @"sites[" + allSites.IndexOf(site) + @"]" + @"." + listName + @".Count()); // #" + site.Id);
+
+                        foreach (Edge siteEdge in siteEdges)
                         {
-                            List<Edge> orderedEdges = siteEdges.OrderBy(e => GetEdgeSoftIndex(e, site.Points)).ToList();
+                            strings.Add(GetAssertTrueMethodStart(assert) + @"HasEdge(sites[" + allSites.IndexOf(site) + @"]." + listName + @", " + siteEdge.FromPoint.X + @", " + siteEdge.FromPoint.Y + @", " + siteEdge.ToPoint.X + @", " + siteEdge.ToPoint.Y + @")); // #" + site.Id + @" has " + (char)siteEdge.FromPoint.Id + @"-" + (char)siteEdge.ToPoint.Id);
+                        }
 
-                            if (!site.UndefinedPointOrder)
+                        if (clockwise)
+                        {
+                            if (siteEdges.Count > 0)
                             {
-                                for (int i = 0; i < orderedEdges.Count; i++)
-                                {
-                                    Edge edge = orderedEdges[i];
+                                List<Edge> orderedEdges = siteEdges.OrderBy(e => GetEdgeSoftIndex(e, site.Points)).ToList();
 
-                                    strings.Add(GetAssertTrueMethodStart(assert) + @"EdgeIs(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @".ElementAt(" + i + @"), " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                                if (!site.UndefinedPointOrder)
+                                {
+                                    for (int i = 0; i < orderedEdges.Count; i++)
+                                    {
+                                        Edge edge = orderedEdges[i];
+
+                                        strings.Add(GetAssertTrueMethodStart(assert) + @"EdgeIs(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @".ElementAt(" + i + @"), " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                strings.Add("// Exact starting edge is undefined, so we only check that edges are sequential");
-
-                                for (int i = 0; i < orderedEdges.Count; i++)
+                                else
                                 {
-                                    Edge edge1 = orderedEdges[i];
-                                    Edge edge2 = orderedEdges[i == orderedEdges.Count - 1 ? 0 : i + 1];
-                                    
-                                    strings.Add(GetAssertTrueMethodStart(assert) + @"EdgesAreSequential(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @", " + edge1.FromPoint.X + @", " + edge1.FromPoint.Y + @", " + edge1.ToPoint.X + @", " + edge1.ToPoint.Y + @", " + edge2.FromPoint.X + @", " + edge2.FromPoint.Y + @", " + edge2.ToPoint.X + @", " + edge2.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge1.FromPoint.Id + @"-" + (char)edge1.ToPoint.Id + @" > " + (char)edge2.FromPoint.Id + @"-" + (char)edge2.ToPoint.Id);
+                                    strings.Add("// Exact starting edge is undefined, so we only check that edges are sequential");
+
+                                    for (int i = 0; i < orderedEdges.Count; i++)
+                                    {
+                                        Edge edge1 = orderedEdges[i];
+                                        Edge edge2 = orderedEdges[i == orderedEdges.Count - 1 ? 0 : i + 1];
+
+                                        strings.Add(GetAssertTrueMethodStart(assert) + @"EdgesAreSequential(sites[" + allSites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.ClockwiseCell) + @", " + edge1.FromPoint.X + @", " + edge1.FromPoint.Y + @", " + edge1.ToPoint.X + @", " + edge1.ToPoint.Y + @", " + edge2.FromPoint.X + @", " + edge2.FromPoint.Y + @", " + edge2.ToPoint.X + @", " + edge2.ToPoint.Y + @")); // #" + site.Id + @" " + (char)edge1.FromPoint.Id + @"-" + (char)edge1.ToPoint.Id + @" > " + (char)edge2.FromPoint.Id + @"-" + (char)edge2.ToPoint.Id);
+                                    }
                                 }
                             }
                         }
+                    }
+                }
+                else
+                {
+                    if (assert)
+                    {
+                        strings.Add("// There are no sites, so nothing to check");
+                        strings.Add("Assert.Pass();");
                     }
                 }
 
@@ -2435,7 +2602,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
             AssertEdgeNeighbours,
             AssertSiteNeighbours,
             AssertSiteEdgesClockwise,
-            AssertSitePointsClockwise
+            AssertSitePointsClockwise,
+            AssertLiesOnEdgeOrCorner
         }
 
         private enum TestBorderLogic

@@ -120,7 +120,7 @@ namespace SharpVoronoiLib
                 edges.Add(newEdge);
                 
                 if (site != null)
-                    site.cell.Add(newEdge);
+                    site.AddEdge(newEdge);
                 
                 if (node is EdgeBorderNode cebn)
                     previousEdgeNode = cebn;
@@ -147,7 +147,7 @@ namespace SharpVoronoiLib
             finalEdge.BorderNeighbour2 = firstEdge; // clockwise = next
 
             if (finalSite != null)
-                finalSite.cell.Add(finalEdge);
+                finalSite.AddEdge(finalEdge);
 
             return edges;
         }

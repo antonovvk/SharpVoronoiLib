@@ -25,7 +25,7 @@ namespace SharpVoronoiLib
         /// These are also known as Thiessen polygons.
         /// </summary>
         [PublicAPI]
-        public IEnumerable<VoronoiEdge> Cell => cell;
+        public IEnumerable<VoronoiEdge> Cell => _cell;
 
         /// <summary>
         ///
@@ -38,7 +38,7 @@ namespace SharpVoronoiLib
             {
                 if (_clockwiseCell == null)
                 {
-                    _clockwiseCell = new List<VoronoiEdge>(cell);
+                    _clockwiseCell = new List<VoronoiEdge>(_cell);
                     _clockwiseCell.Sort(SortCellEdgesClockwise);
                 }
 
@@ -64,13 +64,17 @@ namespace SharpVoronoiLib
                 {
                     _points = new List<VoronoiPoint>();
 
-                    foreach (VoronoiEdge edge in cell)
+                    foreach (VoronoiEdge edge in _cell)
                     {
                         if (!_points.Contains(edge.Start))
+                        {
                             _points.Add(edge.Start);
-                        
+                        }
+
                         if (!_points.Contains(edge.End!))
+                        {
                             _points.Add(edge.End);
+                        }
                         // Note that .End is guaranteed to be set since we don't expose edges externally that aren't clipped in bounds
 
                         // Note that the order of .Start and .End is not guaranteed in VoronoiEdge,
@@ -101,11 +105,26 @@ namespace SharpVoronoiLib
             }
         }
 
+        /// <summary>
+        /// Whether this site lies directly on exactly one of its <see cref="Cell"/>'s edges.
+        /// This happens when sites overlap or are on the border.
+        /// This won't be set if instead <see cref="LiesOnCorner"/> is set, i.e. the site lies on the intersection of 2 of its edges.
+        /// </summary>
+        [PublicAPI]
+        public VoronoiEdge? LiesOnEdge { get; internal set; }
 
-        internal readonly List<VoronoiEdge> cell;
+        /// <summary>
+        /// Whether this site lies directly on the intersection point of two of its <see cref="Cell"/>'s edges.
+        /// This happens when sites overlap or are on the border's corner.
+        /// </summary>
+        [PublicAPI]
+        public VoronoiPoint? LiesOnCorner { get; internal set; }
+
+
         internal readonly List<VoronoiSite> neighbours;
 
 
+        private readonly List<VoronoiEdge> _cell;
         private List<VoronoiPoint>? _points;
         private List<VoronoiPoint>? _clockwisePoints;
         private List<VoronoiEdge>? _clockwiseCell;
@@ -116,7 +135,7 @@ namespace SharpVoronoiLib
         {
             X = x;
             Y = y;
-            cell = new List<VoronoiEdge>();
+            _cell = new List<VoronoiEdge>();
             neighbours = new List<VoronoiSite>();
         }
 
@@ -149,12 +168,36 @@ namespace SharpVoronoiLib
         }
 
 
-        internal void AddEdge(VoronoiEdge value)
+        internal void AddEdge(VoronoiEdge newEdge)
         {
-            if (_clockwisePoints != null) throw new InvalidOperationException();
-            if (_clockwiseCell != null) throw new InvalidOperationException();
+            _cell.Add(newEdge);
+
+            // Set the "flags" whether we are on an edge or corner
+
+            if (LiesOnCorner != null)
+                return; // we already are on a corner, we cannot be on 2 corners, so no need to check anything
             
-            cell.Add(value);
+            bool onEdge = DoesLieOnEdge(newEdge);
+
+            if (!onEdge)
+                return; // we are not on this edge - no changes needed
+            
+            if (LiesOnEdge == null)
+            {
+                LiesOnEdge = newEdge;
+            }
+            else
+            {
+                // We are already on an edge, so this must be the second edge, i.e. we lie on the corner
+                
+                if (newEdge.Start == LiesOnEdge.Start ||
+                    newEdge.Start == LiesOnEdge.End)
+                    LiesOnCorner = newEdge.Start;
+                else
+                    LiesOnCorner = newEdge.End; 
+                        
+                LiesOnEdge = null; // we only keep this for one and only one edge
+            }
         }
         
 
@@ -193,7 +236,7 @@ namespace SharpVoronoiLib
         {
             int result;
 
-            if (LiesOnEdge(edge1) || LiesOnEdge(edge2))
+            if (DoesLieOnEdge(edge1) || DoesLieOnEdge(edge2))
             {
                 // If we are on either edge then we can't compare directly to that edge,
                 // because angle to the edge is basically "along the edge", i.e. undefined.
@@ -233,7 +276,7 @@ namespace SharpVoronoiLib
         }
 
         [Pure]
-        private bool LiesOnEdge(VoronoiEdge edge)
+        private bool DoesLieOnEdge(VoronoiEdge edge)
         {
             return ArePointsColinear(
                 X, Y, 
@@ -291,14 +334,14 @@ namespace SharpVoronoiLib
         [Pure]
         private double GetCenterShiftedX()
         {
-            double target = cell.Sum(c => c.Start.X + c.End.X) / cell.Count / 2;
+            double target = _cell.Sum(c => c.Start.X + c.End.X) / _cell.Count / 2;
             return X + (target - X) * shiftAmount;
         }
 
         [Pure]
         private double GetCenterShiftedY()
         {
-            double target = cell.Sum(c => c.Start.Y + c.End.Y) / cell.Count / 2;
+            double target = _cell.Sum(c => c.Start.Y + c.End.Y) / _cell.Count / 2;
             return Y + (target - Y) * shiftAmount;
         }
         

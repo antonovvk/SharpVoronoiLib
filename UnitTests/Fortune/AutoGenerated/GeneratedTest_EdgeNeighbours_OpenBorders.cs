@@ -65,6 +65,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         [Test]
@@ -111,6 +113,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         [Test]
@@ -157,6 +161,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -207,6 +213,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -257,6 +265,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -307,6 +317,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         [Test]
@@ -353,6 +365,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -403,6 +417,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -453,6 +469,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -503,6 +521,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         [Test]
@@ -549,6 +569,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -599,6 +621,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -649,6 +673,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -699,6 +725,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         [Test]
@@ -745,6 +773,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -795,6 +825,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -845,6 +877,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -895,6 +929,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -945,6 +981,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -995,6 +1033,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -1045,6 +1085,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -1095,6 +1137,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         [Test]
@@ -1141,6 +1185,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -1191,6 +1237,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -1241,6 +1289,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         /// <summary>
@@ -1291,6 +1341,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no edges, so nothing to check
+            Assert.Pass();
         }
 
         [Test]

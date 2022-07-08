@@ -63,6 +63,8 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
+            // There are no sites, so nothing to check
+            Assert.Pass();
         }
 
         [Test]
