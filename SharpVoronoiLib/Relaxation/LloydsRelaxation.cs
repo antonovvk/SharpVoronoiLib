@@ -5,7 +5,7 @@ namespace SharpVoronoiLib
 {
     internal class LloydsRelaxation : IRelaxationAlgorithm
     {
-        public List<VoronoiSite> Relax(List<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, float strength)
+        public void Relax(List<VoronoiSite> sites, double minX, double minY, double maxX, double maxY, float strength)
         {
             bool fullStrength = Math.Abs(strength - 1.0f) < float.Epsilon;
 
@@ -25,8 +25,6 @@ namespace SharpVoronoiLib
                     site.Relocate(newX, newY);
                 }
             }
-
-            return new List<VoronoiSite>(sites);
         }
     }
 }

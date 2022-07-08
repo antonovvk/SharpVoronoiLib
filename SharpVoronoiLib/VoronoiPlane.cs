@@ -29,6 +29,8 @@ namespace SharpVoronoiLib
         public double MaxY { get; }
 
 
+        private IPointGenerationAlgorithm? _pointGenerationAlgorithm;
+        
         private ITessellationAlgorithm? _tessellationAlgorithm;
         
         private IBorderClippingAlgorithm? _borderClippingAlgorithm;
@@ -36,6 +38,7 @@ namespace SharpVoronoiLib
         private IBorderClosingAlgorithm? _borderClosingAlgorithm;
         
         private IRelaxationAlgorithm? _relaxationAlgorithm;
+        
         private BorderEdgeGeneration _lastBorderGeneration;
 
 
@@ -66,22 +69,15 @@ namespace SharpVoronoiLib
         {
             if (amount < 0) throw new ArgumentOutOfRangeException(nameof(amount));
 
-            
-            List<VoronoiSite> sites = new List<VoronoiSite>(amount);
 
-            Random random = new Random();
-            
-            for (int i = 0; i < amount; i++)
-            {
-                sites.Add(
-                    new VoronoiSite(
-                        MinX + random.NextDouble() * (MaxX - MinX),
-                        MinY + random.NextDouble() * (MaxY - MinY)
-                    )
-                );
-            }
+            if (_pointGenerationAlgorithm == null)
+                _pointGenerationAlgorithm = new RandomUniformPointGeneration();
+
+            List<VoronoiSite> sites = _pointGenerationAlgorithm.Generate(MinX, MinY, MaxX, MaxY, amount);
             
             Sites = sites;
+
+            Edges = null;
             
             return sites;
         }
