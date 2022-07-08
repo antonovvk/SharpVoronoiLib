@@ -34,6 +34,9 @@ namespace SharpVoronoiLib
         private IBorderClippingAlgorithm? _borderClippingAlgorithm;
         
         private IBorderClosingAlgorithm? _borderClosingAlgorithm;
+        
+        private IRelaxationAlgorithm? _relaxationAlgorithm;
+        private BorderEdgeGeneration _lastBorderGeneration;
 
 
         public VoronoiPlane(double minX, double minY, double maxX, double maxY)
@@ -47,6 +50,16 @@ namespace SharpVoronoiLib
             MaxY = maxY;
         }
 
+
+        [PublicAPI]
+        public void SetSites(List<VoronoiSite> sites)
+        {
+            if (sites == null) throw new ArgumentNullException(nameof(sites));
+
+            Sites = sites;
+
+            Edges = null;
+        }
 
         [PublicAPI]
         public List<VoronoiSite> GenerateRandomSites(int amount)
@@ -77,7 +90,9 @@ namespace SharpVoronoiLib
         public List<VoronoiEdge> Tessellate(BorderEdgeGeneration borderGeneration = BorderEdgeGeneration.MakeBorderEdges)
         {
             if (Sites == null) throw new InvalidOperationException();
-            
+
+            _lastBorderGeneration = borderGeneration;
+
             // Tessellate
             
             if (_tessellationAlgorithm == null)
@@ -110,13 +125,30 @@ namespace SharpVoronoiLib
             
             return edges;
         }
-        
 
-        private void SetSites(List<VoronoiSite> sites)
+        [PublicAPI]
+        public List<VoronoiEdge> Relax(int iterations = 1, float strength = 1.0f)
         {
-            if (sites == null) throw new ArgumentNullException(nameof(sites));
+            if (Sites == null) throw new InvalidOperationException();
+            if (Edges == null) throw new InvalidOperationException();
+            if (iterations < 1) throw new ArgumentOutOfRangeException(nameof(iterations));
+            if (strength <= 0f || strength > 1f) throw new ArgumentOutOfRangeException(nameof(strength));
 
-            Sites = sites;
+            // Relax sites
+            
+            if (_relaxationAlgorithm == null)
+                _relaxationAlgorithm = new LloydsRelaxation();
+
+            for (int i = 0; i < iterations; i++)
+            {
+                // Relax once
+                _relaxationAlgorithm.Relax(Sites, MinX, MinY, MaxX, MaxY, strength);
+                
+                // Re-tesselate with the new site locations
+                Tessellate(_lastBorderGeneration); // will set Edges
+            }
+
+            return Edges;
         }
 
 

@@ -25,6 +25,8 @@ namespace SharpVoronoiLib
         [PublicAPI]
         public PointBorderLocation BorderLocation { get; }
 
+        // TODO: Edges
+        
         
         internal VoronoiPoint(double x, double y, PointBorderLocation borderLocation = PointBorderLocation.NotOnBorder)
         {
