@@ -5,7 +5,7 @@ namespace SharpVoronoiLib.UnitTests
 {
     [TestFixture]
     [Parallelizable(ParallelScope.All)]
-    public class ListUtilsTest
+    public class ListShifterTest
     {
         [TestCase(0)]
         [TestCase(+1)]
@@ -71,6 +71,16 @@ namespace SharpVoronoiLib.UnitTests
         [TestCase(-2, new[] { 30, 40, 50, 60, 10, 20 })]
         [TestCase(+3, new[] { 40, 50, 60, 10, 20, 30 })]
         [TestCase(-3, new[] { 40, 50, 60, 10, 20, 30 })]
+        [TestCase(+1, new[] { 20, 10 })]
+        [TestCase(-1, new[] { 20, 10 })]
+        [TestCase(+2, new[] { 10, 20 })]
+        [TestCase(-2, new[] { 10, 20 })]
+        [TestCase(+3, new[] { 20, 10 })]
+        [TestCase(-3, new[] { 20, 10 })]
+        [TestCase(+3, new[] { 100, 110, 120, 10, 20, 30, 40, 50, 60, 70, 80, 90 })]
+        [TestCase(+4, new[] { 90, 100, 110, 120, 10, 20, 30, 40, 50, 60, 70, 80 })]
+        [TestCase(-3, new[] { 40, 50, 60, 70, 80, 90, 100, 110, 120, 10, 20, 30 })]
+        [TestCase(-4, new[] { 50, 60, 70, 80, 90, 100, 110, 120, 10, 20, 30, 40 })]
         public void TestShift(int shiftBy, int[] expected)
         {
             // Arrange
