@@ -174,9 +174,6 @@ namespace SharpVoronoiLib.UnitTests
             //   0 C-----------------------------------D
             //     0    100   200   300   400   500   600
 
-            foreach (VoronoiEdge edge in edges)
-                Console.WriteLine(edge.ToString("F0"));
-
             Assert.AreEqual(5, edges.Count);
 
             Assert.IsTrue(HasEdge(edges, 300, 300, 000, 600)); // A-B
@@ -198,9 +195,6 @@ namespace SharpVoronoiLib.UnitTests
             };
 
             List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
-            
-            foreach (VoronoiEdge edge in edges)
-                Console.WriteLine(edge.ToString("F0"));
             
             Assert.AreEqual(4, edges.Count);
         }
