@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGenerator", "UnitTestGenerator\UnitTestGenerator.csproj", "{F7AB27E7-7DD9-4E62-8FD0-92F9DDA8B28B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoronoiSpeedTest", "VoronoiSpeedTest\VoronoiSpeedTest.csproj", "{5BC2E423-F814-4405-AFE6-A5242BCC2CAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoronoiBenchmarks", "VoronoiBenchmarks\VoronoiBenchmarks.csproj", "{5BC2E423-F814-4405-AFE6-A5242BCC2CAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
