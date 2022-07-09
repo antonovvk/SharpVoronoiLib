@@ -25,6 +25,6 @@ namespace SharpVoronoiLib
         }
 
         
-        protected abstract double GetNextRandomValue(Random random, double minX, double maxX);
+        protected abstract double GetNextRandomValue(Random random, double min, double max);
     }
 }

@@ -22,14 +22,14 @@ namespace SharpVoronoiLib.UnitTests
             };
 
             List<VoronoiSite> points = new List<VoronoiSite>(originalPoints);
-            
-            // Act
 
             VoronoiPlane plane = new VoronoiPlane(0, 0, 600, 600);
 
             plane.SetSites(points);
 
             plane.Tessellate();
+            
+            // Act
 
             List<VoronoiEdge> edges = plane.Relax();
 

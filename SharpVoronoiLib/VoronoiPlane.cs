@@ -15,6 +15,8 @@ namespace SharpVoronoiLib
 
         [PublicAPI]
         public List<VoronoiEdge>? Edges { get; private set; }
+        
+        // todo: add Points
 
         [PublicAPI]
         public double MinX { get; }
