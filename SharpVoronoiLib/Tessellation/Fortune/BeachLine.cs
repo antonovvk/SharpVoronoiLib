@@ -208,7 +208,25 @@ namespace SharpVoronoiLib
                     (cy*magnitudeB - by * magnitudeC)/(2*d) + ax,
                     (bx*magnitudeC - cx * magnitudeB)/(2*d) + ay);
 
-                rightSection.Data.Edge.End = vertex;
+
+                // If the edge ends up being 0 length (i.e. start and end are the same point),
+                // then this is a location with 4+ equidistant sites.
+                if (rightSection.Data.Edge.Start.ApproxEqual(vertex)) // i.e. what we would set as .End
+                {
+                    // Reuse vertex (or we will have 2 ongoing points at the same location)
+                    vertex = rightSection.Data.Edge.Start;
+                    
+                    // Discard the edge
+                    edges.Remove(rightSection.Data.Edge);
+
+                    // Disconnect (delaunay) neighbours
+                    leftSite.RemoveNeighbour(rightSite);
+                    rightSite.RemoveNeighbour(leftSite);
+                }
+                else
+                {
+                    rightSection.Data.Edge.End = vertex;
+                }
 
                 //next we create a two new edges
                 newSection.Data.Edge = new VoronoiEdge(vertex, site, leftSection.Data.Site);

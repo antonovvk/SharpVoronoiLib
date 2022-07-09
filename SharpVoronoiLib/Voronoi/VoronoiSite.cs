@@ -282,6 +282,11 @@ namespace SharpVoronoiLib
             _neighbours.Add(newNeighbour);
         }
         
+        internal void RemoveNeighbour(VoronoiSite badNeighbour)
+        {
+            _neighbours.Remove(badNeighbour);
+        }
+        
         internal void Relocate(double newX, double newY)
         {
             X = newX;
