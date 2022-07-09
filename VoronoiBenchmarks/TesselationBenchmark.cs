@@ -4,33 +4,32 @@ using JetBrains.Annotations;
 
 namespace SharpVoronoiLib.Benchmarks
 {
+    [SimpleJob]
     public class TesselationBenchmark
     {
-        [Params(100, 1000)]
+        [Params(100, 500, 2000)]
         [UsedImplicitly]
         public int NumberOfSites { get; set; }
 
+        [ParamsAllValues]
+        [UsedImplicitly]
+        public BorderEdgeGeneration BorderEdgeGeneration { get; set; }
+
         
-        private readonly VoronoiPlane _plane;
+        private VoronoiPlane _plane = null!;
 
-
-        public TesselationBenchmark()
+        
+        [IterationSetup]
+        public void Setup()
         {
             _plane = new VoronoiPlane(0, 0, 1000, 1000);
             _plane.GenerateRandomSites(NumberOfSites);
         }
         
-        
         [Benchmark]
-        public List<VoronoiEdge> WithoutBorder()
+        public List<VoronoiEdge> Tessellate()
         {
-            return _plane.Tessellate(BorderEdgeGeneration.DoNotMakeBorderEdges);
-        }
-        
-        [Benchmark]
-        public List<VoronoiEdge> WithBorder()
-        {
-            return _plane.Tessellate(BorderEdgeGeneration.MakeBorderEdges);
+            return _plane.Tessellate(BorderEdgeGeneration);            
         }
     }
 }

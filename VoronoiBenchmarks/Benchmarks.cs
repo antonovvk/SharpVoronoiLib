@@ -6,25 +6,40 @@ namespace SharpVoronoiLib.Benchmarks
     {
         public static void Main(string[] args)
         {
-            // Uncomment whichever benchmark is needed.
+            // // For IDE profiling:
+            //
+            // do
+            // {
+            //     
+            //     VoronoiPlane plane = new VoronoiPlane(0, 0, 1000, 1000);
+            //     plane.GenerateRandomSites(1000);
+            //     plane.Tessellate(BorderEdgeGeneration.MakeBorderEdges);
+            //     
+            // } while (!Console.KeyAvailable);
             
             
             //BenchmarkRunner.Run<TesselationBenchmark>();
             
-            // |        Method | NumberOfSites |      Mean |    Error |   StdDev |
-            // |-------------- |-------------- |----------:|---------:|---------:|
-            // | WithoutBorder |           100 |  73.77 ns | 0.934 ns | 0.874 ns |
-            // |    WithBorder |           100 | 803.58 ns | 8.783 ns | 7.786 ns |
-            // | WithoutBorder |          1000 |  70.14 ns | 0.885 ns | 0.785 ns |
-            // |    WithBorder |          1000 | 819.79 ns | 6.213 ns | 5.508 ns |
+            // |     Method | NumberOfSites | BorderEdgeGeneration |       Mean |     Error |    StdDev |     Median |
+            // |----------- |-------------- |--------------------- |-----------:|----------:|----------:|-----------:|
+            // | Tessellate |           100 | DoNotMakeBorderEdges |   593.9 us |  24.18 us |  68.58 us |   576.1 us |
+            // | Tessellate |           100 |      MakeBorderEdges |   650.0 us |  23.20 us |  67.67 us |   639.2 us |
+            // | Tessellate |           500 | DoNotMakeBorderEdges | 2,723.4 us | 282.20 us | 832.06 us | 2,329.7 us |
+            // | Tessellate |           500 |      MakeBorderEdges | 2,707.7 us | 260.85 us | 769.12 us | 2,368.1 us |
+            // | Tessellate |          2000 | DoNotMakeBorderEdges | 9,498.0 us | 182.53 us | 415.72 us | 9,462.5 us |
+            // | Tessellate |          2000 |      MakeBorderEdges | 9,619.9 us | 181.31 us | 496.34 us | 9,482.5 us |
             
             
             //BenchmarkRunner.Run<RandomPointGenerationBenchmark>();
             
-            // |   Method |     Mean |     Error |    StdDev |
-            // |--------- |---------:|----------:|----------:|
-            // |  Uniform | 1.504 ms | 0.0291 ms | 0.0272 ms |
-            // | Gaussian | 2.159 ms | 0.0181 ms | 0.0160 ms |
+            // |   Method | NumberOfSites | PointGenerationMethod |        Mean |      Error |     StdDev |      Median |
+            // |--------- |-------------- |---------------------- |------------:|-----------:|-----------:|------------:|
+            // | Generate |           100 |               Uniform |    18.88 us |   1.754 us |   5.089 us |    17.60 us |
+            // | Generate |           100 |              Gaussian |    31.22 us |   2.417 us |   6.972 us |    28.05 us |
+            // | Generate |          1000 |               Uniform |   127.58 us |   9.041 us |  26.373 us |   125.45 us |
+            // | Generate |          1000 |              Gaussian |   229.74 us |  11.569 us |  33.747 us |   221.60 us |
+            // | Generate |         10000 |               Uniform |   989.62 us |  19.377 us |  32.375 us |   988.90 us |
+            // | Generate |         10000 |              Gaussian | 1,535.13 us | 150.404 us | 443.468 us | 1,290.40 us |
         }
     }
 }

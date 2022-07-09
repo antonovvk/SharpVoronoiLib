@@ -1,22 +1,34 @@
 ﻿using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
+using JetBrains.Annotations;
 
 namespace SharpVoronoiLib.Benchmarks
 {
+    [SimpleJob]
     public class RandomPointGenerationBenchmark
     {
-        [Benchmark]
-        public List<VoronoiSite> Uniform()
+        [Params(100, 1000, 10000)]
+        [UsedImplicitly]
+        public int NumberOfSites { get; set; }
+
+        [ParamsAllValues]
+        [UsedImplicitly]
+        public PointGenerationMethod PointGenerationMethod { get; set; }
+        
+        
+        private VoronoiPlane _plane = null!;
+
+        
+        [IterationSetup]
+        public void Setup()
         {
-            VoronoiPlane plane = new VoronoiPlane(0, 0, 1000, 1000);
-            return plane.GenerateRandomSites(10000, PointGenerationMethod.Uniform);
+            _plane = new VoronoiPlane(0, 0, 1000, 1000);
         }
 
         [Benchmark]
-        public List<VoronoiSite> Gaussian()
+        public List<VoronoiSite> Generate()
         {
-            VoronoiPlane plane = new VoronoiPlane(0, 0, 1000, 1000);
-            return plane.GenerateRandomSites(10000, PointGenerationMethod.Gaussian);
+            return _plane.GenerateRandomSites(NumberOfSites, PointGenerationMethod);
         }
     }
 }
