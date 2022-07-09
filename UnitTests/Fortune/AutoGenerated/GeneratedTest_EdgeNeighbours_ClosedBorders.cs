@@ -9597,6 +9597,1279 @@ namespace SharpVoronoiLib.UnitTests
         }
 
         [Test]
+        public void FourEquidistantPointsInAKiteAroundMiddle()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 700), // #1
+                new VoronoiSite(700, 500), // #2
+                new VoronoiSite(500, 300), // #3
+                new VoronoiSite(300, 500), // #4
+            };
+
+            // 1000 B#-----------------------------------------------#E
+            //      | ',                                           ,' |
+            //  900 |   '·,                                     ,·'   |
+            //      |      ',                                 ,'      |
+            //  800 |        '·,                           ,·'        |
+            //      |           ',                       ,'           |
+            //  700 |             '·,        1        ,·'             |
+            //      |                ',             ,'                |
+            //  600 |                  '·,       ,·'                  |
+            //      |                     ',   ,'                     |
+            //  500 |              4        #A#        2              |
+            //      |                     ,'   ',                     |
+            //  400 |                  ,·'       '·,                  |
+            //      |                ,'             ',                |
+            //  300 |             ,·'        3        '·,             |
+            //      |           ,'                       ',           |
+            //  200 |        ,·'                           '·,        |
+            //      |      ,'                                 ',      |
+            //  100 |   ,·'                                     '·,   |
+            //      | ,'                                           ', |
+            //    0 C#-----------------------------------------------#D
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assume
+
+            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // C-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // D-E
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // E-B
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 500, 500, 0, 1000); // A-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 0))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 0))); // A-B neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 1000))); // A-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 0))); // A-B neighbours B-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 0, 1000))); // A-B neighbours E-B
+            edge = FindEdge(edges, 500, 500, 0, 0); // A-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 1000))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 0))); // A-C neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 1000))); // A-C neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 0))); // A-C neighbours B-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 1000, 0))); // A-C neighbours C-D
+            edge = FindEdge(edges, 500, 500, 1000, 0); // A-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 1000))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 0))); // A-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 1000))); // A-D neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 1000, 0))); // A-D neighbours C-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 1000))); // A-D neighbours D-E
+            edge = FindEdge(edges, 500, 500, 1000, 1000); // A-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 1000))); // A-E neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 0))); // A-E neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 0))); // A-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 1000))); // A-E neighbours D-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 0, 1000))); // A-E neighbours E-B
+            edge = FindEdge(edges, 0, 1000, 0, 0); // B-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(4, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 1000))); // B-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 0))); // B-C neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 1000, 0))); // B-C neighbours C-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 0, 1000))); // B-C neighbours E-B
+            edge = FindEdge(edges, 0, 0, 1000, 0); // C-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(4, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 0))); // C-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 0))); // C-D neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 0))); // C-D neighbours B-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 1000))); // C-D neighbours D-E
+            edge = FindEdge(edges, 1000, 0, 1000, 1000); // D-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(4, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 0))); // D-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 1000))); // D-E neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 1000, 0))); // D-E neighbours C-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 0, 1000))); // D-E neighbours E-B
+            edge = FindEdge(edges, 1000, 1000, 0, 1000); // E-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(4, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 0, 1000))); // E-B neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 500, 1000, 1000))); // E-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 0))); // E-B neighbours B-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 1000))); // E-B neighbours D-E
+        }
+
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 500), // #1
+                new VoronoiSite(300, 100), // #2
+                new VoronoiSite(700, 300), // #3
+                new VoronoiSite(500, 700), // #4
+            };
+
+            // 1000 X----B--------------------------------------------Z
+            //      |     '                                           |
+            //  900 |      ',                                         |
+            //      |        ,                                        |
+            //  800 |         ·                                       |
+            //      |          '                                      |
+            //  700 |           ',           4                      ,,E
+            //      |             ,                            ,,·''  |
+            //  600 |              ·                      ,,·''       |
+            //      |               '                ,,·''            |
+            //  500 |    1           ',         ,,·''                 |
+            //      |                  ,   ,,·''                      |
+            //  400 |                 ,,A''                           |
+            //      |            ,,·''   '                            |
+            //  300 |       ,,·''         ',           3              |
+            //      |  ,,·''                ,                         |
+            //  200 C''                      ·                        |
+            //      |                         '                       |
+            //  100 |              2           ',                     |
+            //      |                            ,                    |
+            //    0 Y-----------------------------D-------------------W
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assume
+
+            Assume.That(() => 12 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 400, 100, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 200)); // A-C
+            Assume.That(() => HasEdge(edges, 400, 400, 600, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 400, 400, 1000, 700)); // A-E
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 200)); // X-C
+            Assume.That(() => HasEdge(edges, 0, 200, 0, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 600, 0)); // Y-D
+            Assume.That(() => HasEdge(edges, 600, 0, 1000, 0)); // D-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 700)); // W-E
+            Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // E-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 100, 1000)); // Z-B
+            Assume.That(() => HasEdge(edges, 100, 1000, 0, 1000)); // B-X
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 400, 400, 100, 1000); // A-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 200))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 600, 0))); // A-B neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 700))); // A-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 100, 1000))); // A-B neighbours Z-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 1000, 0, 1000))); // A-B neighbours B-X
+            edge = FindEdge(edges, 400, 400, 0, 200); // A-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 100, 1000))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 600, 0))); // A-C neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 700))); // A-C neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 200))); // A-C neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 200, 0, 0))); // A-C neighbours C-Y
+            edge = FindEdge(edges, 400, 400, 600, 0); // A-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 100, 1000))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 200))); // A-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 700))); // A-D neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 600, 0))); // A-D neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 0, 1000, 0))); // A-D neighbours D-W
+            edge = FindEdge(edges, 400, 400, 1000, 700); // A-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 100, 1000))); // A-E neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 200))); // A-E neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 600, 0))); // A-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 700))); // A-E neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 700, 1000, 1000))); // A-E neighbours E-Z
+            edge = FindEdge(edges, 0, 1000, 0, 200); // X-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 200))); // X-C neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 200, 0, 0))); // X-C neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 1000, 0, 1000))); // X-C neighbours B-X
+            edge = FindEdge(edges, 0, 200, 0, 0); // C-Y
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 200))); // C-Y neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 200))); // C-Y neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 600, 0))); // C-Y neighbours Y-D
+            edge = FindEdge(edges, 0, 0, 600, 0); // Y-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 600, 0))); // Y-D neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 200, 0, 0))); // Y-D neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 0, 1000, 0))); // Y-D neighbours D-W
+            edge = FindEdge(edges, 600, 0, 1000, 0); // D-W
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 600, 0))); // D-W neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 600, 0))); // D-W neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 700))); // D-W neighbours W-E
+            edge = FindEdge(edges, 1000, 0, 1000, 700); // W-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 700))); // W-E neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 0, 1000, 0))); // W-E neighbours D-W
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 700, 1000, 1000))); // W-E neighbours E-Z
+            edge = FindEdge(edges, 1000, 700, 1000, 1000); // E-Z
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 700))); // E-Z neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 700))); // E-Z neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 100, 1000))); // E-Z neighbours Z-B
+            edge = FindEdge(edges, 1000, 1000, 100, 1000); // Z-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 100, 1000))); // Z-B neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 700, 1000, 1000))); // Z-B neighbours E-Z
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 1000, 0, 1000))); // Z-B neighbours B-X
+            edge = FindEdge(edges, 100, 1000, 0, 1000); // B-X
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 100, 1000))); // B-X neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 200))); // B-X neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 100, 1000))); // B-X neighbours Z-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 900), // #1
+                new VoronoiSite(100, 700), // #2
+                new VoronoiSite(300, 300), // #3
+                new VoronoiSite(700, 500), // #4
+            };
+
+            // 1000 Y---------C---------------------------------------X
+            //      |          '                                      |
+            //  900 |           ',           1                      ,,B
+            //      |             ,                            ,,·''  |
+            //  800 |              ·                      ,,·''       |
+            //      |               '                ,,·''            |
+            //  700 |    2           ',         ,,·''                 |
+            //      |                  ,   ,,·''                      |
+            //  600 |                 ,,A''                           |
+            //      |            ,,·''   '                            |
+            //  500 |       ,,·''         ',           4              |
+            //      |  ,,·''                ,                         |
+            //  400 D''                      ·                        |
+            //      |                         '                       |
+            //  300 |              3           ',                     |
+            //      |                            ,                    |
+            //  200 |                             ·                   |
+            //      |                              '                  |
+            //  100 |                               ',                |
+            //      |                                 ,               |
+            //    0 W----------------------------------E--------------Z
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assume
+
+            Assume.That(() => 12 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 600, 1000, 900)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 600, 200, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 400)); // A-D
+            Assume.That(() => HasEdge(edges, 400, 600, 700, 0)); // A-E
+            Assume.That(() => HasEdge(edges, 1000, 1000, 200, 1000)); // X-C
+            Assume.That(() => HasEdge(edges, 200, 1000, 0, 1000)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 400)); // Y-D
+            Assume.That(() => HasEdge(edges, 0, 400, 0, 0)); // D-W
+            Assume.That(() => HasEdge(edges, 0, 0, 700, 0)); // W-E
+            Assume.That(() => HasEdge(edges, 700, 0, 1000, 0)); // E-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 900)); // Z-B
+            Assume.That(() => HasEdge(edges, 1000, 900, 1000, 1000)); // B-X
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 400, 600, 1000, 900); // A-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 200, 1000))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 400))); // A-B neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 700, 0))); // A-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 900))); // A-B neighbours Z-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 900, 1000, 1000))); // A-B neighbours B-X
+            edge = FindEdge(edges, 400, 600, 200, 1000); // A-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 900))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 400))); // A-C neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 700, 0))); // A-C neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 200, 1000))); // A-C neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 200, 1000, 0, 1000))); // A-C neighbours C-Y
+            edge = FindEdge(edges, 400, 600, 0, 400); // A-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 900))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 200, 1000))); // A-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 700, 0))); // A-D neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 400))); // A-D neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 400, 0, 0))); // A-D neighbours D-W
+            edge = FindEdge(edges, 400, 600, 700, 0); // A-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 900))); // A-E neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 200, 1000))); // A-E neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 400))); // A-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 700, 0))); // A-E neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 0, 1000, 0))); // A-E neighbours E-Z
+            edge = FindEdge(edges, 1000, 1000, 200, 1000); // X-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 200, 1000))); // X-C neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 200, 1000, 0, 1000))); // X-C neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 900, 1000, 1000))); // X-C neighbours B-X
+            edge = FindEdge(edges, 200, 1000, 0, 1000); // C-Y
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 200, 1000))); // C-Y neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 200, 1000))); // C-Y neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 400))); // C-Y neighbours Y-D
+            edge = FindEdge(edges, 0, 1000, 0, 400); // Y-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 400))); // Y-D neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 200, 1000, 0, 1000))); // Y-D neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 400, 0, 0))); // Y-D neighbours D-W
+            edge = FindEdge(edges, 0, 400, 0, 0); // D-W
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 400))); // D-W neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 400))); // D-W neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 700, 0))); // D-W neighbours W-E
+            edge = FindEdge(edges, 0, 0, 700, 0); // W-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 700, 0))); // W-E neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 400, 0, 0))); // W-E neighbours D-W
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 0, 1000, 0))); // W-E neighbours E-Z
+            edge = FindEdge(edges, 700, 0, 1000, 0); // E-Z
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 700, 0))); // E-Z neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 700, 0))); // E-Z neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 900))); // E-Z neighbours Z-B
+            edge = FindEdge(edges, 1000, 0, 1000, 900); // Z-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 900))); // Z-B neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 0, 1000, 0))); // Z-B neighbours E-Z
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 900, 1000, 1000))); // Z-B neighbours B-X
+            edge = FindEdge(edges, 1000, 900, 1000, 1000); // B-X
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 900))); // B-X neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 200, 1000))); // B-X neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 900))); // B-X neighbours Z-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 500), // #1
+                new VoronoiSite(700, 900), // #2
+                new VoronoiSite(300, 700), // #3
+                new VoronoiSite(500, 300), // #4
+            };
+
+            // 1000 W-------------------D-----------------------------Y
+            //      |                    '                            |
+            //  900 |                     ',           2              |
+            //      |                       ,                         |
+            //  800 |                        ·                      ,,C
+            //      |                         '                ,,·''  |
+            //  700 |              3           ',         ,,·''       |
+            //      |                            ,   ,,·''            |
+            //  600 |                           ,,A''                 |
+            //      |                      ,,·''   '                  |
+            //  500 |                 ,,·''         ',           1    |
+            //      |            ,,·''                ,               |
+            //  400 |       ,,·''                      ·              |
+            //      |  ,,·''                            '             |
+            //  300 E''                      4           ',           |
+            //      |                                      ,          |
+            //  200 |                                       ·         |
+            //      |                                        '        |
+            //  100 |                                         ',      |
+            //      |                                           ,     |
+            //    0 Z--------------------------------------------B----X
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assume
+
+            Assume.That(() => 12 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 600, 900, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 800)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 600, 400, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 600, 600, 0, 300)); // A-E
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 800)); // X-C
+            Assume.That(() => HasEdge(edges, 1000, 800, 1000, 1000)); // C-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 400, 1000)); // Y-D
+            Assume.That(() => HasEdge(edges, 400, 1000, 0, 1000)); // D-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 300)); // W-E
+            Assume.That(() => HasEdge(edges, 0, 300, 0, 0)); // E-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 900, 0)); // Z-B
+            Assume.That(() => HasEdge(edges, 900, 0, 1000, 0)); // B-X
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 600, 600, 900, 0); // A-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 800))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 400, 1000))); // A-B neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 300))); // A-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 900, 0))); // A-B neighbours Z-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 900, 0, 1000, 0))); // A-B neighbours B-X
+            edge = FindEdge(edges, 600, 600, 1000, 800); // A-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 900, 0))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 400, 1000))); // A-C neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 300))); // A-C neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 800))); // A-C neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 800, 1000, 1000))); // A-C neighbours C-Y
+            edge = FindEdge(edges, 600, 600, 400, 1000); // A-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 900, 0))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 800))); // A-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 300))); // A-D neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 400, 1000))); // A-D neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 1000, 0, 1000))); // A-D neighbours D-W
+            edge = FindEdge(edges, 600, 600, 0, 300); // A-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 900, 0))); // A-E neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 800))); // A-E neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 400, 1000))); // A-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 300))); // A-E neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 300, 0, 0))); // A-E neighbours E-Z
+            edge = FindEdge(edges, 1000, 0, 1000, 800); // X-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 800))); // X-C neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 800, 1000, 1000))); // X-C neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 900, 0, 1000, 0))); // X-C neighbours B-X
+            edge = FindEdge(edges, 1000, 800, 1000, 1000); // C-Y
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 800))); // C-Y neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 800))); // C-Y neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 400, 1000))); // C-Y neighbours Y-D
+            edge = FindEdge(edges, 1000, 1000, 400, 1000); // Y-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 400, 1000))); // Y-D neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 800, 1000, 1000))); // Y-D neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 1000, 0, 1000))); // Y-D neighbours D-W
+            edge = FindEdge(edges, 400, 1000, 0, 1000); // D-W
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 400, 1000))); // D-W neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 400, 1000))); // D-W neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 300))); // D-W neighbours W-E
+            edge = FindEdge(edges, 0, 1000, 0, 300); // W-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 300))); // W-E neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 1000, 0, 1000))); // W-E neighbours D-W
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 300, 0, 0))); // W-E neighbours E-Z
+            edge = FindEdge(edges, 0, 300, 0, 0); // E-Z
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 300))); // E-Z neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 300))); // E-Z neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 900, 0))); // E-Z neighbours Z-B
+            edge = FindEdge(edges, 0, 0, 900, 0); // Z-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 900, 0))); // Z-B neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 300, 0, 0))); // Z-B neighbours E-Z
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 900, 0, 1000, 0))); // Z-B neighbours B-X
+            edge = FindEdge(edges, 900, 0, 1000, 0); // B-X
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 900, 0))); // B-X neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 800))); // B-X neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 900, 0))); // B-X neighbours Z-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 100), // #1
+                new VoronoiSite(900, 300), // #2
+                new VoronoiSite(700, 700), // #3
+                new VoronoiSite(300, 500), // #4
+            };
+
+            // 1000 Z--------------E----------------------------------W
+            //      |               '                                 |
+            //  900 |                ',                               |
+            //      |                  ,                              |
+            //  800 |                   ·                             |
+            //      |                    '                            |
+            //  700 |                     ',           3              |
+            //      |                       ,                         |
+            //  600 |                        ·                      ,,D
+            //      |                         '                ,,·''  |
+            //  500 |              4           ',         ,,·''       |
+            //      |                            ,   ,,·''            |
+            //  400 |                           ,,A''                 |
+            //      |                      ,,·''   '                  |
+            //  300 |                 ,,·''         ',           2    |
+            //      |            ,,·''                ,               |
+            //  200 |       ,,·''                      ·              |
+            //      |  ,,·''                            '             |
+            //  100 B''                      1           ',           |
+            //      |                                      ,          |
+            //    0 X---------------------------------------C---------Y
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assume
+
+            Assume.That(() => 12 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 400, 0, 100)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 400, 800, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 600)); // A-D
+            Assume.That(() => HasEdge(edges, 600, 400, 300, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 0, 0, 800, 0)); // X-C
+            Assume.That(() => HasEdge(edges, 800, 0, 1000, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 1000, 600)); // Y-D
+            Assume.That(() => HasEdge(edges, 1000, 600, 1000, 1000)); // D-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 300, 1000)); // W-E
+            Assume.That(() => HasEdge(edges, 300, 1000, 0, 1000)); // E-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 0, 100)); // Z-B
+            Assume.That(() => HasEdge(edges, 0, 100, 0, 0)); // B-X
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 600, 400, 0, 100); // A-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 800, 0))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 600))); // A-B neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 300, 1000))); // A-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 100))); // A-B neighbours Z-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 100, 0, 0))); // A-B neighbours B-X
+            edge = FindEdge(edges, 600, 400, 800, 0); // A-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 100))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 600))); // A-C neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 300, 1000))); // A-C neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 800, 0))); // A-C neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 800, 0, 1000, 0))); // A-C neighbours C-Y
+            edge = FindEdge(edges, 600, 400, 1000, 600); // A-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 100))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 800, 0))); // A-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 300, 1000))); // A-D neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 600))); // A-D neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 600, 1000, 1000))); // A-D neighbours D-W
+            edge = FindEdge(edges, 600, 400, 300, 1000); // A-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 100))); // A-E neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 800, 0))); // A-E neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 600))); // A-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 300, 1000))); // A-E neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 1000, 0, 1000))); // A-E neighbours E-Z
+            edge = FindEdge(edges, 0, 0, 800, 0); // X-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 800, 0))); // X-C neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 800, 0, 1000, 0))); // X-C neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 100, 0, 0))); // X-C neighbours B-X
+            edge = FindEdge(edges, 800, 0, 1000, 0); // C-Y
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 800, 0))); // C-Y neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 800, 0))); // C-Y neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 600))); // C-Y neighbours Y-D
+            edge = FindEdge(edges, 1000, 0, 1000, 600); // Y-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 600))); // Y-D neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 800, 0, 1000, 0))); // Y-D neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 600, 1000, 1000))); // Y-D neighbours D-W
+            edge = FindEdge(edges, 1000, 600, 1000, 1000); // D-W
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 600))); // D-W neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 1000, 600))); // D-W neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 300, 1000))); // D-W neighbours W-E
+            edge = FindEdge(edges, 1000, 1000, 300, 1000); // W-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 300, 1000))); // W-E neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 600, 1000, 1000))); // W-E neighbours D-W
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 1000, 0, 1000))); // W-E neighbours E-Z
+            edge = FindEdge(edges, 300, 1000, 0, 1000); // E-Z
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 300, 1000))); // E-Z neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 300, 1000))); // E-Z neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 100))); // E-Z neighbours Z-B
+            edge = FindEdge(edges, 0, 1000, 0, 100); // Z-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 100))); // Z-B neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 1000, 0, 1000))); // Z-B neighbours E-Z
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 100, 0, 0))); // Z-B neighbours B-X
+            edge = FindEdge(edges, 0, 100, 0, 0); // B-X
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 100))); // B-X neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 800, 0))); // B-X neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 0, 100))); // B-X neighbours Z-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are mirrored horizontally.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_Mirrored()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 500), // #1
+                new VoronoiSite(700, 100), // #2
+                new VoronoiSite(300, 300), // #3
+                new VoronoiSite(500, 700), // #4
+            };
+
+            // 1000 Z--------------------------------------------B----X
+            //      |                                           '     |
+            //  900 |                                         ,'      |
+            //      |                                        ,        |
+            //  800 |                                       ·         |
+            //      |                                      '          |
+            //  700 E,,                      4           ,'           |
+            //      |  ''·,,                            ,             |
+            //  600 |       ''·,,                      ·              |
+            //      |            ''·,,                '               |
+            //  500 |                 ''·,,         ,'           1    |
+            //      |                      ''·,,   ,                  |
+            //  400 |                           ''A,,                 |
+            //      |                            '   ''·,,            |
+            //  300 |              3           ,'         ''·,,       |
+            //      |                         ,                ''·,,  |
+            //  200 |                        ·                      ''C
+            //      |                       '                         |
+            //  100 |                     ,'           2              |
+            //      |                    ,                            |
+            //    0 W-------------------D-----------------------------Y
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assume
+
+            Assume.That(() => 12 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 400, 900, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 200)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 400, 400, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 600, 400, 0, 700)); // A-E
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 200)); // X-C
+            Assume.That(() => HasEdge(edges, 1000, 200, 1000, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 1000, 0, 400, 0)); // Y-D
+            Assume.That(() => HasEdge(edges, 400, 0, 0, 0)); // D-W
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 700)); // W-E
+            Assume.That(() => HasEdge(edges, 0, 700, 0, 1000)); // E-Z
+            Assume.That(() => HasEdge(edges, 0, 1000, 900, 1000)); // Z-B
+            Assume.That(() => HasEdge(edges, 900, 1000, 1000, 1000)); // B-X
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 600, 400, 900, 1000); // A-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 200))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 400, 0))); // A-B neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 700))); // A-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 900, 1000))); // A-B neighbours Z-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 900, 1000, 1000, 1000))); // A-B neighbours B-X
+            edge = FindEdge(edges, 600, 400, 1000, 200); // A-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 900, 1000))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 400, 0))); // A-C neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 700))); // A-C neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 200))); // A-C neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 200, 1000, 0))); // A-C neighbours C-Y
+            edge = FindEdge(edges, 600, 400, 400, 0); // A-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 900, 1000))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 200))); // A-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 700))); // A-D neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 400, 0))); // A-D neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 0, 0, 0))); // A-D neighbours D-W
+            edge = FindEdge(edges, 600, 400, 0, 700); // A-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 900, 1000))); // A-E neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 200))); // A-E neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 400, 0))); // A-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 700))); // A-E neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 0, 1000))); // A-E neighbours E-Z
+            edge = FindEdge(edges, 1000, 1000, 1000, 200); // X-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 200))); // X-C neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 200, 1000, 0))); // X-C neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 900, 1000, 1000, 1000))); // X-C neighbours B-X
+            edge = FindEdge(edges, 1000, 200, 1000, 0); // C-Y
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 1000, 200))); // C-Y neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 200))); // C-Y neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 400, 0))); // C-Y neighbours Y-D
+            edge = FindEdge(edges, 1000, 0, 400, 0); // Y-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 400, 0))); // Y-D neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 200, 1000, 0))); // Y-D neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 0, 0, 0))); // Y-D neighbours D-W
+            edge = FindEdge(edges, 400, 0, 0, 0); // D-W
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 400, 0))); // D-W neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 400, 0))); // D-W neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 700))); // D-W neighbours W-E
+            edge = FindEdge(edges, 0, 0, 0, 700); // W-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 700))); // W-E neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 0, 0, 0))); // W-E neighbours D-W
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 0, 1000))); // W-E neighbours E-Z
+            edge = FindEdge(edges, 0, 700, 0, 1000); // E-Z
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 0, 700))); // E-Z neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 700))); // E-Z neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 900, 1000))); // E-Z neighbours Z-B
+            edge = FindEdge(edges, 0, 1000, 900, 1000); // Z-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 900, 1000))); // Z-B neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 0, 1000))); // Z-B neighbours E-Z
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 900, 1000, 1000, 1000))); // Z-B neighbours B-X
+            edge = FindEdge(edges, 900, 1000, 1000, 1000); // B-X
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 400, 900, 1000))); // B-X neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 200))); // B-X neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 900, 1000))); // B-X neighbours Z-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_MirroredAndRotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 100), // #1
+                new VoronoiSite(100, 300), // #2
+                new VoronoiSite(300, 700), // #3
+                new VoronoiSite(700, 500), // #4
+            };
+
+            // 1000 W----------------------------------E--------------Z
+            //      |                                 '               |
+            //  900 |                               ,'                |
+            //      |                              ,                  |
+            //  800 |                             ·                   |
+            //      |                            '                    |
+            //  700 |              3           ,'                     |
+            //      |                         ,                       |
+            //  600 D,,                      ·                        |
+            //      |  ''·,,                '                         |
+            //  500 |       ''·,,         ,'           4              |
+            //      |            ''·,,   ,                            |
+            //  400 |                 ''A,,                           |
+            //      |                  '   ''·,,                      |
+            //  300 |    2           ,'         ''·,,                 |
+            //      |               ,                ''·,,            |
+            //  200 |              ·                      ''·,,       |
+            //      |             '                            ''·,,  |
+            //  100 |           ,'           1                      ''B
+            //      |          ,                                      |
+            //    0 Y---------C---------------------------------------X
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assume
+
+            Assume.That(() => 12 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 400, 1000, 100)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 400, 200, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 600)); // A-D
+            Assume.That(() => HasEdge(edges, 400, 400, 700, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 1000, 0, 200, 0)); // X-C
+            Assume.That(() => HasEdge(edges, 200, 0, 0, 0)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 600)); // Y-D
+            Assume.That(() => HasEdge(edges, 0, 600, 0, 1000)); // D-W
+            Assume.That(() => HasEdge(edges, 0, 1000, 700, 1000)); // W-E
+            Assume.That(() => HasEdge(edges, 700, 1000, 1000, 1000)); // E-Z
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 100)); // Z-B
+            Assume.That(() => HasEdge(edges, 1000, 100, 1000, 0)); // B-X
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 400, 400, 1000, 100); // A-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 200, 0))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 600))); // A-B neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 700, 1000))); // A-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 100))); // A-B neighbours Z-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 100, 1000, 0))); // A-B neighbours B-X
+            edge = FindEdge(edges, 400, 400, 200, 0); // A-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 100))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 600))); // A-C neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 700, 1000))); // A-C neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 200, 0))); // A-C neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 200, 0, 0, 0))); // A-C neighbours C-Y
+            edge = FindEdge(edges, 400, 400, 0, 600); // A-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 100))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 200, 0))); // A-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 700, 1000))); // A-D neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 600))); // A-D neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 600, 0, 1000))); // A-D neighbours D-W
+            edge = FindEdge(edges, 400, 400, 700, 1000); // A-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 100))); // A-E neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 200, 0))); // A-E neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 600))); // A-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 700, 1000))); // A-E neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1000, 1000, 1000))); // A-E neighbours E-Z
+            edge = FindEdge(edges, 1000, 0, 200, 0); // X-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 200, 0))); // X-C neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 200, 0, 0, 0))); // X-C neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 100, 1000, 0))); // X-C neighbours B-X
+            edge = FindEdge(edges, 200, 0, 0, 0); // C-Y
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 200, 0))); // C-Y neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 200, 0))); // C-Y neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 600))); // C-Y neighbours Y-D
+            edge = FindEdge(edges, 0, 0, 0, 600); // Y-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 600))); // Y-D neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 200, 0, 0, 0))); // Y-D neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 600, 0, 1000))); // Y-D neighbours D-W
+            edge = FindEdge(edges, 0, 600, 0, 1000); // D-W
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 0, 600))); // D-W neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 600))); // D-W neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 700, 1000))); // D-W neighbours W-E
+            edge = FindEdge(edges, 0, 1000, 700, 1000); // W-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 700, 1000))); // W-E neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 600, 0, 1000))); // W-E neighbours D-W
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1000, 1000, 1000))); // W-E neighbours E-Z
+            edge = FindEdge(edges, 700, 1000, 1000, 1000); // E-Z
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 700, 1000))); // E-Z neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 700, 1000))); // E-Z neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 100))); // E-Z neighbours Z-B
+            edge = FindEdge(edges, 1000, 1000, 1000, 100); // Z-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 100))); // Z-B neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1000, 1000, 1000))); // Z-B neighbours E-Z
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 100, 1000, 0))); // Z-B neighbours B-X
+            edge = FindEdge(edges, 1000, 100, 1000, 0); // B-X
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 400, 1000, 100))); // B-X neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 200, 0))); // B-X neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 100))); // B-X neighbours Z-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_MirroredAndRotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 500), // #1
+                new VoronoiSite(300, 900), // #2
+                new VoronoiSite(700, 700), // #3
+                new VoronoiSite(500, 300), // #4
+            };
+
+            // 1000 Y-----------------------------D-------------------W
+            //      |                            '                    |
+            //  900 |              2           ,'                     |
+            //      |                         ,                       |
+            //  800 C,,                      ·                        |
+            //      |  ''·,,                '                         |
+            //  700 |       ''·,,         ,'           3              |
+            //      |            ''·,,   ,                            |
+            //  600 |                 ''A,,                           |
+            //      |                  '   ''·,,                      |
+            //  500 |    1           ,'         ''·,,                 |
+            //      |               ,                ''·,,            |
+            //  400 |              ·                      ''·,,       |
+            //      |             '                            ''·,,  |
+            //  300 |           ,'           4                      ''E
+            //      |          ,                                      |
+            //  200 |         ·                                       |
+            //      |        '                                        |
+            //  100 |      ,'                                         |
+            //      |     ,                                           |
+            //    0 X----B--------------------------------------------Z
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assume
+
+            Assume.That(() => 12 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 400, 600, 100, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 800)); // A-C
+            Assume.That(() => HasEdge(edges, 400, 600, 600, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 400, 600, 1000, 300)); // A-E
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 800)); // X-C
+            Assume.That(() => HasEdge(edges, 0, 800, 0, 1000)); // C-Y
+            Assume.That(() => HasEdge(edges, 0, 1000, 600, 1000)); // Y-D
+            Assume.That(() => HasEdge(edges, 600, 1000, 1000, 1000)); // D-W
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 300)); // W-E
+            Assume.That(() => HasEdge(edges, 1000, 300, 1000, 0)); // E-Z
+            Assume.That(() => HasEdge(edges, 1000, 0, 100, 0)); // Z-B
+            Assume.That(() => HasEdge(edges, 100, 0, 0, 0)); // B-X
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 400, 600, 100, 0); // A-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 800))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 600, 1000))); // A-B neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 300))); // A-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 100, 0))); // A-B neighbours Z-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 0, 0))); // A-B neighbours B-X
+            edge = FindEdge(edges, 400, 600, 0, 800); // A-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 100, 0))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 600, 1000))); // A-C neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 300))); // A-C neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 800))); // A-C neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 800, 0, 1000))); // A-C neighbours C-Y
+            edge = FindEdge(edges, 400, 600, 600, 1000); // A-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 100, 0))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 800))); // A-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 300))); // A-D neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 600, 1000))); // A-D neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 1000, 1000, 1000))); // A-D neighbours D-W
+            edge = FindEdge(edges, 400, 600, 1000, 300); // A-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 100, 0))); // A-E neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 800))); // A-E neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 600, 1000))); // A-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 300))); // A-E neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 300, 1000, 0))); // A-E neighbours E-Z
+            edge = FindEdge(edges, 0, 0, 0, 800); // X-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 800))); // X-C neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 800, 0, 1000))); // X-C neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 0, 0))); // X-C neighbours B-X
+            edge = FindEdge(edges, 0, 800, 0, 1000); // C-Y
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 0, 800))); // C-Y neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 800))); // C-Y neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 600, 1000))); // C-Y neighbours Y-D
+            edge = FindEdge(edges, 0, 1000, 600, 1000); // Y-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 600, 1000))); // Y-D neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 800, 0, 1000))); // Y-D neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 1000, 1000, 1000))); // Y-D neighbours D-W
+            edge = FindEdge(edges, 600, 1000, 1000, 1000); // D-W
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 600, 1000))); // D-W neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 600, 1000))); // D-W neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 300))); // D-W neighbours W-E
+            edge = FindEdge(edges, 1000, 1000, 1000, 300); // W-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 300))); // W-E neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 1000, 1000, 1000))); // W-E neighbours D-W
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 300, 1000, 0))); // W-E neighbours E-Z
+            edge = FindEdge(edges, 1000, 300, 1000, 0); // E-Z
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 1000, 300))); // E-Z neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 300))); // E-Z neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 100, 0))); // E-Z neighbours Z-B
+            edge = FindEdge(edges, 1000, 0, 100, 0); // Z-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 100, 0))); // Z-B neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 300, 1000, 0))); // Z-B neighbours E-Z
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 0, 0))); // Z-B neighbours B-X
+            edge = FindEdge(edges, 100, 0, 0, 0); // B-X
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 400, 600, 100, 0))); // B-X neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 800))); // B-X neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 100, 0))); // B-X neighbours Z-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_MirroredAndRotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 900), // #1
+                new VoronoiSite(900, 700), // #2
+                new VoronoiSite(700, 300), // #3
+                new VoronoiSite(300, 500), // #4
+            };
+
+            // 1000 X---------------------------------------C---------Y
+            //      |                                      '          |
+            //  900 B,,                      1           ,'           |
+            //      |  ''·,,                            ,             |
+            //  800 |       ''·,,                      ·              |
+            //      |            ''·,,                '               |
+            //  700 |                 ''·,,         ,'           2    |
+            //      |                      ''·,,   ,                  |
+            //  600 |                           ''A,,                 |
+            //      |                            '   ''·,,            |
+            //  500 |              4           ,'         ''·,,       |
+            //      |                         ,                ''·,,  |
+            //  400 |                        ·                      ''D
+            //      |                       '                         |
+            //  300 |                     ,'           3              |
+            //      |                    ,                            |
+            //  200 |                   ·                             |
+            //      |                  '                              |
+            //  100 |                ,'                               |
+            //      |               ,                                 |
+            //    0 Z--------------E----------------------------------W
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assume
+
+            Assume.That(() => 12 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 600, 0, 900)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 600, 800, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 400)); // A-D
+            Assume.That(() => HasEdge(edges, 600, 600, 300, 0)); // A-E
+            Assume.That(() => HasEdge(edges, 0, 1000, 800, 1000)); // X-C
+            Assume.That(() => HasEdge(edges, 800, 1000, 1000, 1000)); // C-Y
+            Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 400)); // Y-D
+            Assume.That(() => HasEdge(edges, 1000, 400, 1000, 0)); // D-W
+            Assume.That(() => HasEdge(edges, 1000, 0, 300, 0)); // W-E
+            Assume.That(() => HasEdge(edges, 300, 0, 0, 0)); // E-Z
+            Assume.That(() => HasEdge(edges, 0, 0, 0, 900)); // Z-B
+            Assume.That(() => HasEdge(edges, 0, 900, 0, 1000)); // B-X
+
+            // Assert
+
+            VoronoiEdge edge = FindEdge(edges, 600, 600, 0, 900); // A-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 800, 1000))); // A-B neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 400))); // A-B neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 300, 0))); // A-B neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 900))); // A-B neighbours Z-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 900, 0, 1000))); // A-B neighbours B-X
+            edge = FindEdge(edges, 600, 600, 800, 1000); // A-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 900))); // A-C neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 400))); // A-C neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 300, 0))); // A-C neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 800, 1000))); // A-C neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 800, 1000, 1000, 1000))); // A-C neighbours C-Y
+            edge = FindEdge(edges, 600, 600, 1000, 400); // A-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 900))); // A-D neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 800, 1000))); // A-D neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 300, 0))); // A-D neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 400))); // A-D neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 400, 1000, 0))); // A-D neighbours D-W
+            edge = FindEdge(edges, 600, 600, 300, 0); // A-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(5, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 900))); // A-E neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 800, 1000))); // A-E neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 400))); // A-E neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 300, 0))); // A-E neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 0, 0, 0))); // A-E neighbours E-Z
+            edge = FindEdge(edges, 0, 1000, 800, 1000); // X-C
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 800, 1000))); // X-C neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 800, 1000, 1000, 1000))); // X-C neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 900, 0, 1000))); // X-C neighbours B-X
+            edge = FindEdge(edges, 800, 1000, 1000, 1000); // C-Y
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 800, 1000))); // C-Y neighbours A-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 800, 1000))); // C-Y neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 400))); // C-Y neighbours Y-D
+            edge = FindEdge(edges, 1000, 1000, 1000, 400); // Y-D
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 400))); // Y-D neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 800, 1000, 1000, 1000))); // Y-D neighbours C-Y
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 400, 1000, 0))); // Y-D neighbours D-W
+            edge = FindEdge(edges, 1000, 400, 1000, 0); // D-W
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 1000, 400))); // D-W neighbours A-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 1000, 1000, 400))); // D-W neighbours Y-D
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 300, 0))); // D-W neighbours W-E
+            edge = FindEdge(edges, 1000, 0, 300, 0); // W-E
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 300, 0))); // W-E neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 400, 1000, 0))); // W-E neighbours D-W
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 0, 0, 0))); // W-E neighbours E-Z
+            edge = FindEdge(edges, 300, 0, 0, 0); // E-Z
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 300, 0))); // E-Z neighbours A-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1000, 0, 300, 0))); // E-Z neighbours W-E
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 900))); // E-Z neighbours Z-B
+            edge = FindEdge(edges, 0, 0, 0, 900); // Z-B
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 900))); // Z-B neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 300, 0, 0, 0))); // Z-B neighbours E-Z
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 900, 0, 1000))); // Z-B neighbours B-X
+            edge = FindEdge(edges, 0, 900, 0, 1000); // B-X
+            Assert.NotNull(edge.Neighbours);
+            Assert.AreEqual(3, edge.Neighbours.Count());
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 600, 600, 0, 900))); // B-X neighbours A-B
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1000, 800, 1000))); // B-X neighbours X-C
+            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 0, 900))); // B-X neighbours Z-B
+        }
+
+        [Test]
         public void FivePointsInAForkedTallCross()
         {
             // Arrange

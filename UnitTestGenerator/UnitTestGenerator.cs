@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SharpVoronoiLib.UnitTestGenerator
 {
-    public static class Program
+    public static class UnitTestGenerator
     {
         public static void Main()
         {
@@ -706,7 +706,65 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: EADW
                 4: ZBAE
             ", Repeat.Rotate90);
-
+            
+            testGenerator.AddTest("FourEquidistantPointsInAKiteAroundMiddle", @"
+                B · · · · · · · · · E 10
+                · x · · · · · · · x · 9
+                · · x · · · · · x · · 8
+                · · · x · 1 · x · · · 7
+                · · · · x · x · · · · 6
+                · · · 4 · A · 2 · · · 5
+                · · · · x · x · · · · 4
+                · · · x · 3 · x · · · 3
+                · · x · · · · · x · · 2
+                · x · · · · · · · x · 1
+                C · · · · · · · · · D 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,4
+                A-C: 3,4
+                A-D: 2,3
+                A-E: 1,2
+                B-C: 4
+                C-D: 3
+                D-E: 2
+                E-B: 1
+                1: EBA
+                2: EAD
+                3: ACD
+                4: ABC
+            ");
+            
+            testGenerator.AddTest("FourEquidistantPointsInARotatedSquareOffset", @"
+                X B · · · · · · · · Z 10
+                · · · · · · · · · · · 9
+                · · x · · · · · · · · 8
+                · · · · · 4 · · · · E 7
+                · · · x · · · · x · · 6
+                · 1 · · · · x · · · · 5
+                · · · · A · · · · · · 4
+                · · x · · · · 3 · · · 3
+                C · · · · x · · · · · 2
+                · · · 2 · · · · · · · 1
+                Y · · · · · D · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,4
+                A-C: 1,2
+                A-D: 2,3
+                A-E: 3,4
+                X-C: 1 
+                C-Y: 2 
+                Y-D: 2 
+                D-W: 3 
+                W-E: 3 
+                E-Z: 4 
+                Z-B: 4 
+                B-X: 1 
+                1: BXCA
+                2: ACYD
+                3: EADW
+                4: EZBA
+            ", Repeat.RotateAndMirrorAll);
+            
             testGenerator.AddTest("FivePointsInAForkedTallCross", @"
                 W · C · · · · · D · Z 10
                 · · · x · 1 · x · · · 9
@@ -923,7 +981,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                                 // Filler
                                 break;
 
-                            case ' ':
+                            case ' ' or 'x':
                                 if (x % 2 != 1) throw new ArgumentException();
                                 // Spacing
                                 break;

@@ -4539,6 +4539,484 @@ namespace SharpVoronoiLib.UnitTests
         }
 
         [Test]
+        public void FourEquidistantPointsInAKiteAroundMiddle()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 700), // #1
+                new VoronoiSite(700, 500), // #2
+                new VoronoiSite(500, 300), // #3
+                new VoronoiSite(300, 500), // #4
+            };
+
+            // 1000 B,                                               ,E
+            //      | ',                                           ,'  
+            //  900 |   '·,                                     ,·'    
+            //      |      ',                                 ,'       
+            //  800 |        '·,                           ,·'         
+            //      |           ',                       ,'            
+            //  700 |             '·,        1        ,·'              
+            //      |                ',             ,'                 
+            //  600 |                  '·,       ,·'                   
+            //      |                     ',   ,'                      
+            //  500 |              4        #A#        2               
+            //      |                     ,'   ',                      
+            //  400 |                  ,·'       '·,                   
+            //      |                ,'             ',                 
+            //  300 |             ,·'        3        '·,              
+            //      |           ,'                       ',            
+            //  200 |        ,·'                           '·,         
+            //      |      ,'                                 ',       
+            //  100 |   ,·'                                     '·,    
+            //      | ,'                                           ',  
+            //    0 C'-----------------------------------------------'D
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(4, edges.Count);
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 0)); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000)); // A-E
+        }
+
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 500), // #1
+                new VoronoiSite(300, 100), // #2
+                new VoronoiSite(700, 300), // #3
+                new VoronoiSite(500, 700), // #4
+            };
+
+            // 1000 ↑    B                                             
+            //      |     '                                            
+            //  900 |      ',                                          
+            //      |        ,                                         
+            //  800 |         ·                                        
+            //      |          '                                       
+            //  700 |           ',           4                      ,,E
+            //      |             ,                            ,,·''   
+            //  600 |              ·                      ,,·''        
+            //      |               '                ,,·''             
+            //  500 |    1           ',         ,,·''                  
+            //      |                  ,   ,,·''                       
+            //  400 |                 ,,A''                            
+            //      |            ,,·''   '                             
+            //  300 |       ,,·''         ',           3               
+            //      |  ,,·''                ,                          
+            //  200 C''                      ·                         
+            //      |                         '                        
+            //  100 |              2           ',                      
+            //      |                            ,                     
+            //    0 └-----------------------------D-------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(4, edges.Count);
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 400, 400, 100, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 200)); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 400, 600, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 400, 1000, 700)); // A-E
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 900), // #1
+                new VoronoiSite(100, 700), // #2
+                new VoronoiSite(300, 300), // #3
+                new VoronoiSite(700, 500), // #4
+            };
+
+            // 1000 ↑         C                                        
+            //      |          '                                       
+            //  900 |           ',           1                      ,,B
+            //      |             ,                            ,,·''   
+            //  800 |              ·                      ,,·''        
+            //      |               '                ,,·''             
+            //  700 |    2           ',         ,,·''                  
+            //      |                  ,   ,,·''                       
+            //  600 |                 ,,A''                            
+            //      |            ,,·''   '                             
+            //  500 |       ,,·''         ',           4               
+            //      |  ,,·''                ,                          
+            //  400 D''                      ·                         
+            //      |                         '                        
+            //  300 |              3           ',                      
+            //      |                            ,                     
+            //  200 |                             ·                    
+            //      |                              '                   
+            //  100 |                               ',                 
+            //      |                                 ,                
+            //    0 └----------------------------------E--------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(4, edges.Count);
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 400, 600, 1000, 900)); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 600, 200, 1000)); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 400)); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 600, 700, 0)); // A-E
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 500), // #1
+                new VoronoiSite(700, 900), // #2
+                new VoronoiSite(300, 700), // #3
+                new VoronoiSite(500, 300), // #4
+            };
+
+            // 1000 ↑                   D                              
+            //      |                    '                             
+            //  900 |                     ',           2               
+            //      |                       ,                          
+            //  800 |                        ·                      ,,C
+            //      |                         '                ,,·''   
+            //  700 |              3           ',         ,,·''        
+            //      |                            ,   ,,·''             
+            //  600 |                           ,,A''                  
+            //      |                      ,,·''   '                   
+            //  500 |                 ,,·''         ',           1     
+            //      |            ,,·''                ,                
+            //  400 |       ,,·''                      ·               
+            //      |  ,,·''                            '              
+            //  300 E''                      4           ',            
+            //      |                                      ,           
+            //  200 |                                       ·          
+            //      |                                        '         
+            //  100 |                                         ',       
+            //      |                                           ,      
+            //    0 └--------------------------------------------B----→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(4, edges.Count);
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 600, 600, 900, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 800)); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 600, 400, 1000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 600, 0, 300)); // A-E
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 100), // #1
+                new VoronoiSite(900, 300), // #2
+                new VoronoiSite(700, 700), // #3
+                new VoronoiSite(300, 500), // #4
+            };
+
+            // 1000 ↑              E                                   
+            //      |               '                                  
+            //  900 |                ',                                
+            //      |                  ,                               
+            //  800 |                   ·                              
+            //      |                    '                             
+            //  700 |                     ',           3               
+            //      |                       ,                          
+            //  600 |                        ·                      ,,D
+            //      |                         '                ,,·''   
+            //  500 |              4           ',         ,,·''        
+            //      |                            ,   ,,·''             
+            //  400 |                           ,,A''                  
+            //      |                      ,,·''   '                   
+            //  300 |                 ,,·''         ',           2     
+            //      |            ,,·''                ,                
+            //  200 |       ,,·''                      ·               
+            //      |  ,,·''                            '              
+            //  100 B''                      1           ',            
+            //      |                                      ,           
+            //    0 └---------------------------------------C---------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(4, edges.Count);
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 600, 400, 0, 100)); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 400, 800, 0)); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 600)); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 400, 300, 1000)); // A-E
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are mirrored horizontally.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_Mirrored()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 500), // #1
+                new VoronoiSite(700, 100), // #2
+                new VoronoiSite(300, 300), // #3
+                new VoronoiSite(500, 700), // #4
+            };
+
+            // 1000 ↑                                            B     
+            //      |                                           '      
+            //  900 |                                         ,'       
+            //      |                                        ,         
+            //  800 |                                       ·          
+            //      |                                      '           
+            //  700 E,,                      4           ,'            
+            //      |  ''·,,                            ,              
+            //  600 |       ''·,,                      ·               
+            //      |            ''·,,                '                
+            //  500 |                 ''·,,         ,'           1     
+            //      |                      ''·,,   ,                   
+            //  400 |                           ''A,,                  
+            //      |                            '   ''·,,             
+            //  300 |              3           ,'         ''·,,        
+            //      |                         ,                ''·,,   
+            //  200 |                        ·                      ''C
+            //      |                       '                          
+            //  100 |                     ,'           2               
+            //      |                    ,                             
+            //    0 └-------------------D-----------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(4, edges.Count);
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 600, 400, 900, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 200)); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 400, 400, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 400, 0, 700)); // A-E
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_MirroredAndRotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 100), // #1
+                new VoronoiSite(100, 300), // #2
+                new VoronoiSite(300, 700), // #3
+                new VoronoiSite(700, 500), // #4
+            };
+
+            // 1000 ↑                                  E               
+            //      |                                 '                
+            //  900 |                               ,'                 
+            //      |                              ,                   
+            //  800 |                             ·                    
+            //      |                            '                     
+            //  700 |              3           ,'                      
+            //      |                         ,                        
+            //  600 D,,                      ·                         
+            //      |  ''·,,                '                          
+            //  500 |       ''·,,         ,'           4               
+            //      |            ''·,,   ,                             
+            //  400 |                 ''A,,                            
+            //      |                  '   ''·,,                       
+            //  300 |    2           ,'         ''·,,                  
+            //      |               ,                ''·,,             
+            //  200 |              ·                      ''·,,        
+            //      |             '                            ''·,,   
+            //  100 |           ,'           1                      ''B
+            //      |          ,                                       
+            //    0 └---------C---------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(4, edges.Count);
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 400, 400, 1000, 100)); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 400, 200, 0)); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 600)); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 400, 700, 1000)); // A-E
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_MirroredAndRotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 500), // #1
+                new VoronoiSite(300, 900), // #2
+                new VoronoiSite(700, 700), // #3
+                new VoronoiSite(500, 300), // #4
+            };
+
+            // 1000 ↑                             D                    
+            //      |                            '                     
+            //  900 |              2           ,'                      
+            //      |                         ,                        
+            //  800 C,,                      ·                         
+            //      |  ''·,,                '                          
+            //  700 |       ''·,,         ,'           3               
+            //      |            ''·,,   ,                             
+            //  600 |                 ''A,,                            
+            //      |                  '   ''·,,                       
+            //  500 |    1           ,'         ''·,,                  
+            //      |               ,                ''·,,             
+            //  400 |              ·                      ''·,,        
+            //      |             '                            ''·,,   
+            //  300 |           ,'           4                      ''E
+            //      |          ,                                       
+            //  200 |         ·                                        
+            //      |        '                                         
+            //  100 |      ,'                                          
+            //      |     ,                                            
+            //    0 └----B--------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(4, edges.Count);
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 400, 600, 100, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 800)); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 600, 600, 1000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 600, 1000, 300)); // A-E
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="FourEquidistantPointsInARotatedSquareOffset"/> above,
+        /// but all coordinates are mirrored horizontally and then rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void FourEquidistantPointsInARotatedSquareOffset_MirroredAndRotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 900), // #1
+                new VoronoiSite(900, 700), // #2
+                new VoronoiSite(700, 300), // #3
+                new VoronoiSite(300, 500), // #4
+            };
+
+            // 1000 ↑                                       C          
+            //      |                                      '           
+            //  900 B,,                      1           ,'            
+            //      |  ''·,,                            ,              
+            //  800 |       ''·,,                      ·               
+            //      |            ''·,,                '                
+            //  700 |                 ''·,,         ,'           2     
+            //      |                      ''·,,   ,                   
+            //  600 |                           ''A,,                  
+            //      |                            '   ''·,,             
+            //  500 |              4           ,'         ''·,,        
+            //      |                         ,                ''·,,   
+            //  400 |                        ·                      ''D
+            //      |                       '                          
+            //  300 |                     ,'           3               
+            //      |                    ,                             
+            //  200 |                   ·                              
+            //      |                  '                               
+            //  100 |                ,'                                
+            //      |               ,                                  
+            //    0 └--------------E----------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(4, edges.Count);
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 600, 600, 0, 900)); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 600, 800, 1000)); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 400)); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 600, 300, 0)); // A-E
+        }
+
+        [Test]
         public void FivePointsInAForkedTallCross()
         {
             // Arrange
