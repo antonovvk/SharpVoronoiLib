@@ -145,43 +145,6 @@ namespace SharpVoronoiLib.UnitTests
             Assert.AreEqual(1, points[0].Cell.Count());
             Assert.AreEqual(1, points[1].Cell.Count());
         }
-
-        [Test]
-        public void FourPointsInASquare()
-        {
-            List<VoronoiSite> points = new List<VoronoiSite>
-            {
-                new VoronoiSite(200, 300), // 1
-                new VoronoiSite(300, 400), // 2
-                new VoronoiSite(300, 200), // 3
-                new VoronoiSite(400, 300) // 4
-            };
-
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(points, 0, 0, 600, 600, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
-
-            // 600 B                                   E
-            //     |\                                 /
-            // 500 |    \                         /
-            //     |        \                 /
-            // 400 |            \    2    /
-            //     |               \   /
-            // 300 |           1     A     4
-            //     |               /   \
-            // 200 |            /    3    \
-            //     |        /                 \
-            // 100 |    /                         \
-            //     |/                                 \
-            //   0 C-----------------------------------D
-            //     0    100   200   300   400   500   600
-
-            Assert.AreEqual(5, edges.Count);
-
-            Assert.IsTrue(HasEdge(edges, 300, 300, 000, 600)); // A-B
-            Assert.IsTrue(HasEdge(edges, 300, 300, 000, 000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 300, 300, 600, 000)); // A-D
-            Assert.IsTrue(HasEdge(edges, 300, 300, 600, 600)); // A-E
-            Assert.IsTrue(HasEdge(edges, 300, 300, 300, 300)); // A-A - because that's how this algorithm works
-        }
         
         [Test]
         public void FourPointsOutsideBounds()
