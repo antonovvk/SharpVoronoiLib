@@ -8928,5 +8928,776 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(EdgeIs(sites[5].ClockwiseCell.ElementAt(1), 300, 500, 300, 0)); // #6 A-F
         }
 
+        [Test]
+        public void FivePointsInABorderTouchingKite()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(0, 1000), // #1
+                new VoronoiSite(0, 0), // #2
+                new VoronoiSite(1000, 0), // #3
+                new VoronoiSite(1000, 1000), // #4
+                new VoronoiSite(500, 500), // #5
+            };
+
+            // 1000 1                       ,A,                       4
+            //      |                     ,'   ',                      
+            //  900 |                  ,·'       '·,                   
+            //      |                ,'             ',                 
+            //  800 |             ,·'                 '·,              
+            //      |           ,'                       ',            
+            //  700 |        ,·'                           '·,         
+            //      |      ,'                                 ',       
+            //  600 |   ,·'                                     '·,    
+            //      | ,'                                           ',  
+            //  500 B#                       5                       #D
+            //      | ',                                           ,'  
+            //  400 |   '·,                                     ,·'    
+            //      |      ',                                 ,'       
+            //  300 |        '·,                           ,·'         
+            //      |           ',                       ,'            
+            //  200 |             '·,                 ,·'              
+            //      |                ',             ,'                 
+            //  100 |                  '·,       ,·'                   
+            //      |                     ',   ,'                      
+            //    0 2-----------------------'C'-----------------------3
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 500, 500, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 500)); // C-D
+            Assume.That(() => HasEdge(edges, 1000, 500, 500, 1000)); // D-A
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has B
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has C
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has C
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
+            Assume.That(() => null != sites[3].Points);
+            Assume.That(() => 2 == sites[3].Points.Count()); // #4
+            Assume.That(() => HasPoint(sites[3].Points, 500, 1000)); // #4 has A
+            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has D
+            Assume.That(() => null != sites[4].Points);
+            Assume.That(() => 4 == sites[4].Points.Count()); // #5
+            Assume.That(() => HasPoint(sites[4].Points, 500, 1000)); // #5 has A
+            Assume.That(() => HasPoint(sites[4].Points, 0, 500)); // #5 has B
+            Assume.That(() => HasPoint(sites[4].Points, 500, 0)); // #5 has C
+            Assume.That(() => HasPoint(sites[4].Points, 1000, 500)); // #5 has D
+
+            // Assert
+
+            Assert.NotNull(sites[0].ClockwiseCell);
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 500, 1000, 0, 500)); // #1 has A-B
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[0].ClockwiseCell, 500, 1000, 0, 500, 500, 1000, 0, 500)); // #1 A-B > A-B
+            Assert.NotNull(sites[1].ClockwiseCell);
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(HasEdge(sites[1].ClockwiseCell, 0, 500, 500, 0)); // #2 has B-C
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[1].ClockwiseCell, 0, 500, 500, 0, 0, 500, 500, 0)); // #2 B-C > B-C
+            Assert.NotNull(sites[2].ClockwiseCell);
+            Assert.AreEqual(1, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 500, 0, 1000, 500)); // #3 has C-D
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[2].ClockwiseCell, 500, 0, 1000, 500, 500, 0, 1000, 500)); // #3 C-D > C-D
+            Assert.NotNull(sites[3].ClockwiseCell);
+            Assert.AreEqual(1, sites[3].ClockwiseCell.Count()); // #4
+            Assert.IsTrue(HasEdge(sites[3].ClockwiseCell, 1000, 500, 500, 1000)); // #4 has D-A
+            // Exact starting edge is undefined, so we only check that edges are sequential
+            Assert.IsTrue(EdgesAreSequential(sites[3].ClockwiseCell, 1000, 500, 500, 1000, 1000, 500, 500, 1000)); // #4 D-A > D-A
+            Assert.NotNull(sites[4].ClockwiseCell);
+            Assert.AreEqual(4, sites[4].ClockwiseCell.Count()); // #5
+            Assert.IsTrue(HasEdge(sites[4].ClockwiseCell, 500, 1000, 0, 500)); // #5 has A-B
+            Assert.IsTrue(HasEdge(sites[4].ClockwiseCell, 0, 500, 500, 0)); // #5 has B-C
+            Assert.IsTrue(HasEdge(sites[4].ClockwiseCell, 500, 0, 1000, 500)); // #5 has C-D
+            Assert.IsTrue(HasEdge(sites[4].ClockwiseCell, 1000, 500, 500, 1000)); // #5 has D-A
+            Assert.IsTrue(EdgeIs(sites[4].ClockwiseCell.ElementAt(0), 1000, 500, 500, 1000)); // #5 D-A
+            Assert.IsTrue(EdgeIs(sites[4].ClockwiseCell.ElementAt(1), 500, 1000, 0, 500)); // #5 A-B
+            Assert.IsTrue(EdgeIs(sites[4].ClockwiseCell.ElementAt(2), 0, 500, 500, 0)); // #5 B-C
+            Assert.IsTrue(EdgeIs(sites[4].ClockwiseCell.ElementAt(3), 500, 0, 1000, 500)); // #5 C-D
+        }
+
+        [Test]
+        public void ThreePointsMeetingAtBorder()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(300, 900), // #1
+                new VoronoiSite(300, 100), // #2
+                new VoronoiSite(500, 500), // #3
+            };
+
+            // 1000 ↑                                               ,,B
+            //      |                                          ,,·''   
+            //  900 |              1                      ,,·''        
+            //      |                                ,,·''             
+            //  800 |                           ,,·''                  
+            //      |                      ,,·''                       
+            //  700 |                 ,,·''                            
+            //      |            ,,·''                                 
+            //  600 |       ,,·''                                      
+            //      |  ,,·''                                           
+            //  500 A##                      3                         
+            //      |  ''·,,                                           
+            //  400 |       ''·,,                                      
+            //      |            ''·,,                                 
+            //  300 |                 ''·,,                            
+            //      |                      ''·,,                       
+            //  200 |                           ''·,,                  
+            //      |                                ''·,,             
+            //  100 |              2                      ''·,,        
+            //      |                                          ''·,,   
+            //    0 └-----------------------------------------------''C
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 500, 1000, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 500, 1000, 0)); // A-C
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has B
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has C
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has C
+
+            // Assert
+
+            Assert.NotNull(sites[0].ClockwiseCell);
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 0, 500, 1000, 1000)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 0, 500, 1000, 1000)); // #1 A-B
+            Assert.NotNull(sites[1].ClockwiseCell);
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(HasEdge(sites[1].ClockwiseCell, 0, 500, 1000, 0)); // #2 has A-C
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 0, 500, 1000, 0)); // #2 A-C
+            Assert.NotNull(sites[2].ClockwiseCell);
+            Assert.AreEqual(2, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 500, 1000, 1000)); // #3 has A-B
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 500, 1000, 0)); // #3 has A-C
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 0, 500, 1000, 1000)); // #3 A-B
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(1), 0, 500, 1000, 0)); // #3 A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingAtBorder"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingAtBorder_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 700), // #1
+                new VoronoiSite(100, 700), // #2
+                new VoronoiSite(500, 500), // #3
+            };
+
+            // 1000 ↑                        A                         
+            //      |                       ' '                        
+            //  900 |                     ,'   ',                      
+            //      |                    ,       ,                     
+            //  800 |                   ·         ·                    
+            //      |                  '           '                   
+            //  700 |    2           ,'             ',           1     
+            //      |               ,                 ,                
+            //  600 |              ·                   ·               
+            //      |             '                     '              
+            //  500 |           ,'           3           ',            
+            //      |          ,                           ,           
+            //  400 |         ·                             ·          
+            //      |        '                               '         
+            //  300 |      ,'                                 ',       
+            //      |     ,                                     ,      
+            //  200 |    ·                                       ·     
+            //      |   '                                         '    
+            //  100 | ,'                                           ',  
+            //      |,                                               , 
+            //    0 C-------------------------------------------------B
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 1000, 1000, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 0)); // A-C
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has B
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has C
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has C
+
+            // Assert
+
+            Assert.NotNull(sites[0].ClockwiseCell);
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 500, 1000, 1000, 0)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 500, 1000, 1000, 0)); // #1 A-B
+            Assert.NotNull(sites[1].ClockwiseCell);
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(HasEdge(sites[1].ClockwiseCell, 500, 1000, 0, 0)); // #2 has A-C
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 500, 1000, 0, 0)); // #2 A-C
+            Assert.NotNull(sites[2].ClockwiseCell);
+            Assert.AreEqual(2, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 500, 1000, 1000, 0)); // #3 has A-B
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 500, 1000, 0, 0)); // #3 has A-C
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 500, 1000, 0, 0)); // #3 A-C
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(1), 500, 1000, 1000, 0)); // #3 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingAtBorder"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingAtBorder_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(700, 100), // #1
+                new VoronoiSite(700, 900), // #2
+                new VoronoiSite(500, 500), // #3
+            };
+
+            // 1000 C,,                                                
+            //      |  ''·,,                                           
+            //  900 |       ''·,,                      2               
+            //      |            ''·,,                                 
+            //  800 |                 ''·,,                            
+            //      |                      ''·,,                       
+            //  700 |                           ''·,,                  
+            //      |                                ''·,,             
+            //  600 |                                     ''·,,        
+            //      |                                          ''·,,   
+            //  500 |                        3                      ##A
+            //      |                                          ,,·''   
+            //  400 |                                     ,,·''        
+            //      |                                ,,·''             
+            //  300 |                           ,,·''                  
+            //      |                      ,,·''                       
+            //  200 |                 ,,·''                            
+            //      |            ,,·''                                 
+            //  100 |       ,,·''                      1               
+            //      |  ,,·''                                           
+            //    0 B''-----------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1000, 500, 0, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 500, 0, 1000)); // A-C
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has B
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has C
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has C
+
+            // Assert
+
+            Assert.NotNull(sites[0].ClockwiseCell);
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 1000, 500, 0, 0)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1000, 500, 0, 0)); // #1 A-B
+            Assert.NotNull(sites[1].ClockwiseCell);
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(HasEdge(sites[1].ClockwiseCell, 1000, 500, 0, 1000)); // #2 has A-C
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 1000, 500, 0, 1000)); // #2 A-C
+            Assert.NotNull(sites[2].ClockwiseCell);
+            Assert.AreEqual(2, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1000, 500, 0, 0)); // #3 has A-B
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1000, 500, 0, 1000)); // #3 has A-C
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 1000, 500, 0, 1000)); // #3 A-C
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(1), 1000, 500, 0, 0)); // #3 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingAtBorder"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingAtBorder_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 300), // #1
+                new VoronoiSite(900, 300), // #2
+                new VoronoiSite(500, 500), // #3
+            };
+
+            // 1000 B                                                 C
+            //      |'                                               ' 
+            //  900 | ',                                           ,'  
+            //      |   ,                                         ,    
+            //  800 |    ·                                       ·     
+            //      |     '                                     '      
+            //  700 |      ',                                 ,'       
+            //      |        ,                               ,         
+            //  600 |         ·                             ·          
+            //      |          '                           '           
+            //  500 |           ',           3           ,'            
+            //      |             ,                     ,              
+            //  400 |              ·                   ·               
+            //      |               '                 '                
+            //  300 |    1           ',             ,'           2     
+            //      |                  ,           ,                   
+            //  200 |                   ·         ·                    
+            //      |                    '       '                     
+            //  100 |                     ',   ,'                      
+            //      |                       , ,                        
+            //    0 └------------------------A------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 500, 0, 0, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 1000)); // A-C
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 2 == sites[0].Points.Count()); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 500, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has B
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has C
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 3 == sites[2].Points.Count()); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has C
+
+            // Assert
+
+            Assert.NotNull(sites[0].ClockwiseCell);
+            Assert.AreEqual(1, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 500, 0, 0, 1000)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 500, 0, 0, 1000)); // #1 A-B
+            Assert.NotNull(sites[1].ClockwiseCell);
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(HasEdge(sites[1].ClockwiseCell, 500, 0, 1000, 1000)); // #2 has A-C
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 500, 0, 1000, 1000)); // #2 A-C
+            Assert.NotNull(sites[2].ClockwiseCell);
+            Assert.AreEqual(2, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 500, 0, 0, 1000)); // #3 has A-B
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 500, 0, 1000, 1000)); // #3 has A-C
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 500, 0, 0, 1000)); // #3 A-B
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(1), 500, 0, 1000, 1000)); // #3 A-C
+        }
+
+        [Test]
+        public void ThreePointsMeetingAtBorderSharply()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(500, 600), // #1
+                new VoronoiSite(400, 900), // #2
+                new VoronoiSite(400, 300), // #3
+            };
+
+            // 1200 ↑                                                            
+            //      |                                                            
+            // 1100 |                                                            
+            //      |                                                            
+            // 1000 |                                                        ,,,C
+            //      |                                                ,,,··'''    
+            //  900 |                   2                     ,,,·'''            
+            //      |                                 ,,,··'''                   
+            //  800 |                          ,,,·'''                           
+            //      |                  ,,,··'''                                  
+            //  700 |           ,,,·'''                                          
+            //      |   ,,,··'''                                                 
+            //  600 A###                     1                                   
+            //      |   '''··,,,                                                 
+            //  500 |           '''·,,,                                          
+            //      |                  '''··,,,                                  
+            //  400 |                          '''·,,,                           
+            //      |                                 '''··,,,                   
+            //  300 |                   3                     '''·,,,            
+            //      |                                                '''··,,,    
+            //  200 |                                                        '''B
+            //      |                                                            
+            //  100 |                                                            
+            //      |                                                            
+            //    0 └-----------------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 0, 600, 1200, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 0, 600, 1200, 200)); // A-B
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 0, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1200, 200)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1200, 1000)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 0, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1200, 1000)); // #2 has C
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 0, 600)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1200, 200)); // #3 has B
+
+            // Assert
+
+            Assert.NotNull(sites[0].ClockwiseCell);
+            Assert.AreEqual(2, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 0, 600, 1200, 1000)); // #1 has A-C
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 0, 600, 1200, 200)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 0, 600, 1200, 1000)); // #1 A-C
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 0, 600, 1200, 200)); // #1 A-B
+            Assert.NotNull(sites[1].ClockwiseCell);
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(HasEdge(sites[1].ClockwiseCell, 0, 600, 1200, 1000)); // #2 has A-C
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 0, 600, 1200, 1000)); // #2 A-C
+            Assert.NotNull(sites[2].ClockwiseCell);
+            Assert.AreEqual(1, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 600, 1200, 200)); // #3 has A-B
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 0, 600, 1200, 200)); // #3 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingAtBorderSharply"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingAtBorderSharply_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(600, 700), // #1
+                new VoronoiSite(900, 800), // #2
+                new VoronoiSite(300, 800), // #3
+            };
+
+            // 1200 ↑                             A                              
+            //      |                            · ·                             
+            // 1100 |                           ·   ·                            
+            //      |                          ·     ·                           
+            // 1000 |                          ·     ·                           
+            //      |                         ·       ·                          
+            //  900 |                        ·         ·                         
+            //      |                       ·           ·                        
+            //  800 |              3       ·             ·       2               
+            //      |                     ·               ·                      
+            //  700 |                     ·       1       ·                      
+            //      |                    ·                 ·                     
+            //  600 |                   ·                   ·                    
+            //      |                  ·                     ·                   
+            //  500 |                 ·                       ·                  
+            //      |                ·                         ·                 
+            //  400 |                ·                         ·                 
+            //      |               ·                           ·                
+            //  300 |              ·                             ·               
+            //      |             ·                               ·              
+            //  200 |            ·                                 ·             
+            //      |           ·                                   ·            
+            //  100 |           ·                                   ·            
+            //      |          ·                                     ·           
+            //    0 └---------B---------------------------------------C---------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 1200, 1000, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 1200, 200, 0)); // A-B
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 600, 1200)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 600, 1200)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has C
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 600, 1200)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 200, 0)); // #3 has B
+
+            // Assert
+
+            Assert.NotNull(sites[0].ClockwiseCell);
+            Assert.AreEqual(2, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 600, 1200, 1000, 0)); // #1 has A-C
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 600, 1200, 200, 0)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 600, 1200, 200, 0)); // #1 A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 600, 1200, 1000, 0)); // #1 A-C
+            Assert.NotNull(sites[1].ClockwiseCell);
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(HasEdge(sites[1].ClockwiseCell, 600, 1200, 1000, 0)); // #2 has A-C
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 600, 1200, 1000, 0)); // #2 A-C
+            Assert.NotNull(sites[2].ClockwiseCell);
+            Assert.AreEqual(1, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 600, 1200, 200, 0)); // #3 has A-B
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 600, 1200, 200, 0)); // #3 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingAtBorderSharply"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingAtBorderSharply_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(700, 600), // #1
+                new VoronoiSite(800, 300), // #2
+                new VoronoiSite(800, 900), // #3
+            };
+
+            // 1200 ↑                                                            
+            //      |                                                            
+            // 1100 |                                                            
+            //      |                                                            
+            // 1000 B,,,                                                         
+            //      |   '''··,,,                                                 
+            //  900 |           '''·,,,                     3                    
+            //      |                  '''··,,,                                  
+            //  800 |                          '''·,,,                           
+            //      |                                 '''··,,,                   
+            //  700 |                                         '''·,,,            
+            //      |                                                '''··,,,    
+            //  600 |                                  1                     ###A
+            //      |                                                ,,,··'''    
+            //  500 |                                         ,,,·'''            
+            //      |                                 ,,,··'''                   
+            //  400 |                          ,,,·'''                           
+            //      |                  ,,,··'''                                  
+            //  300 |           ,,,·'''                     2                    
+            //      |   ,,,··'''                                                 
+            //  200 C'''                                                         
+            //      |                                                            
+            //  100 |                                                            
+            //      |                                                            
+            //    0 └-----------------------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 1200, 600, 0, 200)); // A-C
+            Assume.That(() => HasEdge(edges, 1200, 600, 0, 1000)); // A-B
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 1200, 600)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 1200, 600)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 200)); // #2 has C
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 1200, 600)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
+
+            // Assert
+
+            Assert.NotNull(sites[0].ClockwiseCell);
+            Assert.AreEqual(2, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 1200, 600, 0, 200)); // #1 has A-C
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 1200, 600, 0, 1000)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 1200, 600, 0, 1000)); // #1 A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 1200, 600, 0, 200)); // #1 A-C
+            Assert.NotNull(sites[1].ClockwiseCell);
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(HasEdge(sites[1].ClockwiseCell, 1200, 600, 0, 200)); // #2 has A-C
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 1200, 600, 0, 200)); // #2 A-C
+            Assert.NotNull(sites[2].ClockwiseCell);
+            Assert.AreEqual(1, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1200, 600, 0, 1000)); // #3 has A-B
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 1200, 600, 0, 1000)); // #3 A-B
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingAtBorderSharply"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingAtBorderSharply_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(600, 500), // #1
+                new VoronoiSite(300, 400), // #2
+                new VoronoiSite(900, 400), // #3
+            };
+
+            // 1200 ↑         C                                       B          
+            //      |          ·                                     ·           
+            // 1100 |           ·                                   ·            
+            //      |           ·                                   ·            
+            // 1000 |            ·                                 ·             
+            //      |             ·                               ·              
+            //  900 |              ·                             ·               
+            //      |               ·                           ·                
+            //  800 |                ·                         ·                 
+            //      |                ·                         ·                 
+            //  700 |                 ·                       ·                  
+            //      |                  ·                     ·                   
+            //  600 |                   ·                   ·                    
+            //      |                    ·                 ·                     
+            //  500 |                     ·       1       ·                      
+            //      |                     ·               ·                      
+            //  400 |              2       ·             ·       3               
+            //      |                       ·           ·                        
+            //  300 |                        ·         ·                         
+            //      |                         ·       ·                          
+            //  200 |                          ·     ·                           
+            //      |                          ·     ·                           
+            //  100 |                           ·   ·                            
+            //      |                            · ·                             
+            //    0 └-----------------------------A-----------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => null != edges);
+            Assume.That(() => HasEdge(edges, 600, 0, 200, 1200)); // A-C
+            Assume.That(() => HasEdge(edges, 600, 0, 1000, 1200)); // A-B
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 3 == sites[0].Points.Count()); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 600, 0)); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1000, 1200)); // #1 has B
+            Assume.That(() => HasPoint(sites[0].Points, 200, 1200)); // #1 has C
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 2 == sites[1].Points.Count()); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 200, 1200)); // #2 has C
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 2 == sites[2].Points.Count()); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 600, 0)); // #3 has A
+            Assume.That(() => HasPoint(sites[2].Points, 1000, 1200)); // #3 has B
+
+            // Assert
+
+            Assert.NotNull(sites[0].ClockwiseCell);
+            Assert.AreEqual(2, sites[0].ClockwiseCell.Count()); // #1
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 600, 0, 200, 1200)); // #1 has A-C
+            Assert.IsTrue(HasEdge(sites[0].ClockwiseCell, 600, 0, 1000, 1200)); // #1 has A-B
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(0), 600, 0, 200, 1200)); // #1 A-C
+            Assert.IsTrue(EdgeIs(sites[0].ClockwiseCell.ElementAt(1), 600, 0, 1000, 1200)); // #1 A-B
+            Assert.NotNull(sites[1].ClockwiseCell);
+            Assert.AreEqual(1, sites[1].ClockwiseCell.Count()); // #2
+            Assert.IsTrue(HasEdge(sites[1].ClockwiseCell, 600, 0, 200, 1200)); // #2 has A-C
+            Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(0), 600, 0, 200, 1200)); // #2 A-C
+            Assert.NotNull(sites[2].ClockwiseCell);
+            Assert.AreEqual(1, sites[2].ClockwiseCell.Count()); // #3
+            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 600, 0, 1000, 1200)); // #3 has A-B
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 600, 0, 1000, 1200)); // #3 A-B
+        }
+
     }
 }
