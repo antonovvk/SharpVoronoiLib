@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SharpVoronoiLib.Exceptions;
 
 namespace SharpVoronoiLib
 {
@@ -14,8 +15,17 @@ namespace SharpVoronoiLib
         public List<VoronoiSite>? Sites { get; private set; }
 
         [PublicAPI]
-        public List<VoronoiEdge>? Edges { get; private set; }
-        
+        public List<VoronoiEdge>? Edges
+        {
+            get
+            {
+                if (_edges == null)
+                    throw new VoronoiNotTessellatedException();
+                
+                return _edges;
+            }
+        }
+
         // todo: add Points
 
         [PublicAPI]
@@ -30,6 +40,8 @@ namespace SharpVoronoiLib
         [PublicAPI]
         public double MaxY { get; }
 
+
+        private List<VoronoiEdge>? _edges;
 
         private RandomUniformPointGeneration? _randomUniformPointGeneration;
         private RandomGaussianPointGeneration? _randomGaussianPointGeneration;
@@ -64,7 +76,7 @@ namespace SharpVoronoiLib
 
             Sites = sites;
 
-            Edges = null;
+            _edges = null;
         }
 
         /// <summary>
@@ -83,7 +95,7 @@ namespace SharpVoronoiLib
             
             Sites = sites;
 
-            Edges = null;
+            _edges = null;
             
             return sites;
         }
@@ -91,7 +103,7 @@ namespace SharpVoronoiLib
         [PublicAPI]
         public List<VoronoiEdge> Tessellate(BorderEdgeGeneration borderGeneration = BorderEdgeGeneration.MakeBorderEdges)
         {
-            if (Sites == null) throw new InvalidOperationException();
+            if (Sites == null) throw new VoronoiDoesntHaveSitesException();
 
             _lastBorderGeneration = borderGeneration;
 
@@ -123,7 +135,7 @@ namespace SharpVoronoiLib
             
             // Done
 
-            Edges = edges;
+            _edges = edges;
             
             return edges;
         }
@@ -131,8 +143,8 @@ namespace SharpVoronoiLib
         [PublicAPI]
         public List<VoronoiEdge> Relax(int iterations = 1, float strength = 1.0f, bool reTessellate = true)
         {
-            if (Sites == null) throw new InvalidOperationException();
-            if (Edges == null) throw new InvalidOperationException();
+            if (Sites == null) throw new VoronoiDoesntHaveSitesException();
+            if (Edges == null) throw new VoronoiNotTessellatedException();
             if (iterations < 1) throw new ArgumentOutOfRangeException(nameof(iterations));
             if (strength <= 0f || strength > 1f) throw new ArgumentOutOfRangeException(nameof(strength));
 

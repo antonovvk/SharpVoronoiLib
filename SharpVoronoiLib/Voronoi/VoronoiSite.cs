@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SharpVoronoiLib.Exceptions;
 
 namespace SharpVoronoiLib
 {
@@ -30,7 +31,7 @@ namespace SharpVoronoiLib
             get
             {
                 if (!_tessellated)
-                    throw new InvalidOperationException();
+                    throw new VoronoiNotTessellatedException();
                 
                 return _cell;
             }
@@ -46,7 +47,7 @@ namespace SharpVoronoiLib
             get
             {
                 if (!_tessellated)
-                    throw new InvalidOperationException();
+                    throw new VoronoiNotTessellatedException();
                 
                 if (_clockwiseCell == null)
                 {
@@ -67,7 +68,7 @@ namespace SharpVoronoiLib
             get
             {
                 if (!_tessellated)
-                    throw new InvalidOperationException();
+                    throw new VoronoiNotTessellatedException();
                 
                 return _neighbours;
             }
@@ -82,7 +83,7 @@ namespace SharpVoronoiLib
             get
             {
                 if (!_tessellated)
-                    throw new InvalidOperationException();
+                    throw new VoronoiNotTessellatedException();
                 
                 if (_points == null)
                 {
@@ -120,7 +121,7 @@ namespace SharpVoronoiLib
             get
             {
                 if (!_tessellated)
-                    throw new InvalidOperationException();
+                    throw new VoronoiNotTessellatedException();
                 
                 if (_clockwisePoints == null)
                 {
@@ -143,7 +144,7 @@ namespace SharpVoronoiLib
             get
             {
                 if (!_tessellated)
-                    throw new InvalidOperationException();
+                    throw new VoronoiNotTessellatedException();
                 
                 return _liesOnEdge;
             }
@@ -159,7 +160,7 @@ namespace SharpVoronoiLib
             get
             {
                 if (!_tessellated)
-                    throw new InvalidOperationException();
+                    throw new VoronoiNotTessellatedException();
                 
                 return _liesOnCorner;
             }
@@ -176,7 +177,7 @@ namespace SharpVoronoiLib
             get
             {
                 if (!_tessellated)
-                    throw new InvalidOperationException();
+                    throw new VoronoiNotTessellatedException();
                 
                 if (_centroid != null)
                     return _centroid;
@@ -215,6 +216,9 @@ namespace SharpVoronoiLib
         [PublicAPI]
         public bool Contains(VoronoiPoint testPoint)
         {
+            if (!_tessellated)
+                throw new VoronoiNotTessellatedException();
+            
             // If we don't have points generated yet, do so now (by calling the property that does so when read)
             if (_clockwisePoints == null)
             {
