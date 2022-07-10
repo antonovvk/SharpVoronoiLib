@@ -65,33 +65,65 @@ namespace SharpVoronoiLib
 
                     if (outcode.HasFlag(Outcode.Top))
                     {
-                        x = edge.Start.X + (edge.End.X - edge.Start.X)*(maxY - edge.Start.Y)/(edge.End.Y - edge.Start.Y);
+                        x = edge.Start.X + (edge.End.X - edge.Start.X) * (maxY - edge.Start.Y) / (edge.End.Y - edge.Start.Y);
                         y = maxY;
                     }
                     else if (outcode.HasFlag(Outcode.Bottom))
                     {
-                        x = edge.Start.X + (edge.End.X - edge.Start.X)*(minY - edge.Start.Y)/(edge.End.Y - edge.Start.Y);
+                        x = edge.Start.X + (edge.End.X - edge.Start.X) * (minY - edge.Start.Y) / (edge.End.Y - edge.Start.Y);
                         y = minY;
                     }
                     else if (outcode.HasFlag(Outcode.Right))
                     {
-                        y = edge.Start.Y + (edge.End.Y - edge.Start.Y)*(maxX - edge.Start.X)/(edge.End.X - edge.Start.X);
+                        y = edge.Start.Y + (edge.End.Y - edge.Start.Y) * (maxX - edge.Start.X) / (edge.End.X - edge.Start.X);
                         x = maxX;
                     }
                     else if (outcode.HasFlag(Outcode.Left))
                     {
-                        y = edge.Start.Y + (edge.End.Y - edge.Start.Y)*(minX - edge.Start.X)/(edge.End.X - edge.Start.X);
+                        y = edge.Start.Y + (edge.End.Y - edge.Start.Y) * (minX - edge.Start.X) / (edge.End.X - edge.Start.X);
                         x = minX;
                     }
 
+                    VoronoiPoint finalPoint = new VoronoiPoint(x, y, GetBorderLocationForCoordinate(x, y, minX, minY, maxX, maxY));
+                    
                     if (outcode == start)
                     {
-                        edge.Start = new VoronoiPoint(x, y, GetBorderLocationForCoordinate(x, y, minX, minY, maxX, maxY));
+                        // If we are a 0-length edge after clipping, then we are a "connector" between more than 2 equidistant sites 
+                        if (finalPoint.ApproxEqual(edge.End))
+                        {
+                            // We didn't consider this point to be on border before, so need reflag it
+                            edge.End.BorderLocation = finalPoint.BorderLocation;
+                            // (point is shared between edges, so we are basically setting this for all the other edges)
+                        
+                            // The neighbours in-between (ray away outside the border) are not actually connected
+                            edge.Left.RemoveNeighbour(edge.Right);
+                            edge.Right.RemoveNeighbour(edge.Left);
+
+                            // Not a valid edge
+                            return false;
+                        }
+                        
+                        edge.Start = finalPoint;
                         start = ComputeOutCode(x, y, minX, minY, maxX, maxY);
                     }
                     else
                     {
-                        edge.End = new VoronoiPoint(x, y, GetBorderLocationForCoordinate(x, y, minX, minY, maxX, maxY));
+                        // If we are a 0-length edge after clipping, then we are a "connector" between more than 2 equidistant sites 
+                        if (finalPoint.ApproxEqual(edge.Start))
+                        {
+                            // We didn't consider this point to be on border before, so need reflag it
+                            edge.Start.BorderLocation = finalPoint.BorderLocation;
+                            // (point is shared between edges, so we are basically setting this for all the other edges)
+                        
+                            // The neighbours in-between (ray away outside the border) are not actually connected
+                            edge.Left.RemoveNeighbour(edge.Right);
+                            edge.Right.RemoveNeighbour(edge.Left);
+                        
+                            // Not a valid edge
+                            return false;
+                        }
+                        
+                        edge.End = finalPoint;
                         end = ComputeOutCode(x, y, minX, minY, maxX, maxY);
                     }
                 }
@@ -136,21 +168,42 @@ namespace SharpVoronoiLib
         private static bool ClipRay(VoronoiEdge edge, double minX, double minY, double maxX, double maxY)
         {
             VoronoiPoint start = edge.Start;
+            
             //horizontal ray
             if (edge.SlopeRise.ApproxEqual(0))
             {
                 if (!Within(start.Y, minY, maxY))
                     return false;
+                
                 if (edge.SlopeRun > 0 && start.X > maxX)
                     return false;
+                
                 if (edge.SlopeRun < 0 && start.X < minX)
                     return false;
+                
                 if (Within(start.X, minX, maxX))
                 {
-                    if (edge.SlopeRun > 0)
-                        edge.End = new VoronoiPoint(maxX, start.Y, PointBorderLocation.Right);
-                    else
-                        edge.End = new VoronoiPoint(minX, start.Y, start.Y.ApproxEqual(minY) ? PointBorderLocation.BottomLeft : start.Y.ApproxEqual(maxY) ? PointBorderLocation.TopLeft : PointBorderLocation.Left);
+                    VoronoiPoint endPoint = 
+                        edge.SlopeRun > 0 ? 
+                            new VoronoiPoint(maxX, start.Y, PointBorderLocation.Right) : 
+                            new VoronoiPoint(minX, start.Y, start.Y.ApproxEqual(minY) ? PointBorderLocation.BottomLeft : start.Y.ApproxEqual(maxY) ? PointBorderLocation.TopLeft : PointBorderLocation.Left);
+
+                    // If we are a 0-length edge after clipping, then we are a "connector" between more than 2 equidistant sites 
+                    if (endPoint.ApproxEqual(edge.Start))
+                    {
+                        // We didn't consider this point to be on border before, so need reflag it
+                        start.BorderLocation = endPoint.BorderLocation;
+                        // (point is shared between edges, so we are basically setting this for all the other edges)
+                        
+                        // The neighbours in-between (ray away outside the border) are not actually connected
+                        edge.Left.RemoveNeighbour(edge.Right);
+                        edge.Right.RemoveNeighbour(edge.Left);
+                        
+                        // Not a valid edge
+                        return false;
+                    }
+
+                    edge.End = endPoint;
                 }
                 else
                 {
@@ -167,21 +220,42 @@ namespace SharpVoronoiLib
                 }
                 return true;
             }
+            
             //vertical ray
             if (edge.SlopeRun.ApproxEqual(0))
             {
                 if (start.X < minX || start.X > maxX)
                     return false;
+                
                 if (edge.SlopeRise > 0 && start.Y > maxY)
                     return false;
+                
                 if (edge.SlopeRise < 0 && start.Y < minY)
                     return false;
+                
                 if (Within(start.Y, minY, maxY))
                 {
-                    if (edge.SlopeRise > 0)
-                        edge.End = new VoronoiPoint(start.X, maxY, start.X.ApproxEqual(minX) ? PointBorderLocation.TopLeft : start.X.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top);
-                    else
-                        edge.End = new VoronoiPoint(start.X, minY, PointBorderLocation.Bottom);
+                    VoronoiPoint endPoint = 
+                        edge.SlopeRise > 0 ?
+                            new VoronoiPoint(start.X, maxY, start.X.ApproxEqual(minX) ? PointBorderLocation.TopLeft : start.X.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top) :
+                            new VoronoiPoint(start.X, minY, PointBorderLocation.Bottom);
+
+                    // If we are a 0-length edge after clipping, then we are a "connector" between more than 2 equidistant sites 
+                    if (endPoint.ApproxEqual(edge.Start))
+                    {
+                        // We didn't consider this point to be on border before, so need reflag it
+                        start.BorderLocation = endPoint.BorderLocation;
+                        // (point is shared between edges, so we are basically setting this for all the other edges)
+                        
+                        // The neighbours in-between (ray away outside the border) are not actually connected
+                        edge.Left.RemoveNeighbour(edge.Right);
+                        edge.Right.RemoveNeighbour(edge.Left);
+                        
+                        // Not a valid edge
+                        return false;
+                    }
+
+                    edge.End = endPoint;
                 }
                 else
                 {

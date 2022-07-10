@@ -24,7 +24,7 @@ namespace SharpVoronoiLib
         /// Using this would be preferrable to comparing against the X/Y values due to possible precision issues.
         /// </remarks>
         [PublicAPI]
-        public PointBorderLocation BorderLocation { get; }
+        public PointBorderLocation BorderLocation { get; internal set; }
 
         // TODO: Edges
         
