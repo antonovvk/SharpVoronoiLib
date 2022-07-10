@@ -882,7 +882,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 ("GeneratedTest_SitePoints", TestPurpose.AssertSitePoints),
                 ("GeneratedTest_SitePointsClockwise", TestPurpose.AssertSitePointsClockwise),
                 ("GeneratedTest_PointBorderLocation", TestPurpose.AssertPointBorderLocation),
-                ("GeneratedTest_LiesOnEdgeOrCorner", TestPurpose.AssertLiesOnEdgeOrCorner)
+                ("GeneratedTest_LiesOnEdgeOrCorner", TestPurpose.AssertLiesOnEdgeOrCorner),
+                ("GeneratedTest_SiteCentroids", TestPurpose.AssertSiteCentroids)
             };
 
             for (int i = 0; i < 2; i++)
@@ -1301,6 +1302,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
                             AppendAssertions(BuildSiteEdgeAssertions(test.Edges, test.Sites, borderLogic, false, true));
                             break;
 
+                        case TestPurpose.AssertSiteCentroids:
+                            stringBuilder.AppendPaddedLine(3, @"// Assume", true);
+                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, false));
+                            stringBuilder.AppendLine();
+
+                            stringBuilder.AppendPaddedLine(3, @"// Assert", true);
+                            AppendAssertions(BuildSiteCentroidsAssertions(test.Sites, borderLogic, true));
+                            break;
+
                         case TestPurpose.AssertSiteEdgesClockwise:
                             stringBuilder.AppendPaddedLine(3, @"// Assume", true);
                             AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
@@ -1543,6 +1553,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     case TestPurpose.AssertPointBorderLocation:
                         strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiPoint) + @"""/>`s have the expected <see cref=""" + nameof(PointBorderLocation) + @"""/>.");
                         strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiPoint) + @"." + nameof(VoronoiPoint.BorderLocation) + @"""/> has the expected value.");
+                        break;
+
+                    case TestPurpose.AssertSiteCentroids:
+                        strings.Add(@"/// These tests assert that <see cref=""" + nameof(VoronoiSite) + @"""/>`s have expected the expected centroid point.");
+                        strings.Add(@"/// Specifically, that the <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Centroid) + @"""/> matches the centroid of its closed polygon <see cref=""" + nameof(VoronoiSite) + @"." + nameof(VoronoiSite.Cell) + @"""/>.");
                         break;
 
                     default:
@@ -1859,6 +1874,239 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 return strings;
             }
 
+            private List<string> BuildSiteCentroidsAssertions(List<Site> sites, TestBorderLogic borderLogic, bool assert)
+            {
+                List<string> strings = new List<string>();
+
+                if (sites.Count > 0)
+                {
+                    foreach (Site site in sites.OrderBy(s => s.Id))
+                    {
+                        List<Point> points = 
+                            site.Points
+                                .SelectMany(sp => sp)
+                                .Where(p => PointMatchesBorderLogic(p, borderLogic))
+                                .ToList();
+                        
+                        (double centroidX, double centroidY) = GetSiteCentroid(site, points, borderLogic, out string formula);
+
+                        strings.Add(@"// Centroid of #" + site.Id + @" in " + string.Join("-", points.Select(p => (char)p.Id)) + @" is at ~(" + centroidX.ToString("F0") + @", " + centroidY.ToString("F0") + ") (using " + formula + " formula)");
+                        strings.Add(GetAssertEqualMethodStart(assert) + centroidX.ToString("F2") + GetAssertEqualMethodSeparator(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.Centroid) + @"." + nameof(VoronoiPoint.X) + @", 0.01);");
+                        strings.Add(GetAssertEqualMethodStart(assert) + centroidY.ToString("F2") + GetAssertEqualMethodSeparator(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + nameof(VoronoiSite.Centroid) + @"." + nameof(VoronoiPoint.Y) + @", 0.01);");
+                    }
+                }
+                else
+                {
+                    if (assert)
+                    {
+                        strings.Add("// There are no sites, so nothing to check");
+                        strings.Add("Assert.Pass();");
+                    }
+                }
+
+                return strings;
+            }
+
+            private (double centroidX, double centroidY) GetSiteCentroid(Site site, List<Point> points, TestBorderLogic borderLogic, out string formula)
+            {
+                if (borderLogic == TestBorderLogic.UnclosedBorders)
+                {
+                    int allPointsCount = site.Points.Sum(sp => sp.Count);
+
+                    if (points.Count != allPointsCount) // unclosed polygon, just do regular
+                    {
+                        formula = "generic closed polygon";
+                        return ComputeCentroid(site, points);
+                    }
+                }
+
+                // At this point, I can just calculate the centroid with the generic formula above.
+                // But the point is that I want to have some different methods when testing.
+                // So these are hard-coded formulas for certain cases.
+                // I can't really do anything about convoluted cases without manually verifying each result.
+                // But if these work, then the generic formula likely works too.
+
+                if (points.Count == 3)
+                {
+                    // Triangle centroid is x = 1/3 (Ax + Bx + Cx) and same for y
+
+                    formula = "triangle";
+
+                    return (
+                        (points[0].X + points[1].X + points[2].X) / 3.0,
+                        (points[0].Y + points[1].Y + points[2].Y) / 3.0
+                    );
+                }
+
+                if (points.Count == 4)
+                {
+                    if (IsRectangle(points, out Point? c1, out Point? c2))
+                    {
+                        // Rectangle centroid is x = Wx / 2 and y = Hy / 2
+
+                        formula = "rectangle";
+
+                        return (
+                            (c1!.X + c2!.X) / 2.0,
+                            (c1!.Y + c2!.Y) / 2.0
+                        );
+                    }
+
+                    // Any quadrilateral
+
+                    formula = "quadrilateral";
+                    return GetQuadrilateralCentroid(points[0], points[1], points[2], points[3]);
+                }
+
+                // At this point I have 4+ sides polygons and there aren't any useful formulas
+
+                formula = "generic closed polygon";
+                return ComputeCentroid(site, points);
+
+
+                static (double centroidX, double centroidY) GetQuadrilateralCentroid(Point p1, Point p2, Point p3, Point p4)
+                {
+                    // Quadrilateral centroid is the intersection point of lines between centroids of opposite triangles within the polygon
+                    // See https://math.stackexchange.com/a/2878092/478109
+
+                    // 1-----4
+                    // | \ / |
+                    // |  X  |
+                    // | / \ |
+                    // 2-----3
+
+                    (double x1, double y1) = ( // 1 2 3 (opposite 3 4 1)
+                            (p1.X + p2.X + p3.X) / 3.0,
+                            (p1.Y + p2.Y + p3.Y) / 3.0
+                        );
+                    (double x2, double y2) = ( // 3 4 1
+                            (p3.X + p4.X + p1.X) / 3.0,
+                            (p3.Y + p4.Y + p1.Y) / 3.0
+                        );
+                    (double x3, double y3) = ( // 2 3 4 (opposite 4 1 2)
+                            (p2.X + p3.X + p4.X) / 3.0,
+                            (p2.Y + p3.Y + p4.Y) / 3.0
+                        );
+                    (double x4, double y4) = ( // 4 1 2
+                            (p4.X + p1.X + p2.X) / 3.0,
+                            (p4.Y + p1.Y + p2.Y) / 3.0
+                        );
+
+                    // +-----+
+                    // | 4 2 |
+                    // |     |
+                    // | 1 3 |
+                    // +-----+
+
+                    double det12 = x1 * y2 - y1 * x2;
+                    double det34 = x3 * y4 - y3 * x4;
+                    double x12 = x1 - x2;
+                    double x34 = x3 - x4;
+                    double y12 = y1 - y2;
+                    double y34 = y3 - y4;
+                    double xnom = det12 * x34 - x12 * det34;
+                    double ynom = det12 * y34 - y12 * det34;
+                    double denom = x12 * y34 - y12 * x34;
+
+                    return (
+                        xnom / denom,
+                        ynom / denom
+                    );
+                }
+
+                // Copy of <see cref="VoronoiSite.ComputeCentroid"/>
+                static (double x, double y) ComputeCentroid(Site site, List<Point> points)
+                {
+                    double centroidX = 0;
+                    double centroidY = 0;
+                    double area = 0;
+
+                    for (int i = 0; i < points.Count; i++)
+                    {
+                        int i2 = i == points.Count - 1 ? 0 : i + 1;
+
+                        double xi = points[i].X;
+                        double yi = points[i].Y;
+                        double xi2 = points[i2].X;
+                        double yi2 = points[i2].Y;
+
+                        double mult = (xi * yi2 - xi2 * yi) / 3;
+                        double addX = (xi + xi2) * mult;
+                        double addY = (yi + yi2) * mult;
+
+                        double addArea = xi * yi2 - xi2 * yi;
+
+                        if (i == 0)
+                        {
+                            centroidX = addX;
+                            centroidY = addY;
+                            area = addArea;
+                        }
+                        else
+                        {
+                            centroidX += addX;
+                            centroidY += addY;
+                            area += addArea;
+                        }
+                    }
+
+                    if (area.ApproxEqual(0))
+                        return (site.X, site.Y);
+
+                    centroidX /= area;
+                    centroidY /= area;
+
+                    return (centroidX, centroidY);
+                }
+
+                static bool IsRectangle(List<Point> points, out Point? corner1, out Point? corner2)
+                {
+                    // Points are ordered ccw,
+                    // so there are only 2 possible rectangles - as given and rotated 90°
+                    // 1--4      4--3 
+                    // |  |  or  |  | 
+                    // 2--3      1--2
+                    // All other cases are symmetric
+
+                    // 1-2-3-4
+                    if (ArePointsInARectangle(points[0], points[1], points[2], points[3]))
+                    {
+                        corner1 = points[0];
+                        corner2 = points[2];
+                        // This is 1-3 but could equally use 2-4 (or 3-1 or 4-2)
+                        return true;
+                    }
+
+                    // 4-1-2-3
+                    if (ArePointsInARectangle(points[3], points[0], points[1], points[2]))
+                    {
+                        corner1 = points[0];
+                        corner2 = points[2];
+                        // This is 4-2 but could equally use 1-3 (or 3-1 or 2-4)
+                        return true;
+                    }
+
+                    corner1 = null;
+                    corner2 = null;
+                    return false;
+
+                    
+                    static bool ArePointsInARectangle(Point p1, Point p2, Point p3, Point p4)
+                    {
+                        // Symmetric hor/ver, so:
+                        // 1--4      2--3      4--1      3--2
+                        // |  |  or  |  |  or  |  |  or  |  | 
+                        // 2--3      1--4      3--2      4--1
+
+                        return p1.X == p2.X && // 1 and 2 on same vertical
+                               p3.X == p4.X && // 3 and 4 on same vertical
+                               p1.Y == p4.Y && // 1 and 4 on same horizontal
+                               p2.Y == p3.Y; // 2 and 3 on same horizontal
+                    }
+                }
+
+            }
+
             private List<string> BuildLiesOnEdgeOrCornerAssertions(List<Edge> edges, List<Site> sites, TestBorderLogic borderLogic, bool assert)
             {
                 List<string> strings = new List<string>();
@@ -1915,20 +2163,21 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 }
 
                 return strings;
-            }
 
-            private bool IsSiteOnEdge(Site site, Edge edge)
-            {
-                return ArePointsColinear(
-                    site.X, site.Y, 
-                    edge.FromPoint.X, edge.FromPoint.Y, 
-                    edge.ToPoint.X, edge.ToPoint.Y
-                );
-            }
 
-            private static bool ArePointsColinear(int x1, int y1, int x2, int y2, int x3, int y3)
-            {
-                return (x2 - x1) * (y3 - y1) == (x3 - x1) * (y2 - y1);
+                static bool IsSiteOnEdge(Site site, Edge edge)
+                {
+                    return ArePointsColinear(
+                        site.X, site.Y,
+                        edge.FromPoint.X, edge.FromPoint.Y,
+                        edge.ToPoint.X, edge.ToPoint.Y
+                    );
+                }
+
+                static bool ArePointsColinear(int x1, int y1, int x2, int y2, int x3, int y3)
+                {
+                    return (x2 - x1) * (y3 - y1) == (x3 - x1) * (y2 - y1);
+                }
             }
 
             private List<string> BuildPointBorderLocationAssertions(List<Edge> edges, TestBorderLogic borderLogic, bool assert)
@@ -2661,7 +2910,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
             AssertSiteNeighbours,
             AssertSiteEdgesClockwise,
             AssertSitePointsClockwise,
-            AssertLiesOnEdgeOrCorner
+            AssertLiesOnEdgeOrCorner,
+            AssertSiteCentroids
         }
 
         private enum TestBorderLogic
