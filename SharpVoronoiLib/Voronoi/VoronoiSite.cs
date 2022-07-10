@@ -470,6 +470,11 @@ namespace SharpVoronoiLib
                 IEnumerable<VoronoiPoint> _ = ClockwisePoints;
             }
             
+            // Cx = (1 / 6A) * ∑ (x1 + x2) * (x1 * y2 - x2 + y1)
+            // Cy = (1 / 6A) * ∑ (y1 + y2) * (x1 * y2 - x2 + y1)
+            // A = (1 / 2) * ∑ (x1 * y2 - x2 * y1)
+            // where x2/y2 is next point after x1/y1, including looping last
+            
             double centroidX = 0; // just for compiler to be happy, we won't use these default values
             double centroidY = 0;
             double area = 0;
@@ -483,9 +488,13 @@ namespace SharpVoronoiLib
                 double xi2 = _clockwisePoints[i2].X;
                 double yi2 = _clockwisePoints[i2].Y;
 
-                double addX = (xi + xi2) * (xi * yi2 - xi2 * yi);
-                double addY = (yi + yi2) * (xi * yi2 - xi2 * yi);
-                    
+                double mult = (xi * yi2 - xi2 * yi) / 3;
+                // Second multiplier is the same for both x and y, so "extract"
+                // Also since C = 1/(6A)... and A = (1/2)..., we can just apply the /3 divisor here to not lose precision on large numbers 
+
+                double addX = (xi + xi2) * mult;
+                double addY = (yi + yi2) * mult;
+                
                 double addArea = xi * yi2 - xi2 * yi;
 
                 if (i == 0)
@@ -501,15 +510,13 @@ namespace SharpVoronoiLib
                     area += addArea;
                 }
             }
-
+            
             // If the area is 0, then we are basically squashed on top of other points... weird, but ok, this makes centroid exactly us
             if (area.ApproxEqual(0))
                 return new VoronoiPoint(X, Y);
             
-            area /= 3; // total XY is 1/6A (sum) and A = 1/2 (sum), so we are using 1/3 A
-            
-            centroidX = area;
-            centroidY = area;
+            centroidX /= area;
+            centroidY /= area;
 
             return new VoronoiPoint(centroidX, centroidY);
         }
