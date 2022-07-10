@@ -214,7 +214,7 @@ namespace SharpVoronoiLib
 
         
         [PublicAPI]
-        public bool Contains(VoronoiPoint testPoint)
+        public bool Contains(double x, double y)
         {
             if (!_tessellated)
                 throw new VoronoiNotTessellatedException();
@@ -231,9 +231,9 @@ namespace SharpVoronoiLib
             int j = _clockwisePoints!.Count - 1;
             for (int i = 0; i < _clockwisePoints.Count; i++)
             {
-                if (_clockwisePoints[i].Y < testPoint.Y && _clockwisePoints[j].Y >= testPoint.Y || _clockwisePoints[j].Y < testPoint.Y && _clockwisePoints[i].Y >= testPoint.Y)
+                if (_clockwisePoints[i].Y < y && _clockwisePoints[j].Y >= y || _clockwisePoints[j].Y < y && _clockwisePoints[i].Y >= y)
                 {
-                    if (_clockwisePoints[i].X + ((testPoint.Y - _clockwisePoints[i].Y) / (_clockwisePoints[j].Y - _clockwisePoints[i].Y) * (_clockwisePoints[j].X - _clockwisePoints[i].X)) < testPoint.X)
+                    if (_clockwisePoints[i].X + ((y - _clockwisePoints[i].Y) / (_clockwisePoints[j].Y - _clockwisePoints[i].Y) * (_clockwisePoints[j].X - _clockwisePoints[i].X)) < x)
                     {
                         result = !result;
                     }
