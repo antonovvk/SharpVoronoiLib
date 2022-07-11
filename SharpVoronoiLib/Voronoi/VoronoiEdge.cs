@@ -207,11 +207,13 @@ namespace SharpVoronoiLib
         {
             get
             {
-                // from https://github.com/Zalgo2462/SharpVoronoiLib/commit/c125991fdd56697539a1a7eac21d8e158bc399c5
-
                 if (_length == null)
-                    _length = Math.Sqrt(Math.Pow(SlopeRise, 2) + Math.Pow(SlopeRun, 2));
-                
+                {
+                    double xd = End.X - Start.X;
+                    double yd = End.Y - Start.Y;
+                    _length = Math.Sqrt(xd * xd + yd * yd);
+                }
+
                 return _length.Value;
             }
         }
