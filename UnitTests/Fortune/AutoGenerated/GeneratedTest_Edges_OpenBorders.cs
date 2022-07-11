@@ -60,7 +60,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -103,7 +103,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -146,7 +146,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -193,7 +193,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -240,7 +240,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -287,7 +287,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -330,7 +330,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -377,7 +377,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -424,7 +424,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -471,7 +471,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -514,7 +514,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -561,7 +561,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -608,7 +608,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -655,7 +655,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -698,7 +698,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -745,7 +745,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -792,7 +792,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -839,7 +839,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -886,7 +886,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -933,7 +933,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -980,7 +980,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -1027,7 +1027,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -1070,7 +1070,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -1117,7 +1117,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -1164,7 +1164,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -1211,7 +1211,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(0, edges.Count);
+            Assert.AreEqual(0, edges.Count, "Expected: edge count 0");
             Assert.NotNull(edges);
         }
 
@@ -1255,9 +1255,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 500, 1000, 500)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 500, 1000, 500), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -1304,9 +1304,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 1000, 500, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 1000, 500, 0), "Expected: has edge A-B"); // A-B
         }
 
         [Test]
@@ -1349,9 +1349,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 700, 1000, 700)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 700, 1000, 700), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -1398,9 +1398,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 700, 1000, 700, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 700, 1000, 700, 0), "Expected: has edge A-B"); // A-B
         }
 
         [Test]
@@ -1444,10 +1444,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 700, 1000, 700)); // A-B
-            Assert.IsTrue(HasEdge(edges, 0, 300, 1000, 300)); // C-D
+            Assert.IsTrue(HasEdge(edges, 0, 700, 1000, 700), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 300, 1000, 300), "Expected: has edge C-D"); // C-D
         }
 
         /// <summary>
@@ -1495,10 +1495,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 700, 1000, 700, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 300, 1000, 300, 0)); // C-D
+            Assert.IsTrue(HasEdge(edges, 700, 1000, 700, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 300, 1000, 300, 0), "Expected: has edge C-D"); // C-D
         }
 
         [Test]
@@ -1543,11 +1543,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 700, 1000, 700)); // A-B
-            Assert.IsTrue(HasEdge(edges, 0, 500, 1000, 500)); // C-D
-            Assert.IsTrue(HasEdge(edges, 0, 300, 1000, 300)); // E-F
+            Assert.IsTrue(HasEdge(edges, 0, 700, 1000, 700), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 500, 1000, 500), "Expected: has edge C-D"); // C-D
+            Assert.IsTrue(HasEdge(edges, 0, 300, 1000, 300), "Expected: has edge E-F"); // E-F
         }
 
         /// <summary>
@@ -1596,11 +1596,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 700, 1000, 700, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 1000, 500, 0)); // C-D
-            Assert.IsTrue(HasEdge(edges, 300, 1000, 300, 0)); // E-F
+            Assert.IsTrue(HasEdge(edges, 700, 1000, 700, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 1000, 500, 0), "Expected: has edge C-D"); // C-D
+            Assert.IsTrue(HasEdge(edges, 300, 1000, 300, 0), "Expected: has edge E-F"); // E-F
         }
 
         [Test]
@@ -1643,9 +1643,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 1000), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -1692,9 +1692,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 0), "Expected: has edge A-B"); // A-B
         }
 
         [Test]
@@ -1737,9 +1737,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 200, 800, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 200, 800, 1000), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -1786,9 +1786,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 200, 1000, 1000, 200)); // A-B
+            Assert.IsTrue(HasEdge(edges, 200, 1000, 1000, 200), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -1835,9 +1835,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1000, 800, 200, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 800, 200, 0), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -1884,9 +1884,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 800, 0, 0, 800)); // A-B
+            Assert.IsTrue(HasEdge(edges, 800, 0, 0, 800), "Expected: has edge A-B"); // A-B
         }
 
         [Test]
@@ -1929,9 +1929,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 0), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -1978,9 +1978,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1000, 1000, 0, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 1000, 0, 0), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -2027,9 +2027,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1000, 0, 0, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 0, 0, 1000), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -2076,9 +2076,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 1000), "Expected: has edge A-B"); // A-B
         }
 
         [Test]
@@ -2121,9 +2121,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 500)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 500), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -2170,9 +2170,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1000, 1000, 500, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 1000, 500, 0), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -2219,9 +2219,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1000, 0, 0, 500)); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 0, 0, 500), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -2268,9 +2268,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 0, 500, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 0, 500, 1000), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -2317,9 +2317,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1000, 1000, 0, 500)); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 1000, 0, 500), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -2366,9 +2366,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1000, 0, 500, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 0, 500, 1000), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -2415,9 +2415,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 500)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 500), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -2464,9 +2464,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(1, edges.Count);
+            Assert.AreEqual(1, edges.Count, "Expected: edge count 1");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 1000, 500, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 1000, 500, 0), "Expected: has edge A-B"); // A-B
         }
 
         [Test]
@@ -2510,10 +2510,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 300, 700, 1000)); // A-D
-            Assert.IsTrue(HasEdge(edges, 300, 0, 1000, 700)); // B-C
+            Assert.IsTrue(HasEdge(edges, 0, 300, 700, 1000), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 300, 0, 1000, 700), "Expected: has edge B-C"); // B-C
         }
 
         /// <summary>
@@ -2561,10 +2561,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 300, 1000, 1000, 300)); // A-D
-            Assert.IsTrue(HasEdge(edges, 0, 700, 700, 0)); // B-C
+            Assert.IsTrue(HasEdge(edges, 300, 1000, 1000, 300), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 0, 700, 700, 0), "Expected: has edge B-C"); // B-C
         }
 
         [Test]
@@ -2608,10 +2608,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 400, 600, 1000)); // A-D
-            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 1000)); // B-C
+            Assert.IsTrue(HasEdge(edges, 0, 400, 600, 1000), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 1000), "Expected: has edge B-C"); // B-C
         }
 
         /// <summary>
@@ -2659,10 +2659,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 1000, 1000, 400)); // A-D
-            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 0)); // B-C
+            Assert.IsTrue(HasEdge(edges, 400, 1000, 1000, 400), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 0), "Expected: has edge B-C"); // B-C
         }
 
         /// <summary>
@@ -2710,10 +2710,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1000, 600, 400, 0)); // A-D
-            Assert.IsTrue(HasEdge(edges, 1000, 1000, 0, 0)); // B-C
+            Assert.IsTrue(HasEdge(edges, 1000, 600, 400, 0), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 1000, 1000, 0, 0), "Expected: has edge B-C"); // B-C
         }
 
         /// <summary>
@@ -2761,10 +2761,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 0, 0, 600)); // A-D
-            Assert.IsTrue(HasEdge(edges, 1000, 0, 0, 1000)); // B-C
+            Assert.IsTrue(HasEdge(edges, 600, 0, 0, 600), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 1000, 0, 0, 1000), "Expected: has edge B-C"); // B-C
         }
 
         [Test]
@@ -2809,11 +2809,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 400, 600, 1000)); // A-F
-            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 1000)); // B-E
-            Assert.IsTrue(HasEdge(edges, 400, 0, 1000, 600)); // C-D
+            Assert.IsTrue(HasEdge(edges, 0, 400, 600, 1000), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 1000), "Expected: has edge B-E"); // B-E
+            Assert.IsTrue(HasEdge(edges, 400, 0, 1000, 600), "Expected: has edge C-D"); // C-D
         }
 
         /// <summary>
@@ -2862,11 +2862,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 1000, 1000, 400)); // A-F
-            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 0)); // B-E
-            Assert.IsTrue(HasEdge(edges, 0, 600, 600, 0)); // C-D
+            Assert.IsTrue(HasEdge(edges, 400, 1000, 1000, 400), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 0), "Expected: has edge B-E"); // B-E
+            Assert.IsTrue(HasEdge(edges, 0, 600, 600, 0), "Expected: has edge C-D"); // C-D
         }
 
         [Test]
@@ -2910,11 +2910,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 400)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 400, 400, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 400, 400, 1000, 1000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 400), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 400, 400, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 400, 1000, 1000), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -2962,11 +2962,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 600, 400, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 600)); // A-C
-            Assert.IsTrue(HasEdge(edges, 400, 600, 1000, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 600, 400, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 600), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 600, 1000, 0), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3014,11 +3014,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 600)); // A-B
-            Assert.IsTrue(HasEdge(edges, 600, 600, 600, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 600, 0, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 600), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 600, 600, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 600, 0, 0), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3066,11 +3066,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 400, 600, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 400)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 400, 0, 1000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 400, 600, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 400), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 400, 0, 1000), "Expected: has edge A-D"); // A-D
         }
 
         [Test]
@@ -3114,11 +3114,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 300, 600, 0, 600)); // A-B
-            Assert.IsTrue(HasEdge(edges, 300, 600, 300, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 300, 600, 700, 1000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 300, 600, 0, 600), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 300, 600, 300, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 300, 600, 700, 1000), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3166,11 +3166,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 700, 600, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 600, 700, 0, 700)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 700, 1000, 300)); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 700, 600, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 700, 0, 700), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 700, 1000, 300), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3218,11 +3218,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 700, 400, 1000, 400)); // A-B
-            Assert.IsTrue(HasEdge(edges, 700, 400, 700, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 700, 400, 300, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 700, 400, 1000, 400), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 700, 400, 700, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 700, 400, 300, 0), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3270,11 +3270,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 300, 400, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 300, 1000, 300)); // A-C
-            Assert.IsTrue(HasEdge(edges, 400, 300, 0, 700)); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 300, 400, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 300, 1000, 300), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 300, 0, 700), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3322,11 +3322,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 700, 600, 1000, 600)); // A-B
-            Assert.IsTrue(HasEdge(edges, 700, 600, 700, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 700, 600, 300, 1000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 700, 600, 1000, 600), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 700, 600, 700, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 700, 600, 300, 1000), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3374,11 +3374,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 300, 600, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 600, 300, 0, 300)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 300, 1000, 700)); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 300, 600, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 300, 0, 300), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 300, 1000, 700), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3426,11 +3426,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 300, 400, 0, 400)); // A-B
-            Assert.IsTrue(HasEdge(edges, 300, 400, 300, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 300, 400, 700, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 300, 400, 0, 400), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 300, 400, 300, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 300, 400, 700, 0), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3478,11 +3478,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 700, 400, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 700, 1000, 700)); // A-C
-            Assert.IsTrue(HasEdge(edges, 400, 700, 0, 300)); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 700, 400, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 700, 1000, 700), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 700, 0, 300), "Expected: has edge A-D"); // A-D
         }
 
         [Test]
@@ -3526,11 +3526,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 1000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 1000), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3578,11 +3578,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 500)); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 500), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3630,11 +3630,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 0), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3682,11 +3682,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 500)); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 500), "Expected: has edge A-D"); // A-D
         }
 
         [Test]
@@ -3730,11 +3730,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 300, 200, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 300, 800, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 1000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 300, 200, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 300, 800, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 1000), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3782,11 +3782,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 800)); // A-B
-            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 200)); // A-C
-            Assert.IsTrue(HasEdge(edges, 300, 500, 1000, 500)); // A-D
+            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 800), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 200), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 300, 500, 1000, 500), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3834,11 +3834,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 700, 800, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 700, 200, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 700, 500, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 700, 800, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 700, 200, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 700, 500, 0), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3886,11 +3886,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 200)); // A-B
-            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 800)); // A-C
-            Assert.IsTrue(HasEdge(edges, 700, 500, 0, 500)); // A-D
+            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 200), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 800), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 700, 500, 0, 500), "Expected: has edge A-D"); // A-D
         }
 
         [Test]
@@ -3934,11 +3934,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 700, 0, 200)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 700, 1000, 200)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 700, 500, 1000)); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 700, 0, 200), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 700, 1000, 200), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 700, 500, 1000), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -3986,11 +3986,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 700, 500, 200, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 700, 500, 200, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 500)); // A-D
+            Assert.IsTrue(HasEdge(edges, 700, 500, 200, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 700, 500, 200, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 500), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -4038,11 +4038,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 300, 1000, 800)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 300, 0, 800)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 0)); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 300, 1000, 800), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 300, 0, 800), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 0), "Expected: has edge A-D"); // A-D
         }
 
         /// <summary>
@@ -4090,11 +4090,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(3, edges.Count);
+            Assert.AreEqual(3, edges.Count, "Expected: edge count 3");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 300, 500, 800, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 300, 500, 800, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 500)); // A-D
+            Assert.IsTrue(HasEdge(edges, 300, 500, 800, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 300, 500, 800, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 500), "Expected: has edge A-D"); // A-D
         }
 
         [Test]
@@ -4140,16 +4140,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
+            Assert.AreEqual(8, edges.Count, "Expected: edge count 8");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 600, 400, 400)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 400, 600, 400)); // B-C
-            Assert.IsTrue(HasEdge(edges, 600, 400, 600, 600)); // C-D
-            Assert.IsTrue(HasEdge(edges, 600, 600, 400, 600)); // D-A
-            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 1000)); // A-E
-            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 0)); // B-F
-            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 0)); // C-G
-            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 1000)); // D-H
+            Assert.IsTrue(HasEdge(edges, 400, 600, 400, 400), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 400, 600, 400), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 600, 400, 600, 600), "Expected: has edge C-D"); // C-D
+            Assert.IsTrue(HasEdge(edges, 600, 600, 400, 600), "Expected: has edge D-A"); // D-A
+            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 1000), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 0), "Expected: has edge B-F"); // B-F
+            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 0), "Expected: has edge C-G"); // C-G
+            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 1000), "Expected: has edge D-H"); // D-H
         }
 
         [Test]
@@ -4195,16 +4195,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
+            Assert.AreEqual(8, edges.Count, "Expected: edge count 8");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 400, 400, 200)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 200, 600, 200)); // B-C
-            Assert.IsTrue(HasEdge(edges, 600, 200, 600, 400)); // C-D
-            Assert.IsTrue(HasEdge(edges, 600, 400, 400, 400)); // D-A
-            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 800)); // A-E
-            Assert.IsTrue(HasEdge(edges, 400, 200, 200, 0)); // B-F
-            Assert.IsTrue(HasEdge(edges, 600, 200, 800, 0)); // C-G
-            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 800)); // D-H
+            Assert.IsTrue(HasEdge(edges, 400, 400, 400, 200), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 200, 600, 200), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 600, 200, 600, 400), "Expected: has edge C-D"); // C-D
+            Assert.IsTrue(HasEdge(edges, 600, 400, 400, 400), "Expected: has edge D-A"); // D-A
+            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 800), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 400, 200, 200, 0), "Expected: has edge B-F"); // B-F
+            Assert.IsTrue(HasEdge(edges, 600, 200, 800, 0), "Expected: has edge C-G"); // C-G
+            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 800), "Expected: has edge D-H"); // D-H
         }
 
         /// <summary>
@@ -4254,16 +4254,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
+            Assert.AreEqual(8, edges.Count, "Expected: edge count 8");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 600, 200, 600)); // A-B
-            Assert.IsTrue(HasEdge(edges, 200, 600, 200, 400)); // B-C
-            Assert.IsTrue(HasEdge(edges, 200, 400, 400, 400)); // C-D
-            Assert.IsTrue(HasEdge(edges, 400, 400, 400, 600)); // D-A
-            Assert.IsTrue(HasEdge(edges, 400, 600, 800, 1000)); // A-E
-            Assert.IsTrue(HasEdge(edges, 200, 600, 0, 800)); // B-F
-            Assert.IsTrue(HasEdge(edges, 200, 400, 0, 200)); // C-G
-            Assert.IsTrue(HasEdge(edges, 400, 400, 800, 0)); // D-H
+            Assert.IsTrue(HasEdge(edges, 400, 600, 200, 600), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 200, 600, 200, 400), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 200, 400, 400, 400), "Expected: has edge C-D"); // C-D
+            Assert.IsTrue(HasEdge(edges, 400, 400, 400, 600), "Expected: has edge D-A"); // D-A
+            Assert.IsTrue(HasEdge(edges, 400, 600, 800, 1000), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 200, 600, 0, 800), "Expected: has edge B-F"); // B-F
+            Assert.IsTrue(HasEdge(edges, 200, 400, 0, 200), "Expected: has edge C-G"); // C-G
+            Assert.IsTrue(HasEdge(edges, 400, 400, 800, 0), "Expected: has edge D-H"); // D-H
         }
 
         /// <summary>
@@ -4313,16 +4313,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
+            Assert.AreEqual(8, edges.Count, "Expected: edge count 8");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 600, 600, 800)); // A-B
-            Assert.IsTrue(HasEdge(edges, 600, 800, 400, 800)); // B-C
-            Assert.IsTrue(HasEdge(edges, 400, 800, 400, 600)); // C-D
-            Assert.IsTrue(HasEdge(edges, 400, 600, 600, 600)); // D-A
-            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 200)); // A-E
-            Assert.IsTrue(HasEdge(edges, 600, 800, 800, 1000)); // B-F
-            Assert.IsTrue(HasEdge(edges, 400, 800, 200, 1000)); // C-G
-            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 200)); // D-H
+            Assert.IsTrue(HasEdge(edges, 600, 600, 600, 800), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 800, 400, 800), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 400, 800, 400, 600), "Expected: has edge C-D"); // C-D
+            Assert.IsTrue(HasEdge(edges, 400, 600, 600, 600), "Expected: has edge D-A"); // D-A
+            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 200), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 600, 800, 800, 1000), "Expected: has edge B-F"); // B-F
+            Assert.IsTrue(HasEdge(edges, 400, 800, 200, 1000), "Expected: has edge C-G"); // C-G
+            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 200), "Expected: has edge D-H"); // D-H
         }
 
         /// <summary>
@@ -4372,16 +4372,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(8, edges.Count);
+            Assert.AreEqual(8, edges.Count, "Expected: edge count 8");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 400, 800, 400)); // A-B
-            Assert.IsTrue(HasEdge(edges, 800, 400, 800, 600)); // B-C
-            Assert.IsTrue(HasEdge(edges, 800, 600, 600, 600)); // C-D
-            Assert.IsTrue(HasEdge(edges, 600, 600, 600, 400)); // D-A
-            Assert.IsTrue(HasEdge(edges, 600, 400, 200, 0)); // A-E
-            Assert.IsTrue(HasEdge(edges, 800, 400, 1000, 200)); // B-F
-            Assert.IsTrue(HasEdge(edges, 800, 600, 1000, 800)); // C-G
-            Assert.IsTrue(HasEdge(edges, 600, 600, 200, 1000)); // D-H
+            Assert.IsTrue(HasEdge(edges, 600, 400, 800, 400), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 800, 400, 800, 600), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 800, 600, 600, 600), "Expected: has edge C-D"); // C-D
+            Assert.IsTrue(HasEdge(edges, 600, 600, 600, 400), "Expected: has edge D-A"); // D-A
+            Assert.IsTrue(HasEdge(edges, 600, 400, 200, 0), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 800, 400, 1000, 200), "Expected: has edge B-F"); // B-F
+            Assert.IsTrue(HasEdge(edges, 800, 600, 1000, 800), "Expected: has edge C-G"); // C-G
+            Assert.IsTrue(HasEdge(edges, 600, 600, 200, 1000), "Expected: has edge D-H"); // D-H
         }
 
         [Test]
@@ -4426,12 +4426,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 500)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 0)); // A-D
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 500)); // A-E
+            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 500), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 0), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 500), "Expected: has edge A-E"); // A-E
         }
 
         [Test]
@@ -4476,12 +4476,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 500)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 0)); // A-D
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 500)); // A-E
+            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 500), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 0), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 500), "Expected: has edge A-E"); // A-E
         }
 
         /// <summary>
@@ -4530,12 +4530,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 500)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 500)); // A-D
-            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 0)); // A-E
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 500), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 500), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 500, 500, 0), "Expected: has edge A-E"); // A-E
         }
 
         [Test]
@@ -4580,12 +4580,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 0)); // A-D
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000)); // A-E
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 0), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge A-E"); // A-E
         }
 
         [Test]
@@ -4630,12 +4630,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 400, 100, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 200)); // A-C
-            Assert.IsTrue(HasEdge(edges, 400, 400, 600, 0)); // A-D
-            Assert.IsTrue(HasEdge(edges, 400, 400, 1000, 700)); // A-E
+            Assert.IsTrue(HasEdge(edges, 400, 400, 100, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 200), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 400, 600, 0), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 400, 1000, 700), "Expected: has edge A-E"); // A-E
         }
 
         /// <summary>
@@ -4684,12 +4684,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 600, 1000, 900)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 600, 200, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 400)); // A-D
-            Assert.IsTrue(HasEdge(edges, 400, 600, 700, 0)); // A-E
+            Assert.IsTrue(HasEdge(edges, 400, 600, 1000, 900), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 600, 200, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 400), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 600, 700, 0), "Expected: has edge A-E"); // A-E
         }
 
         /// <summary>
@@ -4738,12 +4738,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 600, 900, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 800)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 600, 400, 1000)); // A-D
-            Assert.IsTrue(HasEdge(edges, 600, 600, 0, 300)); // A-E
+            Assert.IsTrue(HasEdge(edges, 600, 600, 900, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 800), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 600, 400, 1000), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 600, 0, 300), "Expected: has edge A-E"); // A-E
         }
 
         /// <summary>
@@ -4792,12 +4792,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 400, 0, 100)); // A-B
-            Assert.IsTrue(HasEdge(edges, 600, 400, 800, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 600)); // A-D
-            Assert.IsTrue(HasEdge(edges, 600, 400, 300, 1000)); // A-E
+            Assert.IsTrue(HasEdge(edges, 600, 400, 0, 100), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 400, 800, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 600), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 400, 300, 1000), "Expected: has edge A-E"); // A-E
         }
 
         /// <summary>
@@ -4846,12 +4846,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 400, 900, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 200)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 400, 400, 0)); // A-D
-            Assert.IsTrue(HasEdge(edges, 600, 400, 0, 700)); // A-E
+            Assert.IsTrue(HasEdge(edges, 600, 400, 900, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 400, 1000, 200), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 400, 400, 0), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 400, 0, 700), "Expected: has edge A-E"); // A-E
         }
 
         /// <summary>
@@ -4900,12 +4900,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 400, 1000, 100)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 400, 200, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 600)); // A-D
-            Assert.IsTrue(HasEdge(edges, 400, 400, 700, 1000)); // A-E
+            Assert.IsTrue(HasEdge(edges, 400, 400, 1000, 100), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 400, 200, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 400, 0, 600), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 400, 700, 1000), "Expected: has edge A-E"); // A-E
         }
 
         /// <summary>
@@ -4954,12 +4954,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 600, 100, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 800)); // A-C
-            Assert.IsTrue(HasEdge(edges, 400, 600, 600, 1000)); // A-D
-            Assert.IsTrue(HasEdge(edges, 400, 600, 1000, 300)); // A-E
+            Assert.IsTrue(HasEdge(edges, 400, 600, 100, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 400, 600, 0, 800), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 400, 600, 600, 1000), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 400, 600, 1000, 300), "Expected: has edge A-E"); // A-E
         }
 
         /// <summary>
@@ -5008,12 +5008,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 600, 0, 900)); // A-B
-            Assert.IsTrue(HasEdge(edges, 600, 600, 800, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 400)); // A-D
-            Assert.IsTrue(HasEdge(edges, 600, 600, 300, 0)); // A-E
+            Assert.IsTrue(HasEdge(edges, 600, 600, 0, 900), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 600, 800, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 600, 1000, 400), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 600, 600, 300, 0), "Expected: has edge A-E"); // A-E
         }
 
         [Test]
@@ -5059,14 +5059,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(6, edges.Count);
+            Assert.AreEqual(6, edges.Count, "Expected: edge count 6");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 400, 500, 700)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 700, 200, 1000)); // B-C
-            Assert.IsTrue(HasEdge(edges, 500, 700, 800, 1000)); // B-D
-            Assert.IsTrue(HasEdge(edges, 500, 400, 0, 400)); // A-E
-            Assert.IsTrue(HasEdge(edges, 500, 400, 1000, 400)); // A-F
-            Assert.IsTrue(HasEdge(edges, 500, 400, 500, 0)); // A-G
+            Assert.IsTrue(HasEdge(edges, 500, 400, 500, 700), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 700, 200, 1000), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 500, 700, 800, 1000), "Expected: has edge B-D"); // B-D
+            Assert.IsTrue(HasEdge(edges, 500, 400, 0, 400), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 500, 400, 1000, 400), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 500, 400, 500, 0), "Expected: has edge A-G"); // A-G
         }
 
         /// <summary>
@@ -5116,14 +5116,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(6, edges.Count);
+            Assert.AreEqual(6, edges.Count, "Expected: edge count 6");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 400, 500, 700, 500)); // A-B
-            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 800)); // B-C
-            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 200)); // B-D
-            Assert.IsTrue(HasEdge(edges, 400, 500, 400, 1000)); // A-E
-            Assert.IsTrue(HasEdge(edges, 400, 500, 400, 0)); // A-F
-            Assert.IsTrue(HasEdge(edges, 400, 500, 0, 500)); // A-G
+            Assert.IsTrue(HasEdge(edges, 400, 500, 700, 500), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 800), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 200), "Expected: has edge B-D"); // B-D
+            Assert.IsTrue(HasEdge(edges, 400, 500, 400, 1000), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 400, 500, 400, 0), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 400, 500, 0, 500), "Expected: has edge A-G"); // A-G
         }
 
         /// <summary>
@@ -5173,14 +5173,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(6, edges.Count);
+            Assert.AreEqual(6, edges.Count, "Expected: edge count 6");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 600, 500, 300)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 300, 800, 0)); // B-C
-            Assert.IsTrue(HasEdge(edges, 500, 300, 200, 0)); // B-D
-            Assert.IsTrue(HasEdge(edges, 500, 600, 1000, 600)); // A-E
-            Assert.IsTrue(HasEdge(edges, 500, 600, 0, 600)); // A-F
-            Assert.IsTrue(HasEdge(edges, 500, 600, 500, 1000)); // A-G
+            Assert.IsTrue(HasEdge(edges, 500, 600, 500, 300), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 300, 800, 0), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 500, 300, 200, 0), "Expected: has edge B-D"); // B-D
+            Assert.IsTrue(HasEdge(edges, 500, 600, 1000, 600), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 500, 600, 0, 600), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 500, 600, 500, 1000), "Expected: has edge A-G"); // A-G
         }
 
         /// <summary>
@@ -5230,14 +5230,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(6, edges.Count);
+            Assert.AreEqual(6, edges.Count, "Expected: edge count 6");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 500, 300, 500)); // A-B
-            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 200)); // B-C
-            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 800)); // B-D
-            Assert.IsTrue(HasEdge(edges, 600, 500, 600, 0)); // A-E
-            Assert.IsTrue(HasEdge(edges, 600, 500, 600, 1000)); // A-F
-            Assert.IsTrue(HasEdge(edges, 600, 500, 1000, 500)); // A-G
+            Assert.IsTrue(HasEdge(edges, 600, 500, 300, 500), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 200), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 800), "Expected: has edge B-D"); // B-D
+            Assert.IsTrue(HasEdge(edges, 600, 500, 600, 0), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 600, 500, 600, 1000), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 600, 500, 1000, 500), "Expected: has edge A-G"); // A-G
         }
 
         [Test]
@@ -5283,14 +5283,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(6, edges.Count);
+            Assert.AreEqual(6, edges.Count, "Expected: edge count 6");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 500)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 1000)); // B-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000)); // B-D
-            Assert.IsTrue(HasEdge(edges, 500, 300, 0, 300)); // A-E
-            Assert.IsTrue(HasEdge(edges, 500, 300, 1000, 300)); // A-F
-            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 0)); // A-G
+            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 500), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 0, 1000), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge B-D"); // B-D
+            Assert.IsTrue(HasEdge(edges, 500, 300, 0, 300), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 500, 300, 1000, 300), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 0), "Expected: has edge A-G"); // A-G
         }
 
         /// <summary>
@@ -5340,14 +5340,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(6, edges.Count);
+            Assert.AreEqual(6, edges.Count, "Expected: edge count 6");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 300, 500, 500, 500)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000)); // B-C
-            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 0)); // B-D
-            Assert.IsTrue(HasEdge(edges, 300, 500, 300, 1000)); // A-E
-            Assert.IsTrue(HasEdge(edges, 300, 500, 300, 0)); // A-F
-            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 500)); // A-G
+            Assert.IsTrue(HasEdge(edges, 300, 500, 500, 500), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 500, 500, 1000, 0), "Expected: has edge B-D"); // B-D
+            Assert.IsTrue(HasEdge(edges, 300, 500, 300, 1000), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 300, 500, 300, 0), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 500), "Expected: has edge A-G"); // A-G
         }
 
         [Test]
@@ -5394,15 +5394,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
+            Assert.AreEqual(7, edges.Count, "Expected: edge count 7");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 700)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 700, 0, 700)); // B-C
-            Assert.IsTrue(HasEdge(edges, 500, 700, 1000, 700)); // B-G
-            Assert.IsTrue(HasEdge(edges, 500, 300, 0, 300)); // A-D
-            Assert.IsTrue(HasEdge(edges, 500, 300, 1000, 300)); // A-F
-            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 0)); // A-E
-            Assert.IsTrue(HasEdge(edges, 500, 700, 500, 1000)); // B-H
+            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 700), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 700, 0, 700), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 500, 700, 1000, 700), "Expected: has edge B-G"); // B-G
+            Assert.IsTrue(HasEdge(edges, 500, 300, 0, 300), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 500, 300, 1000, 300), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 500, 300, 500, 0), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 500, 700, 500, 1000), "Expected: has edge B-H"); // B-H
         }
 
         /// <summary>
@@ -5453,15 +5453,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(7, edges.Count);
+            Assert.AreEqual(7, edges.Count, "Expected: edge count 7");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 300, 500, 700, 500)); // A-B
-            Assert.IsTrue(HasEdge(edges, 700, 500, 700, 1000)); // B-C
-            Assert.IsTrue(HasEdge(edges, 700, 500, 700, 0)); // B-G
-            Assert.IsTrue(HasEdge(edges, 300, 500, 300, 1000)); // A-D
-            Assert.IsTrue(HasEdge(edges, 300, 500, 300, 0)); // A-F
-            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 500)); // A-E
-            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 500)); // B-H
+            Assert.IsTrue(HasEdge(edges, 300, 500, 700, 500), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 700, 500, 700, 1000), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 700, 500, 700, 0), "Expected: has edge B-G"); // B-G
+            Assert.IsTrue(HasEdge(edges, 300, 500, 300, 1000), "Expected: has edge A-D"); // A-D
+            Assert.IsTrue(HasEdge(edges, 300, 500, 300, 0), "Expected: has edge A-F"); // A-F
+            Assert.IsTrue(HasEdge(edges, 300, 500, 0, 500), "Expected: has edge A-E"); // A-E
+            Assert.IsTrue(HasEdge(edges, 700, 500, 1000, 500), "Expected: has edge B-H"); // B-H
         }
 
         [Test]
@@ -5507,12 +5507,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(4, edges.Count);
+            Assert.AreEqual(4, edges.Count, "Expected: edge count 4");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 1000, 0, 500)); // A-B
-            Assert.IsTrue(HasEdge(edges, 0, 500, 500, 0)); // B-C
-            Assert.IsTrue(HasEdge(edges, 500, 0, 1000, 500)); // C-D
-            Assert.IsTrue(HasEdge(edges, 1000, 500, 500, 1000)); // D-A
+            Assert.IsTrue(HasEdge(edges, 500, 1000, 0, 500), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 500, 500, 0), "Expected: has edge B-C"); // B-C
+            Assert.IsTrue(HasEdge(edges, 500, 0, 1000, 500), "Expected: has edge C-D"); // C-D
+            Assert.IsTrue(HasEdge(edges, 1000, 500, 500, 1000), "Expected: has edge D-A"); // D-A
         }
 
         [Test]
@@ -5556,10 +5556,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 500, 1000, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 0, 500, 1000, 0)); // A-C
+            Assert.IsTrue(HasEdge(edges, 0, 500, 1000, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 500, 1000, 0), "Expected: has edge A-C"); // A-C
         }
 
         /// <summary>
@@ -5607,10 +5607,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 1000, 1000, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 1000, 0, 0)); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 1000, 1000, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 1000, 0, 0), "Expected: has edge A-C"); // A-C
         }
 
         /// <summary>
@@ -5658,10 +5658,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1000, 500, 0, 0)); // A-B
-            Assert.IsTrue(HasEdge(edges, 1000, 500, 0, 1000)); // A-C
+            Assert.IsTrue(HasEdge(edges, 1000, 500, 0, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 500, 0, 1000), "Expected: has edge A-C"); // A-C
         }
 
         /// <summary>
@@ -5709,10 +5709,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 500, 0, 0, 1000)); // A-B
-            Assert.IsTrue(HasEdge(edges, 500, 0, 1000, 1000)); // A-C
+            Assert.IsTrue(HasEdge(edges, 500, 0, 0, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 500, 0, 1000, 1000), "Expected: has edge A-C"); // A-C
         }
 
         [Test]
@@ -5760,10 +5760,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 0, 600, 1200, 1000)); // A-C
-            Assert.IsTrue(HasEdge(edges, 0, 600, 1200, 200)); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 600, 1200, 1000), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 0, 600, 1200, 200), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -5815,10 +5815,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 1200, 1000, 0)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 1200, 200, 0)); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 1200, 1000, 0), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 1200, 200, 0), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -5870,10 +5870,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 1200, 600, 0, 200)); // A-C
-            Assert.IsTrue(HasEdge(edges, 1200, 600, 0, 1000)); // A-B
+            Assert.IsTrue(HasEdge(edges, 1200, 600, 0, 200), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 1200, 600, 0, 1000), "Expected: has edge A-B"); // A-B
         }
 
         /// <summary>
@@ -5925,10 +5925,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assert
 
-            Assert.AreEqual(2, edges.Count);
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
             Assert.NotNull(edges);
-            Assert.IsTrue(HasEdge(edges, 600, 0, 200, 1200)); // A-C
-            Assert.IsTrue(HasEdge(edges, 600, 0, 1000, 1200)); // A-B
+            Assert.IsTrue(HasEdge(edges, 600, 0, 200, 1200), "Expected: has edge A-C"); // A-C
+            Assert.IsTrue(HasEdge(edges, 600, 0, 1000, 1200), "Expected: has edge A-B"); // A-B
         }
 
     }

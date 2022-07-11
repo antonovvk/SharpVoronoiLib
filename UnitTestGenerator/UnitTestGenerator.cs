@@ -1752,13 +1752,15 @@ namespace SharpVoronoiLib.UnitTestGenerator
             {
                 List<string> strings = new List<string>();
 
-                strings.Add(GetAssertEqualMethodStart(assert) + CountExpectedRelevantEdges(edges, borderLogic) + GetAssertEqualMethodSeparator(assert) + @"edges.Count);");
+                int expectedCount = CountExpectedRelevantEdges(edges, borderLogic);
+                strings.Add(GetAssertEqualMethodStart(assert) + expectedCount + GetAssertEqualMethodSeparator(assert) + @"edges.Count, ""Expected: edge count " + expectedCount + @""");");
                 
                 strings.Add(GetAssertNotNullMethodStart(assert) + @"edges);");
                 
                 foreach (Edge edge in edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)))
                 {
-                    strings.Add(GetAssertTrueMethodStart(assert) + @"HasEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @")); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id);
+                    string comment = (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id;
+                    strings.Add(GetAssertTrueMethodStart(assert) + @"HasEdge(edges, " + edge.FromPoint.X + @", " + edge.FromPoint.Y + @", " + edge.ToPoint.X + @", " + edge.ToPoint.Y + @"), ""Expected: has edge " + comment + @"""); // " + comment);
                 }
 
                 return strings;
@@ -1933,11 +1935,12 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                         strings.Add(GetAssertNotNullMethodStart(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @");");
 
-                        strings.Add(GetAssertEqualMethodStart(assert) + points.Count + GetAssertEqualMethodSeparator(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @".Count()); // #" + site.Id);
+                        strings.Add(GetAssertEqualMethodStart(assert) + points.Count + GetAssertEqualMethodSeparator(assert) + @"sites[" + sites.IndexOf(site) + @"]" + @"." + listName + @".Count(), ""Expected: site #" + site.Id + @" point count " + points.Count + @"""); // #" + site.Id);
 
                         foreach (Point point in points)
                         {
-                            strings.Add(GetAssertTrueMethodStart(assert) + @"HasPoint(sites[" + sites.IndexOf(site) + @"]." + listName + @", " + point.X + @", " + point.Y + @")); // #" + site.Id + " has " + (char)point.Id + @"");
+                            string comment = @"#" + site.Id + " has " + (char)point.Id;
+                            strings.Add(GetAssertTrueMethodStart(assert) + @"HasPoint(sites[" + sites.IndexOf(site) + @"]." + listName + @", " + point.X + @", " + point.Y + @"), ""Expected: site " + comment + @"""); // " + comment);
                         }
 
                         if (clockwise)

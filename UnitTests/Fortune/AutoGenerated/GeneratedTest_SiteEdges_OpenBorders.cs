@@ -60,7 +60,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -108,7 +108,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -156,7 +156,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -208,7 +208,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -260,7 +260,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -312,7 +312,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -360,7 +360,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -412,7 +412,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -464,7 +464,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -516,7 +516,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -564,7 +564,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -616,7 +616,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -668,7 +668,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -720,7 +720,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -768,7 +768,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -820,7 +820,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -872,7 +872,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -924,7 +924,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -976,7 +976,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -1028,7 +1028,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -1080,7 +1080,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -1132,7 +1132,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -1180,7 +1180,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -1232,7 +1232,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -1284,7 +1284,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -1336,7 +1336,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 0 == edges.Count);
+            Assume.That(() => 0 == edges.Count, "Expected: edge count 0");
             Assume.That(() => null != edges);
 
             // Assert
@@ -1385,9 +1385,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 500, 1000, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 500, 1000, 500), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -1443,9 +1443,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 1000, 500, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 500, 1000, 500, 0), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -1497,9 +1497,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 700, 1000, 700)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 700, 1000, 700), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -1555,9 +1555,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 700, 1000, 700, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 700, 1000, 700, 0), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -1610,10 +1610,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 700, 1000, 700)); // A-B
-            Assume.That(() => HasEdge(edges, 0, 300, 1000, 300)); // C-D
+            Assume.That(() => HasEdge(edges, 0, 700, 1000, 700), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 0, 300, 1000, 300), "Expected: has edge C-D"); // C-D
 
             // Assert
 
@@ -1674,10 +1674,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 700, 1000, 700, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 300, 1000, 300, 0)); // C-D
+            Assume.That(() => HasEdge(edges, 700, 1000, 700, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 300, 1000, 300, 0), "Expected: has edge C-D"); // C-D
 
             // Assert
 
@@ -1735,11 +1735,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 700, 1000, 700)); // A-B
-            Assume.That(() => HasEdge(edges, 0, 500, 1000, 500)); // C-D
-            Assume.That(() => HasEdge(edges, 0, 300, 1000, 300)); // E-F
+            Assume.That(() => HasEdge(edges, 0, 700, 1000, 700), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 0, 500, 1000, 500), "Expected: has edge C-D"); // C-D
+            Assume.That(() => HasEdge(edges, 0, 300, 1000, 300), "Expected: has edge E-F"); // E-F
 
             // Assert
 
@@ -1805,11 +1805,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 700, 1000, 700, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 1000, 500, 0)); // C-D
-            Assume.That(() => HasEdge(edges, 300, 1000, 300, 0)); // E-F
+            Assume.That(() => HasEdge(edges, 700, 1000, 700, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 1000, 500, 0), "Expected: has edge C-D"); // C-D
+            Assume.That(() => HasEdge(edges, 300, 1000, 300, 0), "Expected: has edge E-F"); // E-F
 
             // Assert
 
@@ -1869,9 +1869,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -1927,9 +1927,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -1981,9 +1981,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 200, 800, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 200, 800, 1000), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2039,9 +2039,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 200, 1000, 1000, 200)); // A-B
+            Assume.That(() => HasEdge(edges, 200, 1000, 1000, 200), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2097,9 +2097,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1000, 800, 200, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 800, 200, 0), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2155,9 +2155,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 800, 0, 0, 800)); // A-B
+            Assume.That(() => HasEdge(edges, 800, 0, 0, 800), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2209,9 +2209,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2267,9 +2267,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 0), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2325,9 +2325,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1000, 0, 0, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 1000), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2383,9 +2383,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2437,9 +2437,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 500), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2495,9 +2495,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 500, 0), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2553,9 +2553,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1000, 0, 0, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 500), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2611,9 +2611,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 0, 500, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 500, 1000), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2669,9 +2669,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 500), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2727,9 +2727,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1000, 0, 500, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 0, 500, 1000), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2785,9 +2785,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 0, 1000, 500)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 500), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2843,9 +2843,9 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 1 == edges.Count);
+            Assume.That(() => 1 == edges.Count, "Expected: edge count 1");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 1000, 500, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 1000, 500, 0), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -2898,10 +2898,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 300, 700, 1000)); // A-D
-            Assume.That(() => HasEdge(edges, 300, 0, 1000, 700)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 300, 700, 1000), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 300, 0, 1000, 700), "Expected: has edge B-C"); // B-C
 
             // Assert
 
@@ -2962,10 +2962,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 300, 1000, 1000, 300)); // A-D
-            Assume.That(() => HasEdge(edges, 0, 700, 700, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 300, 1000, 1000, 300), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 0, 700, 700, 0), "Expected: has edge B-C"); // B-C
 
             // Assert
 
@@ -3022,10 +3022,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 400, 600, 1000)); // A-D
-            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 0, 400, 600, 1000), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000), "Expected: has edge B-C"); // B-C
 
             // Assert
 
@@ -3086,10 +3086,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 1000, 1000, 400)); // A-D
-            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 400, 1000, 1000, 400), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0), "Expected: has edge B-C"); // B-C
 
             // Assert
 
@@ -3150,10 +3150,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1000, 600, 400, 0)); // A-D
-            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 0)); // B-C
+            Assume.That(() => HasEdge(edges, 1000, 600, 400, 0), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 1000, 0, 0), "Expected: has edge B-C"); // B-C
 
             // Assert
 
@@ -3214,10 +3214,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 0, 0, 600)); // A-D
-            Assume.That(() => HasEdge(edges, 1000, 0, 0, 1000)); // B-C
+            Assume.That(() => HasEdge(edges, 600, 0, 0, 600), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 1000, 0, 0, 1000), "Expected: has edge B-C"); // B-C
 
             // Assert
 
@@ -3275,11 +3275,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 400, 600, 1000)); // A-F
-            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000)); // B-E
-            Assume.That(() => HasEdge(edges, 400, 0, 1000, 600)); // C-D
+            Assume.That(() => HasEdge(edges, 0, 400, 600, 1000), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 0, 0, 1000, 1000), "Expected: has edge B-E"); // B-E
+            Assume.That(() => HasEdge(edges, 400, 0, 1000, 600), "Expected: has edge C-D"); // C-D
 
             // Assert
 
@@ -3345,11 +3345,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 1000, 1000, 400)); // A-F
-            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0)); // B-E
-            Assume.That(() => HasEdge(edges, 0, 600, 600, 0)); // C-D
+            Assume.That(() => HasEdge(edges, 400, 1000, 1000, 400), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 0, 1000, 1000, 0), "Expected: has edge B-E"); // B-E
+            Assume.That(() => HasEdge(edges, 0, 600, 600, 0), "Expected: has edge C-D"); // C-D
 
             // Assert
 
@@ -3410,11 +3410,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 400, 0, 400)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 400, 400, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 400, 400, 1000, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 400), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 400, 400, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 400, 400, 1000, 1000), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -3477,11 +3477,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 600, 400, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 600, 0, 600)); // A-C
-            Assume.That(() => HasEdge(edges, 400, 600, 1000, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 400, 600, 400, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 600), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 400, 600, 1000, 0), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -3544,11 +3544,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 600, 1000, 600)); // A-B
-            Assume.That(() => HasEdge(edges, 600, 600, 600, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 600, 0, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 600), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 600, 600, 600, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 600, 0, 0), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -3611,11 +3611,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 400, 600, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 600, 400, 1000, 400)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 400, 0, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 600, 400, 600, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 400), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 400, 0, 1000), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -3674,11 +3674,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 300, 600, 0, 600)); // A-B
-            Assume.That(() => HasEdge(edges, 300, 600, 300, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 300, 600, 700, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 300, 600, 0, 600), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 300, 600, 300, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 300, 600, 700, 1000), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -3741,11 +3741,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 700, 600, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 600, 700, 0, 700)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 700, 1000, 300)); // A-D
+            Assume.That(() => HasEdge(edges, 600, 700, 600, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 600, 700, 0, 700), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 700, 1000, 300), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -3808,11 +3808,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 700, 400, 1000, 400)); // A-B
-            Assume.That(() => HasEdge(edges, 700, 400, 700, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 700, 400, 300, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 700, 400, 1000, 400), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 700, 400, 700, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 700, 400, 300, 0), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -3875,11 +3875,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 300, 400, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 300, 1000, 300)); // A-C
-            Assume.That(() => HasEdge(edges, 400, 300, 0, 700)); // A-D
+            Assume.That(() => HasEdge(edges, 400, 300, 400, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 300, 1000, 300), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 400, 300, 0, 700), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -3942,11 +3942,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 700, 600, 1000, 600)); // A-B
-            Assume.That(() => HasEdge(edges, 700, 600, 700, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 700, 600, 300, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 700, 600, 1000, 600), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 700, 600, 700, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 700, 600, 300, 1000), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4009,11 +4009,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 300, 600, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 600, 300, 0, 300)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 300, 1000, 700)); // A-D
+            Assume.That(() => HasEdge(edges, 600, 300, 600, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 600, 300, 0, 300), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 300, 1000, 700), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4076,11 +4076,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 300, 400, 0, 400)); // A-B
-            Assume.That(() => HasEdge(edges, 300, 400, 300, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 300, 400, 700, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 300, 400, 0, 400), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 300, 400, 300, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 300, 400, 700, 0), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4143,11 +4143,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 700, 400, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 700, 1000, 700)); // A-C
-            Assume.That(() => HasEdge(edges, 400, 700, 0, 300)); // A-D
+            Assume.That(() => HasEdge(edges, 400, 700, 400, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 700, 1000, 700), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 400, 700, 0, 300), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4206,11 +4206,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4273,11 +4273,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4340,11 +4340,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 500, 500, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 0), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4407,11 +4407,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 500), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4470,11 +4470,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 300, 200, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 300, 800, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 300, 500, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 300, 200, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 300, 800, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 1000), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4537,11 +4537,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 300, 500, 0, 800)); // A-B
-            Assume.That(() => HasEdge(edges, 300, 500, 0, 200)); // A-C
-            Assume.That(() => HasEdge(edges, 300, 500, 1000, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 800), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 200), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 300, 500, 1000, 500), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4604,11 +4604,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 700, 800, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 700, 200, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 700, 500, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 700, 800, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 700, 200, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 700, 500, 0), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4671,11 +4671,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 700, 500, 1000, 200)); // A-B
-            Assume.That(() => HasEdge(edges, 700, 500, 1000, 800)); // A-C
-            Assume.That(() => HasEdge(edges, 700, 500, 0, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 200), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 800), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 700, 500, 0, 500), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4734,11 +4734,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 700, 0, 200)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 700, 1000, 200)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 700, 500, 1000)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 700, 0, 200), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 700, 1000, 200), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 700, 500, 1000), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4801,11 +4801,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 700, 500, 200, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 700, 500, 200, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 700, 500, 1000, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 700, 500, 200, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 700, 500, 200, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 500), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4868,11 +4868,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 300, 1000, 800)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 300, 0, 800)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 300, 500, 0)); // A-D
+            Assume.That(() => HasEdge(edges, 500, 300, 1000, 800), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 300, 0, 800), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 0), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -4935,11 +4935,11 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 3 == edges.Count);
+            Assume.That(() => 3 == edges.Count, "Expected: edge count 3");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 300, 500, 800, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 300, 500, 800, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 300, 500, 0, 500)); // A-D
+            Assume.That(() => HasEdge(edges, 300, 500, 800, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 300, 500, 800, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 500), "Expected: has edge A-D"); // A-D
 
             // Assert
 
@@ -5000,16 +5000,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => 8 == edges.Count, "Expected: edge count 8");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 600, 400, 400)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 400, 600, 400)); // B-C
-            Assume.That(() => HasEdge(edges, 600, 400, 600, 600)); // C-D
-            Assume.That(() => HasEdge(edges, 600, 600, 400, 600)); // D-A
-            Assume.That(() => HasEdge(edges, 400, 600, 0, 1000)); // A-E
-            Assume.That(() => HasEdge(edges, 400, 400, 0, 0)); // B-F
-            Assume.That(() => HasEdge(edges, 600, 400, 1000, 0)); // C-G
-            Assume.That(() => HasEdge(edges, 600, 600, 1000, 1000)); // D-H
+            Assume.That(() => HasEdge(edges, 400, 600, 400, 400), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 400, 600, 400), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 600, 400, 600, 600), "Expected: has edge C-D"); // C-D
+            Assume.That(() => HasEdge(edges, 600, 600, 400, 600), "Expected: has edge D-A"); // D-A
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 1000), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 0), "Expected: has edge B-F"); // B-F
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 0), "Expected: has edge C-G"); // C-G
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 1000), "Expected: has edge D-H"); // D-H
 
             // Assert
 
@@ -5084,16 +5084,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => 8 == edges.Count, "Expected: edge count 8");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 400, 400, 200)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 200, 600, 200)); // B-C
-            Assume.That(() => HasEdge(edges, 600, 200, 600, 400)); // C-D
-            Assume.That(() => HasEdge(edges, 600, 400, 400, 400)); // D-A
-            Assume.That(() => HasEdge(edges, 400, 400, 0, 800)); // A-E
-            Assume.That(() => HasEdge(edges, 400, 200, 200, 0)); // B-F
-            Assume.That(() => HasEdge(edges, 600, 200, 800, 0)); // C-G
-            Assume.That(() => HasEdge(edges, 600, 400, 1000, 800)); // D-H
+            Assume.That(() => HasEdge(edges, 400, 400, 400, 200), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 200, 600, 200), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 600, 200, 600, 400), "Expected: has edge C-D"); // C-D
+            Assume.That(() => HasEdge(edges, 600, 400, 400, 400), "Expected: has edge D-A"); // D-A
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 800), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 400, 200, 200, 0), "Expected: has edge B-F"); // B-F
+            Assume.That(() => HasEdge(edges, 600, 200, 800, 0), "Expected: has edge C-G"); // C-G
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 800), "Expected: has edge D-H"); // D-H
 
             // Assert
 
@@ -5172,16 +5172,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => 8 == edges.Count, "Expected: edge count 8");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 600, 200, 600)); // A-B
-            Assume.That(() => HasEdge(edges, 200, 600, 200, 400)); // B-C
-            Assume.That(() => HasEdge(edges, 200, 400, 400, 400)); // C-D
-            Assume.That(() => HasEdge(edges, 400, 400, 400, 600)); // D-A
-            Assume.That(() => HasEdge(edges, 400, 600, 800, 1000)); // A-E
-            Assume.That(() => HasEdge(edges, 200, 600, 0, 800)); // B-F
-            Assume.That(() => HasEdge(edges, 200, 400, 0, 200)); // C-G
-            Assume.That(() => HasEdge(edges, 400, 400, 800, 0)); // D-H
+            Assume.That(() => HasEdge(edges, 400, 600, 200, 600), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 200, 600, 200, 400), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 200, 400, 400, 400), "Expected: has edge C-D"); // C-D
+            Assume.That(() => HasEdge(edges, 400, 400, 400, 600), "Expected: has edge D-A"); // D-A
+            Assume.That(() => HasEdge(edges, 400, 600, 800, 1000), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 200, 600, 0, 800), "Expected: has edge B-F"); // B-F
+            Assume.That(() => HasEdge(edges, 200, 400, 0, 200), "Expected: has edge C-G"); // C-G
+            Assume.That(() => HasEdge(edges, 400, 400, 800, 0), "Expected: has edge D-H"); // D-H
 
             // Assert
 
@@ -5260,16 +5260,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => 8 == edges.Count, "Expected: edge count 8");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 600, 600, 800)); // A-B
-            Assume.That(() => HasEdge(edges, 600, 800, 400, 800)); // B-C
-            Assume.That(() => HasEdge(edges, 400, 800, 400, 600)); // C-D
-            Assume.That(() => HasEdge(edges, 400, 600, 600, 600)); // D-A
-            Assume.That(() => HasEdge(edges, 600, 600, 1000, 200)); // A-E
-            Assume.That(() => HasEdge(edges, 600, 800, 800, 1000)); // B-F
-            Assume.That(() => HasEdge(edges, 400, 800, 200, 1000)); // C-G
-            Assume.That(() => HasEdge(edges, 400, 600, 0, 200)); // D-H
+            Assume.That(() => HasEdge(edges, 600, 600, 600, 800), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 600, 800, 400, 800), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 400, 800, 400, 600), "Expected: has edge C-D"); // C-D
+            Assume.That(() => HasEdge(edges, 400, 600, 600, 600), "Expected: has edge D-A"); // D-A
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 200), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 600, 800, 800, 1000), "Expected: has edge B-F"); // B-F
+            Assume.That(() => HasEdge(edges, 400, 800, 200, 1000), "Expected: has edge C-G"); // C-G
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 200), "Expected: has edge D-H"); // D-H
 
             // Assert
 
@@ -5348,16 +5348,16 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 8 == edges.Count);
+            Assume.That(() => 8 == edges.Count, "Expected: edge count 8");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 400, 800, 400)); // A-B
-            Assume.That(() => HasEdge(edges, 800, 400, 800, 600)); // B-C
-            Assume.That(() => HasEdge(edges, 800, 600, 600, 600)); // C-D
-            Assume.That(() => HasEdge(edges, 600, 600, 600, 400)); // D-A
-            Assume.That(() => HasEdge(edges, 600, 400, 200, 0)); // A-E
-            Assume.That(() => HasEdge(edges, 800, 400, 1000, 200)); // B-F
-            Assume.That(() => HasEdge(edges, 800, 600, 1000, 800)); // C-G
-            Assume.That(() => HasEdge(edges, 600, 600, 200, 1000)); // D-H
+            Assume.That(() => HasEdge(edges, 600, 400, 800, 400), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 800, 400, 800, 600), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 800, 600, 600, 600), "Expected: has edge C-D"); // C-D
+            Assume.That(() => HasEdge(edges, 600, 600, 600, 400), "Expected: has edge D-A"); // D-A
+            Assume.That(() => HasEdge(edges, 600, 400, 200, 0), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 800, 400, 1000, 200), "Expected: has edge B-F"); // B-F
+            Assume.That(() => HasEdge(edges, 800, 600, 1000, 800), "Expected: has edge C-G"); // C-G
+            Assume.That(() => HasEdge(edges, 600, 600, 200, 1000), "Expected: has edge D-H"); // D-H
 
             // Assert
 
@@ -5431,12 +5431,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 500)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 500, 500, 0)); // A-D
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500)); // A-E
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 500), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 0), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -5500,12 +5500,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 500)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 500, 500, 0)); // A-D
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500)); // A-E
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 500), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 0), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -5573,12 +5573,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 500)); // A-D
-            Assume.That(() => HasEdge(edges, 500, 500, 500, 0)); // A-E
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 500), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 500), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 500, 0), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -5642,12 +5642,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0)); // A-D
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -5711,12 +5711,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 400, 100, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 400, 0, 200)); // A-C
-            Assume.That(() => HasEdge(edges, 400, 400, 600, 0)); // A-D
-            Assume.That(() => HasEdge(edges, 400, 400, 1000, 700)); // A-E
+            Assume.That(() => HasEdge(edges, 400, 400, 100, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 200), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 400, 400, 600, 0), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 400, 400, 1000, 700), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -5784,12 +5784,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 600, 1000, 900)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 600, 200, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 400, 600, 0, 400)); // A-D
-            Assume.That(() => HasEdge(edges, 400, 600, 700, 0)); // A-E
+            Assume.That(() => HasEdge(edges, 400, 600, 1000, 900), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 600, 200, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 400), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 400, 600, 700, 0), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -5857,12 +5857,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 600, 900, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 600, 600, 1000, 800)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 600, 400, 1000)); // A-D
-            Assume.That(() => HasEdge(edges, 600, 600, 0, 300)); // A-E
+            Assume.That(() => HasEdge(edges, 600, 600, 900, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 800), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 600, 400, 1000), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 600, 600, 0, 300), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -5930,12 +5930,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 400, 0, 100)); // A-B
-            Assume.That(() => HasEdge(edges, 600, 400, 800, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 400, 1000, 600)); // A-D
-            Assume.That(() => HasEdge(edges, 600, 400, 300, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 600, 400, 0, 100), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 600, 400, 800, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 600), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 600, 400, 300, 1000), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -6003,12 +6003,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 400, 900, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 600, 400, 1000, 200)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 400, 400, 0)); // A-D
-            Assume.That(() => HasEdge(edges, 600, 400, 0, 700)); // A-E
+            Assume.That(() => HasEdge(edges, 600, 400, 900, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 600, 400, 1000, 200), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 400, 400, 0), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 600, 400, 0, 700), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -6076,12 +6076,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 400, 1000, 100)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 400, 200, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 400, 400, 0, 600)); // A-D
-            Assume.That(() => HasEdge(edges, 400, 400, 700, 1000)); // A-E
+            Assume.That(() => HasEdge(edges, 400, 400, 1000, 100), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 400, 200, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 400, 400, 0, 600), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 400, 400, 700, 1000), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -6149,12 +6149,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 600, 100, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 400, 600, 0, 800)); // A-C
-            Assume.That(() => HasEdge(edges, 400, 600, 600, 1000)); // A-D
-            Assume.That(() => HasEdge(edges, 400, 600, 1000, 300)); // A-E
+            Assume.That(() => HasEdge(edges, 400, 600, 100, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 400, 600, 0, 800), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 400, 600, 600, 1000), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 400, 600, 1000, 300), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -6222,12 +6222,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 600, 0, 900)); // A-B
-            Assume.That(() => HasEdge(edges, 600, 600, 800, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 600, 1000, 400)); // A-D
-            Assume.That(() => HasEdge(edges, 600, 600, 300, 0)); // A-E
+            Assume.That(() => HasEdge(edges, 600, 600, 0, 900), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 600, 600, 800, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 600, 1000, 400), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 600, 600, 300, 0), "Expected: has edge A-E"); // A-E
 
             // Assert
 
@@ -6292,14 +6292,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => 6 == edges.Count, "Expected: edge count 6");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 400, 500, 700)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 700, 200, 1000)); // B-C
-            Assume.That(() => HasEdge(edges, 500, 700, 800, 1000)); // B-D
-            Assume.That(() => HasEdge(edges, 500, 400, 0, 400)); // A-E
-            Assume.That(() => HasEdge(edges, 500, 400, 1000, 400)); // A-F
-            Assume.That(() => HasEdge(edges, 500, 400, 500, 0)); // A-G
+            Assume.That(() => HasEdge(edges, 500, 400, 500, 700), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 700, 200, 1000), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 500, 700, 800, 1000), "Expected: has edge B-D"); // B-D
+            Assume.That(() => HasEdge(edges, 500, 400, 0, 400), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 500, 400, 1000, 400), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 500, 400, 500, 0), "Expected: has edge A-G"); // A-G
 
             // Assert
 
@@ -6374,14 +6374,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => 6 == edges.Count, "Expected: edge count 6");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 400, 500, 700, 500)); // A-B
-            Assume.That(() => HasEdge(edges, 700, 500, 1000, 800)); // B-C
-            Assume.That(() => HasEdge(edges, 700, 500, 1000, 200)); // B-D
-            Assume.That(() => HasEdge(edges, 400, 500, 400, 1000)); // A-E
-            Assume.That(() => HasEdge(edges, 400, 500, 400, 0)); // A-F
-            Assume.That(() => HasEdge(edges, 400, 500, 0, 500)); // A-G
+            Assume.That(() => HasEdge(edges, 400, 500, 700, 500), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 800), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 200), "Expected: has edge B-D"); // B-D
+            Assume.That(() => HasEdge(edges, 400, 500, 400, 1000), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 400, 500, 400, 0), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 400, 500, 0, 500), "Expected: has edge A-G"); // A-G
 
             // Assert
 
@@ -6456,14 +6456,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => 6 == edges.Count, "Expected: edge count 6");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 600, 500, 300)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 300, 800, 0)); // B-C
-            Assume.That(() => HasEdge(edges, 500, 300, 200, 0)); // B-D
-            Assume.That(() => HasEdge(edges, 500, 600, 1000, 600)); // A-E
-            Assume.That(() => HasEdge(edges, 500, 600, 0, 600)); // A-F
-            Assume.That(() => HasEdge(edges, 500, 600, 500, 1000)); // A-G
+            Assume.That(() => HasEdge(edges, 500, 600, 500, 300), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 300, 800, 0), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 500, 300, 200, 0), "Expected: has edge B-D"); // B-D
+            Assume.That(() => HasEdge(edges, 500, 600, 1000, 600), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 500, 600, 0, 600), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 500, 600, 500, 1000), "Expected: has edge A-G"); // A-G
 
             // Assert
 
@@ -6538,14 +6538,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => 6 == edges.Count, "Expected: edge count 6");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 500, 300, 500)); // A-B
-            Assume.That(() => HasEdge(edges, 300, 500, 0, 200)); // B-C
-            Assume.That(() => HasEdge(edges, 300, 500, 0, 800)); // B-D
-            Assume.That(() => HasEdge(edges, 600, 500, 600, 0)); // A-E
-            Assume.That(() => HasEdge(edges, 600, 500, 600, 1000)); // A-F
-            Assume.That(() => HasEdge(edges, 600, 500, 1000, 500)); // A-G
+            Assume.That(() => HasEdge(edges, 600, 500, 300, 500), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 200), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 800), "Expected: has edge B-D"); // B-D
+            Assume.That(() => HasEdge(edges, 600, 500, 600, 0), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 600, 500, 600, 1000), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 600, 500, 1000, 500), "Expected: has edge A-G"); // A-G
 
             // Assert
 
@@ -6616,14 +6616,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => 6 == edges.Count, "Expected: edge count 6");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 300, 500, 500)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000)); // B-C
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // B-D
-            Assume.That(() => HasEdge(edges, 500, 300, 0, 300)); // A-E
-            Assume.That(() => HasEdge(edges, 500, 300, 1000, 300)); // A-F
-            Assume.That(() => HasEdge(edges, 500, 300, 500, 0)); // A-G
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 500), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 0, 1000), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge B-D"); // B-D
+            Assume.That(() => HasEdge(edges, 500, 300, 0, 300), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 500, 300, 1000, 300), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 0), "Expected: has edge A-G"); // A-G
 
             // Assert
 
@@ -6698,14 +6698,14 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 6 == edges.Count);
+            Assume.That(() => 6 == edges.Count, "Expected: edge count 6");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 300, 500, 500, 500)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000)); // B-C
-            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0)); // B-D
-            Assume.That(() => HasEdge(edges, 300, 500, 300, 1000)); // A-E
-            Assume.That(() => HasEdge(edges, 300, 500, 300, 0)); // A-F
-            Assume.That(() => HasEdge(edges, 300, 500, 0, 500)); // A-G
+            Assume.That(() => HasEdge(edges, 300, 500, 500, 500), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 1000), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 500, 500, 1000, 0), "Expected: has edge B-D"); // B-D
+            Assume.That(() => HasEdge(edges, 300, 500, 300, 1000), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 300, 500, 300, 0), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 500), "Expected: has edge A-G"); // A-G
 
             // Assert
 
@@ -6777,15 +6777,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 7 == edges.Count);
+            Assume.That(() => 7 == edges.Count, "Expected: edge count 7");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 300, 500, 700)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 700, 0, 700)); // B-C
-            Assume.That(() => HasEdge(edges, 500, 700, 1000, 700)); // B-G
-            Assume.That(() => HasEdge(edges, 500, 300, 0, 300)); // A-D
-            Assume.That(() => HasEdge(edges, 500, 300, 1000, 300)); // A-F
-            Assume.That(() => HasEdge(edges, 500, 300, 500, 0)); // A-E
-            Assume.That(() => HasEdge(edges, 500, 700, 500, 1000)); // B-H
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 700), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 700, 0, 700), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 500, 700, 1000, 700), "Expected: has edge B-G"); // B-G
+            Assume.That(() => HasEdge(edges, 500, 300, 0, 300), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 500, 300, 1000, 300), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 500, 300, 500, 0), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 500, 700, 500, 1000), "Expected: has edge B-H"); // B-H
 
             // Assert
 
@@ -6865,15 +6865,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 7 == edges.Count);
+            Assume.That(() => 7 == edges.Count, "Expected: edge count 7");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 300, 500, 700, 500)); // A-B
-            Assume.That(() => HasEdge(edges, 700, 500, 700, 1000)); // B-C
-            Assume.That(() => HasEdge(edges, 700, 500, 700, 0)); // B-G
-            Assume.That(() => HasEdge(edges, 300, 500, 300, 1000)); // A-D
-            Assume.That(() => HasEdge(edges, 300, 500, 300, 0)); // A-F
-            Assume.That(() => HasEdge(edges, 300, 500, 0, 500)); // A-E
-            Assume.That(() => HasEdge(edges, 700, 500, 1000, 500)); // B-H
+            Assume.That(() => HasEdge(edges, 300, 500, 700, 500), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 700, 500, 700, 1000), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 700, 500, 700, 0), "Expected: has edge B-G"); // B-G
+            Assume.That(() => HasEdge(edges, 300, 500, 300, 1000), "Expected: has edge A-D"); // A-D
+            Assume.That(() => HasEdge(edges, 300, 500, 300, 0), "Expected: has edge A-F"); // A-F
+            Assume.That(() => HasEdge(edges, 300, 500, 0, 500), "Expected: has edge A-E"); // A-E
+            Assume.That(() => HasEdge(edges, 700, 500, 1000, 500), "Expected: has edge B-H"); // B-H
 
             // Assert
 
@@ -6948,12 +6948,12 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 4 == edges.Count);
+            Assume.That(() => 4 == edges.Count, "Expected: edge count 4");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 1000, 0, 500)); // A-B
-            Assume.That(() => HasEdge(edges, 0, 500, 500, 0)); // B-C
-            Assume.That(() => HasEdge(edges, 500, 0, 1000, 500)); // C-D
-            Assume.That(() => HasEdge(edges, 1000, 500, 500, 1000)); // D-A
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 500), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 0, 500, 500, 0), "Expected: has edge B-C"); // B-C
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 500), "Expected: has edge C-D"); // C-D
+            Assume.That(() => HasEdge(edges, 1000, 500, 500, 1000), "Expected: has edge D-A"); // D-A
 
             // Assert
 
@@ -7018,10 +7018,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 500, 1000, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 0, 500, 1000, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 0, 500, 1000, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 0, 500, 1000, 0), "Expected: has edge A-C"); // A-C
 
             // Assert
 
@@ -7082,10 +7082,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 1000, 1000, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 1000, 0, 0)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 1000, 1000, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 1000, 0, 0), "Expected: has edge A-C"); // A-C
 
             // Assert
 
@@ -7146,10 +7146,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1000, 500, 0, 0)); // A-B
-            Assume.That(() => HasEdge(edges, 1000, 500, 0, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 1000, 500, 0, 0), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 1000, 500, 0, 1000), "Expected: has edge A-C"); // A-C
 
             // Assert
 
@@ -7210,10 +7210,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 500, 0, 0, 1000)); // A-B
-            Assume.That(() => HasEdge(edges, 500, 0, 1000, 1000)); // A-C
+            Assume.That(() => HasEdge(edges, 500, 0, 0, 1000), "Expected: has edge A-B"); // A-B
+            Assume.That(() => HasEdge(edges, 500, 0, 1000, 1000), "Expected: has edge A-C"); // A-C
 
             // Assert
 
@@ -7274,10 +7274,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 0, 600, 1200, 1000)); // A-C
-            Assume.That(() => HasEdge(edges, 0, 600, 1200, 200)); // A-B
+            Assume.That(() => HasEdge(edges, 0, 600, 1200, 1000), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 0, 600, 1200, 200), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -7342,10 +7342,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 1200, 1000, 0)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 1200, 200, 0)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 1200, 1000, 0), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 1200, 200, 0), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -7410,10 +7410,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 1200, 600, 0, 200)); // A-C
-            Assume.That(() => HasEdge(edges, 1200, 600, 0, 1000)); // A-B
+            Assume.That(() => HasEdge(edges, 1200, 600, 0, 200), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 1200, 600, 0, 1000), "Expected: has edge A-B"); // A-B
 
             // Assert
 
@@ -7478,10 +7478,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 2 == edges.Count);
+            Assume.That(() => 2 == edges.Count, "Expected: edge count 2");
             Assume.That(() => null != edges);
-            Assume.That(() => HasEdge(edges, 600, 0, 200, 1200)); // A-C
-            Assume.That(() => HasEdge(edges, 600, 0, 1000, 1200)); // A-B
+            Assume.That(() => HasEdge(edges, 600, 0, 200, 1200), "Expected: has edge A-C"); // A-C
+            Assume.That(() => HasEdge(edges, 600, 0, 1000, 1200), "Expected: has edge A-B"); // A-B
 
             // Assert
 
