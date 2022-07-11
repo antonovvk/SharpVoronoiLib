@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
 namespace SharpVoronoiLib
@@ -34,6 +35,12 @@ namespace SharpVoronoiLib
             X = x;
             Y = y;
             BorderLocation = borderLocation;
+        }
+        
+        
+        internal double AngleTo(VoronoiPoint other)
+        {
+            return Math.Atan2(other.Y - Y, other.X - X);
         }
 
 
