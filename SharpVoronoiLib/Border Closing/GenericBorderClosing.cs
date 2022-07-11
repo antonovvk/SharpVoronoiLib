@@ -236,16 +236,16 @@ namespace SharpVoronoiLib
                 switch (n1.BorderLocation)
                 {
                     case PointBorderLocation.Left: // going up
-                        return n1.Point.Y.CompareTo(n2.Point.Y);
+                        return n1.Point.Y.ApproxCompareTo(n2.Point.Y);
                     
                     case PointBorderLocation.Top: // going right
-                        return n1.Point.X.CompareTo(n2.Point.X);
+                        return n1.Point.X.ApproxCompareTo(n2.Point.X);
                     
                     case PointBorderLocation.Right: // going down
-                        return n2.Point.Y.CompareTo(n1.Point.Y);
+                        return n2.Point.Y.ApproxCompareTo(n1.Point.Y);
                     
                     case PointBorderLocation.Bottom: // going left
-                        return n2.Point.X.CompareTo(n1.Point.X);
+                        return n2.Point.X.ApproxCompareTo(n1.Point.X);
                     
                     case PointBorderLocation.BottomLeft:
                     case PointBorderLocation.TopLeft:
