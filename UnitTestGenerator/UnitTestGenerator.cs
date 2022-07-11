@@ -1394,8 +1394,6 @@ namespace SharpVoronoiLib.UnitTestGenerator
                             stringBuilder.AppendPaddedLine(3, @"// Assume", true);
                             AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
                             stringBuilder.AppendLine();
-                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, false));
-                            stringBuilder.AppendLine();
 
                             stringBuilder.AppendPaddedLine(3, @"// Assert", true);
                             AppendAssertions(BuildEdgeSiteAssertions(test.Edges, borderLogic, true));
