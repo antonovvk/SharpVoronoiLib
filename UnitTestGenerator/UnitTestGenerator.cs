@@ -902,40 +902,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 6: FAEY
             ", Repeat.Rotate90);
 
-            testGenerator.AddTest("FivePointsInABorderTouchingKiteInMiddle", @"
-                10
-                1X· · · · A · · · · 4Z10
-                · · · · x · x · · · · 9
-                · · · x · · · x · · · 8
-                · · x · · · · · x · · 7
-                · x · · · · · · · x · 6
-                B · · · · 5 · · · · D 5
-                · x · · · · · · · x · 4
-                · · x · · · · · x · · 3
-                · · · x · · · x · · · 2
-                · · · · x · x · · · · 1
-                2Y· · · · C · · · · 3W0
-                0 1 2 3 4 5 6 7 8 9 10
-                A-B: 1,5
-                B-C: 2,5
-                C-D: 3,5
-                D-A: 4,5
-                X-B: 1
-                B-Y: 2
-                Y-C: 2
-                C-W: 3
-                W-D: 3
-                D-Z: 4
-                Z-A: 4
-                A-X: 1
-                1: XBA !
-                2: YCB !
-                3: WDC !
-                4: ZAD !
-                5: DABC 
-            ");
-
-            testGenerator.AddTest("FivePointsInABorderTouchingKiteOffset", @"
+            testGenerator.AddTest("FivePointsInABorderTouchingKite", @"
                 10
                 1X· · · · A · · · · 4Z10
                 · · · · x · x · · · · 9
@@ -1039,6 +1006,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 ("GeneratedTest_SiteCentroids", TestPurpose.AssertSiteCentroids)
             };
 
+            // todo: edge length
+            
             for (int i = 0; i < 2; i++)
             {
                 TestBorderLogic borderLogic = i == 0 ? TestBorderLogic.UnclosedBorders : TestBorderLogic.ClosedBorders;
@@ -1444,8 +1413,6 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         case TestPurpose.AssertSiteEdges:
                             stringBuilder.AppendPaddedLine(3, @"// Assume", true);
                             AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, false));
-                            stringBuilder.AppendLine();
-                            AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, false));
                             stringBuilder.AppendLine();
 
                             stringBuilder.AppendPaddedLine(3, @"// Assert", true);

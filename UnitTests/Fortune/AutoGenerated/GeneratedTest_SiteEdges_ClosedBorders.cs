@@ -67,7 +67,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
 
-
             // Assert
 
             // There are no sites, so nothing to check
@@ -119,13 +118,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
@@ -182,13 +174,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
@@ -250,13 +235,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -316,13 +294,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
@@ -384,13 +355,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -446,13 +410,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
@@ -514,13 +471,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -580,13 +530,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
@@ -648,13 +591,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -710,13 +646,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
@@ -778,13 +707,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -844,13 +766,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
@@ -912,13 +827,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -974,13 +882,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
@@ -1042,13 +943,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -1108,13 +1002,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
@@ -1176,13 +1063,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -1242,13 +1122,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // Y-W
             Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
 
             // Assert
 
@@ -1310,13 +1183,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -1376,13 +1242,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // Y-W
             Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
 
             // Assert
 
@@ -1444,13 +1303,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -1506,13 +1358,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-W
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
 
             // Assert
 
@@ -1574,13 +1419,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -1640,13 +1478,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-W
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Z
 
             // Assert
 
@@ -1708,13 +1539,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -1774,19 +1598,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // W-B
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
 
             // Assert
 
@@ -1858,19 +1669,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 500, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -1936,19 +1734,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 700)); // W-B
             Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 700)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
 
             // Assert
 
@@ -2020,19 +1805,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 700, 0, 1000, 0)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 700, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -2102,25 +1874,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 300, 1000, 700)); // D-B
             Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 700)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 300)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 300)); // #2 has D
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 300)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Y
 
             // Assert
 
@@ -2202,25 +1955,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 700, 0, 1000, 0)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 700, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 300, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 300, 0)); // #2 has D
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -2300,31 +2034,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 700)); // D-B
             Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 700)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Z
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has D
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 300)); // #3 has F
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 0, 300)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 300)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has W
-            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Y
 
             // Assert
 
@@ -2416,31 +2125,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 700, 0, 1000, 0)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 700, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Z
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has F
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 300, 1000)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 300, 0)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has W
-            Assume.That(() => HasPoint(sites[3].Points, 0, 1000)); // #4 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -2517,17 +2201,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-B
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -2594,17 +2267,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-B
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -2668,19 +2330,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 800, 1000)); // Z-B
             Assume.That(() => HasEdge(edges, 800, 1000, 0, 1000)); // B-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 800, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 200)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 800, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
 
             // Assert
 
@@ -2752,19 +2401,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 200)); // Z-B
             Assume.That(() => HasEdge(edges, 1000, 200, 1000, 1000)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 200, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 200)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 200, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 200)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -2834,19 +2470,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 0, 200, 0)); // Z-B
             Assume.That(() => HasEdge(edges, 200, 0, 1000, 0)); // B-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 800)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 800)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 200, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
 
             // Assert
 
@@ -2918,19 +2541,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 800)); // Z-B
             Assume.That(() => HasEdge(edges, 0, 800, 0, 0)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 800, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 800)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 800, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 800)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -2994,17 +2604,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // X-B
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // B-Y
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Y-A
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
 
             // Assert
 
@@ -3072,17 +2671,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // B-Y
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-A
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -3148,17 +2736,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // X-B
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // B-Y
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Y-A
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
 
             // Assert
 
@@ -3226,17 +2803,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // B-Y
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-A
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -3299,18 +2865,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Y-B
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-A
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
 
             // Assert
 
@@ -3380,18 +2934,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-A
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 500, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -3459,18 +3001,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // Y-B
             Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // B-Z
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-A
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
 
             // Assert
 
@@ -3540,18 +3070,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // B-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-A
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -3619,18 +3137,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 0, 500)); // Y-B
             Assume.That(() => HasEdge(edges, 0, 500, 0, 1000)); // B-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 1000, 1000)); // Z-A
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
 
             // Assert
 
@@ -3700,18 +3206,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 500, 1000, 1000, 1000)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // Z-A
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -3779,18 +3273,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 500)); // Y-B
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 0)); // B-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 0, 0)); // Z-A
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
 
             // Assert
 
@@ -3860,18 +3342,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 500, 0, 0, 0)); // B-Z
             Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // Z-A
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 500, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -3940,25 +3410,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // C-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 700, 1000)); // Z-D
             Assume.That(() => HasEdge(edges, 700, 1000, 0, 1000)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 300)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 6 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 300)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 300, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 700)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
 
             // Assert
 
@@ -4040,25 +3491,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // Z-D
             Assume.That(() => HasEdge(edges, 1000, 300, 1000, 1000)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 300, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 300)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 6 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 300, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 300)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 0, 700)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 700, 0)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -4132,23 +3564,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-C
             Assume.That(() => HasEdge(edges, 1000, 1000, 600, 1000)); // C-D
             Assume.That(() => HasEdge(edges, 600, 1000, 0, 1000)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 600, 1000)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 600, 1000)); // #2 has D
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has Y
 
             // Assert
 
@@ -4226,23 +3641,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 400)); // C-D
             Assume.That(() => HasEdge(edges, 1000, 400, 1000, 1000)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 400)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 400)); // #2 has D
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -4318,23 +3716,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-C
             Assume.That(() => HasEdge(edges, 0, 0, 400, 0)); // C-D
             Assume.That(() => HasEdge(edges, 400, 0, 1000, 0)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 400, 0)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 400, 0)); // #2 has D
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Y
 
             // Assert
 
@@ -4412,23 +3793,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 600)); // C-D
             Assume.That(() => HasEdge(edges, 0, 600, 0, 0)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 600)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 600)); // #2 has D
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -4504,29 +3868,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 600, 1000, 1000)); // D-E
             Assume.That(() => HasEdge(edges, 1000, 1000, 600, 1000)); // E-F
             Assume.That(() => HasEdge(edges, 600, 1000, 0, 1000)); // F-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 600, 1000)); // #1 has F
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 600, 1000)); // #2 has F
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 400, 0)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 600)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has E
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 3 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 400, 0)); // #4 has C
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 600)); // #4 has D
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Y
 
             // Assert
 
@@ -4614,29 +3955,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 400)); // E-F
             Assume.That(() => HasEdge(edges, 1000, 400, 1000, 1000)); // F-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 400)); // #1 has F
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 400)); // #2 has F
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 600)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 600, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has E
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 3 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 0, 600)); // #4 has C
-            Assume.That(() => HasPoint(sites[3].Points, 600, 0)); // #4 has D
-            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -4715,25 +4033,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 400, 0, 1000, 0)); // C-W
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-D
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 400)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 400, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 400)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 400, 0)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
 
             // Assert
 
@@ -4814,25 +4113,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // W-D
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 400, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 600)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 600)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -4911,25 +4191,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 600, 1000, 0, 1000)); // C-W
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-D
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 600)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 600)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 600, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 600, 1000)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has W
 
             // Assert
 
@@ -5010,25 +4271,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // W-D
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 600, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 400)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 400)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 400)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has W
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -5104,26 +4346,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 700, 1000)); // Z-D
             Assume.That(() => HasEdge(edges, 700, 1000, 0, 1000)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 300, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 600)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 300, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 600)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 300, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 300, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 700, 1000)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has Z
 
             // Assert
 
@@ -5206,26 +4428,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // Z-D
             Assume.That(() => HasEdge(edges, 1000, 300, 1000, 1000)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 700)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 600, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 300)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 700)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 600, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 700)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 700)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 700)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 300)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -5306,26 +4508,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 0, 300, 0)); // Z-D
             Assume.That(() => HasEdge(edges, 300, 0, 1000, 0)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 700, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 400)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 300, 0)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 700, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 400)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 700, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 700, 400)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 700, 1000)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Z
 
             // Assert
 
@@ -5408,26 +4590,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 700)); // Z-D
             Assume.That(() => HasEdge(edges, 0, 700, 0, 0)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 300)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 400, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 300)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 400, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 300)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 300)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 300)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 700)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -5508,26 +4670,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 0, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 300, 1000)); // Z-D
             Assume.That(() => HasEdge(edges, 300, 1000, 1000, 1000)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 700, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 600)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 300, 1000)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 700, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 600)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 700, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 700, 0)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Z
 
             // Assert
 
@@ -5610,26 +4752,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 700)); // Z-D
             Assume.That(() => HasEdge(edges, 1000, 700, 1000, 0)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 300)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 600, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 700)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 300)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 300)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 300)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 700)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -5710,26 +4832,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 700, 0)); // Z-D
             Assume.That(() => HasEdge(edges, 700, 0, 0, 0)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 300, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 400)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 700, 0)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 300, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 300, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 300, 400)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 700, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has Z
 
             // Assert
 
@@ -5812,26 +4914,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 0, 300)); // Z-D
             Assume.That(() => HasEdge(edges, 0, 300, 0, 1000)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 700)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 400, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 300)); // #1 has D
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 700)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 700)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 700)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -5906,24 +4988,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // C-Y
             Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Y-D
             Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
 
             // Assert
 
@@ -6002,24 +5066,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Y-D
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has X
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -6096,24 +5142,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // C-Y
             Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // Y-D
             Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has X
 
             // Assert
 
@@ -6192,24 +5220,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // Y-D
             Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -6284,26 +5294,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // W-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-D
             Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 300)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 800, 0)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 300)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 800, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 300)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 200, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Y
 
             // Assert
 
@@ -6386,26 +5376,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Z-D
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 300, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 800)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 300, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 200)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 300, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 800)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has X
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -6486,26 +5456,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // W-Z
             Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // Z-D
             Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 700)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 800, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 200, 1000)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 700)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 200, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 700)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 800, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has X
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has Y
 
             // Assert
 
@@ -6588,26 +5538,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // Z-D
             Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 700, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 200)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 800)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 700, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 800)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has W
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 5 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 700, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 200)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -6684,26 +5614,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 200, 1000, 1000)); // C-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-D
             Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 5 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 700)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 200)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 700)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 200)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 700)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 200)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
 
             // Assert
 
@@ -6786,26 +5696,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Z-D
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 5 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 700, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 200, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 700, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 200, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 700, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 200, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has X
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -6886,26 +5776,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 800, 0, 0)); // C-Z
             Assume.That(() => HasEdge(edges, 0, 0, 500, 0)); // Z-D
             Assume.That(() => HasEdge(edges, 500, 0, 1000, 0)); // D-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 5 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 300)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 800)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 800)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 300)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 800)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 300)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 800)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has X
 
             // Assert
 
@@ -6988,26 +5858,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 500)); // Z-D
             Assume.That(() => HasEdge(edges, 0, 500, 0, 0)); // D-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 5 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 300, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 800, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 800, 1000)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has Y
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 300, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 800, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 300, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 800, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -7088,37 +5938,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // F-G
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // G-H
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // H-E
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 400, 400)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has F
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 400)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 600, 400)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has F
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has G
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 600, 400)); // #4 has C
-            Assume.That(() => HasPoint(sites[3].Points, 600, 600)); // #4 has D
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has H
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 400, 600)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 600, 600)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has E
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has H
 
             // Assert
 
@@ -7215,41 +6034,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 800)); // W-H
             Assume.That(() => HasEdge(edges, 1000, 800, 1000, 1000)); // H-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 400, 200)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 600, 200)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 400, 200)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 800)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 200, 0)); // #2 has F
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 200)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 600, 200)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 200, 0)); // #3 has F
-            Assume.That(() => HasPoint(sites[2].Points, 800, 0)); // #3 has G
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 5 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 600, 200)); // #4 has C
-            Assume.That(() => HasPoint(sites[3].Points, 600, 400)); // #4 has D
-            Assume.That(() => HasPoint(sites[3].Points, 800, 0)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 800)); // #4 has H
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has W
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 6 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 400, 400)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 600, 400)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 0, 800)); // #5 has E
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 800)); // #5 has H
-            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has X
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has Z
 
             // Assert
 
@@ -7355,41 +6139,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 800, 0, 1000, 0)); // H-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 200, 600)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 200, 400)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 200, 600)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 800, 1000)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 0, 800)); // #2 has F
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 200, 600)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 200, 400)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 800)); // #3 has F
-            Assume.That(() => HasPoint(sites[2].Points, 0, 200)); // #3 has G
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 5 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 200, 400)); // #4 has C
-            Assume.That(() => HasPoint(sites[3].Points, 400, 400)); // #4 has D
-            Assume.That(() => HasPoint(sites[3].Points, 0, 200)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 800, 0)); // #4 has H
-            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has W
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 6 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 400, 600)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 400, 400)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 800, 1000)); // #5 has E
-            Assume.That(() => HasPoint(sites[4].Points, 800, 0)); // #5 has H
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has X
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 0)); // #5 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -7493,41 +6242,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 200)); // W-H
             Assume.That(() => HasEdge(edges, 0, 200, 0, 0)); // H-Z
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 600, 800)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 400, 800)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 600, 800)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 200)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 800, 1000)); // #2 has F
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 800)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 400, 800)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 800, 1000)); // #3 has F
-            Assume.That(() => HasPoint(sites[2].Points, 200, 1000)); // #3 has G
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 5 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 400, 800)); // #4 has C
-            Assume.That(() => HasPoint(sites[3].Points, 400, 600)); // #4 has D
-            Assume.That(() => HasPoint(sites[3].Points, 200, 1000)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 0, 200)); // #4 has H
-            Assume.That(() => HasPoint(sites[3].Points, 0, 1000)); // #4 has W
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 6 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 600, 600)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 400, 600)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 200)); // #5 has E
-            Assume.That(() => HasPoint(sites[4].Points, 0, 200)); // #5 has H
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 0)); // #5 has X
-            Assume.That(() => HasPoint(sites[4].Points, 0, 0)); // #5 has Z
 
             // Assert
 
@@ -7633,41 +6347,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 200, 1000, 0, 1000)); // H-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 800, 400)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 800, 600)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 800, 400)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 200, 0)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 200)); // #2 has F
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 800, 400)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 800, 600)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 200)); // #3 has F
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 800)); // #3 has G
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 5 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 800, 600)); // #4 has C
-            Assume.That(() => HasPoint(sites[3].Points, 600, 600)); // #4 has D
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 800)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 200, 1000)); // #4 has H
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has W
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 6 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 600, 400)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 600, 600)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 200, 0)); // #5 has E
-            Assume.That(() => HasPoint(sites[4].Points, 200, 1000)); // #5 has H
-            Assume.That(() => HasPoint(sites[4].Points, 0, 0)); // #5 has X
-            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -7763,31 +6442,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-B
             Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 500, 500)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 500, 1000)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -7872,31 +6526,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // E-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-B
             Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // B-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 500, 500)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 500, 1000)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has Z
 
             // Assert
 
@@ -7987,31 +6616,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Z-B
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 500, 500)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 500, 0)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -8093,27 +6697,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // D-E
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // E-B
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has E
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has E
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has D
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 3 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 500, 500)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 0, 1000)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has C
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -8194,31 +6777,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // E-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 100, 1000)); // Z-B
             Assume.That(() => HasEdge(edges, 100, 1000, 0, 1000)); // B-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 100, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 200)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 400)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 600, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 700)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 400, 400)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 100, 1000)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 700)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has Z
 
             // Assert
 
@@ -8309,31 +6867,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 900)); // Z-B
             Assume.That(() => HasEdge(edges, 1000, 900, 1000, 1000)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 900)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 200, 1000)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 200, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 400)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 700, 0)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 400, 600)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 900)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 700, 0)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -8422,31 +6955,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 300, 0, 0)); // E-Z
             Assume.That(() => HasEdge(edges, 0, 0, 900, 0)); // Z-B
             Assume.That(() => HasEdge(edges, 900, 0, 1000, 0)); // B-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 900, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 800)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 800)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 400, 1000)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 600, 600)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 900, 0)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 0, 300)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Z
 
             // Assert
 
@@ -8537,31 +7045,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 100)); // Z-B
             Assume.That(() => HasEdge(edges, 0, 100, 0, 0)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 100)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 800, 0)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 800, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 600)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 400)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 600)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 600, 400)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 0, 100)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 300, 1000)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 0, 1000)); // #4 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -8650,31 +7133,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 700, 0, 1000)); // E-Z
             Assume.That(() => HasEdge(edges, 0, 1000, 900, 1000)); // Z-B
             Assume.That(() => HasEdge(edges, 900, 1000, 1000, 1000)); // B-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 900, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 200)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 200)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 400, 0)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 400)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 400, 0)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 0, 700)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 600, 400)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 900, 1000)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 0, 700)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 0, 1000)); // #4 has Z
 
             // Assert
 
@@ -8765,31 +7223,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 1000, 100)); // Z-B
             Assume.That(() => HasEdge(edges, 1000, 100, 1000, 0)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 400)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 100)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 200, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 600)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 400)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 600)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 700, 1000)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 400, 400)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 100)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 700, 1000)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -8878,31 +7311,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 300, 1000, 0)); // E-Z
             Assume.That(() => HasEdge(edges, 1000, 0, 100, 0)); // Z-B
             Assume.That(() => HasEdge(edges, 100, 0, 0, 0)); // B-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 400, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 100, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 800)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 800)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 600, 1000)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 600, 1000)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 300)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 400, 600)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 100, 0)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 300)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Z
 
             // Assert
 
@@ -8993,31 +7401,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 0, 0, 900)); // Z-B
             Assume.That(() => HasEdge(edges, 0, 900, 0, 1000)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 900)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 800, 1000)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 800, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 400)); // #2 has D
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 400)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 300, 0)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 600, 600)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 0, 900)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 300, 0)); // #4 has E
-            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -9106,38 +7489,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 400, 1000, 1000)); // F-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 800, 1000)); // Z-D
             Assume.That(() => HasEdge(edges, 800, 1000, 200, 1000)); // D-C
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 700)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 200, 1000)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 800, 1000)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 400)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 700)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 200, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 400)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has W
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 400)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 400)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has G
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 500, 400)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 400)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 500, 0)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Y
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 5 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 500, 400)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 500, 700)); // #5 has B
-            Assume.That(() => HasPoint(sites[4].Points, 800, 1000)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 400)); // #5 has F
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has Z
 
             // Assert
 
@@ -9239,38 +7590,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 200)); // Z-D
             Assume.That(() => HasEdge(edges, 1000, 200, 1000, 800)); // D-C
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 700, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 800)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 200)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 400, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 700, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 800)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 400, 1000)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has W
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 400, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 400, 1000)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has G
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 400, 500)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 400, 0)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 0, 500)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Y
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 5 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 400, 500)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 700, 500)); // #5 has B
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 200)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 400, 0)); // #5 has F
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 0)); // #5 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -9370,38 +7689,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 600, 0, 0)); // F-Z
             Assume.That(() => HasEdge(edges, 0, 0, 200, 0)); // Z-D
             Assume.That(() => HasEdge(edges, 200, 0, 800, 0)); // D-C
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 300)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 800, 0)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 300)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 800, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 600)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has W
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 600)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has G
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has X
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 500, 600)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 0, 600)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 500, 1000)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 0, 1000)); // #4 has Y
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 5 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 500, 600)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 500, 300)); // #5 has B
-            Assume.That(() => HasPoint(sites[4].Points, 200, 0)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 0, 600)); // #5 has F
-            Assume.That(() => HasPoint(sites[4].Points, 0, 0)); // #5 has Z
 
             // Assert
 
@@ -9503,38 +7790,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 800)); // Z-D
             Assume.That(() => HasEdge(edges, 0, 800, 0, 200)); // D-C
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 300, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 0, 800)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 5 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 300, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 200)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has E
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has W
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 600, 0)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has G
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has X
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 600, 500)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 600, 1000)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has Y
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 5 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 600, 500)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 300, 500)); // #5 has B
-            Assume.That(() => HasPoint(sites[4].Points, 0, 800)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 600, 1000)); // #5 has F
-            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has Z
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -9628,36 +7883,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 300)); // Y-F
             Assume.That(() => HasEdge(edges, 1000, 300, 1000, 1000)); // F-D
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // D-C
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 300)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 300)); // #2 has E
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 300)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has G
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has X
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 500, 300)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 300)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 500, 0)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 0)); // #4 has Y
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 500, 300)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 500, 500)); // #5 has B
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 1000)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 300)); // #5 has F
 
             // Assert
 
@@ -9755,36 +7980,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 300, 0, 1000, 0)); // F-D
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // D-C
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has D
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 300, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 500, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 300, 1000)); // #2 has E
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 300, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has E
-            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has G
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has X
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 300, 500)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 300, 0)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 0, 500)); // #4 has G
-            Assume.That(() => HasPoint(sites[3].Points, 0, 0)); // #4 has Y
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 300, 500)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 500, 500)); // #5 has B
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 0)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 300, 0)); // #5 has F
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -9881,43 +8076,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 700, 1000, 1000)); // G-Z
             Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-H
             Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // H-W
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 700)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 700)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has H
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has W
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 700)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 700)); // #2 has G
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has H
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 300)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 500, 700)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 700)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 0, 300)); // #3 has D
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 500, 300)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 500, 700)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 300)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 700)); // #4 has G
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 500, 300)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 0, 300)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 500, 0)); // #5 has E
-            Assume.That(() => HasPoint(sites[4].Points, 0, 0)); // #5 has X
-            Assume.That(() => null != sites[5].Points);
-            Assume.That(() => 4 == sites[5].Points.Count()); // #6
-            Assume.That(() => HasPoint(sites[5].Points, 500, 300)); // #6 has A
-            Assume.That(() => HasPoint(sites[5].Points, 500, 0)); // #6 has E
-            Assume.That(() => HasPoint(sites[5].Points, 1000, 300)); // #6 has F
-            Assume.That(() => HasPoint(sites[5].Points, 1000, 0)); // #6 has Y
 
             // Assert
 
@@ -10027,43 +8185,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 500)); // Z-H
             Assume.That(() => HasEdge(edges, 1000, 500, 1000, 1000)); // H-W
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 4 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 700, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 700, 1000)); // #1 has C
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has H
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has W
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 700, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 700, 0)); // #2 has G
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has H
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 300, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 700, 500)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 700, 1000)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 300, 1000)); // #3 has D
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 4 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 300, 500)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 700, 500)); // #4 has B
-            Assume.That(() => HasPoint(sites[3].Points, 300, 0)); // #4 has F
-            Assume.That(() => HasPoint(sites[3].Points, 700, 0)); // #4 has G
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 300, 500)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 300, 1000)); // #5 has D
-            Assume.That(() => HasPoint(sites[4].Points, 0, 500)); // #5 has E
-            Assume.That(() => HasPoint(sites[4].Points, 0, 1000)); // #5 has X
-            Assume.That(() => null != sites[5].Points);
-            Assume.That(() => 4 == sites[5].Points.Count()); // #6
-            Assume.That(() => HasPoint(sites[5].Points, 300, 500)); // #6 has A
-            Assume.That(() => HasPoint(sites[5].Points, 0, 500)); // #6 has E
-            Assume.That(() => HasPoint(sites[5].Points, 300, 0)); // #6 has F
-            Assume.That(() => HasPoint(sites[5].Points, 0, 0)); // #6 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -10162,33 +8283,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1000, 500, 1000)); // Z-A
             Assume.That(() => HasEdge(edges, 500, 1000, 0, 1000)); // A-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has B
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has C
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has D
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has W
-            Assume.That(() => null != sites[3].Points);
-            Assume.That(() => 3 == sites[3].Points.Count()); // #4
-            Assume.That(() => HasPoint(sites[3].Points, 500, 1000)); // #4 has A
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 500)); // #4 has D
-            Assume.That(() => HasPoint(sites[3].Points, 1000, 1000)); // #4 has Z
-            Assume.That(() => null != sites[4].Points);
-            Assume.That(() => 4 == sites[4].Points.Count()); // #5
-            Assume.That(() => HasPoint(sites[4].Points, 500, 1000)); // #5 has A
-            Assume.That(() => HasPoint(sites[4].Points, 0, 500)); // #5 has B
-            Assume.That(() => HasPoint(sites[4].Points, 500, 0)); // #5 has C
-            Assume.That(() => HasPoint(sites[4].Points, 1000, 500)); // #5 has D
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -10270,22 +8364,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // C-B
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 0, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has C
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -10359,22 +8437,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // Y-C
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // C-B
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // B-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 1000)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1000)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 1000)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 1000)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has C
 
             // Assert
 
@@ -10450,22 +8512,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // C-B
             Assume.That(() => HasEdge(edges, 0, 0, 1000, 0)); // B-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 500)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 500)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 500)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has C
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -10539,22 +8585,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1000, 1000)); // Y-C
             Assume.That(() => HasEdge(edges, 1000, 1000, 0, 1000)); // C-B
             Assume.That(() => HasEdge(edges, 0, 1000, 0, 0)); // B-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 500, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 0)); // #1 has X
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 3 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 500, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has Y
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 3 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 500, 0)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1000)); // #3 has C
 
             // Assert
 
@@ -10631,24 +8661,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1200, 200, 1200, 1000)); // B-C
             Assume.That(() => HasEdge(edges, 1200, 1000, 1200, 1200)); // C-Z
             Assume.That(() => HasEdge(edges, 1200, 1200, 0, 1200)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 0, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1200, 200)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1200, 1000)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 0, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1200, 1000)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1200)); // #2 has X
-            Assume.That(() => HasPoint(sites[1].Points, 1200, 1200)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 0, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1200, 200)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1200, 0)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has Y
 
             // Assert
 
@@ -10732,24 +8744,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 0, 1200, 0)); // C-Z
             Assume.That(() => HasEdge(edges, 1200, 0, 1200, 1200)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 1200)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 200, 0)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 0)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 1200)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 1000, 0)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1200, 1200)); // #2 has X
-            Assume.That(() => HasPoint(sites[1].Points, 1200, 0)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 1200)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 200, 0)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 0)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1200)); // #3 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -10832,24 +8826,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 200, 0, 0)); // C-Z
             Assume.That(() => HasEdge(edges, 0, 0, 1200, 0)); // Z-X
 
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 1200, 600)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 0, 1000)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 0, 200)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 1200, 600)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 0, 200)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 1200, 0)); // #2 has X
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 1200, 600)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1000)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 0, 1200)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 1200, 1200)); // #3 has Y
-
             // Assert
 
             Assert.NotNull(sites[0].Cell);
@@ -10931,24 +8907,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1000, 1200, 200, 1200)); // B-C
             Assume.That(() => HasEdge(edges, 200, 1200, 0, 1200)); // C-Z
             Assume.That(() => HasEdge(edges, 0, 1200, 0, 0)); // Z-X
-
-            Assume.That(() => null != sites[0].Points);
-            Assume.That(() => 3 == sites[0].Points.Count()); // #1
-            Assume.That(() => HasPoint(sites[0].Points, 600, 0)); // #1 has A
-            Assume.That(() => HasPoint(sites[0].Points, 1000, 1200)); // #1 has B
-            Assume.That(() => HasPoint(sites[0].Points, 200, 1200)); // #1 has C
-            Assume.That(() => null != sites[1].Points);
-            Assume.That(() => 4 == sites[1].Points.Count()); // #2
-            Assume.That(() => HasPoint(sites[1].Points, 600, 0)); // #2 has A
-            Assume.That(() => HasPoint(sites[1].Points, 200, 1200)); // #2 has C
-            Assume.That(() => HasPoint(sites[1].Points, 0, 0)); // #2 has X
-            Assume.That(() => HasPoint(sites[1].Points, 0, 1200)); // #2 has Z
-            Assume.That(() => null != sites[2].Points);
-            Assume.That(() => 4 == sites[2].Points.Count()); // #3
-            Assume.That(() => HasPoint(sites[2].Points, 600, 0)); // #3 has A
-            Assume.That(() => HasPoint(sites[2].Points, 1000, 1200)); // #3 has B
-            Assume.That(() => HasPoint(sites[2].Points, 1200, 1200)); // #3 has W
-            Assume.That(() => HasPoint(sites[2].Points, 1200, 0)); // #3 has Y
 
             // Assert
 
