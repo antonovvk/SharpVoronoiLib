@@ -1846,12 +1846,20 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                         strings.Add(GetAssertNotNullMethodStart(assert) + @"edge" + @"." + nameof(VoronoiEdge.Neighbours) + @");");
 
-                        strings.Add(GetAssertEqualMethodStart(assert) + neighbours.Count + GetAssertEqualMethodSeparator(assert) + @"edge" + @"." + nameof(VoronoiEdge.Neighbours) + @".Count());");
+                        //if (assert)
+                        //    strings.Add(@"Assert.Multiple(() => { // if the count is wrong, we want to know which edge is possibly missing");
+
+                        strings.Add(GetAssertEqualMethodStart(assert) + neighbours.Count + GetAssertEqualMethodSeparator(assert) + @"edge" + @"." + nameof(VoronoiEdge.Neighbours) + @".Count(), ""Expected: edge neighbour count " + neighbours.Count + @""");");
 
                         foreach (Edge neighbour in neighbours)
                         {
-                            strings.Add(GetAssertTrueMethodStart(assert) + @"edge." + nameof(VoronoiEdge.Neighbours) + @".Contains(FindEdge(edges, " + neighbour.FromPoint.X + @", " + neighbour.FromPoint.Y + @", " + neighbour.ToPoint.X + @", " + neighbour.ToPoint.Y + @"))); // " + (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " neighbours " + (char)neighbour.FromPoint.Id + @"-" + (char)neighbour.ToPoint.Id);
+                            string comment = (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " neighbours " + (char)neighbour.FromPoint.Id + @"-" + (char)neighbour.ToPoint.Id;
+                            
+                            strings.Add(GetAssertTrueMethodStart(assert) + @"edge." + nameof(VoronoiEdge.Neighbours) + @".Contains(FindEdge(edges, " + neighbour.FromPoint.X + @", " + neighbour.FromPoint.Y + @", " + neighbour.ToPoint.X + @", " + neighbour.ToPoint.Y + @")), ""Expected: edge " + comment + @"""); // " + comment);
                         }
+                        
+                        //if (assert)
+                        //    strings.Add(@"});");
                     }
                 }
                 else

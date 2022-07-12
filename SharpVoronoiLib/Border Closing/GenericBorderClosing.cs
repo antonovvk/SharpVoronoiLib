@@ -374,11 +374,9 @@ namespace SharpVoronoiLib
         {
             public int Compare(BorderNode n1, BorderNode n2)
             {
-                // if (n1.Point == n2.Point)
-                //     throw new NotImplementedException("SAME");
-                //
-                // if (n1.Point.ApproxEqual(n2.Point))
-                //     throw new NotImplementedException("EQUAL");
+                if (n1.Point.ApproxEqual(n2.Point))
+                    if (n1.Point != n2.Point)
+                        throw new InvalidOperationException(n1 + " point is not same as " + n2);
                 
                 int locationCompare = n1.BorderLocation.CompareTo(n2.BorderLocation);
 

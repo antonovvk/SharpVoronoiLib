@@ -110,21 +110,21 @@ namespace SharpVoronoiLib
                     // At site 2 we will find two edges that share the point A: A-B and A-D.
                     // A-B is where we came from, so we ignore that.
                     // A-D must then be a neighbour, which we record.
-                    // We continue to loop around the A point, now going to site 3.
+                    // We continue to loop around the A point, now going to site 3 across A-D.
                     // Here we find A-D and A-C around A, so we choose A-C as a neighbour (A-D is where we came from).
-                    // We see that the next site is site 1, which we noted before as the site.
+                    // We see that the next site is site 1, which we noted before as the first/starting site.
                     // So we are done with point A (in this loop we added A-D and A-C as neighbour).
                     // Now loop around point B, starting at site 2.
                     // At 2, we find B-G; at 3 we find B-F; at 4 we find B-E and finish as we reach 1.
                     // We now have all the neighbours - A-D, A-C, B-G, B-F, B-E.
-                    // Here, both loops did not encounter missing edges, so consider instead:
+                    // Here, both loops did not encounter missing sites (no further edges), so consider instead:
                     //         \                     /                             
                     //           \        ·        /                               
                     //             \             /                                 
                     //               \         /                                   
                     //                 \     /                                    
                     //                   \ /                                       
-                    //                    #                                        
+                    //                    A                                        
                     //                    #                                        
                     //          1         #         2                              
                     //                    #                                        
@@ -134,18 +134,19 @@ namespace SharpVoronoiLib
                     // At site 2, we find A-B and B-G; we dismiss A-B and we record B-G.
                     // But now we have no site on the other side of B-G.
                     // Our loop around B notes that it encountered a "missing" site.
-                    // We see this and loop again around B but to the other side, i.e. site 1.
+                    // We see this back at start and loop again around B but to the other side, i.e. site 1.
                     // At site 1 we find A-B and B-E; we dismiss A-B and we record B-E.
                     // Again, we have a case with no site on the other side of B-E.
                     // But now we have looped in both direction and reached the border (or corner) both times.
                     // One can think of the "missing" site as the "out of bounds site" -
-                    // we reached it in both loop directions and recorded both its edges.
+                    // we reached it in both loop directions and recorded both its edges, so we're done.
+                    // Similar case happens with multiple edges meeting at the border.
                     
-                    if (GatherNeighbours(Start, this, Right!, Left))
+                    if (!GatherNeighbours(Start, this, Right!, Left))
                         if (Left != null)
                             GatherNeighbours(Start, this, Left, null);
                     
-                    if (GatherNeighbours(End, this, Right!, Left))
+                    if (!GatherNeighbours(End, this, Right!, Left))
                         if (Left != null)
                             GatherNeighbours(End, this, Left, null);
 
@@ -172,26 +173,28 @@ namespace SharpVoronoiLib
                                 {
                                     if (ultimateSite != null && // the other side of the original edge could have been a border/void
                                         nextSite == ultimateSite) // we reached the other side of the original edge, so no more edges remain around this point
-                                        break;
+                                        return true; // we completed the "circle"
 
                                     // Go the next site
-                                    GatherNeighbours(aroundPoint, edge, nextSite, ultimateSite);
+                                    return GatherNeighbours(aroundPoint, edge, nextSite, ultimateSite);
                                 }
                                 else
                                 {
                                     // We encountered an edge with no site on the other side, which means it's a border edge.
                                     // We must tell the caller to loop the other way now, since we cannot finish our "circle".
-                                    return true;
+                                    return false; // we didn't complete the "circle"
                                 }
-
-                                // We can only have up to 2 edges connected to a point from the perspective of a site,
-                                // so we will skip or already skipped the one we came from and we just processed the other.
-                                return false;
+                            }
+                            else
+                            {
+                                if (edge.Start.ApproxEqual(aroundPoint)) throw new InvalidOperationException("Equal but not same " + edge.Start + " and " + aroundPoint);
+                                if (edge.End.ApproxEqual(aroundPoint)) throw new InvalidOperationException("Equal but not same " + edge.End + " and " + aroundPoint);
                             }
                         }
 
                         // This means the only edge shared with this cell was the common edge and there's no second edge
-                        return false;
+                        // We must tell the caller to loop the other way now, since we cannot assume we finished our "circle".
+                        return false; // we didn't complete the "circle"
                     }
                 }
 
