@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace SharpVoronoiLib
 {
@@ -148,21 +147,26 @@ namespace SharpVoronoiLib
                 }
             }
             return accept;
-        }
-        
-        private static PointBorderLocation GetBorderLocationForCoordinate(double x, double y, double minX, double minY, double maxX, double maxY)
-        {
-            if (x.ApproxEqual(minX) && y.ApproxEqual(minY)) return PointBorderLocation.BottomLeft;
-            if (x.ApproxEqual(minX) && y.ApproxEqual(maxY)) return PointBorderLocation.TopLeft;
-            if (x.ApproxEqual(maxX) && y.ApproxEqual(minY)) return PointBorderLocation.BottomRight;
-            if (x.ApproxEqual(maxX) && y.ApproxEqual(maxY)) return PointBorderLocation.TopRight;
             
-            if (x.ApproxEqual(minX)) return PointBorderLocation.Left;
-            if (y.ApproxEqual(minY)) return PointBorderLocation.Bottom;
-            if (x.ApproxEqual(maxX)) return PointBorderLocation.Right;
-            if (y.ApproxEqual(maxY)) return PointBorderLocation.Top;
             
-            return PointBorderLocation.NotOnBorder;
+            static Outcode ComputeOutCode(double x, double y, double minX, double minY, double maxX, double maxY)
+            {
+                Outcode code = Outcode.None;
+                if (x.ApproxEqual(minX) || x.ApproxEqual(maxX))
+                { }
+                else if (x < minX)
+                    code |= Outcode.Left;
+                else if (x > maxX)
+                    code |= Outcode.Right;
+
+                if (y.ApproxEqual(minY) || y.ApproxEqual(maxY))
+                { }
+                else if (y < minY)
+                    code |= Outcode.Bottom;
+                else if (y > maxY)
+                    code |= Outcode.Top;
+                return code;
+            }
         }
 
         private static bool ClipRay(VoronoiEdge edge, double minX, double minY, double maxX, double maxY)
@@ -175,16 +179,16 @@ namespace SharpVoronoiLib
                 if (!Within(start.Y, minY, maxY))
                     return false;
                 
-                if (edge.SlopeRun > 0 && start.X > maxX)
+                if (edge.SlopeRun.ApproxGreaterThan(0) && start.X.ApproxGreaterThan(maxX))
                     return false;
                 
-                if (edge.SlopeRun < 0 && start.X < minX)
+                if (edge.SlopeRun.ApproxLessThan(0) && start.X.ApproxLessThan(minX))
                     return false;
                 
                 if (Within(start.X, minX, maxX))
                 {
                     VoronoiPoint endPoint = 
-                        edge.SlopeRun > 0 ? 
+                        edge.SlopeRun.ApproxGreaterThan(0) ? 
                             new VoronoiPoint(maxX, start.Y, PointBorderLocation.Right) : 
                             new VoronoiPoint(minX, start.Y, start.Y.ApproxEqual(minY) ? PointBorderLocation.BottomLeft : start.Y.ApproxEqual(maxY) ? PointBorderLocation.TopLeft : PointBorderLocation.Left);
 
@@ -207,7 +211,7 @@ namespace SharpVoronoiLib
                 }
                 else
                 {
-                    if (edge.SlopeRun > 0)
+                    if (edge.SlopeRun.ApproxGreaterThan(0))
                     {
                         edge.Start = new VoronoiPoint(minX, start.Y, PointBorderLocation.Left);
                         edge.End = new VoronoiPoint(maxX, start.Y, PointBorderLocation.Right);
@@ -224,19 +228,19 @@ namespace SharpVoronoiLib
             //vertical ray
             if (edge.SlopeRun.ApproxEqual(0))
             {
-                if (start.X < minX || start.X > maxX)
+                if (start.X.ApproxLessThan(minX) || start.X.ApproxGreaterThan(maxX))
                     return false;
                 
-                if (edge.SlopeRise > 0 && start.Y > maxY)
+                if (edge.SlopeRise.ApproxGreaterThan(0) && start.Y.ApproxGreaterThan(maxY))
                     return false;
                 
-                if (edge.SlopeRise < 0 && start.Y < minY)
+                if (edge.SlopeRise.ApproxLessThan(0) && start.Y.ApproxLessThan(minY))
                     return false;
                 
                 if (Within(start.Y, minY, maxY))
                 {
                     VoronoiPoint endPoint = 
-                        edge.SlopeRise > 0 ?
+                        edge.SlopeRise.ApproxGreaterThan(0) ?
                             new VoronoiPoint(start.X, maxY, start.X.ApproxEqual(minX) ? PointBorderLocation.TopLeft : start.X.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top) :
                             new VoronoiPoint(start.X, minY, PointBorderLocation.Bottom);
 
@@ -259,7 +263,7 @@ namespace SharpVoronoiLib
                 }
                 else
                 {
-                    if (edge.SlopeRise > 0)
+                    if (edge.SlopeRise.ApproxGreaterThan(0))
                     {
                         edge.Start = new VoronoiPoint(start.X, minY, PointBorderLocation.Bottom);
                         edge.End = new VoronoiPoint(start.X, maxY, PointBorderLocation.Top);
@@ -274,8 +278,6 @@ namespace SharpVoronoiLib
             }
             
             //works for outside
-            Debug.Assert(edge.Slope != null, "edge.Slope != null");
-            Debug.Assert(edge.Intercept != null, "edge.Intercept != null");
 
             double topXValue = CalcX(edge.Slope.Value, maxY, edge.Intercept.Value);
             VoronoiPoint topX = new VoronoiPoint(topXValue, maxY, topXValue.ApproxEqual(minX) ? PointBorderLocation.TopLeft : topXValue.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top);
@@ -330,7 +332,7 @@ namespace SharpVoronoiLib
                 //grab vector representing the edge
                 double ax = candidate.X - start.X;
                 double ay = candidate.Y - start.Y;
-                if (edge.SlopeRun*ax + edge.SlopeRise*ay < 0)
+                if ((edge.SlopeRun*ax + edge.SlopeRise*ay).ApproxLessThan(0))
                     candidates.RemoveAt(i);
             }
 
@@ -342,60 +344,85 @@ namespace SharpVoronoiLib
                 double ay = candidates[0].Y - start.Y;
                 double bx = candidates[1].X - start.X;
                 double by = candidates[1].Y - start.Y;
-                if (ax*ax + ay*ay > bx*bx + @by*@by)
+                
+                if ((ax*ax + ay*ay).ApproxGreaterThan(bx*bx + by*by))
                 {
-                    edge.Start = candidates[1];
-                    edge.End = candidates[0];
+                    // Candidate 1 is closer
+                    
+                    // Start remains as is
+
+                    // If the point is already at the right location (i.e. edge.Start == candidates[1]), then keep it.
+                    // This preserves the same instance between potential multiple edges.
+                    // The only thing is that it didn't have a border location being an unfinished edge point.
+                    edge.Start.BorderLocation = GetBorderLocationForCoordinate(edge.Start.X, edge.Start.Y, minX, minY, maxX, maxY);
+                    // But this could also be different (i.e. edge.Start != candidates[1]) if coming from a ray outside bounds.
+                    // But we don't care, because such an edge will be removed, so we don't even bother comparing and setting the value.
+                        
+                    // The other point didn't have a value yet
+                    edge.End = candidates[0]; // candidate point already has the border location set correctly
                 }
                 else
                 {
-                    edge.Start = candidates[0];
-                    edge.End = candidates[1];
+                    // Candidate 2 is closer
+
+                    // Start remains as is
+
+                    // If the point is already at the right location (i.e. edge.Start == candidates[0]), then keep it.
+                    // This preserves the same instance between potential multiple edges.
+                    // The only thing is that it didn't have a border location being an unfinished edge point.
+                    edge.Start.BorderLocation = GetBorderLocationForCoordinate(edge.Start.X, edge.Start.Y, minX, minY, maxX, maxY);
+                    // But this could also be different (i.e. edge.Start != candidates[0]) if coming from a ray outside bounds.
+                    // But we don't care, because such an edge will be removed, so we don't even bother comparing and setting the value.
+                    
+                    // The other point didn't have a value yet
+                    edge.End = candidates[1]; // candidate point already has the border location set correctly
                 }
             }
 
             //if there is one candidate we are inside
             if (candidates.Count == 1)
-                edge.End = candidates[0];
+            { 
+                // Start remains as is
+                
+                // The other point has a value now
+                edge.End = candidates[0]; // candidate point already has the border location set correctly
+            }
 
-            //there were no candidates
-            return edge.End != null;
+            // There were no candidates
+            return edge.End != null!; // can be null for now until we fully clip it
+            
+            
+            static bool Within(double x, double a, double b)
+            {
+                return x.ApproxGreaterThanOrEqualTo(a) && x.ApproxLessThanOrEqualTo(b);
+            }
+
+            static double CalcY(double m, double x, double b)
+            {
+                return m * x + b;
+            }
+
+            static double CalcX(double m, double y, double b)
+            {
+                return (y - b) / m;
+            }
         }
 
-        private static bool Within(double x, double a, double b)
+        private static PointBorderLocation GetBorderLocationForCoordinate(double x, double y, double minX, double minY, double maxX, double maxY)
         {
-            return x.ApproxGreaterThanOrEqualTo(a) && x.ApproxLessThanOrEqualTo(b);
+            if (x.ApproxEqual(minX) && y.ApproxEqual(minY)) return PointBorderLocation.BottomLeft;
+            if (x.ApproxEqual(minX) && y.ApproxEqual(maxY)) return PointBorderLocation.TopLeft;
+            if (x.ApproxEqual(maxX) && y.ApproxEqual(minY)) return PointBorderLocation.BottomRight;
+            if (x.ApproxEqual(maxX) && y.ApproxEqual(maxY)) return PointBorderLocation.TopRight;
+            
+            if (x.ApproxEqual(minX)) return PointBorderLocation.Left;
+            if (y.ApproxEqual(minY)) return PointBorderLocation.Bottom;
+            if (x.ApproxEqual(maxX)) return PointBorderLocation.Right;
+            if (y.ApproxEqual(maxY)) return PointBorderLocation.Top;
+            
+            return PointBorderLocation.NotOnBorder;
         }
 
-        private static double CalcY(double m, double x, double b)
-        {
-            return m * x + b;
-        }
-
-        private static double CalcX(double m, double y, double b)
-        {
-            return (y - b) / m;
-        }
-        
-        private static Outcode ComputeOutCode(double x, double y, double minX, double minY, double maxX, double maxY)
-        {
-            Outcode code = Outcode.None;
-            if (x.ApproxEqual(minX) || x.ApproxEqual(maxX))
-            { }
-            else if (x < minX)
-                code |= Outcode.Left;
-            else if (x > maxX)
-                code |= Outcode.Right;
-
-            if (y.ApproxEqual(minY) || y.ApproxEqual(maxY))
-            { }
-            else if (y < minY)
-                code |= Outcode.Bottom;
-            else if (y > maxY)
-                code |= Outcode.Top;
-            return code;
-        }
-        
 
         [Flags]
         private enum Outcode

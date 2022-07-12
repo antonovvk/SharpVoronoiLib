@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace SharpVoronoiLib
@@ -65,13 +64,7 @@ namespace SharpVoronoiLib
             if (!hadTopRight) nodes.Add(new CornerBorderNode(new VoronoiPoint(maxX, maxY, PointBorderLocation.TopRight)));
             if (!hadTopLeft) nodes.Add(new CornerBorderNode(new VoronoiPoint(minX, maxY, PointBorderLocation.TopLeft)));
 
-
-            foreach (BorderNode node in nodes)
-            {
-                Debug.WriteLine(node.ToString());
-            }
             
-
             EdgeBorderNode? previousEdgeNode = null;
 
             if (nodes.Min is EdgeBorderNode febn)
@@ -126,11 +119,6 @@ namespace SharpVoronoiLib
 
                 if (node1.Point != node2.Point)
                 {
-                    Debug.WriteLine("Connecting " + node1 + " to " + node2 + " for site " + site);
-                    
-                    if (node1.Point.ApproxEqual(node2.Point))
-                        throw new InvalidOperationException("Should be same point");
-                    
                     VoronoiEdge newEdge = new VoronoiEdge(
                         node1.Point,
                         node2.Point, // we are building these clockwise, so by definition the left side is out of bounds
@@ -159,8 +147,6 @@ namespace SharpVoronoiLib
                 }
                 else
                 {
-                    Debug.WriteLine("Not connecting " + node1 + " to " + node2 + " for site " + site);
-
                     // Skip this node, it's the same as last one, we don't need an edge between identical coordinates
                     // Just move to the next node.
                 }
@@ -205,19 +191,8 @@ namespace SharpVoronoiLib
             public abstract double Angle { get; }
             
             public abstract int FallbackComparisonIndex { get; }
-
-
-#if DEBUG
-            public override string ToString()
-            {
-                return Point + " @ " + BorderLocation;
-            }
             
-            public string ToString(string format)
-            {
-                return Point.ToString(format) + " @ " + BorderLocation;
-            }
-#endif
+            
             public int CompareAngleTo(BorderNode node2, PointBorderLocation pointBorderLocation)
             {
                 // "Normal" Atan2 returns an angle between -π ≤ θ ≤ π as "seen" on the Cartesian plane,
@@ -283,6 +258,19 @@ namespace SharpVoronoiLib
                 // Smaller angle comes first
                 return angle1.ApproxCompareTo(angle2);
             }
+            
+
+#if DEBUG
+            public override string ToString()
+            {
+                return Point + " @ " + BorderLocation;
+            }
+            
+            public string ToString(string format)
+            {
+                return Point.ToString(format) + " @ " + BorderLocation;
+            }
+#endif
         }
 
         private abstract class EdgeBorderNode : BorderNode
@@ -374,10 +362,6 @@ namespace SharpVoronoiLib
         {
             public int Compare(BorderNode n1, BorderNode n2)
             {
-                if (n1.Point.ApproxEqual(n2.Point))
-                    if (n1.Point != n2.Point)
-                        throw new InvalidOperationException(n1 + " point is not same as " + n2);
-                
                 int locationCompare = n1.BorderLocation.CompareTo(n2.BorderLocation);
 
                 if (locationCompare != 0)
