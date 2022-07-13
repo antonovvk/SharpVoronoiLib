@@ -399,7 +399,7 @@ namespace SharpVoronoiLib
         [Pure]
         private static bool ArePointsColinear(double x1, double y1, double x2, double y2, double x3, double y3)
         {
-            // Based off https://stackoverflow.com/a/328110/8047867
+            // Based off https://stackoverflow.com/a/328110
 
             // Cross product 2-1 x 3-1
             return ((x2 - x1) * (y3 - y1)).ApproxEqual((x3 - x1) * (y2 - y1));
@@ -461,7 +461,7 @@ namespace SharpVoronoiLib
         
         private VoronoiPoint ComputeCentroid()
         {
-            // Basically, https://stackoverflow.com/a/34732659/8047867
+            // Basically, https://stackoverflow.com/a/34732659
             // https://en.wikipedia.org/wiki/Centroid#Of_a_polygon
             
             // If we don't have points generated yet, do so now (by calling the property that does so when read)

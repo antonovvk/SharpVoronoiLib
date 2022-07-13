@@ -2625,7 +2625,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 int y2 = edge.ToPoint.Y / _verPreviewStepSize;
 
                 // This is Bresenham's Line Algorithm verbatim from:
-                // https://stackoverflow.com/a/11683720/8047867
+                // https://stackoverflow.com/a/11683720
 
                 int w = x2 - x;
                 int h = y2 - y;

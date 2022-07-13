@@ -7,7 +7,7 @@ namespace SharpVoronoiLib
         protected override double GetNextRandomValue(Random random, double min, double max)
         {
             // Box-Muller transform
-            // From: https://stackoverflow.com/a/218600/8047867
+            // From: https://stackoverflow.com/a/218600
 
             const double stdDev = 1.0 / 3.0; // this covers 99.73% of cases in (-1..1) range
 
