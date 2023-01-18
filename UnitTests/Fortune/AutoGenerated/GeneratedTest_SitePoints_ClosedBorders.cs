@@ -7074,6 +7074,262 @@ namespace SharpVoronoiLib.UnitTests
         }
 
         [Test]
+        public void ThreePointsMeetingPastBorder()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 900), // #1
+                new VoronoiSite(100, 100), // #2
+                new VoronoiSite(300, 500), // #3
+            };
+
+            // 1000 X-------------------------------------##B---------W
+            //      |                                ,,·''            |
+            //  900 |    1                      ,,·''                 |
+            //      |                      ,,·''                      |
+            //  800 |                 ,,·''                           |
+            //      |            ,,·''                                |
+            //  700 |       ,,·''                                     |
+            //      |  ,,·''                                          |
+            //  600 A''                                               |
+            //      |                                                 |
+            //  500 |              3                                  |
+            //      |                                                 |
+            //  400 D,,                                               |
+            //      |  ''·,,                                          |
+            //  300 |       ''·,,                                     |
+            //      |            ''·,,                                |
+            //  200 |                 ''·,,                           |
+            //      |                      ''·,,                      |
+            //  100 |    2                      ''·,,                 |
+            //      |                                ''·,,            |
+            //    0 Y-------------------------------------##C---------Z
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assert
+
+            Assert.NotNull(sites[0].Points);
+            Assert.AreEqual(3, sites[0].Points.Count(), "Expected: site #1 point count 3"); // #1
+            Assert.IsTrue(HasPoint(sites[0].Points, 0, 600), "Expected: site #1 has A"); // #1 has A
+            Assert.IsTrue(HasPoint(sites[0].Points, 800, 1000), "Expected: site #1 has B"); // #1 has B
+            Assert.IsTrue(HasPoint(sites[0].Points, 0, 1000), "Expected: site #1 has X"); // #1 has X
+            Assert.NotNull(sites[1].Points);
+            Assert.AreEqual(3, sites[1].Points.Count(), "Expected: site #2 point count 3"); // #2
+            Assert.IsTrue(HasPoint(sites[1].Points, 800, 0), "Expected: site #2 has C"); // #2 has C
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 400), "Expected: site #2 has D"); // #2 has D
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 0), "Expected: site #2 has Y"); // #2 has Y
+            Assert.NotNull(sites[2].Points);
+            Assert.AreEqual(6, sites[2].Points.Count(), "Expected: site #3 point count 6"); // #3
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 600), "Expected: site #3 has A"); // #3 has A
+            Assert.IsTrue(HasPoint(sites[2].Points, 800, 1000), "Expected: site #3 has B"); // #3 has B
+            Assert.IsTrue(HasPoint(sites[2].Points, 800, 0), "Expected: site #3 has C"); // #3 has C
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 400), "Expected: site #3 has D"); // #3 has D
+            Assert.IsTrue(HasPoint(sites[2].Points, 1000, 1000), "Expected: site #3 has W"); // #3 has W
+            Assert.IsTrue(HasPoint(sites[2].Points, 1000, 0), "Expected: site #3 has Z"); // #3 has Z
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingPastBorder"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingPastBorder_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 900), // #1
+                new VoronoiSite(100, 900), // #2
+                new VoronoiSite(500, 700), // #3
+            };
+
+            // 1000 Y-------------------D---------A-------------------X
+            //      |                  '           '                  |
+            //  900 |    2           ,'             ',           1    |
+            //      |               ,                 ,               |
+            //  800 |              ·                   ·              |
+            //      |             '                     '             |
+            //  700 |           ,'           3           ',           |
+            //      |          ,                           ,          |
+            //  600 |         ·                             ·         |
+            //      |        '                               '        |
+            //  500 |      ,'                                 ',      |
+            //      |     ,                                     ,     |
+            //  400 |    ·                                       ·    |
+            //      |   '                                         '   |
+            //  300 | ,'                                           ', |
+            //      |,                                               ,|
+            //  200 C                                                 B
+            //      |                                                 |
+            //  100 |                                                 |
+            //      |                                                 |
+            //    0 Z-------------------------------------------------W
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assert
+
+            Assert.NotNull(sites[0].Points);
+            Assert.AreEqual(3, sites[0].Points.Count(), "Expected: site #1 point count 3"); // #1
+            Assert.IsTrue(HasPoint(sites[0].Points, 600, 1000), "Expected: site #1 has A"); // #1 has A
+            Assert.IsTrue(HasPoint(sites[0].Points, 1000, 200), "Expected: site #1 has B"); // #1 has B
+            Assert.IsTrue(HasPoint(sites[0].Points, 1000, 1000), "Expected: site #1 has X"); // #1 has X
+            Assert.NotNull(sites[1].Points);
+            Assert.AreEqual(3, sites[1].Points.Count(), "Expected: site #2 point count 3"); // #2
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 200), "Expected: site #2 has C"); // #2 has C
+            Assert.IsTrue(HasPoint(sites[1].Points, 400, 1000), "Expected: site #2 has D"); // #2 has D
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 1000), "Expected: site #2 has Y"); // #2 has Y
+            Assert.NotNull(sites[2].Points);
+            Assert.AreEqual(6, sites[2].Points.Count(), "Expected: site #3 point count 6"); // #3
+            Assert.IsTrue(HasPoint(sites[2].Points, 600, 1000), "Expected: site #3 has A"); // #3 has A
+            Assert.IsTrue(HasPoint(sites[2].Points, 1000, 200), "Expected: site #3 has B"); // #3 has B
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 200), "Expected: site #3 has C"); // #3 has C
+            Assert.IsTrue(HasPoint(sites[2].Points, 400, 1000), "Expected: site #3 has D"); // #3 has D
+            Assert.IsTrue(HasPoint(sites[2].Points, 1000, 0), "Expected: site #3 has W"); // #3 has W
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 0), "Expected: site #3 has Z"); // #3 has Z
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingPastBorder"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingPastBorder_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 100), // #1
+                new VoronoiSite(900, 900), // #2
+                new VoronoiSite(700, 500), // #3
+            };
+
+            // 1000 Z---------C##-------------------------------------Y
+            //      |            ''·,,                                |
+            //  900 |                 ''·,,                      2    |
+            //      |                      ''·,,                      |
+            //  800 |                           ''·,,                 |
+            //      |                                ''·,,            |
+            //  700 |                                     ''·,,       |
+            //      |                                          ''·,,  |
+            //  600 |                                               ''D
+            //      |                                                 |
+            //  500 |                                  3              |
+            //      |                                                 |
+            //  400 |                                               ,,A
+            //      |                                          ,,·''  |
+            //  300 |                                     ,,·''       |
+            //      |                                ,,·''            |
+            //  200 |                           ,,·''                 |
+            //      |                      ,,·''                      |
+            //  100 |                 ,,·''                      1    |
+            //      |            ,,·''                                |
+            //    0 W---------B##-------------------------------------X
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assert
+
+            Assert.NotNull(sites[0].Points);
+            Assert.AreEqual(3, sites[0].Points.Count(), "Expected: site #1 point count 3"); // #1
+            Assert.IsTrue(HasPoint(sites[0].Points, 1000, 400), "Expected: site #1 has A"); // #1 has A
+            Assert.IsTrue(HasPoint(sites[0].Points, 200, 0), "Expected: site #1 has B"); // #1 has B
+            Assert.IsTrue(HasPoint(sites[0].Points, 1000, 0), "Expected: site #1 has X"); // #1 has X
+            Assert.NotNull(sites[1].Points);
+            Assert.AreEqual(3, sites[1].Points.Count(), "Expected: site #2 point count 3"); // #2
+            Assert.IsTrue(HasPoint(sites[1].Points, 200, 1000), "Expected: site #2 has C"); // #2 has C
+            Assert.IsTrue(HasPoint(sites[1].Points, 1000, 600), "Expected: site #2 has D"); // #2 has D
+            Assert.IsTrue(HasPoint(sites[1].Points, 1000, 1000), "Expected: site #2 has Y"); // #2 has Y
+            Assert.NotNull(sites[2].Points);
+            Assert.AreEqual(6, sites[2].Points.Count(), "Expected: site #3 point count 6"); // #3
+            Assert.IsTrue(HasPoint(sites[2].Points, 1000, 400), "Expected: site #3 has A"); // #3 has A
+            Assert.IsTrue(HasPoint(sites[2].Points, 200, 0), "Expected: site #3 has B"); // #3 has B
+            Assert.IsTrue(HasPoint(sites[2].Points, 200, 1000), "Expected: site #3 has C"); // #3 has C
+            Assert.IsTrue(HasPoint(sites[2].Points, 1000, 600), "Expected: site #3 has D"); // #3 has D
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 0), "Expected: site #3 has W"); // #3 has W
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 1000), "Expected: site #3 has Z"); // #3 has Z
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingPastBorder"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingPastBorder_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 100), // #1
+                new VoronoiSite(900, 100), // #2
+                new VoronoiSite(500, 300), // #3
+            };
+
+            // 1000 W-------------------------------------------------Z
+            //      |                                                 |
+            //  900 |                                                 |
+            //      |                                                 |
+            //  800 B                                                 C
+            //      |'                                               '|
+            //  700 | ',                                           ,' |
+            //      |   ,                                         ,   |
+            //  600 |    ·                                       ·    |
+            //      |     '                                     '     |
+            //  500 |      ',                                 ,'      |
+            //      |        ,                               ,        |
+            //  400 |         ·                             ·         |
+            //      |          '                           '          |
+            //  300 |           ',           3           ,'           |
+            //      |             ,                     ,             |
+            //  200 |              ·                   ·              |
+            //      |               '                 '               |
+            //  100 |    1           ',             ,'           2    |
+            //      |                  ,           ,                  |
+            //    0 X-------------------A---------D-------------------Y
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+
+            // Assert
+
+            Assert.NotNull(sites[0].Points);
+            Assert.AreEqual(3, sites[0].Points.Count(), "Expected: site #1 point count 3"); // #1
+            Assert.IsTrue(HasPoint(sites[0].Points, 400, 0), "Expected: site #1 has A"); // #1 has A
+            Assert.IsTrue(HasPoint(sites[0].Points, 0, 800), "Expected: site #1 has B"); // #1 has B
+            Assert.IsTrue(HasPoint(sites[0].Points, 0, 0), "Expected: site #1 has X"); // #1 has X
+            Assert.NotNull(sites[1].Points);
+            Assert.AreEqual(3, sites[1].Points.Count(), "Expected: site #2 point count 3"); // #2
+            Assert.IsTrue(HasPoint(sites[1].Points, 1000, 800), "Expected: site #2 has C"); // #2 has C
+            Assert.IsTrue(HasPoint(sites[1].Points, 600, 0), "Expected: site #2 has D"); // #2 has D
+            Assert.IsTrue(HasPoint(sites[1].Points, 1000, 0), "Expected: site #2 has Y"); // #2 has Y
+            Assert.NotNull(sites[2].Points);
+            Assert.AreEqual(6, sites[2].Points.Count(), "Expected: site #3 point count 6"); // #3
+            Assert.IsTrue(HasPoint(sites[2].Points, 400, 0), "Expected: site #3 has A"); // #3 has A
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 800), "Expected: site #3 has B"); // #3 has B
+            Assert.IsTrue(HasPoint(sites[2].Points, 1000, 800), "Expected: site #3 has C"); // #3 has C
+            Assert.IsTrue(HasPoint(sites[2].Points, 600, 0), "Expected: site #3 has D"); // #3 has D
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 1000), "Expected: site #3 has W"); // #3 has W
+            Assert.IsTrue(HasPoint(sites[2].Points, 1000, 1000), "Expected: site #3 has Z"); // #3 has Z
+        }
+
+        [Test]
         public void ThreePointsMeetingAtBorderSharply()
         {
             // Arrange
@@ -7337,6 +7593,278 @@ namespace SharpVoronoiLib.UnitTests
             Assert.AreEqual(4, sites[2].Points.Count(), "Expected: site #3 point count 4"); // #3
             Assert.IsTrue(HasPoint(sites[2].Points, 600, 0), "Expected: site #3 has A"); // #3 has A
             Assert.IsTrue(HasPoint(sites[2].Points, 1000, 1200), "Expected: site #3 has B"); // #3 has B
+            Assert.IsTrue(HasPoint(sites[2].Points, 1200, 1200), "Expected: site #3 has W"); // #3 has W
+            Assert.IsTrue(HasPoint(sites[2].Points, 1200, 0), "Expected: site #3 has Y"); // #3 has Y
+        }
+
+        [Test]
+        public void ThreePointsMeetingPastBorderSharply()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(200, 600), // #1
+                new VoronoiSite(100, 900), // #2
+                new VoronoiSite(100, 300), // #3
+            };
+
+            // 1200 X-----------------------------------------------------------Z
+            //      |                                                           |
+            // 1100 |                                                        ,,,B
+            //      |                                                ,,,··'''   |
+            // 1000 |                                         ,,,·'''           |
+            //      |                                 ,,,··'''                  |
+            //  900 |    2                     ,,,·'''                          |
+            //      |                  ,,,··'''                                 |
+            //  800 |           ,,,·'''                                         |
+            //      |   ,,,··'''                                                |
+            //  700 A'''                                                        |
+            //      |                                                           |
+            //  600 |         1                                                 |
+            //      |                                                           |
+            //  500 D###                                                        |
+            //      |   ########                                                |
+            //  400 |           #######                                         |
+            //      |                  ########                                 |
+            //  300 |    3                     #######                          |
+            //      |                                 ########                  |
+            //  200 |                                         #######           |
+            //      |                                                ########   |
+            //  100 |                                                        ###C
+            //      |                                                           |
+            //    0 Y-----------------------------------------------------------W
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+
+            // Assert
+
+            Assert.NotNull(sites[0].Points);
+            Assert.AreEqual(4, sites[0].Points.Count(), "Expected: site #1 point count 4"); // #1
+            Assert.IsTrue(HasPoint(sites[0].Points, 0, 700), "Expected: site #1 has A"); // #1 has A
+            Assert.IsTrue(HasPoint(sites[0].Points, 1200, 1100), "Expected: site #1 has B"); // #1 has B
+            Assert.IsTrue(HasPoint(sites[0].Points, 1200, 100), "Expected: site #1 has C"); // #1 has C
+            Assert.IsTrue(HasPoint(sites[0].Points, 0, 500), "Expected: site #1 has D"); // #1 has D
+            Assert.NotNull(sites[1].Points);
+            Assert.AreEqual(4, sites[1].Points.Count(), "Expected: site #2 point count 4"); // #2
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 700), "Expected: site #2 has A"); // #2 has A
+            Assert.IsTrue(HasPoint(sites[1].Points, 1200, 1100), "Expected: site #2 has B"); // #2 has B
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 1200), "Expected: site #2 has X"); // #2 has X
+            Assert.IsTrue(HasPoint(sites[1].Points, 1200, 1200), "Expected: site #2 has Z"); // #2 has Z
+            Assert.NotNull(sites[2].Points);
+            Assert.AreEqual(4, sites[2].Points.Count(), "Expected: site #3 point count 4"); // #3
+            Assert.IsTrue(HasPoint(sites[2].Points, 1200, 100), "Expected: site #3 has C"); // #3 has C
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 500), "Expected: site #3 has D"); // #3 has D
+            Assert.IsTrue(HasPoint(sites[2].Points, 1200, 0), "Expected: site #3 has W"); // #3 has W
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 0), "Expected: site #3 has Y"); // #3 has Y
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingPastBorderSharply"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingPastBorderSharply_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(600, 1000), // #1
+                new VoronoiSite(900, 1100), // #2
+                new VoronoiSite(300, 1100), // #3
+            };
+
+            // 1200 Y------------------------D---------A------------------------X
+            //      |                       #           ·                       |
+            // 1100 |              3       #             ·       2              |
+            //      |                      #              ·                     |
+            // 1000 |                     #       1       ·                     |
+            //      |                    #                 ·                    |
+            //  900 |                   #                   ·                   |
+            //      |                  #                     ·                  |
+            //  800 |                 #                       ·                 |
+            //      |                 #                        ·                |
+            //  700 |                #                         ·                |
+            //      |               #                           ·               |
+            //  600 |              #                             ·              |
+            //      |             #                               ·             |
+            //  500 |            #                                 ·            |
+            //      |            #                                  ·           |
+            //  400 |           #                                   ·           |
+            //      |          #                                     ·          |
+            //  300 |         #                                       ·         |
+            //      |        #                                         ·        |
+            //  200 |       #                                           ·       |
+            //      |       #                                            ·      |
+            //  100 |      #                                             ·      |
+            //      |     #                                               ·     |
+            //    0 W----C-------------------------------------------------B----Z
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+
+            // Assert
+
+            Assert.NotNull(sites[0].Points);
+            Assert.AreEqual(4, sites[0].Points.Count(), "Expected: site #1 point count 4"); // #1
+            Assert.IsTrue(HasPoint(sites[0].Points, 700, 1200), "Expected: site #1 has A"); // #1 has A
+            Assert.IsTrue(HasPoint(sites[0].Points, 1100, 0), "Expected: site #1 has B"); // #1 has B
+            Assert.IsTrue(HasPoint(sites[0].Points, 100, 0), "Expected: site #1 has C"); // #1 has C
+            Assert.IsTrue(HasPoint(sites[0].Points, 500, 1200), "Expected: site #1 has D"); // #1 has D
+            Assert.NotNull(sites[1].Points);
+            Assert.AreEqual(4, sites[1].Points.Count(), "Expected: site #2 point count 4"); // #2
+            Assert.IsTrue(HasPoint(sites[1].Points, 700, 1200), "Expected: site #2 has A"); // #2 has A
+            Assert.IsTrue(HasPoint(sites[1].Points, 1100, 0), "Expected: site #2 has B"); // #2 has B
+            Assert.IsTrue(HasPoint(sites[1].Points, 1200, 1200), "Expected: site #2 has X"); // #2 has X
+            Assert.IsTrue(HasPoint(sites[1].Points, 1200, 0), "Expected: site #2 has Z"); // #2 has Z
+            Assert.NotNull(sites[2].Points);
+            Assert.AreEqual(4, sites[2].Points.Count(), "Expected: site #3 point count 4"); // #3
+            Assert.IsTrue(HasPoint(sites[2].Points, 100, 0), "Expected: site #3 has C"); // #3 has C
+            Assert.IsTrue(HasPoint(sites[2].Points, 500, 1200), "Expected: site #3 has D"); // #3 has D
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 0), "Expected: site #3 has W"); // #3 has W
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 1200), "Expected: site #3 has Y"); // #3 has Y
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingPastBorderSharply"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingPastBorderSharply_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(1000, 600), // #1
+                new VoronoiSite(1100, 300), // #2
+                new VoronoiSite(1100, 900), // #3
+            };
+
+            // 1200 W-----------------------------------------------------------Y
+            //      |                                                           |
+            // 1100 C###                                                        |
+            //      |   ########                                                |
+            // 1000 |           #######                                         |
+            //      |                  ########                                 |
+            //  900 |                          #######                     3    |
+            //      |                                 ########                  |
+            //  800 |                                         #######           |
+            //      |                                                ########   |
+            //  700 |                                                        ###D
+            //      |                                                           |
+            //  600 |                                                 1         |
+            //      |                                                           |
+            //  500 |                                                        ,,,A
+            //      |                                                ,,,··'''   |
+            //  400 |                                         ,,,·'''           |
+            //      |                                 ,,,··'''                  |
+            //  300 |                          ,,,·'''                     2    |
+            //      |                  ,,,··'''                                 |
+            //  200 |           ,,,·'''                                         |
+            //      |   ,,,··'''                                                |
+            //  100 B'''                                                        |
+            //      |                                                           |
+            //    0 Z-----------------------------------------------------------X
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+
+            // Assert
+
+            Assert.NotNull(sites[0].Points);
+            Assert.AreEqual(4, sites[0].Points.Count(), "Expected: site #1 point count 4"); // #1
+            Assert.IsTrue(HasPoint(sites[0].Points, 1200, 500), "Expected: site #1 has A"); // #1 has A
+            Assert.IsTrue(HasPoint(sites[0].Points, 0, 100), "Expected: site #1 has B"); // #1 has B
+            Assert.IsTrue(HasPoint(sites[0].Points, 0, 1100), "Expected: site #1 has C"); // #1 has C
+            Assert.IsTrue(HasPoint(sites[0].Points, 1200, 700), "Expected: site #1 has D"); // #1 has D
+            Assert.NotNull(sites[1].Points);
+            Assert.AreEqual(4, sites[1].Points.Count(), "Expected: site #2 point count 4"); // #2
+            Assert.IsTrue(HasPoint(sites[1].Points, 1200, 500), "Expected: site #2 has A"); // #2 has A
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 100), "Expected: site #2 has B"); // #2 has B
+            Assert.IsTrue(HasPoint(sites[1].Points, 1200, 0), "Expected: site #2 has X"); // #2 has X
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 0), "Expected: site #2 has Z"); // #2 has Z
+            Assert.NotNull(sites[2].Points);
+            Assert.AreEqual(4, sites[2].Points.Count(), "Expected: site #3 point count 4"); // #3
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 1100), "Expected: site #3 has C"); // #3 has C
+            Assert.IsTrue(HasPoint(sites[2].Points, 1200, 700), "Expected: site #3 has D"); // #3 has D
+            Assert.IsTrue(HasPoint(sites[2].Points, 0, 1200), "Expected: site #3 has W"); // #3 has W
+            Assert.IsTrue(HasPoint(sites[2].Points, 1200, 1200), "Expected: site #3 has Y"); // #3 has Y
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingPastBorderSharply"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingPastBorderSharply_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(600, 200), // #1
+                new VoronoiSite(300, 100), // #2
+                new VoronoiSite(900, 100), // #3
+            };
+
+            // 1200 Z----B-------------------------------------------------C----W
+            //      |     ·                                               #     |
+            // 1100 |      ·                                             #      |
+            //      |      ·                                            #       |
+            // 1000 |       ·                                           #       |
+            //      |        ·                                         #        |
+            //  900 |         ·                                       #         |
+            //      |          ·                                     #          |
+            //  800 |           ·                                   #           |
+            //      |           ·                                  #            |
+            //  700 |            ·                                 #            |
+            //      |             ·                               #             |
+            //  600 |              ·                             #              |
+            //      |               ·                           #               |
+            //  500 |                ·                         #                |
+            //      |                ·                        #                 |
+            //  400 |                 ·                       #                 |
+            //      |                  ·                     #                  |
+            //  300 |                   ·                   #                   |
+            //      |                    ·                 #                    |
+            //  200 |                     ·       1       #                     |
+            //      |                     ·              #                      |
+            //  100 |              2       ·             #       3              |
+            //      |                       ·           #                       |
+            //    0 X------------------------A---------D------------------------Y
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+
+            // Assert
+
+            Assert.NotNull(sites[0].Points);
+            Assert.AreEqual(4, sites[0].Points.Count(), "Expected: site #1 point count 4"); // #1
+            Assert.IsTrue(HasPoint(sites[0].Points, 500, 0), "Expected: site #1 has A"); // #1 has A
+            Assert.IsTrue(HasPoint(sites[0].Points, 100, 1200), "Expected: site #1 has B"); // #1 has B
+            Assert.IsTrue(HasPoint(sites[0].Points, 1100, 1200), "Expected: site #1 has C"); // #1 has C
+            Assert.IsTrue(HasPoint(sites[0].Points, 700, 0), "Expected: site #1 has D"); // #1 has D
+            Assert.NotNull(sites[1].Points);
+            Assert.AreEqual(4, sites[1].Points.Count(), "Expected: site #2 point count 4"); // #2
+            Assert.IsTrue(HasPoint(sites[1].Points, 500, 0), "Expected: site #2 has A"); // #2 has A
+            Assert.IsTrue(HasPoint(sites[1].Points, 100, 1200), "Expected: site #2 has B"); // #2 has B
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 0), "Expected: site #2 has X"); // #2 has X
+            Assert.IsTrue(HasPoint(sites[1].Points, 0, 1200), "Expected: site #2 has Z"); // #2 has Z
+            Assert.NotNull(sites[2].Points);
+            Assert.AreEqual(4, sites[2].Points.Count(), "Expected: site #3 point count 4"); // #3
+            Assert.IsTrue(HasPoint(sites[2].Points, 1100, 1200), "Expected: site #3 has C"); // #3 has C
+            Assert.IsTrue(HasPoint(sites[2].Points, 700, 0), "Expected: site #3 has D"); // #3 has D
             Assert.IsTrue(HasPoint(sites[2].Points, 1200, 1200), "Expected: site #3 has W"); // #3 has W
             Assert.IsTrue(HasPoint(sites[2].Points, 1200, 0), "Expected: site #3 has Y"); // #3 has Y
         }

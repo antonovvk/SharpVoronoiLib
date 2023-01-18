@@ -511,7 +511,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 2: ABYC
                 3: ZDACW
             ", Repeat.RotateAndMirrorAll);
-            
+
             // todo: offset to side a bit, then mirror too
 
             testGenerator.AddTest("ThreePointsInAWedgeTowardsSideAroundMiddle", @"
@@ -732,7 +732,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: EADW
                 4: ZBAE
             ", Repeat.Rotate90);
-            
+
             testGenerator.AddTest("FourEquidistantPointsInAKiteAroundMiddle", @"
                 10
                 B · · · · · · · · · E 10
@@ -760,7 +760,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: ACD
                 4: ABC
             ");
-            
+
             testGenerator.AddTest("FourEquidistantPointsInARotatedSquareOffset", @"
                 10
                 X B · · · · · · · · Z 10
@@ -792,7 +792,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: EADW
                 4: EZBA
             ", Repeat.RotateAndMirrorAll);
-            
+
             testGenerator.AddTest("FivePointsInAForkedTallCross", @"
                 10
                 W · C · · · · · D · Z 10
@@ -961,6 +961,35 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: BAC
             ", Repeat.RotateAll);
 
+            testGenerator.AddTest("ThreePointsMeetingPastBorder", @"
+                10
+                X · · · · · · · B · W 10
+                · 1 · · · · x · · · · 9
+                · · · · x · · · · · · 8
+                · · x · · · · · · · · 7
+                A · · · · · · · · · · 6
+                · · · 3 · · · · · · · 5
+                D · · · · · · · · · · 4
+                · · x · · · · · · · · 3
+                · · · · x · · · · · · 2
+                · 2 · · · · x · · · · 1
+                Y · · · · · · · C · Z 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,3
+                D-C: 2,3
+                B-X: 1
+                X-A: 1
+                A-D: 3
+                D-Y: 2
+                Y-C: 2
+                C-Z: 3
+                Z-W: 3
+                W-B: 3
+                1: BXA
+                2: DYC 
+                3: WBADCZ
+            ", Repeat.RotateAll);
+
             testGenerator.AddTest("ThreePointsMeetingAtBorderSharply", @"
                 12
                 X · · · · · · · · · · · Z 12
@@ -990,7 +1019,39 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 2: CZXA
                 3: AYWB
             ", Repeat.RotateAll);
-            
+
+            testGenerator.AddTest("ThreePointsMeetingPastBorderSharply", @"
+                12
+                X · · · · · · · · · · · Z 12
+                · · · · · · · · · · · ·xB 11
+                · · · · · · · · ·xxx· · · 10
+                · 2 · · · ·xxx· · · · · · 9
+                · · ·xxx· · · · · · · · · 8
+                Ax· · · · · · · · · · · · 7
+                · · 1 · · · · · · · · · · 6
+                Dx· · · · · · · · · · · · 5
+                · · ·xxx· · · · · · · · · 4
+                · 3 · · · ·xxx· · · · · · 3
+                · · · · · · · · ·xxx· · · 2
+                · · · · · · · · · · · ·xC 1
+                Y · · · · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 0 1 2
+                A-B: 1,2
+                C-D: 1,3
+                C-B: 1
+                B-Z: 2
+                Z-X: 2
+                X-A: 2
+                A-D: 1
+                D-Y: 3
+                Y-W: 3
+                W-C: 3
+                C-D: 3
+                1: BADC
+                2: BZXA
+                3: DYWC
+            ", Repeat.RotateAll);
+
             List<(string, TestPurpose)> variants = new List<(string, TestPurpose)>()
             {
                 ("GeneratedTest_Edges", TestPurpose.AssertEdges),
@@ -1007,11 +1068,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
             };
 
             // todo: edge length
-            
+
             for (int i = 0; i < 2; i++)
             {
                 TestBorderLogic borderLogic = i == 0 ? TestBorderLogic.UnclosedBorders : TestBorderLogic.ClosedBorders;
-                    
+
                 foreach ((string testName, TestPurpose testPurpose) in variants)
                 {
                     string fullTestName = testName + "_" + (borderLogic == TestBorderLogic.UnclosedBorders ? "OpenBorders" : "ClosedBorders");
@@ -1026,7 +1087,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     //Console.WriteLine(output);
                 }
             }
-            
+
             Console.WriteLine("Done.");
         }
 
@@ -1057,7 +1118,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 if (string.IsNullOrWhiteSpace(layout)) throw new ArgumentException();
                 if (_tests.Any(t => t.Name == name)) throw new ArgumentException();
 
-                
+
                 Console.WriteLine("Parsing data for test " + name + "...");
 
 
@@ -1066,7 +1127,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 if (lines.Length == 0) throw new ArgumentException();
 
                 int size = int.Parse(lines[0]);
-                
+
                 int minX = 0;
                 int minY = 0;
                 int maxX = size * 100;
@@ -1105,7 +1166,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                             case >= '0' and <= '9':
                                 if (x % 2 != 0) throw new ArgumentException();
-                                
+
                                 sites.Add(new Site(x * _horStepSize, y * _verStepSize, int.Parse(symbol.ToString())));
                                 break;
 
@@ -1117,7 +1178,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                                 else // in spacing, which means it's for the previous cell
                                 {
                                     if (line[x - 1] < '0' || line[x - 1] > '9') throw new ArgumentException();
-                                    
+
                                     points.Add(new Point((x - 1) * _horStepSize, y * _verStepSize, symbol, symbol >= 'W'));
                                 }
 
@@ -1134,7 +1195,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 List<Edge> edges = new List<Edge>();
 
                 bool seenSite = false;
-                
+
                 for (int ex = verSteps + 2; ex < lines.Length; ex++)
                 {
                     string line = lines[ex];
@@ -1146,13 +1207,13 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     // "1: ABCD !"
 
                     if (line.Length < 1) throw new ArgumentException();
-                    
+
                     char firstSymbol = line[0];
 
                     if (firstSymbol >= 'A' && firstSymbol <= 'Z')
                     {
                         if (seenSite) throw new ArgumentException();
-                        
+
                         if (line.Length != 3 && line.Length < 6) throw new ArgumentException();
 
                         int fromId = firstSymbol;
@@ -1215,28 +1276,28 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                         int siteId = int.Parse(firstSymbol.ToString());
                         Site? site = sites.FirstOrDefault(p => p.Id == siteId);
-                        
+
                         if (site == null) throw new ArgumentException();
 
                         if (line[1] != ':') throw new ArgumentException();
-                        
+
                         if (line[2] != ' ') throw new ArgumentException();
 
                         string pointString = line.Substring(3);
 
                         string[] pointStringSections = pointString.Split(' ');
-                        
+
                         if (pointStringSections.Length > 2) throw new ArgumentException();
 
                         string pointSection = pointStringSections[0];
-                        
+
                         if (pointStringSections.Length == 2)
                         {
                             string modifierSection = pointStringSections[1];
-                            
+
                             if (modifierSection.Length != 1) throw new ArgumentException();
                             if (modifierSection[0] != '!') throw new ArgumentException();
-                            
+
                             site.UndefinedPointOrder = true;
                         }
 
@@ -1244,23 +1305,23 @@ namespace SharpVoronoiLib.UnitTestGenerator
                             site.Points = new[] { new List<Point>() };
                         else
                             site.Points = new[] { new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>(), new List<Point>() };
-                        
+
                         for (int c = 0; c < pointSection.Length; c++)
                         {
                             char idSymbol = pointSection[c];
                             int id = idSymbol;
-                            
+
                             Point? point = points.FirstOrDefault(p => p.Id == id);
-                            
+
                             if (point == null) throw new ArgumentException();
 
                             int quadrant;
-                            
+
                             if (site.UndefinedPointOrder)
                                 quadrant = 0;
                             else
                                 quadrant = GetQuadrant(minX, minY, maxX, maxY, site, point);
-                            
+
                             site.Points[quadrant].Add(point);
                         }
                     }
@@ -1271,7 +1332,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 }
 
                 Test newTest = new Test(
-                    minX, minY, maxX, maxY, name, 
+                    minX, minY, maxX, maxY, name,
                     sites, points, edges
                 );
 
@@ -1340,7 +1401,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 foreach (Test test in _tests)
                 {
                     // Header
-                    
+
                     if (test is RepeatedTest repeatedTest)
                     {
                         List<string> summary = BuildSummary(repeatedTest.Repeated, repeatedTest.OriginalName);
@@ -1353,7 +1414,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     stringBuilder.AppendPaddedLine(2, @"{");
 
                     // Arrange
-                    
+
                     stringBuilder.AppendPaddedLine(3, @"// Arrange", true);
 
                     stringBuilder.AppendPaddedLine(3, @"List<VoronoiSite> sites = new List<VoronoiSite>");
@@ -1370,21 +1431,21 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     stringBuilder.AppendLine();
 
                     // Act
-                    
+
                     stringBuilder.AppendPaddedLine(3, @"// Act", true);
-                    
+
                     stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, " + test.MinX + @", " + test.MinY + @", " + test.MaxX + @", " + test.MaxY + BorderLogicToRealEnumParam(borderLogic) + @").ToList();");
                     stringBuilder.AppendLine();
 
                     // Assume + Assert
-                    
+
                     switch (purpose)
                     {
                         case TestPurpose.AssertEdges:
                             stringBuilder.AppendPaddedLine(3, @"// Assert", true);
                             AppendAssertions(BuildEdgeAssertions(test.Edges, borderLogic, true));
                             break;
-                        
+
                         case TestPurpose.AssertSitePoints:
                             stringBuilder.AppendPaddedLine(3, @"// Assert", true);
                             AppendAssertions(BuildSitePointsAssertions(test.Edges, test.Sites, borderLogic, false, true));
@@ -1480,13 +1541,13 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         default:
                             throw new ArgumentOutOfRangeException(nameof(purpose), purpose, null);
                     }
-                    
+
                     void AppendAssertions(IEnumerable<string> assertions)
                     {
                         foreach (string assertion in assertions)
                             stringBuilder.AppendPaddedLine(3, assertion);
                     }
-                    
+
                     // Footer
 
                     stringBuilder.AppendPaddedLine(2, @"}", true);
@@ -1498,11 +1559,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 return stringBuilder.ToString();
             }
 
-            
+
             private int GetQuadrant(int minX, int minY, int maxX, int maxY, Site site, Point point)
             {
                 //            ^ Y
-                //            |     
+                //            |
                 //         3  2  1
                 //      3     |     1
                 //     3      |      1
@@ -1510,7 +1571,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 //     5      |      7
                 //      5     |     7
                 //         5  6  7
-                //            |    
+                //            |
 
                 if (point.Y < site.Y)
                 {
@@ -1540,7 +1601,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     {
                         // Ambiguous - site and point are at the same location
                         // Hard-coded to our cases where we know we place these as border/corner tests
-                        
+
                         // 2 +---------+ 0
                         //   |         |
                         //   |    ·    |
@@ -1567,10 +1628,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 {
                     case TestBorderLogic.UnclosedBorders:
                         return !edge.Border;
-                    
+
                     case TestBorderLogic.ClosedBorders:
                         return true;
-                    
+
                     default:
                         throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);
                 }
@@ -1582,10 +1643,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 {
                     case TestBorderLogic.UnclosedBorders:
                         return !point.Corner;
-                    
+
                     case TestBorderLogic.ClosedBorders:
                         return true;
-                    
+
                     default:
                         throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);
                 }
@@ -1602,10 +1663,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 {
                     case TestBorderLogic.UnclosedBorders:
                         return ", " + nameof(BorderEdgeGeneration) + "." + nameof(BorderEdgeGeneration.DoNotMakeBorderEdges);
-                    
+
                     case TestBorderLogic.ClosedBorders:
                         return ""; // nameof(BorderEdgeGeneration) + "." + nameof(BorderEdgeGeneration.MakeBorderEdges); -- default
-                    
+
                     default:
                         throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);
                 }
@@ -1684,11 +1745,11 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     case TestBorderLogic.UnclosedBorders:
                         strings.Add(@"/// These tests are run without generating the border edges, i.e. <see cref=""" + nameof(BorderEdgeGeneration) + @"." + nameof(BorderEdgeGeneration.DoNotMakeBorderEdges) + @"""/>.");
                         break;
-                    
+
                     case TestBorderLogic.ClosedBorders:
                         strings.Add(@"/// These tests are run with generating the border edges, i.e. <see cref=""" + nameof(BorderEdgeGeneration) + @"." + nameof(BorderEdgeGeneration.MakeBorderEdges) + @"""/>.");
                         break;
-                    
+
                     default:
                         throw new ArgumentOutOfRangeException(nameof(borderLogic), borderLogic, null);
                 }
@@ -1754,9 +1815,9 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                 int expectedCount = CountExpectedRelevantEdges(edges, borderLogic);
                 strings.Add(GetAssertEqualMethodStart(assert) + expectedCount + GetAssertEqualMethodSeparator(assert) + @"edges.Count, ""Expected: edge count " + expectedCount + @""");");
-                
+
                 strings.Add(GetAssertNotNullMethodStart(assert) + @"edges);");
-                
+
                 foreach (Edge edge in edges.Where(e => EdgeMatchesBorderLogic(e, borderLogic)))
                 {
                     string comment = (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id;
@@ -1854,10 +1915,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         foreach (Edge neighbour in neighbours)
                         {
                             string comment = (char)edge.FromPoint.Id + @"-" + (char)edge.ToPoint.Id + " neighbours " + (char)neighbour.FromPoint.Id + @"-" + (char)neighbour.ToPoint.Id;
-                            
+
                             strings.Add(GetAssertTrueMethodStart(assert) + @"edge." + nameof(VoronoiEdge.Neighbours) + @".Contains(FindEdge(edges, " + neighbour.FromPoint.X + @", " + neighbour.FromPoint.Y + @", " + neighbour.ToPoint.X + @", " + neighbour.ToPoint.Y + @")), ""Expected: edge " + comment + @"""); // " + comment);
                         }
-                        
+
                         //if (assert)
                         //    strings.Add(@"});");
                     }
@@ -1973,7 +2034,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                                     else
                                     {
                                         strings.Add("// Exact starting point is undefined, so we only check that points are sequential");
-                                        // we only have 1 "quadrant" for undefined order, so this will only appear once so we can keep it nested 
+                                        // we only have 1 "quadrant" for undefined order, so this will only appear once so we can keep it nested
 
                                         for (int i = 0; i < applicablePoints.Count; i++)
                                         {
@@ -2008,12 +2069,12 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 {
                     foreach (Site site in sites.OrderBy(s => s.Id))
                     {
-                        List<Point> points = 
+                        List<Point> points =
                             site.Points
                                 .SelectMany(sp => sp)
                                 .Where(p => PointMatchesBorderLogic(p, borderLogic))
                                 .ToList();
-                        
+
                         (double centroidX, double centroidY) = GetSiteCentroid(site, points, borderLogic, out string formula);
 
                         strings.Add(@"// Centroid of #" + site.Id + @" in " + string.Join("-", points.Select(p => (char)p.Id)) + @" is at ~(" + centroidX.ToString("F0") + @", " + centroidY.ToString("F0") + ") (using " + formula + " formula)");
@@ -2189,8 +2250,8 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 {
                     // Points are ordered ccw,
                     // so there are only 2 possible rectangles - as given and rotated 90°
-                    // 1--4      4--3 
-                    // |  |  or  |  | 
+                    // 1--4      4--3
+                    // |  |  or  |  |
                     // 2--3      1--2
                     // All other cases are symmetric
 
@@ -2216,12 +2277,12 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     corner2 = null;
                     return false;
 
-                    
+
                     static bool ArePointsInARectangle(Point p1, Point p2, Point p3, Point p4)
                     {
                         // Symmetric hor/ver, so:
                         // 1--4      2--3      4--1      3--2
-                        // |  |  or  |  |  or  |  |  or  |  | 
+                        // |  |  or  |  |  or  |  |  or  |  |
                         // 2--3      1--4      3--2      4--1
 
                         return p1.X == p2.X && // 1 and 2 on same vertical
@@ -2323,7 +2384,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     {
                         strings.Add(GetAssertEqualMethodStart(assert) + nameof(PointBorderLocation) + @"." + PointLocationToExpectedBorderLocation(test, point) + GetAssertEqualMethodSeparator(assert) + @"FindPoint(edges, " + point.X + @", " + point.Y + @")." + nameof(VoronoiPoint.BorderLocation) + @"); // " + (char)point.Id);
                     }
-                
+
                 }
                 else
                 {
@@ -2447,14 +2508,14 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 // Points are sequential
                 if (Math.Abs(toIndex - fromIndex) == 1)
                     return Math.Min(fromIndex, toIndex); // select previous index (going to next)
-                
+
                 // Points wrap around
                 if (Math.Abs(toIndex - fromIndex) == flatPoints.Count - 1)
                     return Math.Max(fromIndex, toIndex); // select last index (going to first)
 
                 throw new InvalidOperationException(
-                    "Points " + 
-                    string.Join(",", flatPoints.Select(p => (char)p.Id).ToArray()) + 
+                    "Points " +
+                    string.Join(",", flatPoints.Select(p => (char)p.Id).ToArray()) +
                     " not in order for edge " + (char)edge.FromPoint.Id + " " + (char)edge.ToPoint.Id);
             }
 
@@ -2695,7 +2756,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     Points = points;
                     Edges = edges;
                     Name = name;
-                    
+
                     Width = maxX - minX;
                     Height = maxY - minY;
                 }
@@ -2722,7 +2783,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     MaxY = givenTest.MaxY;
                     Width = givenTest.Width;
                     Height = givenTest.Height;
-                    
+
                     Sites = new List<Site>();
                     Points = new List<Point>();
                     Edges = new List<Edge>();
@@ -2768,7 +2829,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                                 targetQuadrant = sourceQuadrant; // 0, basically
                             else
                                 targetQuadrant = TransformQuadrantIndex(sourceQuadrant, repeat);
-                        
+
                             for (int p = 0; p < givenSite.Points[sourceQuadrant].Count; p++)
                             {
                                 Point givenPoint = givenSite.Points[sourceQuadrant][p];
@@ -2820,7 +2881,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 private static int MirrorAcrossY(int quadrant)
                 {
                     //            ^
-                    //            |     
+                    //            |
                     //         3  2  1
                     //      3     |     1
                     //     3      |      1
@@ -2828,10 +2889,10 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     //     5      |      7
                     //      5     |     7
                     //         5  6  7
-                    //            |     
+                    //            |
                     // mirrors to
                     //            ^
-                    //            |     
+                    //            |
                     //         1  2  3
                     //      1     |     3
                     //     1      |      3
@@ -2839,7 +2900,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     //     7      |      5
                     //      7     |     5
                     //         7  6  5
-                    //            |     
+                    //            |
 
                     return quadrant switch
                     {
@@ -2874,7 +2935,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     {
                         case Repeat.Mirror:
                             return (xc, yc); // no change except what mirror already applied
-                            
+
                         case Repeat.Rotate90:
                         case Repeat.MirrorAndRotate90:
                             return (x0 + yc, y1 - xc);
@@ -2890,7 +2951,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         case Repeat.RotateAll:
                         case Repeat.RotateAndMirrorAll:
                             throw new InvalidOperationException();
-                        
+
                         default:
                             throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                     }
@@ -2914,7 +2975,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         case Repeat.RotateAndMirrorAll:
                         case Repeat.RotateAll:
                             throw new InvalidOperationException();
-                        
+
                         default:
                             throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                     }
@@ -2948,7 +3009,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                         case Repeat.RotateAll:
                         case Repeat.RotateAndMirrorAll:
                             throw new InvalidOperationException();
-                        
+
                         default:
                             throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null);
                     }
@@ -2971,7 +3032,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     Id = id;
                 }
 
-                
+
                 public override string ToString()
                 {
                     return "#" + Id + "(" + X + ", " + Y + ")";
@@ -2994,7 +3055,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     Corner = corner;
                 }
 
-                
+
                 public override string ToString()
                 {
                     return (char)Id + "(" + X + ", " + Y + ")";
@@ -3017,14 +3078,14 @@ namespace SharpVoronoiLib.UnitTestGenerator
                     Border = border;
                 }
 
-                
+
                 public IEnumerable<Point> Points()
                 {
                     yield return FromPoint;
                     yield return ToPoint;
                 }
 
-                
+
                 public override string ToString()
                 {
                     return FromPoint + "-" + ToPoint;
@@ -3038,7 +3099,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
             Rotate180,
             Rotate270,
             RotateAll,
-            Mirror,            
+            Mirror,
             MirrorAndRotate90,
             MirrorAndRotate180,
             MirrorAndRotate270,
