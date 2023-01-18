@@ -106,7 +106,7 @@ namespace SharpVoronoiLib
 
             //main case:
             //if both left section and right section point to the same valid arc
-            //we need to split the arc into a left arc and a right arc with our 
+            //we need to split the arc into a left arc and a right arc with our
             //new arc sitting in the middle
             if (leftSection != null && leftSection == rightSection)
             {
@@ -138,7 +138,7 @@ namespace SharpVoronoiLib
                 //store the left edge on each arc section
                 newSection.Data.Edge = leftEdge;
                 rightSection.Data.Edge = rightEdge;
-                
+
                 //store neighbors for delaunay
                 leftSection.Data.Site.AddNeighbour(newSection.Data.Site);
                 newSection.Data.Site.AddNeighbour(leftSection.Data.Site);
@@ -164,7 +164,7 @@ namespace SharpVoronoiLib
                 newSection.Data.Site.AddNeighbour(leftSection.Data.Site);
 
                 newSection.Data.Edge = newEdge;
-                
+
                 //cant check circles since they are colinear
             }
 
@@ -215,7 +215,7 @@ namespace SharpVoronoiLib
                 {
                     // Reuse vertex (or we will have 2 ongoing points at the same location)
                     vertex = rightSection.Data.Edge.Start;
-                    
+
                     // Discard the edge
                     edges.Remove(rightSection.Data.Edge);
 
@@ -311,7 +311,7 @@ namespace SharpVoronoiLib
             //add neighbors for delaunay
             prev.Data.Site.AddNeighbour(next.Data.Site);
             next.Data.Site.AddNeighbour(prev.Data.Site);
-            
+
             //remove the sectionfrom the tree
             beachLine.RemoveNode(section);
             foreach (RBTreeNode<BeachSection> remove in toBeRemoved)
@@ -374,9 +374,6 @@ namespace SharpVoronoiLib
             //focus, the two arcs cannot converge
             if (leftSite == rightSite)
                 return;
-
-            // http://mathforum.org/library/drmath/view/55002.html
-            // because every piece of this program needs to be demoed in maple >.<
 
             //MATH HACKS: place center at origin and
             //draw vectors a and c to
