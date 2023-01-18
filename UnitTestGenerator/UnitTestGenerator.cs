@@ -1051,6 +1051,34 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: DYWC
             ", Repeat.RotateAll);
             
+            testGenerator.AddTest("ThreePointsMeetingSharply", @"
+                10
+                X · · · · · B · · · Z 10
+                · · · 1 · · · · · · · 9
+                · · · · · x · · · · · 8
+                · · · · · · · 2 · · · 7
+                · · · · x · · · · · C 6
+                · · · · · · · · x · · 5
+                · · · x · · x · · · · 4
+                · · · · x · · · · 3 · 3
+                · · A · · · · · · · · 2
+                · x · · · · · · · · · 1
+                D · · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,2
+                A-C: 2,3
+                A-D: 1,3
+                B-X: 1
+                X-D: 1
+                D-W: 3
+                W-C: 3
+                C-Z: 2
+                Z-B: 2
+                1: BXDA
+                2: ZBAC
+                3: CADW
+            ", Repeat.RotateAll);
+            
             testGenerator.AddTest("ThreePointsMeetingAtCorner", @"
                 10
                 X · · · · B · · · · Z 10
