@@ -9435,6 +9435,310 @@ namespace SharpVoronoiLib.UnitTests
         }
 
         [Test]
+        public void ThreePointsMeetingPastCorner()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 1100), // #1
+                new VoronoiSite(700, 700), // #2
+                new VoronoiSite(1100, 100), // #3
+            };
+
+            // 1200 ↑                             C                              
+            //      |                           ,'                               
+            // 1100 |    1                    ,'                                 
+            //      |                        ·                                   
+            // 1000 |                      ,'                                    
+            //      |                    ,'                                      
+            //  900 |                   ·                                        
+            //      |                 ,'                                         
+            //  800 |               ,'                                           
+            //      |              ·                                             
+            //  700 |            ,'                    2                         
+            //      |          ,'                                                
+            //  600 |         ·                                                ,D
+            //      |       ,'                                             ,·''  
+            //  500 |     ,'                                           ,,''      
+            //      |    ·                                         ,,·'          
+            //  400 |  ,'                                       ,·'              
+            //      |,'                                     ,·''                 
+            //  300 A                                   ,,''                     
+            //      |                               ,,·'                         
+            //  200 |                            ,·'                             
+            //      |                        ,·''                                
+            //  100 |                    ,,''                              3     
+            //      |                ,,·'                                        
+            //    0 └--------------B'-------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 2 == sites[0].Points.Count(), "Expected: site #1 point count 2"); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 0, 300), "Expected: site #1 has A"); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 600, 1200), "Expected: site #1 has C"); // #1 has C
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 4 == sites[1].Points.Count(), "Expected: site #2 point count 4"); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 0, 300), "Expected: site #2 has A"); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 300, 0), "Expected: site #2 has B"); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 600, 1200), "Expected: site #2 has C"); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 1200, 600), "Expected: site #2 has D"); // #2 has D
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 2 == sites[2].Points.Count(), "Expected: site #3 point count 2"); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 300, 0), "Expected: site #3 has B"); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 1200, 600), "Expected: site #3 has D"); // #3 has D
+
+            // Assert
+
+            // Centroid of #1 in C-A is at ~(100, 1100) (using generic closed polygon formula)
+            Assert.AreEqual(100.00, sites[0].Centroid.X, 0.01);
+            Assert.AreEqual(1100.00, sites[0].Centroid.Y, 0.01);
+            // Centroid of #2 in C-A-B-D is at ~(567, 567) (using generic closed polygon formula)
+            Assert.AreEqual(566.67, sites[1].Centroid.X, 0.01);
+            Assert.AreEqual(566.67, sites[1].Centroid.Y, 0.01);
+            // Centroid of #3 in D-B is at ~(1100, 100) (using generic closed polygon formula)
+            Assert.AreEqual(1100.00, sites[2].Centroid.X, 0.01);
+            Assert.AreEqual(100.00, sites[2].Centroid.Y, 0.01);
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingPastCorner"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingPastCorner_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(1100, 1100), // #1
+                new VoronoiSite(700, 500), // #2
+                new VoronoiSite(100, 100), // #3
+            };
+
+            // 1200 ↑              A,                                            
+            //      |                ''·,                                        
+            // 1100 |                    '',,                              1     
+            //      |                        '·,,                                
+            // 1000 |                            '·,                             
+            //      |                               ''·,                         
+            //  900 B                                   '',,                     
+            //      |',                                     '·,,                 
+            //  800 |  ',                                       '·,              
+            //      |    ·                                         ''·,          
+            //  700 |     ',                                           '',,      
+            //      |       ',                                             '·,,  
+            //  600 |         ·                                                'C
+            //      |          ',                                                
+            //  500 |            ',                    2                         
+            //      |              ·                                             
+            //  400 |               ',                                           
+            //      |                 ',                                         
+            //  300 |                   ·                                        
+            //      |                    ',                                      
+            //  200 |                      ',                                    
+            //      |                        ·                                   
+            //  100 |    3                    ',                                 
+            //      |                           ',                               
+            //    0 └-----------------------------D-----------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 2 == sites[0].Points.Count(), "Expected: site #1 point count 2"); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 300, 1200), "Expected: site #1 has A"); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 1200, 600), "Expected: site #1 has C"); // #1 has C
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 4 == sites[1].Points.Count(), "Expected: site #2 point count 4"); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 300, 1200), "Expected: site #2 has A"); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 0, 900), "Expected: site #2 has B"); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 1200, 600), "Expected: site #2 has C"); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 600, 0), "Expected: site #2 has D"); // #2 has D
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 2 == sites[2].Points.Count(), "Expected: site #3 point count 2"); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 0, 900), "Expected: site #3 has B"); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 600, 0), "Expected: site #3 has D"); // #3 has D
+
+            // Assert
+
+            // Centroid of #1 in A-C is at ~(1100, 1100) (using generic closed polygon formula)
+            Assert.AreEqual(1100.00, sites[0].Centroid.X, 0.01);
+            Assert.AreEqual(1100.00, sites[0].Centroid.Y, 0.01);
+            // Centroid of #2 in C-A-B-D is at ~(567, 633) (using generic closed polygon formula)
+            Assert.AreEqual(566.67, sites[1].Centroid.X, 0.01);
+            Assert.AreEqual(633.33, sites[1].Centroid.Y, 0.01);
+            // Centroid of #3 in B-D is at ~(100, 100) (using generic closed polygon formula)
+            Assert.AreEqual(100.00, sites[2].Centroid.X, 0.01);
+            Assert.AreEqual(100.00, sites[2].Centroid.Y, 0.01);
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingPastCorner"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingPastCorner_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(1100, 100), // #1
+                new VoronoiSite(500, 500), // #2
+                new VoronoiSite(100, 1100), // #3
+            };
+
+            // 1200 ↑                                           ,B               
+            //      |                                       ,·''                 
+            // 1100 |    3                              ,,''                     
+            //      |                               ,,·'                         
+            // 1000 |                            ,·'                             
+            //      |                        ,·''                                
+            //  900 |                    ,,''                                   A
+            //      |                ,,·'                                     ,' 
+            //  800 |             ,·'                                       ,'   
+            //      |         ,·''                                         ·     
+            //  700 |     ,,''                                           ,'      
+            //      | ,,·'                                             ,'        
+            //  600 D'                                                ·          
+            //      |                                               ,'           
+            //  500 |                        2                    ,'             
+            //      |                                            ·               
+            //  400 |                                          ,'                
+            //      |                                        ,'                  
+            //  300 |                                       ·                    
+            //      |                                     ,'                     
+            //  200 |                                   ,'                       
+            //      |                                  ·                         
+            //  100 |                                ,'                    1     
+            //      |                              ,'                            
+            //    0 └-----------------------------C-----------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 2 == sites[0].Points.Count(), "Expected: site #1 point count 2"); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 1200, 900), "Expected: site #1 has A"); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 600, 0), "Expected: site #1 has C"); // #1 has C
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 4 == sites[1].Points.Count(), "Expected: site #2 point count 4"); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 1200, 900), "Expected: site #2 has A"); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 900, 1200), "Expected: site #2 has B"); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 600, 0), "Expected: site #2 has C"); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 0, 600), "Expected: site #2 has D"); // #2 has D
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 2 == sites[2].Points.Count(), "Expected: site #3 point count 2"); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 900, 1200), "Expected: site #3 has B"); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 0, 600), "Expected: site #3 has D"); // #3 has D
+
+            // Assert
+
+            // Centroid of #1 in A-C is at ~(1100, 100) (using generic closed polygon formula)
+            Assert.AreEqual(1100.00, sites[0].Centroid.X, 0.01);
+            Assert.AreEqual(100.00, sites[0].Centroid.Y, 0.01);
+            // Centroid of #2 in A-B-D-C is at ~(633, 633) (using generic closed polygon formula)
+            Assert.AreEqual(633.33, sites[1].Centroid.X, 0.01);
+            Assert.AreEqual(633.33, sites[1].Centroid.Y, 0.01);
+            // Centroid of #3 in B-D is at ~(100, 1100) (using generic closed polygon formula)
+            Assert.AreEqual(100.00, sites[2].Centroid.X, 0.01);
+            Assert.AreEqual(1100.00, sites[2].Centroid.Y, 0.01);
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingPastCorner"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingPastCorner_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 100), // #1
+                new VoronoiSite(500, 700), // #2
+                new VoronoiSite(1100, 1100), // #3
+            };
+
+            // 1200 ↑                             D                              
+            //      |                              ',                            
+            // 1100 |                                ',                    3     
+            //      |                                  ·                         
+            // 1000 |                                   ',                       
+            //      |                                     ',                     
+            //  900 |                                       ·                    
+            //      |                                        ',                  
+            //  800 |                                          ',                
+            //      |                                            ·               
+            //  700 |                        2                    ',             
+            //      |                                               ',           
+            //  600 C,                                                ·          
+            //      | ''·,                                             ',        
+            //  500 |     '',,                                           ',      
+            //      |         '·,,                                         ·     
+            //  400 |             '·,                                       ',   
+            //      |                ''·,                                     ', 
+            //  300 |                    '',,                                   B
+            //      |                        '·,,                                
+            //  200 |                            '·,                             
+            //      |                               ''·,                         
+            //  100 |    1                              '',,                     
+            //      |                                       '·,,                 
+            //    0 └-------------------------------------------'A--------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assume
+
+            Assume.That(() => null != sites[0].Points);
+            Assume.That(() => 2 == sites[0].Points.Count(), "Expected: site #1 point count 2"); // #1
+            Assume.That(() => HasPoint(sites[0].Points, 900, 0), "Expected: site #1 has A"); // #1 has A
+            Assume.That(() => HasPoint(sites[0].Points, 0, 600), "Expected: site #1 has C"); // #1 has C
+            Assume.That(() => null != sites[1].Points);
+            Assume.That(() => 4 == sites[1].Points.Count(), "Expected: site #2 point count 4"); // #2
+            Assume.That(() => HasPoint(sites[1].Points, 900, 0), "Expected: site #2 has A"); // #2 has A
+            Assume.That(() => HasPoint(sites[1].Points, 1200, 300), "Expected: site #2 has B"); // #2 has B
+            Assume.That(() => HasPoint(sites[1].Points, 0, 600), "Expected: site #2 has C"); // #2 has C
+            Assume.That(() => HasPoint(sites[1].Points, 600, 1200), "Expected: site #2 has D"); // #2 has D
+            Assume.That(() => null != sites[2].Points);
+            Assume.That(() => 2 == sites[2].Points.Count(), "Expected: site #3 point count 2"); // #3
+            Assume.That(() => HasPoint(sites[2].Points, 1200, 300), "Expected: site #3 has B"); // #3 has B
+            Assume.That(() => HasPoint(sites[2].Points, 600, 1200), "Expected: site #3 has D"); // #3 has D
+
+            // Assert
+
+            // Centroid of #1 in C-A is at ~(100, 100) (using generic closed polygon formula)
+            Assert.AreEqual(100.00, sites[0].Centroid.X, 0.01);
+            Assert.AreEqual(100.00, sites[0].Centroid.Y, 0.01);
+            // Centroid of #2 in D-C-A-B is at ~(633, 567) (using generic closed polygon formula)
+            Assert.AreEqual(633.33, sites[1].Centroid.X, 0.01);
+            Assert.AreEqual(566.67, sites[1].Centroid.Y, 0.01);
+            // Centroid of #3 in D-B is at ~(1100, 1100) (using generic closed polygon formula)
+            Assert.AreEqual(1100.00, sites[2].Centroid.X, 0.01);
+            Assert.AreEqual(1100.00, sites[2].Centroid.Y, 0.01);
+        }
+
+        [Test]
         public void FourPointsMeetingAtCorner()
         {
             // Arrange

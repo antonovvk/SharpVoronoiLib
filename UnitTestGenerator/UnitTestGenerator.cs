@@ -1107,6 +1107,37 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: CAW
             ", Repeat.RotateAll);
             
+            testGenerator.AddTest("ThreePointsMeetingPastCorner", @"
+                12
+                X · · · · · C · · · · · Z 12
+                · 1 · · · · · · · · · · · 11
+                · · · · · · · · · · · · · 10
+                · · · · x · · · · · · · · 9
+                · · · · · · · · · · · · · 8
+                · · · · · · · 2 · · · · · 7
+                · · x · · · · · · · · · D 6
+                · · · · · · · · · · · · · 5
+                · · · · · · · · · x · · · 4
+                A · · · · · · · · · · · · 3
+                · · · · · · x · · · · · · 2
+                · · · · · · · · · · · 3 · 1
+                Y · · B · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 0 1 12
+                A-C: 1,2
+                B-D: 2,3
+                X-A: 1
+                A-Y: 2
+                Y-B: 2
+                B-W: 3
+                W-D: 3
+                D-Z: 2
+                Z-C: 2
+                C-X: 1
+                1: CXA
+                2: ZCAYBD
+                3: DBW
+            ", Repeat.RotateAll);
+            
             testGenerator.AddTest("FourPointsMeetingAtCorner", @"
                 9
                 X · · C · · · · · B 9
