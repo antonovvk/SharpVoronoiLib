@@ -20,6 +20,11 @@ namespace SharpVoronoiLib
                 }
                 else
                 {
+                    // Since the edge is not valid, then it also cannot "connect" sites as neighbours.
+                    // Technically, the sites are neighbours on an infinite place, but clipping at borders means foregoing such neighbouring.
+                    edge.Left!.RemoveNeighbour(edge.Right!);
+                    edge.Right!.RemoveNeighbour(edge.Left!);
+                    
                     edges.RemoveAt(i);
                     i--;
                 }
@@ -36,8 +41,8 @@ namespace SharpVoronoiLib
         {
             bool accept = false;
 
-            //if its a ray
-            if (edge.End == null)
+            // If it's a ray
+            if (edge.End == null!)
             {
                 accept = ClipRay(edge, minX, minY, maxX, maxY);
             }
@@ -95,8 +100,8 @@ namespace SharpVoronoiLib
                             // (point is shared between edges, so we are basically setting this for all the other edges)
                         
                             // The neighbours in-between (ray away outside the border) are not actually connected
-                            edge.Left.RemoveNeighbour(edge.Right);
-                            edge.Right.RemoveNeighbour(edge.Left);
+                            edge.Left!.RemoveNeighbour(edge.Right!);
+                            edge.Right!.RemoveNeighbour(edge.Left!);
 
                             // Not a valid edge
                             return false;
@@ -115,8 +120,8 @@ namespace SharpVoronoiLib
                             // (point is shared between edges, so we are basically setting this for all the other edges)
                         
                             // The neighbours in-between (ray away outside the border) are not actually connected
-                            edge.Left.RemoveNeighbour(edge.Right);
-                            edge.Right.RemoveNeighbour(edge.Left);
+                            edge.Left!.RemoveNeighbour(edge.Right!);
+                            edge.Right!.RemoveNeighbour(edge.Left!);
                         
                             // Not a valid edge
                             return false;
@@ -127,18 +132,21 @@ namespace SharpVoronoiLib
                     }
                 }
             }
-            //if we have a neighbor
+            
+            // If we have a neighbor
             if (edge.LastBeachLineNeighbor != null)
             {
-                //check it
+                // Check it
                 bool valid = ClipEdge(edge.LastBeachLineNeighbor, minX, minY, maxX, maxY);
-                //both are valid
+                
+                // Both are valid
                 if (accept && valid)
                 {
                     edge.Start = edge.LastBeachLineNeighbor.End;
                 }
-                //this edge isn't valid, but the neighbor is
-                //flip and set
+                
+                // This edge isn't valid, but the neighbor is
+                // Flip and set
                 if (!accept && valid)
                 {
                     edge.Start = edge.LastBeachLineNeighbor.End;
@@ -146,6 +154,7 @@ namespace SharpVoronoiLib
                     accept = true;
                 }
             }
+            
             return accept;
             
             
@@ -178,13 +187,13 @@ namespace SharpVoronoiLib
             {
                 if (!Within(start.Y, minY, maxY))
                     return false;
-                
+
                 if (edge.SlopeRun.ApproxGreaterThan(0) && start.X.ApproxGreaterThan(maxX))
                     return false;
-                
+
                 if (edge.SlopeRun.ApproxLessThan(0) && start.X.ApproxLessThan(minX))
                     return false;
-                
+
                 if (Within(start.X, minX, maxX))
                 {
                     VoronoiPoint endPoint = 
@@ -200,8 +209,8 @@ namespace SharpVoronoiLib
                         // (point is shared between edges, so we are basically setting this for all the other edges)
                         
                         // The neighbours in-between (ray away outside the border) are not actually connected
-                        edge.Left.RemoveNeighbour(edge.Right);
-                        edge.Right.RemoveNeighbour(edge.Left);
+                        edge.Left!.RemoveNeighbour(edge.Right!);
+                        edge.Right!.RemoveNeighbour(edge.Left!);
                         
                         // Not a valid edge
                         return false;
@@ -222,21 +231,24 @@ namespace SharpVoronoiLib
                         edge.End = new VoronoiPoint(minX, start.Y, PointBorderLocation.Left);
                     }
                 }
+                
                 return true;
             }
-            
+
+            // TODO: what if the below quick fails are zero length?
+
             //vertical ray
             if (edge.SlopeRun.ApproxEqual(0))
             {
                 if (start.X.ApproxLessThan(minX) || start.X.ApproxGreaterThan(maxX))
                     return false;
-                
+
                 if (edge.SlopeRise.ApproxGreaterThan(0) && start.Y.ApproxGreaterThan(maxY))
                     return false;
-                
+
                 if (edge.SlopeRise.ApproxLessThan(0) && start.Y.ApproxLessThan(minY))
                     return false;
-                
+
                 if (Within(start.Y, minY, maxY))
                 {
                     VoronoiPoint endPoint = 
