@@ -6348,6 +6348,206 @@ namespace SharpVoronoiLib.UnitTests
         }
 
         [Test]
+        public void ThreePointsMeetingAtCorner()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(100, 700), // #1
+                new VoronoiSite(500, 500), // #2
+                new VoronoiSite(700, 100), // #3
+            };
+
+            // 1000 ↑                        B                         
+            //      |                       '                          
+            //  900 |                     ,'                           
+            //      |                    ,                             
+            //  800 |                   ·                              
+            //      |                  '                               
+            //  700 |    1           ,'                                
+            //      |               ,                                  
+            //  600 |              ·                                   
+            //      |             '                                    
+            //  500 |           ,'           2                      ,,C
+            //      |          ,                               ,,·''   
+            //  400 |         ·                           ,,·''        
+            //      |        '                       ,,·''             
+            //  300 |      ,'                   ,,·''                  
+            //      |     ,                ,,·''                       
+            //  200 |    ·            ,,·''                            
+            //      |   '        ,,·''                                 
+            //  100 | ,'    ,,·''                      3               
+            //      |, ,,·''                                           
+            //    0 A''-----------------------------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 0, 0, 500, 1000), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 0, 1000, 500), "Expected: has edge A-C"); // A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingAtCorner"/> above,
+        /// but all coordinates are rotated 90° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingAtCorner_Rotated90()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(700, 900), // #1
+                new VoronoiSite(500, 500), // #2
+                new VoronoiSite(100, 300), // #3
+            };
+
+            // 1000 A,,                                                
+            //      |' ''·,,                                           
+            //  900 | ',    ''·,,                      1               
+            //      |   ,        ''·,,                                 
+            //  800 |    ·            ''·,,                            
+            //      |     '                ''·,,                       
+            //  700 |      ',                   ''·,,                  
+            //      |        ,                       ''·,,             
+            //  600 |         ·                           ''·,,        
+            //      |          '                               ''·,,   
+            //  500 |           ',           2                      ''B
+            //      |             ,                                    
+            //  400 |              ·                                   
+            //      |               '                                  
+            //  300 |    3           ',                                
+            //      |                  ,                               
+            //  200 |                   ·                              
+            //      |                    '                             
+            //  100 |                     ',                           
+            //      |                       ,                          
+            //    0 └------------------------C------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 0, 1000, 1000, 500), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 0, 1000, 500, 0), "Expected: has edge A-C"); // A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingAtCorner"/> above,
+        /// but all coordinates are rotated 180° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingAtCorner_Rotated180()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(900, 300), // #1
+                new VoronoiSite(500, 500), // #2
+                new VoronoiSite(300, 900), // #3
+            };
+
+            // 1000 ↑                                               ,,A
+            //      |                                          ,,·'' ' 
+            //  900 |              3                      ,,·''    ,'  
+            //      |                                ,,·''        ,    
+            //  800 |                           ,,·''            ·     
+            //      |                      ,,·''                '      
+            //  700 |                 ,,·''                   ,'       
+            //      |            ,,·''                       ,         
+            //  600 |       ,,·''                           ·          
+            //      |  ,,·''                               '           
+            //  500 C''                      2           ,'            
+            //      |                                   ,              
+            //  400 |                                  ·               
+            //      |                                 '                
+            //  300 |                               ,'           1     
+            //      |                              ,                   
+            //  200 |                             ·                    
+            //      |                            '                     
+            //  100 |                          ,'                      
+            //      |                         ,                        
+            //    0 └------------------------B------------------------→
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 1000, 1000, 500, 0), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 1000, 0, 500), "Expected: has edge A-C"); // A-C
+        }
+
+        /// <summary>
+        /// This test basically repeats <see cref="ThreePointsMeetingAtCorner"/> above,
+        /// but all coordinates are rotated 270° around the center of the boundary.
+        /// </summary>
+        [Test]
+        public void ThreePointsMeetingAtCorner_Rotated270()
+        {
+            // Arrange
+
+            List<VoronoiSite> sites = new List<VoronoiSite>
+            {
+                new VoronoiSite(300, 100), // #1
+                new VoronoiSite(500, 500), // #2
+                new VoronoiSite(900, 700), // #3
+            };
+
+            // 1000 ↑                        C                         
+            //      |                         '                        
+            //  900 |                          ',                      
+            //      |                            ,                     
+            //  800 |                             ·                    
+            //      |                              '                   
+            //  700 |                               ',           3     
+            //      |                                 ,                
+            //  600 |                                  ·               
+            //      |                                   '              
+            //  500 B,,                      2           ',            
+            //      |  ''·,,                               ,           
+            //  400 |       ''·,,                           ·          
+            //      |            ''·,,                       '         
+            //  300 |                 ''·,,                   ',       
+            //      |                      ''·,,                ,      
+            //  200 |                           ''·,,            ·     
+            //      |                                ''·,,        '    
+            //  100 |              1                      ''·,,    ',  
+            //      |                                          ''·,, , 
+            //    0 └-----------------------------------------------''A
+            //       0  100  200  300  400  500  600  700  800  900 1000 
+
+            // Act
+
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000, BorderEdgeGeneration.DoNotMakeBorderEdges).ToList();
+
+            // Assert
+
+            Assert.AreEqual(2, edges.Count, "Expected: edge count 2");
+            Assert.NotNull(edges);
+            Assert.IsTrue(HasEdge(edges, 1000, 0, 0, 500), "Expected: has edge A-B"); // A-B
+            Assert.IsTrue(HasEdge(edges, 1000, 0, 500, 1000), "Expected: has edge A-C"); // A-C
+        }
+
+        [Test]
         public void FourPointsMeetingAtCorner()
         {
             // Arrange
