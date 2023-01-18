@@ -34,7 +34,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            VoronoiPlane.TessellateOnce(
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(
                 sites,
                 0, 0, 500, 500
             );
@@ -54,6 +54,9 @@ namespace SharpVoronoiLib.UnitTests
             // Site 2 neighbors are 4, 0, 3, 1
             // Site 3 neighbors are 0, 2, 1         <-- incorrect, 1 shouldn't be here
             // Site 4 neighbors are 0, 2, 1         <-- incorrect, 1 shouldn't be here
+
+            foreach (VoronoiEdge edge in edges)
+                Console.WriteLine(edge);
 
             // Assert
 
