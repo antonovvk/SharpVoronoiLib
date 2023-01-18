@@ -252,8 +252,8 @@ namespace SharpVoronoiLib
                         // (point is shared between edges, so we are basically setting this for all the other edges)
                         
                         // The neighbours in-between (ray away outside the border) are not actually connected
-                        edge.Left.RemoveNeighbour(edge.Right);
-                        edge.Right.RemoveNeighbour(edge.Left);
+                        edge.Left!.RemoveNeighbour(edge.Right!);
+                        edge.Right!.RemoveNeighbour(edge.Left!);
                         
                         // Not a valid edge
                         return false;
@@ -279,7 +279,7 @@ namespace SharpVoronoiLib
             
             //works for outside
 
-            double topXValue = CalcX(edge.Slope.Value, maxY, edge.Intercept.Value);
+            double topXValue = CalcX(edge.Slope!.Value, maxY, edge.Intercept!.Value);
             VoronoiPoint topX = new VoronoiPoint(topXValue, maxY, topXValue.ApproxEqual(minX) ? PointBorderLocation.TopLeft : topXValue.ApproxEqual(maxX) ? PointBorderLocation.TopRight : PointBorderLocation.Top);
 
             double rightYValue = CalcY(edge.Slope.Value, maxX, edge.Intercept.Value);
@@ -326,7 +326,7 @@ namespace SharpVoronoiLib
             
 
             //reject candidates which don't align with the slope
-            for (int i = candidates.Count - 1; i > -1; i--)
+            for (int i = candidates.Count - 1; i >= 0; i--)
             {
                 VoronoiPoint candidate = candidates[i];
                 //grab vector representing the edge
@@ -336,8 +336,8 @@ namespace SharpVoronoiLib
                     candidates.RemoveAt(i);
             }
 
-            //if there are two candidates we are outside the closer one is start
-            //the further one is the end
+            // If there are two candidates, we are outside the plane.
+            // The closer candidate is the start point while the further one is the end point.
             if (candidates.Count == 2)
             {
                 double ax = candidates[0].X - start.X;
@@ -349,32 +349,32 @@ namespace SharpVoronoiLib
                 {
                     // Candidate 1 is closer
                     
-                    // Start remains as is
-
+                    if (!edge.Start.ApproxEqual(candidates[1]))
+                        edge.Start = candidates[1];
                     // If the point is already at the right location (i.e. edge.Start == candidates[1]), then keep it.
                     // This preserves the same instance between potential multiple edges.
-                    // The only thing is that it didn't have a border location being an unfinished edge point.
+                    // If not, it's a new clipped point, which will be unique
+                    
+                    // It didn't have a border location being an unfinished edge point.
                     edge.Start.BorderLocation = GetBorderLocationForCoordinate(edge.Start.X, edge.Start.Y, minX, minY, maxX, maxY);
-                    // But this could also be different (i.e. edge.Start != candidates[1]) if coming from a ray outside bounds.
-                    // But we don't care, because such an edge will be removed, so we don't even bother comparing and setting the value.
                         
-                    // The other point didn't have a value yet
+                    // The other point, i.e. end, didn't have a value yet
                     edge.End = candidates[0]; // candidate point already has the border location set correctly
                 }
                 else
                 {
                     // Candidate 2 is closer
 
-                    // Start remains as is
-
+                    if (!edge.Start.ApproxEqual(candidates[0]))
+                        edge.Start = candidates[0];
                     // If the point is already at the right location (i.e. edge.Start == candidates[0]), then keep it.
                     // This preserves the same instance between potential multiple edges.
-                    // The only thing is that it didn't have a border location being an unfinished edge point.
+                    // If not, it's a new clipped point, which will be unique
+
+                    // It didn't have a border location being an unfinished edge point.
                     edge.Start.BorderLocation = GetBorderLocationForCoordinate(edge.Start.X, edge.Start.Y, minX, minY, maxX, maxY);
-                    // But this could also be different (i.e. edge.Start != candidates[0]) if coming from a ray outside bounds.
-                    // But we don't care, because such an edge will be removed, so we don't even bother comparing and setting the value.
                     
-                    // The other point didn't have a value yet
+                    // The other point, i.e. end, didn't have a value yet
                     edge.End = candidates[1]; // candidate point already has the border location set correctly
                 }
             }
