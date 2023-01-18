@@ -1050,6 +1050,34 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 2: BZXA
                 3: DYWC
             ", Repeat.RotateAll);
+            
+            testGenerator.AddTest("FourPointsMeetingAtCorner", @"
+                9
+                X · · C · · · · · B 9
+                · 1 · · · · · · x · 8
+                · · · · 2 · · x · · 7
+                · · x · · · x · · · 6
+                · · · · · x · · · · 5
+                · · · · x · · 3 · · 4
+                · x · x · · · · · D 3
+                · · x · · · x · · · 2
+                · x · x · · · · 4 · 1
+                A · · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9
+                A-B: 2,3
+                A-C: 1,2
+                A-D: 3,4
+                A-W: 4
+                W-D: 4
+                D-B: 3
+                B-C: 2
+                C-X: 1
+                X-A: 1
+                1: CXA
+                2: BCA 
+                3: BAD
+                4: DAW
+            ", Repeat.RotateAll);
 
             List<(string, TestPurpose)> variants = new List<(string, TestPurpose)>()
             {
