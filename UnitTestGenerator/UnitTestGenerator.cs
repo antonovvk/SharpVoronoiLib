@@ -1046,7 +1046,6 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 D-Y: 3
                 Y-W: 3
                 W-C: 3
-                C-D: 3
                 1: BADC
                 2: BZXA
                 3: DYWC

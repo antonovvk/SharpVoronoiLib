@@ -13827,15 +13827,15 @@ namespace SharpVoronoiLib.UnitTests
             //      |                                                           |
             //  600 |         1                                                 |
             //      |                                                           |
-            //  500 D###                                                        |
-            //      |   ########                                                |
-            //  400 |           #######                                         |
-            //      |                  ########                                 |
-            //  300 |    3                     #######                          |
-            //      |                                 ########                  |
-            //  200 |                                         #######           |
-            //      |                                                ########   |
-            //  100 |                                                        ###C
+            //  500 D,,,                                                        |
+            //      |   '''··,,,                                                |
+            //  400 |           '''·,,,                                         |
+            //      |                  '''··,,,                                 |
+            //  300 |    3                     '''·,,,                          |
+            //      |                                 '''··,,,                  |
+            //  200 |                                         '''·,,,           |
+            //      |                                                '''··,,,   |
+            //  100 |                                                        '''C
             //      |                                                           |
             //    0 Y-----------------------------------------------------------W
             //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
@@ -13846,7 +13846,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 11 == edges.Count, "Expected: edge count 11");
+            Assume.That(() => 10 == edges.Count, "Expected: edge count 10");
             Assume.That(() => null != edges);
             Assume.That(() => HasEdge(edges, 0, 700, 1200, 1100), "Expected: has edge A-B"); // A-B
             Assume.That(() => HasEdge(edges, 1200, 100, 0, 500), "Expected: has edge C-D"); // C-D
@@ -13858,7 +13858,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 500, 0, 0), "Expected: has edge D-Y"); // D-Y
             Assume.That(() => HasEdge(edges, 0, 0, 1200, 0), "Expected: has edge Y-W"); // Y-W
             Assume.That(() => HasEdge(edges, 1200, 0, 1200, 100), "Expected: has edge W-C"); // W-C
-            Assume.That(() => HasEdge(edges, 1200, 100, 0, 500), "Expected: has edge C-D"); // C-D
 
             // Assert
 
@@ -13871,20 +13870,18 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 0, 500)), "Expected: edge A-B neighbours A-D"); // A-B neighbours A-D
             edge = FindEdge(edges, 1200, 100, 0, 500); // C-D
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 1200, 1100)), "Expected: edge C-D neighbours C-B"); // C-D neighbours C-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 0, 500)), "Expected: edge C-D neighbours A-D"); // C-D neighbours A-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 500, 0, 0)), "Expected: edge C-D neighbours D-Y"); // C-D neighbours D-Y
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 0, 1200, 100)), "Expected: edge C-D neighbours W-C"); // C-D neighbours W-C
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge C-D neighbours C-D"); // C-D neighbours C-D
             edge = FindEdge(edges, 1200, 100, 1200, 1100); // C-B
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 1200, 1100)), "Expected: edge C-B neighbours A-B"); // C-B neighbours A-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge C-B neighbours C-D"); // C-B neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 1100, 1200, 1200)), "Expected: edge C-B neighbours B-Z"); // C-B neighbours B-Z
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 0, 1200, 100)), "Expected: edge C-B neighbours W-C"); // C-B neighbours W-C
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge C-B neighbours C-D"); // C-B neighbours C-D
             edge = FindEdge(edges, 1200, 1100, 1200, 1200); // B-Z
             Assert.NotNull(edge.Neighbours);
             Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
@@ -13904,19 +13901,17 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 0, 500)), "Expected: edge X-A neighbours A-D"); // X-A neighbours A-D
             edge = FindEdge(edges, 0, 700, 0, 500); // A-D
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 1200, 1100)), "Expected: edge A-D neighbours A-B"); // A-D neighbours A-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge A-D neighbours C-D"); // A-D neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1200, 0, 700)), "Expected: edge A-D neighbours X-A"); // A-D neighbours X-A
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 500, 0, 0)), "Expected: edge A-D neighbours D-Y"); // A-D neighbours D-Y
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge A-D neighbours C-D"); // A-D neighbours C-D
             edge = FindEdge(edges, 0, 500, 0, 0); // D-Y
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
+            Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge D-Y neighbours C-D"); // D-Y neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 0, 500)), "Expected: edge D-Y neighbours A-D"); // D-Y neighbours A-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 1200, 0)), "Expected: edge D-Y neighbours Y-W"); // D-Y neighbours Y-W
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge D-Y neighbours C-D"); // D-Y neighbours C-D
             edge = FindEdge(edges, 0, 0, 1200, 0); // Y-W
             Assert.NotNull(edge.Neighbours);
             Assert.AreEqual(2, edge.Neighbours.Count(), "Expected: edge neighbour count 2");
@@ -13924,19 +13919,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 0, 1200, 100)), "Expected: edge Y-W neighbours W-C"); // Y-W neighbours W-C
             edge = FindEdge(edges, 1200, 0, 1200, 100); // W-C
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
+            Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge W-C neighbours C-D"); // W-C neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 1200, 1100)), "Expected: edge W-C neighbours C-B"); // W-C neighbours C-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 1200, 0)), "Expected: edge W-C neighbours Y-W"); // W-C neighbours Y-W
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge W-C neighbours C-D"); // W-C neighbours C-D
-            edge = FindEdge(edges, 1200, 100, 0, 500); // C-D
-            Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 0, 500)), "Expected: edge C-D neighbours C-D"); // C-D neighbours C-D
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 100, 1200, 1100)), "Expected: edge C-D neighbours C-B"); // C-D neighbours C-B
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 700, 0, 500)), "Expected: edge C-D neighbours A-D"); // C-D neighbours A-D
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 500, 0, 0)), "Expected: edge C-D neighbours D-Y"); // C-D neighbours D-Y
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 0, 1200, 100)), "Expected: edge C-D neighbours W-C"); // C-D neighbours W-C
         }
 
         /// <summary>
@@ -13956,29 +13942,29 @@ namespace SharpVoronoiLib.UnitTests
             };
 
             // 1200 Y------------------------D---------A------------------------X
-            //      |                       #           ·                       |
-            // 1100 |              3       #             ·       2              |
-            //      |                      #              ·                     |
-            // 1000 |                     #       1       ·                     |
-            //      |                    #                 ·                    |
-            //  900 |                   #                   ·                   |
-            //      |                  #                     ·                  |
-            //  800 |                 #                       ·                 |
-            //      |                 #                        ·                |
-            //  700 |                #                         ·                |
-            //      |               #                           ·               |
-            //  600 |              #                             ·              |
-            //      |             #                               ·             |
-            //  500 |            #                                 ·            |
-            //      |            #                                  ·           |
-            //  400 |           #                                   ·           |
-            //      |          #                                     ·          |
-            //  300 |         #                                       ·         |
-            //      |        #                                         ·        |
-            //  200 |       #                                           ·       |
-            //      |       #                                            ·      |
-            //  100 |      #                                             ·      |
-            //      |     #                                               ·     |
+            //      |                       ·           ·                       |
+            // 1100 |              3       ·             ·       2              |
+            //      |                      ·              ·                     |
+            // 1000 |                     ·       1       ·                     |
+            //      |                    ·                 ·                    |
+            //  900 |                   ·                   ·                   |
+            //      |                  ·                     ·                  |
+            //  800 |                 ·                       ·                 |
+            //      |                 ·                        ·                |
+            //  700 |                ·                         ·                |
+            //      |               ·                           ·               |
+            //  600 |              ·                             ·              |
+            //      |             ·                               ·             |
+            //  500 |            ·                                 ·            |
+            //      |            ·                                  ·           |
+            //  400 |           ·                                   ·           |
+            //      |          ·                                     ·          |
+            //  300 |         ·                                       ·         |
+            //      |        ·                                         ·        |
+            //  200 |       ·                                           ·       |
+            //      |       ·                                            ·      |
+            //  100 |      ·                                             ·      |
+            //      |     ·                                               ·     |
             //    0 W----C-------------------------------------------------B----Z
             //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
 
@@ -13988,7 +13974,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 11 == edges.Count, "Expected: edge count 11");
+            Assume.That(() => 10 == edges.Count, "Expected: edge count 10");
             Assume.That(() => null != edges);
             Assume.That(() => HasEdge(edges, 700, 1200, 1100, 0), "Expected: has edge A-B"); // A-B
             Assume.That(() => HasEdge(edges, 100, 0, 500, 1200), "Expected: has edge C-D"); // C-D
@@ -14000,7 +13986,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 500, 1200, 0, 1200), "Expected: has edge D-Y"); // D-Y
             Assume.That(() => HasEdge(edges, 0, 1200, 0, 0), "Expected: has edge Y-W"); // Y-W
             Assume.That(() => HasEdge(edges, 0, 0, 100, 0), "Expected: has edge W-C"); // W-C
-            Assume.That(() => HasEdge(edges, 100, 0, 500, 1200), "Expected: has edge C-D"); // C-D
 
             // Assert
 
@@ -14013,20 +13998,18 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1200, 500, 1200)), "Expected: edge A-B neighbours A-D"); // A-B neighbours A-D
             edge = FindEdge(edges, 100, 0, 500, 1200); // C-D
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 1100, 0)), "Expected: edge C-D neighbours C-B"); // C-D neighbours C-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1200, 500, 1200)), "Expected: edge C-D neighbours A-D"); // C-D neighbours A-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 1200, 0, 1200)), "Expected: edge C-D neighbours D-Y"); // C-D neighbours D-Y
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 100, 0)), "Expected: edge C-D neighbours W-C"); // C-D neighbours W-C
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge C-D neighbours C-D"); // C-D neighbours C-D
             edge = FindEdge(edges, 100, 0, 1100, 0); // C-B
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1200, 1100, 0)), "Expected: edge C-B neighbours A-B"); // C-B neighbours A-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge C-B neighbours C-D"); // C-B neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 0, 1200, 0)), "Expected: edge C-B neighbours B-Z"); // C-B neighbours B-Z
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 100, 0)), "Expected: edge C-B neighbours W-C"); // C-B neighbours W-C
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge C-B neighbours C-D"); // C-B neighbours C-D
             edge = FindEdge(edges, 1100, 0, 1200, 0); // B-Z
             Assert.NotNull(edge.Neighbours);
             Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
@@ -14046,19 +14029,17 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1200, 500, 1200)), "Expected: edge X-A neighbours A-D"); // X-A neighbours A-D
             edge = FindEdge(edges, 700, 1200, 500, 1200); // A-D
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1200, 1100, 0)), "Expected: edge A-D neighbours A-B"); // A-D neighbours A-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge A-D neighbours C-D"); // A-D neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 1200, 700, 1200)), "Expected: edge A-D neighbours X-A"); // A-D neighbours X-A
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 1200, 0, 1200)), "Expected: edge A-D neighbours D-Y"); // A-D neighbours D-Y
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge A-D neighbours C-D"); // A-D neighbours C-D
             edge = FindEdge(edges, 500, 1200, 0, 1200); // D-Y
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
+            Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge D-Y neighbours C-D"); // D-Y neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1200, 500, 1200)), "Expected: edge D-Y neighbours A-D"); // D-Y neighbours A-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1200, 0, 0)), "Expected: edge D-Y neighbours Y-W"); // D-Y neighbours Y-W
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge D-Y neighbours C-D"); // D-Y neighbours C-D
             edge = FindEdge(edges, 0, 1200, 0, 0); // Y-W
             Assert.NotNull(edge.Neighbours);
             Assert.AreEqual(2, edge.Neighbours.Count(), "Expected: edge neighbour count 2");
@@ -14066,19 +14047,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 100, 0)), "Expected: edge Y-W neighbours W-C"); // Y-W neighbours W-C
             edge = FindEdge(edges, 0, 0, 100, 0); // W-C
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
+            Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge W-C neighbours C-D"); // W-C neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 1100, 0)), "Expected: edge W-C neighbours C-B"); // W-C neighbours C-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1200, 0, 0)), "Expected: edge W-C neighbours Y-W"); // W-C neighbours Y-W
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge W-C neighbours C-D"); // W-C neighbours C-D
-            edge = FindEdge(edges, 100, 0, 500, 1200); // C-D
-            Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 500, 1200)), "Expected: edge C-D neighbours C-D"); // C-D neighbours C-D
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 0, 1100, 0)), "Expected: edge C-D neighbours C-B"); // C-D neighbours C-B
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 1200, 500, 1200)), "Expected: edge C-D neighbours A-D"); // C-D neighbours A-D
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 1200, 0, 1200)), "Expected: edge C-D neighbours D-Y"); // C-D neighbours D-Y
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 100, 0)), "Expected: edge C-D neighbours W-C"); // C-D neighbours W-C
         }
 
         /// <summary>
@@ -14099,15 +14071,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // 1200 W-----------------------------------------------------------Y
             //      |                                                           |
-            // 1100 C###                                                        |
-            //      |   ########                                                |
-            // 1000 |           #######                                         |
-            //      |                  ########                                 |
-            //  900 |                          #######                     3    |
-            //      |                                 ########                  |
-            //  800 |                                         #######           |
-            //      |                                                ########   |
-            //  700 |                                                        ###D
+            // 1100 C,,,                                                        |
+            //      |   '''··,,,                                                |
+            // 1000 |           '''·,,,                                         |
+            //      |                  '''··,,,                                 |
+            //  900 |                          '''·,,,                     3    |
+            //      |                                 '''··,,,                  |
+            //  800 |                                         '''·,,,           |
+            //      |                                                '''··,,,   |
+            //  700 |                                                        '''D
             //      |                                                           |
             //  600 |                                                 1         |
             //      |                                                           |
@@ -14130,7 +14102,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 11 == edges.Count, "Expected: edge count 11");
+            Assume.That(() => 10 == edges.Count, "Expected: edge count 10");
             Assume.That(() => null != edges);
             Assume.That(() => HasEdge(edges, 1200, 500, 0, 100), "Expected: has edge A-B"); // A-B
             Assume.That(() => HasEdge(edges, 0, 1100, 1200, 700), "Expected: has edge C-D"); // C-D
@@ -14142,7 +14114,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1200, 700, 1200, 1200), "Expected: has edge D-Y"); // D-Y
             Assume.That(() => HasEdge(edges, 1200, 1200, 0, 1200), "Expected: has edge Y-W"); // Y-W
             Assume.That(() => HasEdge(edges, 0, 1200, 0, 1100), "Expected: has edge W-C"); // W-C
-            Assume.That(() => HasEdge(edges, 0, 1100, 1200, 700), "Expected: has edge C-D"); // C-D
 
             // Assert
 
@@ -14155,20 +14126,18 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 500, 1200, 700)), "Expected: edge A-B neighbours A-D"); // A-B neighbours A-D
             edge = FindEdge(edges, 0, 1100, 1200, 700); // C-D
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 0, 100)), "Expected: edge C-D neighbours C-B"); // C-D neighbours C-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 500, 1200, 700)), "Expected: edge C-D neighbours A-D"); // C-D neighbours A-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 700, 1200, 1200)), "Expected: edge C-D neighbours D-Y"); // C-D neighbours D-Y
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1200, 0, 1100)), "Expected: edge C-D neighbours W-C"); // C-D neighbours W-C
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge C-D neighbours C-D"); // C-D neighbours C-D
             edge = FindEdge(edges, 0, 1100, 0, 100); // C-B
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 500, 0, 100)), "Expected: edge C-B neighbours A-B"); // C-B neighbours A-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge C-B neighbours C-D"); // C-B neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 100, 0, 0)), "Expected: edge C-B neighbours B-Z"); // C-B neighbours B-Z
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1200, 0, 1100)), "Expected: edge C-B neighbours W-C"); // C-B neighbours W-C
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge C-B neighbours C-D"); // C-B neighbours C-D
             edge = FindEdge(edges, 0, 100, 0, 0); // B-Z
             Assert.NotNull(edge.Neighbours);
             Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
@@ -14188,19 +14157,17 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 500, 1200, 700)), "Expected: edge X-A neighbours A-D"); // X-A neighbours A-D
             edge = FindEdge(edges, 1200, 500, 1200, 700); // A-D
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 500, 0, 100)), "Expected: edge A-D neighbours A-B"); // A-D neighbours A-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge A-D neighbours C-D"); // A-D neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 0, 1200, 500)), "Expected: edge A-D neighbours X-A"); // A-D neighbours X-A
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 700, 1200, 1200)), "Expected: edge A-D neighbours D-Y"); // A-D neighbours D-Y
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge A-D neighbours C-D"); // A-D neighbours C-D
             edge = FindEdge(edges, 1200, 700, 1200, 1200); // D-Y
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
+            Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge D-Y neighbours C-D"); // D-Y neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 500, 1200, 700)), "Expected: edge D-Y neighbours A-D"); // D-Y neighbours A-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 1200, 0, 1200)), "Expected: edge D-Y neighbours Y-W"); // D-Y neighbours Y-W
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge D-Y neighbours C-D"); // D-Y neighbours C-D
             edge = FindEdge(edges, 1200, 1200, 0, 1200); // Y-W
             Assert.NotNull(edge.Neighbours);
             Assert.AreEqual(2, edge.Neighbours.Count(), "Expected: edge neighbour count 2");
@@ -14208,19 +14175,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1200, 0, 1100)), "Expected: edge Y-W neighbours W-C"); // Y-W neighbours W-C
             edge = FindEdge(edges, 0, 1200, 0, 1100); // W-C
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
+            Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge W-C neighbours C-D"); // W-C neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 0, 100)), "Expected: edge W-C neighbours C-B"); // W-C neighbours C-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 1200, 0, 1200)), "Expected: edge W-C neighbours Y-W"); // W-C neighbours Y-W
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge W-C neighbours C-D"); // W-C neighbours C-D
-            edge = FindEdge(edges, 0, 1100, 1200, 700); // C-D
-            Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 1200, 700)), "Expected: edge C-D neighbours C-D"); // C-D neighbours C-D
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1100, 0, 100)), "Expected: edge C-D neighbours C-B"); // C-D neighbours C-B
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 500, 1200, 700)), "Expected: edge C-D neighbours A-D"); // C-D neighbours A-D
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 700, 1200, 1200)), "Expected: edge C-D neighbours D-Y"); // C-D neighbours D-Y
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 1200, 0, 1100)), "Expected: edge C-D neighbours W-C"); // C-D neighbours W-C
         }
 
         /// <summary>
@@ -14240,29 +14198,29 @@ namespace SharpVoronoiLib.UnitTests
             };
 
             // 1200 Z----B-------------------------------------------------C----W
-            //      |     ·                                               #     |
-            // 1100 |      ·                                             #      |
-            //      |      ·                                            #       |
-            // 1000 |       ·                                           #       |
-            //      |        ·                                         #        |
-            //  900 |         ·                                       #         |
-            //      |          ·                                     #          |
-            //  800 |           ·                                   #           |
-            //      |           ·                                  #            |
-            //  700 |            ·                                 #            |
-            //      |             ·                               #             |
-            //  600 |              ·                             #              |
-            //      |               ·                           #               |
-            //  500 |                ·                         #                |
-            //      |                ·                        #                 |
-            //  400 |                 ·                       #                 |
-            //      |                  ·                     #                  |
-            //  300 |                   ·                   #                   |
-            //      |                    ·                 #                    |
-            //  200 |                     ·       1       #                     |
-            //      |                     ·              #                      |
-            //  100 |              2       ·             #       3              |
-            //      |                       ·           #                       |
+            //      |     ·                                               ·     |
+            // 1100 |      ·                                             ·      |
+            //      |      ·                                            ·       |
+            // 1000 |       ·                                           ·       |
+            //      |        ·                                         ·        |
+            //  900 |         ·                                       ·         |
+            //      |          ·                                     ·          |
+            //  800 |           ·                                   ·           |
+            //      |           ·                                  ·            |
+            //  700 |            ·                                 ·            |
+            //      |             ·                               ·             |
+            //  600 |              ·                             ·              |
+            //      |               ·                           ·               |
+            //  500 |                ·                         ·                |
+            //      |                ·                        ·                 |
+            //  400 |                 ·                       ·                 |
+            //      |                  ·                     ·                  |
+            //  300 |                   ·                   ·                   |
+            //      |                    ·                 ·                    |
+            //  200 |                     ·       1       ·                     |
+            //      |                     ·              ·                      |
+            //  100 |              2       ·             ·       3              |
+            //      |                       ·           ·                       |
             //    0 X------------------------A---------D------------------------Y
             //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
 
@@ -14272,7 +14230,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 11 == edges.Count, "Expected: edge count 11");
+            Assume.That(() => 10 == edges.Count, "Expected: edge count 10");
             Assume.That(() => null != edges);
             Assume.That(() => HasEdge(edges, 500, 0, 100, 1200), "Expected: has edge A-B"); // A-B
             Assume.That(() => HasEdge(edges, 1100, 1200, 700, 0), "Expected: has edge C-D"); // C-D
@@ -14284,7 +14242,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 700, 0, 1200, 0), "Expected: has edge D-Y"); // D-Y
             Assume.That(() => HasEdge(edges, 1200, 0, 1200, 1200), "Expected: has edge Y-W"); // Y-W
             Assume.That(() => HasEdge(edges, 1200, 1200, 1100, 1200), "Expected: has edge W-C"); // W-C
-            Assume.That(() => HasEdge(edges, 1100, 1200, 700, 0), "Expected: has edge C-D"); // C-D
 
             // Assert
 
@@ -14297,20 +14254,18 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 0, 700, 0)), "Expected: edge A-B neighbours A-D"); // A-B neighbours A-D
             edge = FindEdge(edges, 1100, 1200, 700, 0); // C-D
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 100, 1200)), "Expected: edge C-D neighbours C-B"); // C-D neighbours C-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 0, 700, 0)), "Expected: edge C-D neighbours A-D"); // C-D neighbours A-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 0, 1200, 0)), "Expected: edge C-D neighbours D-Y"); // C-D neighbours D-Y
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 1200, 1100, 1200)), "Expected: edge C-D neighbours W-C"); // C-D neighbours W-C
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge C-D neighbours C-D"); // C-D neighbours C-D
             edge = FindEdge(edges, 1100, 1200, 100, 1200); // C-B
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 0, 100, 1200)), "Expected: edge C-B neighbours A-B"); // C-B neighbours A-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge C-B neighbours C-D"); // C-B neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 100, 1200, 0, 1200)), "Expected: edge C-B neighbours B-Z"); // C-B neighbours B-Z
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 1200, 1100, 1200)), "Expected: edge C-B neighbours W-C"); // C-B neighbours W-C
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge C-B neighbours C-D"); // C-B neighbours C-D
             edge = FindEdge(edges, 100, 1200, 0, 1200); // B-Z
             Assert.NotNull(edge.Neighbours);
             Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
@@ -14330,19 +14285,17 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 0, 700, 0)), "Expected: edge X-A neighbours A-D"); // X-A neighbours A-D
             edge = FindEdge(edges, 500, 0, 700, 0); // A-D
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
+            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 0, 100, 1200)), "Expected: edge A-D neighbours A-B"); // A-D neighbours A-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge A-D neighbours C-D"); // A-D neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 0, 0, 500, 0)), "Expected: edge A-D neighbours X-A"); // A-D neighbours X-A
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 0, 1200, 0)), "Expected: edge A-D neighbours D-Y"); // A-D neighbours D-Y
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge A-D neighbours C-D"); // A-D neighbours C-D
             edge = FindEdge(edges, 700, 0, 1200, 0); // D-Y
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
+            Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge D-Y neighbours C-D"); // D-Y neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 0, 700, 0)), "Expected: edge D-Y neighbours A-D"); // D-Y neighbours A-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 0, 1200, 1200)), "Expected: edge D-Y neighbours Y-W"); // D-Y neighbours Y-W
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge D-Y neighbours C-D"); // D-Y neighbours C-D
             edge = FindEdge(edges, 1200, 0, 1200, 1200); // Y-W
             Assert.NotNull(edge.Neighbours);
             Assert.AreEqual(2, edge.Neighbours.Count(), "Expected: edge neighbour count 2");
@@ -14350,19 +14303,10 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 1200, 1100, 1200)), "Expected: edge Y-W neighbours W-C"); // Y-W neighbours W-C
             edge = FindEdge(edges, 1200, 1200, 1100, 1200); // W-C
             Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(4, edge.Neighbours.Count(), "Expected: edge neighbour count 4");
+            Assert.AreEqual(3, edge.Neighbours.Count(), "Expected: edge neighbour count 3");
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge W-C neighbours C-D"); // W-C neighbours C-D
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 100, 1200)), "Expected: edge W-C neighbours C-B"); // W-C neighbours C-B
             Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 0, 1200, 1200)), "Expected: edge W-C neighbours Y-W"); // W-C neighbours Y-W
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge W-C neighbours C-D"); // W-C neighbours C-D
-            edge = FindEdge(edges, 1100, 1200, 700, 0); // C-D
-            Assert.NotNull(edge.Neighbours);
-            Assert.AreEqual(5, edge.Neighbours.Count(), "Expected: edge neighbour count 5");
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 700, 0)), "Expected: edge C-D neighbours C-D"); // C-D neighbours C-D
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1100, 1200, 100, 1200)), "Expected: edge C-D neighbours C-B"); // C-D neighbours C-B
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 500, 0, 700, 0)), "Expected: edge C-D neighbours A-D"); // C-D neighbours A-D
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 700, 0, 1200, 0)), "Expected: edge C-D neighbours D-Y"); // C-D neighbours D-Y
-            Assert.IsTrue(edge.Neighbours.Contains(FindEdge(edges, 1200, 1200, 1100, 1200)), "Expected: edge C-D neighbours W-C"); // C-D neighbours W-C
         }
 
     }

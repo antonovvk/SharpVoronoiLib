@@ -12731,15 +12731,15 @@ namespace SharpVoronoiLib.UnitTests
             //      |                                                           |
             //  600 |         1                                                 |
             //      |                                                           |
-            //  500 D###                                                        |
-            //      |   ########                                                |
-            //  400 |           #######                                         |
-            //      |                  ########                                 |
-            //  300 |    3                     #######                          |
-            //      |                                 ########                  |
-            //  200 |                                         #######           |
-            //      |                                                ########   |
-            //  100 |                                                        ###C
+            //  500 D,,,                                                        |
+            //      |   '''··,,,                                                |
+            //  400 |           '''·,,,                                         |
+            //      |                  '''··,,,                                 |
+            //  300 |    3                     '''·,,,                          |
+            //      |                                 '''··,,,                  |
+            //  200 |                                         '''·,,,           |
+            //      |                                                '''··,,,   |
+            //  100 |                                                        '''C
             //      |                                                           |
             //    0 Y-----------------------------------------------------------W
             //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
@@ -12750,7 +12750,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 11 == edges.Count, "Expected: edge count 11");
+            Assume.That(() => 10 == edges.Count, "Expected: edge count 10");
             Assume.That(() => null != edges);
             Assume.That(() => HasEdge(edges, 0, 700, 1200, 1100), "Expected: has edge A-B"); // A-B
             Assume.That(() => HasEdge(edges, 1200, 100, 0, 500), "Expected: has edge C-D"); // C-D
@@ -12762,7 +12762,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 0, 500, 0, 0), "Expected: has edge D-Y"); // D-Y
             Assume.That(() => HasEdge(edges, 0, 0, 1200, 0), "Expected: has edge Y-W"); // Y-W
             Assume.That(() => HasEdge(edges, 1200, 0, 1200, 100), "Expected: has edge W-C"); // W-C
-            Assume.That(() => HasEdge(edges, 1200, 100, 0, 500), "Expected: has edge C-D"); // C-D
 
             Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count(), "Expected: site #1 point count 4"); // #1
@@ -12806,17 +12805,15 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(2), 0, 1200, 0, 700)); // #2 X-A
             Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(3), 0, 700, 1200, 1100)); // #2 A-B
             Assert.NotNull(sites[2].ClockwiseCell);
-            Assert.AreEqual(5, sites[2].ClockwiseCell.Count()); // #3
+            Assert.AreEqual(4, sites[2].ClockwiseCell.Count()); // #3
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1200, 100, 0, 500)); // #3 has C-D
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 500, 0, 0)); // #3 has D-Y
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 0, 1200, 0)); // #3 has Y-W
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1200, 0, 1200, 100)); // #3 has W-C
-            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1200, 100, 0, 500)); // #3 has C-D
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 0, 500, 0, 0)); // #3 D-Y
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(1), 0, 0, 1200, 0)); // #3 Y-W
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(2), 1200, 0, 1200, 100)); // #3 W-C
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(3), 1200, 100, 0, 500)); // #3 C-D
-            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(4), 1200, 100, 0, 500)); // #3 C-D
         }
 
         /// <summary>
@@ -12836,29 +12833,29 @@ namespace SharpVoronoiLib.UnitTests
             };
 
             // 1200 Y------------------------D---------A------------------------X
-            //      |                       #           ·                       |
-            // 1100 |              3       #             ·       2              |
-            //      |                      #              ·                     |
-            // 1000 |                     #       1       ·                     |
-            //      |                    #                 ·                    |
-            //  900 |                   #                   ·                   |
-            //      |                  #                     ·                  |
-            //  800 |                 #                       ·                 |
-            //      |                 #                        ·                |
-            //  700 |                #                         ·                |
-            //      |               #                           ·               |
-            //  600 |              #                             ·              |
-            //      |             #                               ·             |
-            //  500 |            #                                 ·            |
-            //      |            #                                  ·           |
-            //  400 |           #                                   ·           |
-            //      |          #                                     ·          |
-            //  300 |         #                                       ·         |
-            //      |        #                                         ·        |
-            //  200 |       #                                           ·       |
-            //      |       #                                            ·      |
-            //  100 |      #                                             ·      |
-            //      |     #                                               ·     |
+            //      |                       ·           ·                       |
+            // 1100 |              3       ·             ·       2              |
+            //      |                      ·              ·                     |
+            // 1000 |                     ·       1       ·                     |
+            //      |                    ·                 ·                    |
+            //  900 |                   ·                   ·                   |
+            //      |                  ·                     ·                  |
+            //  800 |                 ·                       ·                 |
+            //      |                 ·                        ·                |
+            //  700 |                ·                         ·                |
+            //      |               ·                           ·               |
+            //  600 |              ·                             ·              |
+            //      |             ·                               ·             |
+            //  500 |            ·                                 ·            |
+            //      |            ·                                  ·           |
+            //  400 |           ·                                   ·           |
+            //      |          ·                                     ·          |
+            //  300 |         ·                                       ·         |
+            //      |        ·                                         ·        |
+            //  200 |       ·                                           ·       |
+            //      |       ·                                            ·      |
+            //  100 |      ·                                             ·      |
+            //      |     ·                                               ·     |
             //    0 W----C-------------------------------------------------B----Z
             //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
 
@@ -12868,7 +12865,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 11 == edges.Count, "Expected: edge count 11");
+            Assume.That(() => 10 == edges.Count, "Expected: edge count 10");
             Assume.That(() => null != edges);
             Assume.That(() => HasEdge(edges, 700, 1200, 1100, 0), "Expected: has edge A-B"); // A-B
             Assume.That(() => HasEdge(edges, 100, 0, 500, 1200), "Expected: has edge C-D"); // C-D
@@ -12880,7 +12877,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 500, 1200, 0, 1200), "Expected: has edge D-Y"); // D-Y
             Assume.That(() => HasEdge(edges, 0, 1200, 0, 0), "Expected: has edge Y-W"); // Y-W
             Assume.That(() => HasEdge(edges, 0, 0, 100, 0), "Expected: has edge W-C"); // W-C
-            Assume.That(() => HasEdge(edges, 100, 0, 500, 1200), "Expected: has edge C-D"); // C-D
 
             Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count(), "Expected: site #1 point count 4"); // #1
@@ -12924,17 +12920,15 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(2), 1100, 0, 1200, 0)); // #2 B-Z
             Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(3), 1200, 0, 1200, 1200)); // #2 Z-X
             Assert.NotNull(sites[2].ClockwiseCell);
-            Assert.AreEqual(5, sites[2].ClockwiseCell.Count()); // #3
+            Assert.AreEqual(4, sites[2].ClockwiseCell.Count()); // #3
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 100, 0, 500, 1200)); // #3 has C-D
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 500, 1200, 0, 1200)); // #3 has D-Y
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 1200, 0, 0)); // #3 has Y-W
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 0, 100, 0)); // #3 has W-C
-            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 100, 0, 500, 1200)); // #3 has C-D
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 500, 1200, 0, 1200)); // #3 D-Y
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(1), 0, 1200, 0, 0)); // #3 Y-W
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(2), 0, 0, 100, 0)); // #3 W-C
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(3), 100, 0, 500, 1200)); // #3 C-D
-            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(4), 100, 0, 500, 1200)); // #3 C-D
         }
 
         /// <summary>
@@ -12955,15 +12949,15 @@ namespace SharpVoronoiLib.UnitTests
 
             // 1200 W-----------------------------------------------------------Y
             //      |                                                           |
-            // 1100 C###                                                        |
-            //      |   ########                                                |
-            // 1000 |           #######                                         |
-            //      |                  ########                                 |
-            //  900 |                          #######                     3    |
-            //      |                                 ########                  |
-            //  800 |                                         #######           |
-            //      |                                                ########   |
-            //  700 |                                                        ###D
+            // 1100 C,,,                                                        |
+            //      |   '''··,,,                                                |
+            // 1000 |           '''·,,,                                         |
+            //      |                  '''··,,,                                 |
+            //  900 |                          '''·,,,                     3    |
+            //      |                                 '''··,,,                  |
+            //  800 |                                         '''·,,,           |
+            //      |                                                '''··,,,   |
+            //  700 |                                                        '''D
             //      |                                                           |
             //  600 |                                                 1         |
             //      |                                                           |
@@ -12986,7 +12980,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 11 == edges.Count, "Expected: edge count 11");
+            Assume.That(() => 10 == edges.Count, "Expected: edge count 10");
             Assume.That(() => null != edges);
             Assume.That(() => HasEdge(edges, 1200, 500, 0, 100), "Expected: has edge A-B"); // A-B
             Assume.That(() => HasEdge(edges, 0, 1100, 1200, 700), "Expected: has edge C-D"); // C-D
@@ -12998,7 +12992,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 1200, 700, 1200, 1200), "Expected: has edge D-Y"); // D-Y
             Assume.That(() => HasEdge(edges, 1200, 1200, 0, 1200), "Expected: has edge Y-W"); // Y-W
             Assume.That(() => HasEdge(edges, 0, 1200, 0, 1100), "Expected: has edge W-C"); // W-C
-            Assume.That(() => HasEdge(edges, 0, 1100, 1200, 700), "Expected: has edge C-D"); // C-D
 
             Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count(), "Expected: site #1 point count 4"); // #1
@@ -13042,17 +13035,15 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(2), 0, 0, 1200, 0)); // #2 Z-X
             Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(3), 1200, 0, 1200, 500)); // #2 X-A
             Assert.NotNull(sites[2].ClockwiseCell);
-            Assert.AreEqual(5, sites[2].ClockwiseCell.Count()); // #3
+            Assert.AreEqual(4, sites[2].ClockwiseCell.Count()); // #3
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 1100, 1200, 700)); // #3 has C-D
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1200, 700, 1200, 1200)); // #3 has D-Y
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1200, 1200, 0, 1200)); // #3 has Y-W
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 1200, 0, 1100)); // #3 has W-C
-            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 0, 1100, 1200, 700)); // #3 has C-D
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 1200, 1200, 0, 1200)); // #3 Y-W
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(1), 0, 1200, 0, 1100)); // #3 W-C
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(2), 0, 1100, 1200, 700)); // #3 C-D
-            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(3), 0, 1100, 1200, 700)); // #3 C-D
-            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(4), 1200, 700, 1200, 1200)); // #3 D-Y
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(3), 1200, 700, 1200, 1200)); // #3 D-Y
         }
 
         /// <summary>
@@ -13072,29 +13063,29 @@ namespace SharpVoronoiLib.UnitTests
             };
 
             // 1200 Z----B-------------------------------------------------C----W
-            //      |     ·                                               #     |
-            // 1100 |      ·                                             #      |
-            //      |      ·                                            #       |
-            // 1000 |       ·                                           #       |
-            //      |        ·                                         #        |
-            //  900 |         ·                                       #         |
-            //      |          ·                                     #          |
-            //  800 |           ·                                   #           |
-            //      |           ·                                  #            |
-            //  700 |            ·                                 #            |
-            //      |             ·                               #             |
-            //  600 |              ·                             #              |
-            //      |               ·                           #               |
-            //  500 |                ·                         #                |
-            //      |                ·                        #                 |
-            //  400 |                 ·                       #                 |
-            //      |                  ·                     #                  |
-            //  300 |                   ·                   #                   |
-            //      |                    ·                 #                    |
-            //  200 |                     ·       1       #                     |
-            //      |                     ·              #                      |
-            //  100 |              2       ·             #       3              |
-            //      |                       ·           #                       |
+            //      |     ·                                               ·     |
+            // 1100 |      ·                                             ·      |
+            //      |      ·                                            ·       |
+            // 1000 |       ·                                           ·       |
+            //      |        ·                                         ·        |
+            //  900 |         ·                                       ·         |
+            //      |          ·                                     ·          |
+            //  800 |           ·                                   ·           |
+            //      |           ·                                  ·            |
+            //  700 |            ·                                 ·            |
+            //      |             ·                               ·             |
+            //  600 |              ·                             ·              |
+            //      |               ·                           ·               |
+            //  500 |                ·                         ·                |
+            //      |                ·                        ·                 |
+            //  400 |                 ·                       ·                 |
+            //      |                  ·                     ·                  |
+            //  300 |                   ·                   ·                   |
+            //      |                    ·                 ·                    |
+            //  200 |                     ·       1       ·                     |
+            //      |                     ·              ·                      |
+            //  100 |              2       ·             ·       3              |
+            //      |                       ·           ·                       |
             //    0 X------------------------A---------D------------------------Y
             //       0  100  200  300  400  500  600  700  800  900 1000 1100 1200 
 
@@ -13104,7 +13095,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Assume
 
-            Assume.That(() => 11 == edges.Count, "Expected: edge count 11");
+            Assume.That(() => 10 == edges.Count, "Expected: edge count 10");
             Assume.That(() => null != edges);
             Assume.That(() => HasEdge(edges, 500, 0, 100, 1200), "Expected: has edge A-B"); // A-B
             Assume.That(() => HasEdge(edges, 1100, 1200, 700, 0), "Expected: has edge C-D"); // C-D
@@ -13116,7 +13107,6 @@ namespace SharpVoronoiLib.UnitTests
             Assume.That(() => HasEdge(edges, 700, 0, 1200, 0), "Expected: has edge D-Y"); // D-Y
             Assume.That(() => HasEdge(edges, 1200, 0, 1200, 1200), "Expected: has edge Y-W"); // Y-W
             Assume.That(() => HasEdge(edges, 1200, 1200, 1100, 1200), "Expected: has edge W-C"); // W-C
-            Assume.That(() => HasEdge(edges, 1100, 1200, 700, 0), "Expected: has edge C-D"); // C-D
 
             Assume.That(() => null != sites[0].Points);
             Assume.That(() => 4 == sites[0].Points.Count(), "Expected: site #1 point count 4"); // #1
@@ -13160,17 +13150,15 @@ namespace SharpVoronoiLib.UnitTests
             Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(2), 0, 0, 500, 0)); // #2 X-A
             Assert.IsTrue(EdgeIs(sites[1].ClockwiseCell.ElementAt(3), 500, 0, 100, 1200)); // #2 A-B
             Assert.NotNull(sites[2].ClockwiseCell);
-            Assert.AreEqual(5, sites[2].ClockwiseCell.Count()); // #3
+            Assert.AreEqual(4, sites[2].ClockwiseCell.Count()); // #3
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1100, 1200, 700, 0)); // #3 has C-D
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 700, 0, 1200, 0)); // #3 has D-Y
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1200, 0, 1200, 1200)); // #3 has Y-W
             Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1200, 1200, 1100, 1200)); // #3 has W-C
-            Assert.IsTrue(HasEdge(sites[2].ClockwiseCell, 1100, 1200, 700, 0)); // #3 has C-D
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(0), 1200, 1200, 1100, 1200)); // #3 W-C
             Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(1), 1100, 1200, 700, 0)); // #3 C-D
-            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(2), 1100, 1200, 700, 0)); // #3 C-D
-            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(3), 700, 0, 1200, 0)); // #3 D-Y
-            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(4), 1200, 0, 1200, 1200)); // #3 Y-W
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(2), 700, 0, 1200, 0)); // #3 D-Y
+            Assert.IsTrue(EdgeIs(sites[2].ClockwiseCell.ElementAt(3), 1200, 0, 1200, 1200)); // #3 Y-W
         }
 
     }
