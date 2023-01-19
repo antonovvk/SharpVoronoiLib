@@ -1,7 +1,5 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.Linq;
-using System;
 
 namespace SharpVoronoiLib.UnitTests
 {
@@ -34,29 +32,10 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(
+            VoronoiPlane.TessellateOnce(
                 sites,
                 0, 0, 500, 500
             );
-
-            for (int i = 0; i < sites.Count; i++)
-            {
-                List<int> neighbor = new List<int>();
-                foreach (VoronoiSite neighbour in sites[i].Neighbours)
-                    neighbor.Add(sites.IndexOf(neighbour));
-
-                Console.WriteLine("Site " + i + " neighbors are " + string.Join(", ", neighbor.Select(n => n.ToString())));
-            }
-
-            // This prints:
-            // Site 0 neighbors are 4, 3, 2
-            // Site 1 neighbors are 2, 4, 3         <-- incorrect, 3 and 4 shouldn't be here
-            // Site 2 neighbors are 4, 0, 3, 1
-            // Site 3 neighbors are 0, 2, 1         <-- incorrect, 1 shouldn't be here
-            // Site 4 neighbors are 0, 2, 1         <-- incorrect, 1 shouldn't be here
-
-            foreach (VoronoiEdge edge in edges)
-                Console.WriteLine(edge);
 
             // Assert
 
