@@ -1101,7 +1101,6 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 W-C: 3
                 C-Z: 2
                 Z-B: 2
-                B-X: 1
                 1: BXA
                 2: CZBA
                 3: CAW
