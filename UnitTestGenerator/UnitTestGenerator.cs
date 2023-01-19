@@ -935,7 +935,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 5: DABC 
             ");
 
-            testGenerator.AddTest("ThreePointsMeetingAtBorder", @"
+            testGenerator.AddTest("ThreePointsMeetingAtBorderPerpendicularly", @"
                 10
                 X · · · · · · · · · B 10
                 · · · 1 · · · · x · · 9
@@ -961,7 +961,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: BAC
             ", Repeat.RotateAll);
 
-            testGenerator.AddTest("ThreePointsMeetingPastBorder", @"
+            testGenerator.AddTest("ThreePointsMeetingPastBorderPerpendicularly", @"
                 10
                 X · · · · · · · B · W 10
                 · 1 · · · · x · · · · 9
@@ -990,7 +990,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: WBADCZ
             ", Repeat.RotateAll);
 
-            testGenerator.AddTest("ThreePointsMeetingAtBorderSharply", @"
+            testGenerator.AddTest("ThreePointsMeetingSharplyAtBorderPerpendicularly", @"
                 12
                 X · · · · · · · · · · · Z 12
                 · · · · · · · · · · · · · 11
@@ -1020,7 +1020,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: AYWB
             ", Repeat.RotateAll);
 
-            testGenerator.AddTest("ThreePointsMeetingPastBorderSharply", @"
+            testGenerator.AddTest("ThreePointsMeetingSharplyPastBorderPerpendicularly", @"
                 12
                 X · · · · · · · · · · · Z 12
                 · · · · · · · · · · · ·xB 11
@@ -1051,7 +1051,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 3: DYWC
             ", Repeat.RotateAll);
             
-            testGenerator.AddTest("ThreePointsMeetingSharply", @"
+            testGenerator.AddTest("ThreePointsMeetingSharplyTowardsCorner", @"
                 10
                 X · · · · · B · · · Z 10
                 · · · 1 · · · · · · · 9
@@ -1105,6 +1105,34 @@ namespace SharpVoronoiLib.UnitTestGenerator
                 2: CZBA
                 3: CAW
             ", Repeat.RotateAll);
+            
+            testGenerator.AddTest("ThreePointsMeetingAtBorderAngled", @"
+                10
+                X · · · · · · B · · Z 10
+                · · · · · · · · · · · 9
+                · · · · · · x · · · · 8
+                · · · 1 · · · · · · · 7
+                · · · · · x · · · · · 6
+                · · · · · · · 2 · · · 5
+                · · · · x · · · · · C 4
+                · · · · · · · · x · · 3
+                · · · x · · x · · · · 2
+                · · · · x · · · · 3 · 1
+                Y · A · · · · · · · W 0
+                0 1 2 3 4 5 6 7 8 9 10
+                A-B: 1,2
+                A-C: 2,3
+                B-X: 1
+                X-Y: 1
+                Y-A: 1
+                A-W: 3
+                W-C: 3
+                C-Z: 2
+                Z-B: 2
+                1: BXYA
+                2: ZBAC
+                3: CAW
+            ", Repeat.RotateAndMirrorAll);
             
             testGenerator.AddTest("ThreePointsMeetingPastCorner", @"
                 12
