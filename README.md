@@ -23,14 +23,14 @@ TODO: several pretty pictures here
 Quick-start:
 
 ```
-IEnumerable<VoronoiSite> sites = new List<VoronoiSite>
+List<VoronoiSite> sites = new List<VoronoiSite>
 {
-    new FortuneSite(300, 300),
-    new FortuneSite(300, 400),
-    new FortuneSite(400, 300)
+    new VoronoiSite(300, 300),
+    new VoronoiSite(300, 400),
+    new VoronoiSite(400, 300)
 };
 
-LinkedList<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(
+List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(
     sites, 
     0, 0, 
     600, 600
@@ -49,10 +49,12 @@ The returned collection contains the generated edges as `VoronoiEdge`s.
 * `FortuneSite.Points` (on-demand) contains points of the cell, that is, edge end points / edge nodes.
 * `FortuneSite.ClockwisePoints` (on-demand) contains these points sorted clockwise (starting from the bottom-left "corner").
 
+// TODO: pretty picture(s) pointing out what is what
+
 If closing borders around the boundary is not desired (leaving sites with unclosed cells/polygons):
 
 ```
-LinkedList<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(
+List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(
     sites, 
     0, 0, 
     600, 600,
@@ -83,7 +85,7 @@ The library is compiled for .NET Standard 1.1 at C# 9.0 and can target compatibl
 - [Originally written by Logan Lembke as VoronoiLib](https://github.com/Zalgo2462/VoronoiLib)
 - [Updated with unit tests and nuget package by Sean Esopenko](https://github.com/sesopenko/VoronoiLib)
 - [Improvements by Jeffrey Jones](https://github.com/rurounijones/VoronoiLib)
-- Various code pieces atributed inline
+- Various code pieces attributed inline
 
 Original implementation inspired by:
 - [Ivan Kuckir's project](http://blog.ivank.net/fortunes-algorithm-and-implementation.html)
