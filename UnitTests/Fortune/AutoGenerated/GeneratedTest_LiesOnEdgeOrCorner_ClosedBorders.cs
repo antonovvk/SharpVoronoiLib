@@ -57,7 +57,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -110,7 +110,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -169,7 +169,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -232,7 +232,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -295,7 +295,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -358,7 +358,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -417,7 +417,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -480,7 +480,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -543,7 +543,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -606,7 +606,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -665,7 +665,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -729,7 +729,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -793,7 +793,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -857,7 +857,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -917,7 +917,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -981,7 +981,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1045,7 +1045,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1109,7 +1109,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1173,7 +1173,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1237,7 +1237,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1301,7 +1301,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1365,7 +1365,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1425,7 +1425,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1489,7 +1489,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1553,7 +1553,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1617,7 +1617,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1678,7 +1678,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1753,7 +1753,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1824,7 +1824,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1899,7 +1899,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -1971,7 +1971,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2058,7 +2058,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2142,7 +2142,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2241,7 +2241,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2334,7 +2334,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2405,7 +2405,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2472,7 +2472,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2547,7 +2547,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2622,7 +2622,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2697,7 +2697,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2768,7 +2768,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2839,7 +2839,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2910,7 +2910,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -2981,7 +2981,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3048,7 +3048,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3121,7 +3121,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3194,7 +3194,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3267,7 +3267,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3340,7 +3340,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3413,7 +3413,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3486,7 +3486,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3559,7 +3559,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3629,7 +3629,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3716,7 +3716,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3799,7 +3799,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3882,7 +3882,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -3965,7 +3965,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4048,7 +4048,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4128,7 +4128,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4223,7 +4223,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4313,7 +4313,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4399,7 +4399,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4485,7 +4485,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4571,7 +4571,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4653,7 +4653,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4741,7 +4741,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4829,7 +4829,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -4917,7 +4917,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5005,7 +5005,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5093,7 +5093,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5181,7 +5181,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5269,7 +5269,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5353,7 +5353,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5437,7 +5437,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5521,7 +5521,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5605,7 +5605,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5685,7 +5685,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5773,7 +5773,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5861,7 +5861,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -5949,7 +5949,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6033,7 +6033,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6121,7 +6121,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6209,7 +6209,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6297,7 +6297,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6383,7 +6383,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6486,7 +6486,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6601,7 +6601,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6716,7 +6716,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6831,7 +6831,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -6941,7 +6941,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7035,7 +7035,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7133,7 +7133,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7227,7 +7227,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7313,7 +7313,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7411,7 +7411,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7509,7 +7509,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7607,7 +7607,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7705,7 +7705,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7803,7 +7803,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7901,7 +7901,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -7999,7 +7999,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -8094,7 +8094,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -8205,7 +8205,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -8316,7 +8316,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -8427,7 +8427,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -8534,7 +8534,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -8641,7 +8641,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -8745,7 +8745,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -8866,7 +8866,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -8982,7 +8982,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -9083,7 +9083,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -9164,7 +9164,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -9245,7 +9245,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -9326,7 +9326,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -9403,7 +9403,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -9490,7 +9490,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -9577,7 +9577,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -9664,7 +9664,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -9751,7 +9751,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -9840,7 +9840,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -9929,7 +9929,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -10018,7 +10018,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -10103,7 +10103,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -10194,7 +10194,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -10285,7 +10285,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -10376,7 +10376,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -10459,7 +10459,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -10545,7 +10545,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -10631,7 +10631,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -10717,7 +10717,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -10799,7 +10799,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -10882,7 +10882,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -10965,7 +10965,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11048,7 +11048,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11127,7 +11127,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11212,7 +11212,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11297,7 +11297,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11382,7 +11382,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11467,7 +11467,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11552,7 +11552,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11637,7 +11637,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11722,7 +11722,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1000, 1000);
 
             // Assume
 
@@ -11807,7 +11807,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -11898,7 +11898,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -11989,7 +11989,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -12080,7 +12080,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 1200, 1200);
 
             // Assume
 
@@ -12162,7 +12162,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 900, 900).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 900, 900);
 
             // Assume
 
@@ -12251,7 +12251,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 900, 900).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 900, 900);
 
             // Assume
 
@@ -12340,7 +12340,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 900, 900).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 900, 900);
 
             // Assume
 
@@ -12429,7 +12429,7 @@ namespace SharpVoronoiLib.UnitTests
 
             // Act
 
-            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 900, 900).ToList();
+            List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, 0, 0, 900, 900);
 
             // Assume
 

@@ -1575,7 +1575,7 @@ namespace SharpVoronoiLib.UnitTestGenerator
 
                     stringBuilder.AppendPaddedLine(3, @"// Act", true);
 
-                    stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, " + test.MinX + @", " + test.MinY + @", " + test.MaxX + @", " + test.MaxY + BorderLogicToRealEnumParam(borderLogic) + @").ToList();");
+                    stringBuilder.AppendPaddedLine(3, @"List<VoronoiEdge> edges = VoronoiPlane.TessellateOnce(sites, " + test.MinX + @", " + test.MinY + @", " + test.MaxX + @", " + test.MaxY + BorderLogicToRealEnumParam(borderLogic) + @");");
                     stringBuilder.AppendLine();
 
                     // Assume + Assert
