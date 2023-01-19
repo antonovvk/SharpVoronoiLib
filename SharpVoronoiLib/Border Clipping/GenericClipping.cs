@@ -235,8 +235,6 @@ namespace SharpVoronoiLib
                 return true;
             }
 
-            // TODO: what if the below quick fails are zero length?
-
             //vertical ray
             if (edge.SlopeRun.ApproxEqual(0))
             {
@@ -391,11 +389,22 @@ namespace SharpVoronoiLib
                 }
             }
 
-            //if there is one candidate we are inside
+            // If there is one candidate, we are inside the plane
             if (candidates.Count == 1)
             { 
+                // If we are already at the candidate point, then we are already on the border at the "clipping" location
+                if (candidates[0].ApproxEqual(edge.Start))
+                {
+                    // We didn't consider this point to be on border before, so need reflag it
+                    start.BorderLocation = candidates[0].BorderLocation;
+                    // (point is shared between edges, so we are basically setting this for all the other edges)
+                    
+                    // We did not actually clip anything, we are already clipped correctly, so to speak
+                    return false;
+                }
+
                 // Start remains as is
-                
+
                 // The other point has a value now
                 edge.End = candidates[0]; // candidate point already has the border location set correctly
             }
