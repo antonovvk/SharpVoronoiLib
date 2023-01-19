@@ -79,5 +79,7 @@ namespace SharpVoronoiLib.UnitTests
             MinHeap<int> heap = new MinHeap<int>(10);
             Assert.That(() => heap.Peek(), Throws.InvalidOperationException);
         }
+        
+        // todo: peek non-empty
     }
 }

@@ -45,6 +45,7 @@ namespace SharpVoronoiLib
                     //the new site is before the left breakpoint
                     if (node.Left == null)
                     {
+                        // TODO: this is never covered by unit tests; need to figure out what triggers this and add a test, or if this is unreachable?
                         rightSection = node;
                     }
                     else
@@ -373,7 +374,10 @@ namespace SharpVoronoiLib
             //if the left arc and right arc are defined by the same
             //focus, the two arcs cannot converge
             if (leftSite == rightSite)
+            {
+                // TODO: this is never covered by unit tests; need to figure out what triggers this and add a test, or if this is unreachable?
                 return;
+            }
 
             //MATH HACKS: place center at origin and
             //draw vectors a and c to

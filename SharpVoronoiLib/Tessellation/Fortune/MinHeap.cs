@@ -23,7 +23,7 @@ namespace SharpVoronoiLib
         public bool Insert(T obj)
         {
             if (Count == Capacity)
-                return false;
+                return false; // todo: should this not be exception? this fails silently because nothing ever uses the result
             items[Count] = obj;
             Count++;
             PercolateUp(Count - 1);
@@ -69,7 +69,7 @@ namespace SharpVoronoiLib
             }
 
             if (index == -1)
-                return false;
+                return false; // todo: should this not be exception? this fails silently because nothing ever uses the result. and we don't expect to call it for elements we don't have
 
             Count--;
             Swap(index, Count);
