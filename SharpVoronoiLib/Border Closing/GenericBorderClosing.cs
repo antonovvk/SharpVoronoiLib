@@ -370,21 +370,21 @@ namespace SharpVoronoiLib
                 switch (n1.BorderLocation) // same for n2
                 {
                     case PointBorderLocation.Left: // going up
+                    case PointBorderLocation.BottomLeft:
                         return NodeCompareTo(n1.Point.Y, n2.Point.Y, n1, n2, n1.BorderLocation);
 
                     case PointBorderLocation.Top: // going right
+                    case PointBorderLocation.TopLeft:
                         return NodeCompareTo(n1.Point.X, n2.Point.X, n1, n2, n1.BorderLocation);
 
                     case PointBorderLocation.Right: // going down
+                    case PointBorderLocation.TopRight:
                         return NodeCompareTo(n2.Point.Y, n1.Point.Y, n1, n2, n1.BorderLocation);
 
                     case PointBorderLocation.Bottom: // going left
-                        return NodeCompareTo(n2.Point.X, n1.Point.X, n1, n2, n1.BorderLocation);
-
-                    case PointBorderLocation.BottomLeft:
-                    case PointBorderLocation.TopLeft:
-                    case PointBorderLocation.TopRight:
                     case PointBorderLocation.BottomRight:
+                        return NodeCompareTo(n2.Point.X, n1.Point.X, n1, n2, n1.BorderLocation);
+                        
                     case PointBorderLocation.NotOnBorder:
                         throw new InvalidOperationException();
                         
@@ -407,7 +407,7 @@ namespace SharpVoronoiLib
                     if (angleComparison != 0)
                         return angleComparison;
 
-                    // Extremely unlikely, but just return something that sorts adn doesn't equate
+                    // Extremely unlikely, but just return something that sorts and doesn't equate
                     int fallbackComparison = node1.FallbackComparisonIndex.CompareTo(node2.FallbackComparisonIndex);
                     
                     if (fallbackComparison != 0)
