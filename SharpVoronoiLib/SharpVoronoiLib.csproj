@@ -4,7 +4,7 @@
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>8</LangVersion>
-        <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
         <Title>SharpVoronoiLib</Title>
         <Authors>various</Authors>
         <Description>Generate a Voronoi diagram from a set of points in a plane (using Fortune's Algorithm) with edge clipping and border closure. Includes Lloyds relaxation algorithm. Original version published as VoronoiLib.</Description>
@@ -18,7 +18,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="JetBrains.Annotations" Version="2022.3.1" />
+      <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
     </ItemGroup>
 
 </Project>
